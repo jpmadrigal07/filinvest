@@ -1,8 +1,7 @@
-import { NextPage } from 'next';
-import Head from 'next/head'
-import { Button } from 'ui';
-import MainNavigation from '../components/navigation/MainNavigation';
-
+import { NextPage } from "next";
+import Head from "next/head";
+import { Button } from "ui";
+import MainNavigation from "../components/navigation/MainNavigation";
 
 const Home: NextPage = () => {
   return (
@@ -13,8 +12,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <section className="w-full h-screen bg-no-repeat bg-cover bg-[url('/hero-bg.png')]">
-          <MainNavigation/>
+        <section className="h-screen w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat">
+          <MainNavigation />
         </section>
         <section>
           <h1>asdasdasdasd</h1>
@@ -41,7 +40,7 @@ const Home: NextPage = () => {
         </section>
       </main>
     </>
-  )
-}
+  );
+};
 
 export default Home;

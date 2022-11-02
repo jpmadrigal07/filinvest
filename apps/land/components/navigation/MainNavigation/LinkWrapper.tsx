@@ -1,45 +1,58 @@
-import React, { Dispatch, Fragment } from 'react'
-import { Transition, Popover } from '@headlessui/react'
-import Link from 'next/link'
-import { combineClass } from '../../../helpers/combineClass'
-import ChevronDown from '../../svg/ChevronDown'
+import React, { Dispatch, Fragment } from "react";
+import { Transition, Popover } from "@headlessui/react";
+import Link from "next/link";
+import { combineClass } from "../../../helpers/combineClass";
+import ChevronDown from "../../svg/ChevronDown";
 
-type T_Flyout_Menu = '' | 'full' | 'single' | 'link';
+type T_Flyout_Menu = "" | "full" | "single" | "link";
 
 type T_Single_Lists = {
-  title: string,
-  subTitle?: string,
-  isLink?: boolean,
-  link?: string,
-}
+  title: string;
+  subTitle?: string;
+  isLink?: boolean;
+  link?: string;
+};
 
 type T_Props = {
-  text: string,
-  isLink?: boolean,
-  link?: string,
-  singleLists?: T_Single_Lists[],
-  setCurrentMenuIndex: Dispatch<number>,
-  setFlyoutMenu: Dispatch<T_Flyout_Menu>,
-  flyoutMenu: string,
-  menuIndex: number,
-}
+  text: string;
+  isLink?: boolean;
+  link?: string;
+  singleLists?: T_Single_Lists[];
+  setCurrentMenuIndex: Dispatch<number>;
+  setFlyoutMenu: Dispatch<T_Flyout_Menu>;
+  flyoutMenu: string;
+  menuIndex: number;
+};
 
-const LinkWrapper = ({ text, link, isLink, singleLists, setCurrentMenuIndex, flyoutMenu, setFlyoutMenu, menuIndex }: T_Props) => {
-  const setMenuType = (type: T_Flyout_Menu) =>{
-    if(flyoutMenu === type) {
-      setFlyoutMenu("")
+const LinkWrapper = ({
+  text,
+  link,
+  isLink,
+  singleLists,
+  setCurrentMenuIndex,
+  flyoutMenu,
+  setFlyoutMenu,
+  menuIndex,
+}: T_Props) => {
+  const setMenuType = (type: T_Flyout_Menu) => {
+    if (flyoutMenu === type) {
+      setFlyoutMenu("");
     } else {
-      setFlyoutMenu(type)
+      setFlyoutMenu(type);
     }
-  }
+  };
   return (
     <>
       {isLink && link && !singleLists && (
         <>
-          <Link href={link} className="hover:underline cursor-pointer" onClick={() => {
-            setMenuType("link");
-            setCurrentMenuIndex(menuIndex)
-          }}>
+          <Link
+            href={link}
+            className="cursor-pointer hover:underline"
+            onClick={() => {
+              setMenuType("link");
+              setCurrentMenuIndex(menuIndex);
+            }}
+          >
             {text}
           </Link>
         </>
@@ -51,14 +64,14 @@ const LinkWrapper = ({ text, link, isLink, singleLists, setCurrentMenuIndex, fly
               <>
                 <Popover.Button
                   className={combineClass(
-                    'group text-white inline-flex hover:underline'
+                    "group inline-flex text-white hover:underline"
                   )}
                   onClick={() => {
                     setMenuType("single");
-                    setCurrentMenuIndex(menuIndex)
+                    setCurrentMenuIndex(menuIndex);
                   }}
                 >
-                  <span className="flex gap-2 items-center">
+                  <span className="flex items-center gap-2">
                     Our Businesses
                     <ChevronDown />
                   </span>
@@ -79,12 +92,16 @@ const LinkWrapper = ({ text, link, isLink, singleLists, setCurrentMenuIndex, fly
                         {singleLists.map((item, index) => (
                           <span
                             key={index}
-                            className="-m-3 flex items-start transition py-3 duration-150 ease-in-out hover:bg-[#001A47]"
+                            className="-m-3 flex items-start py-3 transition duration-150 ease-in-out hover:bg-[#001A47]"
                           >
                             {/* <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" /> */}
                             <div className="ml-4">
-                              <p className="text-lg font-medium text-white">{item.title}</p>
-                              <p className="mt-1 text-sm text-white opacity-50">{item.subTitle}</p>
+                              <p className="text-lg font-medium text-white">
+                                {item.title}
+                              </p>
+                              <p className="mt-1 text-sm text-white opacity-50">
+                                {item.subTitle}
+                              </p>
                             </div>
                           </span>
                         ))}
@@ -99,14 +116,20 @@ const LinkWrapper = ({ text, link, isLink, singleLists, setCurrentMenuIndex, fly
       )}
       {!isLink && !link && !singleLists && (
         <>
-          <span className="hover:underline flex gap-2 items-center cursor-pointer" onClick={() => {
-            setMenuType("full");
-            setCurrentMenuIndex(menuIndex)
-          }}>{text}<ChevronDown /></span>
+          <span
+            className="flex cursor-pointer items-center gap-2 hover:underline"
+            onClick={() => {
+              setMenuType("full");
+              setCurrentMenuIndex(menuIndex);
+            }}
+          >
+            {text}
+            <ChevronDown />
+          </span>
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default LinkWrapper
+export default LinkWrapper;

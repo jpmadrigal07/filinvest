@@ -1,4 +1,3 @@
 export function combineClass(...classes: string[]) {
-    return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ");
 }
-  
