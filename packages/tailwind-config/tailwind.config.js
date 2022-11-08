@@ -10,8 +10,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brandblue: colors.blue[500],
-        brandred: colors.red[500],
+        "dark-cornflower-blue": "#163E82",
+        "silver-chalice": "#ACACAC",
+        "united-nations-blue": "#4389FF",
+        jet: "#303030",
+        "dim-gray": "#6B6B6B",
+        "vivid-sky-blue": "#1AC5E8",
+        "blue-ryb": "#0550E3",
+        platinum: "#E2E2E2",
+        "royal-dark-blue": "#012B72",
+        "oxford-blue": "#001A47",
+        red: "#FF0404",
+        blue: "#0030EF",
       },
     },
   },

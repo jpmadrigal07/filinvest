@@ -6,18 +6,17 @@ import ChevronDown from "../../svg/ChevronDown";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
-type T_Single_Lists = {
+type T_Sub_Menus = {
   title: string;
   subTitle?: string;
-  isLink?: boolean;
-  link?: string;
+  link: string;
 };
 
 type T_Props = {
   text: string;
   isLink?: boolean;
   link?: string;
-  singleLists?: T_Single_Lists[];
+  subMenus?: T_Sub_Menus[];
   setCurrentMenuIndex: Dispatch<number>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   flyoutMenu: string;
@@ -28,22 +27,18 @@ const LinkWrapper = ({
   text,
   link,
   isLink,
-  singleLists,
+  subMenus,
   setCurrentMenuIndex,
   flyoutMenu,
   setFlyoutMenu,
   menuIndex,
 }: T_Props) => {
   const setMenuType = (type: T_Flyout_Menu) => {
-    if (flyoutMenu === type) {
-      setFlyoutMenu("");
-    } else {
-      setFlyoutMenu(type);
-    }
+    setFlyoutMenu(type);
   };
   return (
     <>
-      {isLink && link && !singleLists && (
+      {isLink && link && !subMenus && (
         <>
           <Link
             href={link}
@@ -57,7 +52,7 @@ const LinkWrapper = ({
           </Link>
         </>
       )}
-      {!isLink && !link && singleLists && (
+      {!isLink && !link && subMenus && (
         <>
           <Popover className="relative">
             {() => (
@@ -72,7 +67,7 @@ const LinkWrapper = ({
                   }}
                 >
                   <span className="flex items-center gap-2">
-                    Our Businesses
+                    {text}
                     <ChevronDown />
                   </span>
                 </Popover.Button>
@@ -88,11 +83,12 @@ const LinkWrapper = ({
                 >
                   <Popover.Panel className="absolute z-10 mt-3 w-screen max-w-sm transform px-2 sm:px-0">
                     <div className="overflow-hidden shadow-lg">
-                      <div className="relative grid gap-6 bg-[#012B72] px-3 py-3 sm:gap-8">
-                        {singleLists.map((item, index) => (
-                          <span
+                      <div className="relative grid gap-6 bg-royal-dark-blue px-3 py-3 sm:gap-8">
+                        {subMenus.map((item, index) => (
+                          <Link
+                            href={item.link}
                             key={index}
-                            className="-m-3 flex items-start py-3 transition duration-150 ease-in-out hover:bg-[#001A47]"
+                            className="-m-3 flex items-start py-3 transition duration-150 ease-in-out hover:bg-oxford-blue"
                           >
                             {/* <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" /> */}
                             <div className="ml-4">
@@ -103,7 +99,7 @@ const LinkWrapper = ({
                                 {item.subTitle}
                               </p>
                             </div>
-                          </span>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -114,7 +110,7 @@ const LinkWrapper = ({
           </Popover>
         </>
       )}
-      {!isLink && !link && !singleLists && (
+      {!isLink && !link && !subMenus && (
         <>
           <span
             className="flex cursor-pointer items-center gap-2 hover:underline"
