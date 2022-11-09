@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, Fragment, useEffect } from "react";
 import { combineClass } from "../../../helpers/combineClass";
 import MainLogo from "../../svg/MainLogo";
@@ -16,15 +17,15 @@ const MainNavigation = () => {
   const menus = [
     {
       text: "About Us",
-      fullComponent: <h1>Volcano</h1>,
+      fullComponent: <h1>About Us</h1>,
     },
     {
       text: "Our Businesses",
-      fullComponent: <h1>Mountain</h1>,
+      fullComponent: <h1>Our Businesses</h1>,
     },
     {
       text: "Residences",
-      fullComponent: <h1>Shore</h1>,
+      fullComponent: <h1>Residences</h1>,
     },
     {
       text: "Sellers",
@@ -69,7 +70,16 @@ const MainNavigation = () => {
     {
       text: "News",
       isLink: true,
-      link: "https://zkript.dev",
+      link: "/news",
+    },
+    {
+      text: "#PusongFilinvest",
+      isLink: true,
+      link: "/pusong-filinvest",
+    },
+    {
+      text: "Investor Relations",
+      fullComponent: <h1>Investor Relations</h1>,
     },
   ];
 
@@ -97,7 +107,7 @@ const MainNavigation = () => {
                     menuIndex: index,
                   };
                   return (
-                    <li>
+                    <li key={index}>
                       <LinkWrapper {...wrapperProps} />
                     </li>
                   );
@@ -151,7 +161,7 @@ const MainNavigation = () => {
                   { menus.map((item, index) => {
                     if(item.fullComponent) {
                       return (
-                        <Accordion title={item.text}>
+                        <Accordion key={index} title={item.text}>
                           <div className="px-9 pb-10">
                             {menus[index]?.fullComponent}
                           </div>
@@ -159,16 +169,16 @@ const MainNavigation = () => {
                       )
                     } else if(!item.fullComponent && item.subMenus) {
                       return (
-                        <Accordion title={item.text}>
+                        <Accordion key={index} title={item.text}>
                           <div className="flex flex-col gap-4 divide-y divide-solid divide-oxford-blue">
-                            {item.subMenus.map((subMenu) => (
-                              <Link href={subMenu.link} className="pt-4"><div className="mb-2 text-lg text-white">{subMenu.title}</div><div className="text-sm text-white opacity-50">{subMenu.subTitle}</div></Link>
+                            {item.subMenus.map((subMenu, subMenuIndex) => (
+                              <Link key={subMenuIndex} href={subMenu.link} className="pt-4"><div className="mb-2 text-lg text-white">{subMenu.title}</div><div className="text-sm text-white opacity-50">{subMenu.subTitle}</div></Link>
                             ))}
                           </div>
                         </Accordion>
                       )
                     } else {
-                      return <Link href={item.link} className="flex w-full py-4 px-4 text-lg font-medium text-white hover:bg-oxford-blue focus:bg-oxford-blue">{item.text}</Link>
+                      return <Link key={index} href={item.link} className="flex w-full py-4 px-4 text-lg font-medium text-white hover:bg-oxford-blue focus:bg-oxford-blue">{item.text}</Link>
                     }
                   }) }
                 </div>
