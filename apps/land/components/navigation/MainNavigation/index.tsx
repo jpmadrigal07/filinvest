@@ -74,7 +74,7 @@ const MainNavigation = () => {
   ];
 
   return (
-    <>
+    <nav className="absolute w-full">
       <div className="hidden lg:block">
         <div
           className={combineClass(
@@ -177,7 +177,7 @@ const MainNavigation = () => {
           </>
         )}
       </Popover>
-    </>
+    </nav>
   );
 };
 
