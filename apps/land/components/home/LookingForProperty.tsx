@@ -5,7 +5,7 @@ import RangeSlider from './RangeSlider'
 
 const LookingForProperty = () => {
   return (
-    <section className="pt-36">
+    <section className="pt-28">
         <h2 className="text-4xl font-extrabold text-center text-jet mt-2">Looking for a Property?</h2>
         <h4 className="text-center text-dim-gray mt-4">Find your dream residential, commercial, co-living, or industrial properties with our smart search tool.</h4>
         <div className="flex gap-8 items-center bg-dark-cornflower-blue px-10 py-6 mx-3 lg:mx-9 xl:mx-16 2xl:mx-44 mt-12">
