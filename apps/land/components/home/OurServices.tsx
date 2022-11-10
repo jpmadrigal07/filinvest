@@ -14,7 +14,7 @@ const OurServices = () => {
         <div className="flex gap-4 mt-12 mx-3 lg:mx-9 xl:mx-16 2xl:mx-44">
             <div className="flex-1">
                 <div className="relative flex justify-center items-center">
-                    <button type="button" className="absolute bg-blue-ryb rounded-full text-white px-7 py-6">
+                    <button type="button" className="absolute bg-blue-ryb hover:bg-dark-cornflower-blue focus:bg-dark-cornflower-blue rounded-full text-white px-7 py-6 delay-50 transition">
                         <ChevronRight/>
                     </button>
                     <Image
@@ -28,7 +28,7 @@ const OurServices = () => {
             </div>
             <div className="flex-1">
                 <div className="relative flex justify-center items-center">
-                    <button type="button" className="absolute bg-blue-ryb rounded-full text-white px-7 py-6">
+                    <button type="button" className="absolute bg-blue-ryb hover:bg-dark-cornflower-blue focus:bg-dark-cornflower-blue rounded-full text-white px-7 py-6 delay-50 transition">
                         <ChevronRight/>
                     </button>
                     <Image
@@ -42,7 +42,7 @@ const OurServices = () => {
             </div>
             <div className="flex-1">
                 <div className="relative flex justify-center items-center">
-                    <button type="button" className="absolute bg-blue-ryb rounded-full text-white px-7 py-6">
+                    <button type="button" className="absolute bg-blue-ryb hover:bg-dark-cornflower-blue focus:bg-dark-cornflower-blue rounded-full text-white px-7 py-6 delay-50 transition">
                         <ChevronRight/>
                     </button>
                     <Image
@@ -56,7 +56,7 @@ const OurServices = () => {
             </div>
             <div className="flex-1">
                 <div className="relative flex justify-center items-center">
-                    <button type="button" className="absolute bg-blue-ryb rounded-full text-white px-7 py-6">
+                    <button type="button" className="absolute bg-blue-ryb hover:bg-dark-cornflower-blue focus:bg-dark-cornflower-blue rounded-full text-white px-7 py-6 delay-50 transition">
                         <ChevronRight/>
                     </button>
                     <Image

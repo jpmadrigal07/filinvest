@@ -21,7 +21,7 @@ const OurBusinesses = () => {
                     <h3 className="text-white text-2xl font-bold">Residential</h3>
                 </div>
             </div>
-            <div className="flex-1 relative">
+            <div className="flex-1 relative mt-12">
                 <Image
                     src="/offices-business.png"
                     width={536}
@@ -32,7 +32,7 @@ const OurBusinesses = () => {
                     <h3 className="text-white text-2xl font-bold">Offices</h3>
                 </div>
             </div>
-            <div className="flex-1 relative">
+            <div className="flex-1 relative mt-24">
                 <Image
                     src="/malls-business.png"
                     width={536}
@@ -44,7 +44,7 @@ const OurBusinesses = () => {
                 </div>
             </div>
         </div>
-        <div className="flex gap-8 mt-14 mx-3 lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="flex gap-8 mx-3 lg:mx-9 xl:mx-16 2xl:mx-44">
             <div className="flex-1 relative">
                 <Image
                     src="/industrial-business.png"
@@ -56,7 +56,7 @@ const OurBusinesses = () => {
                     <h3 className="text-white text-2xl font-bold">Industrial</h3>
                 </div>
             </div>
-            <div className="flex-1 relative">
+            <div className="flex-1 relative mt-12">
                 <Image
                     src="/coliving-business.png"
                     width={536}
@@ -67,7 +67,7 @@ const OurBusinesses = () => {
                     <h3 className="text-white text-2xl font-bold">Co-Living</h3>
                 </div>
             </div>
-            <div className="flex-1 relative">
+            <div className="flex-1 relative mt-24">
                 <Image
                     src="/mixuse-business.png"
                     width={536}

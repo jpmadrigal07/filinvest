@@ -36,7 +36,7 @@ const LookingForProperty = () => {
                 <h4 className="text-white text-sm mt-1">Php 50,000 - Php 50,000,000</h4>
             </div>
             <div className="flex-none">
-                <button className="py-5 px-8 bg-white focus:bg-platinum">
+                <button className="py-5 px-8 bg-white hover:bg-platinum focus:bg-platinum delay-50 transition">
                     <div className="flex items-center text-dark-cornflower-blue font-bold gap-2"><Search/> Search</div>
                 </button>
             </div>

@@ -17,15 +17,15 @@ const MainNavigation = () => {
   const menus = [
     {
       text: "About Us",
-      fullComponent: <h1>About Us</h1>,
+      fullComponent: <h2 className="text-white">About Us</h2>,
     },
     {
       text: "Our Businesses",
-      fullComponent: <h1>Our Businesses</h1>,
+      fullComponent: <h2 className="text-white">Our Businesses</h2>,
     },
     {
       text: "Residences",
-      fullComponent: <h1>Residences</h1>,
+      fullComponent: <h2 className="text-white">Residences</h2>,
     },
     {
       text: "Sellers",
@@ -79,7 +79,7 @@ const MainNavigation = () => {
     },
     {
       text: "Investor Relations",
-      fullComponent: <h1>Investor Relations</h1>,
+      fullComponent: <h2 className="text-white">Investor Relations</h2>,
     },
   ];
 
@@ -115,7 +115,7 @@ const MainNavigation = () => {
               </ul>
             </div>
             <div className="flex-none">
-              <button className="bg-blue py-4 px-9 text-white hover:opacity-90 focus:bg-dark-cornflower-blue">
+              <button className="bg-blue py-4 px-9 text-white hover:opacity-90 focus:bg-dark-cornflower-blue delay-50 transition">
                 Reserve Now
               </button>
             </div>
