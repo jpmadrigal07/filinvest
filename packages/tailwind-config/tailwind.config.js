@@ -22,6 +22,8 @@ module.exports = {
         "oxford-blue": "#001A47",
         red: "#FF0404",
         blue: "#0030EF",
+        "sonic-silver": "#707070",
+        "wild-blue-yonder": "#8A9EC0",
       },
     },
   },

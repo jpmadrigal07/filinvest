@@ -7,6 +7,10 @@ import { Popover, Transition } from '@headlessui/react'
 import HamburgerMenu from "../../svg/HamburgerMenu";
 import Link from "next/link";
 import Accordion from "./Accordion";
+import AboutUs from "../menu/AboutUs";
+import OurBusinesses from "../menu/OurBusinesses";
+import Residences from "../menu/Residences";
+import InvestorRelations from "../menu/InvestorRelations";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
@@ -17,15 +21,15 @@ const MainNavigation = () => {
   const menus = [
     {
       text: "About Us",
-      fullComponent: <h2 className="text-white">About Us</h2>,
+      fullComponent: <AboutUs/>,
     },
     {
       text: "Our Businesses",
-      fullComponent: <h2 className="text-white">Our Businesses</h2>,
+      fullComponent: <OurBusinesses/>,
     },
     {
       text: "Residences",
-      fullComponent: <h2 className="text-white">Residences</h2>,
+      fullComponent: <Residences/>,
     },
     {
       text: "Sellers",
@@ -79,16 +83,16 @@ const MainNavigation = () => {
     },
     {
       text: "Investor Relations",
-      fullComponent: <h2 className="text-white">Investor Relations</h2>,
+      fullComponent: <InvestorRelations/>,
     },
   ];
 
   return (
-    <nav className="absolute w-full">
+    <nav className="absolute w-full z-10">
       <div className="hidden lg:block">
         <div
           className={combineClass(
-            flyoutMenu === "full" ? "bg-royal-dark-blue" : "",
+            flyoutMenu === "full" ? "bg-royal-dark-blue bg-opacity-95" : "",
             "delay-50 transition"
           )}
         >
