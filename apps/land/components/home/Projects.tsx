@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
+import BorderButton from '../button/BorderButton'
 
 const Projects = () => {
   return (
@@ -23,8 +24,12 @@ const Projects = () => {
                     <h4 className="font-bold text-dim-gray text-center">Neque sodales ut etiam sit amet nisl. Quis lectus nulla at volutpat diam. Euismod nisi porta.</h4>
                 </div>
                 <div>
-                    <button className="text-dark-cornflower-blue font-bold bg-white px-9 py-4 border-[1px] border-dark-cornflower-blue hover:bg-platinum focus:bg-platinum border-solid delay-50 transition">
-                        Learn More
+                    <button type="button">
+                        <BorderButton
+                            buttonText="Learn More"
+                            textColor="dark-cornflower-blue"
+                            borderColor="dark-cornflower-blue"
+                        />
                     </button>
                 </div>
             </div>

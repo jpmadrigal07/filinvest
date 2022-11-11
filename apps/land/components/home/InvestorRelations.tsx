@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import ChevronCircleLeft from '../svg/ChevronCircleLeft'
 import ChevronCircleRight from '../svg/ChevronCircleRight'
+import BorderButton from '../button/BorderButton'
 
 const InvestorRelations = () => {
   return (
@@ -11,8 +12,12 @@ const InvestorRelations = () => {
             <h4 className="font-bold text-dark-cornflower-blue">INVESTOR RELATIONS</h4>
             <h2 className="text-4xl font-extrabold text-jet mt-2">Investment Highlights</h2>
             <h4 className="text-dim-gray mt-4">Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Ut consequat semper viverra nam libero justo laoreet sit.</h4>
-            <button className="text-dark-cornflower-blue font-bold bg-white px-9 py-4 border-[1px] border-dark-cornflower-blue border-solid hover:bg-platinum focus:bg-platinum mt-16 delay-50 transition">
-                Learn More
+            <button type="button" className="mt-16">
+                <BorderButton
+                    buttonText="Learn More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                />
             </button>
         </div>
         <div className="flex flex-col gap-20">

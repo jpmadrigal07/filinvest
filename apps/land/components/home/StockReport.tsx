@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
+import BorderButton from '../button/BorderButton'
 import RedDownTriangle from '../svg/RedDownTriangle'
 
 const StockReport = () => {
@@ -73,9 +74,11 @@ const StockReport = () => {
                             </div>
                             <h4 className="text-normal text-white">Download Annual Report For 2021</h4>
                         </div>
-                        <button className="text-white font-bold bg-transparent px-4 py-4 border-[1px] border-white border-solid hover:bg-white hover:text-jet focus:bg-white mt-28 w-1/2 delay-50 transition">
-                            View All Annual Report
-                        </button>
+                        <div>
+                            <button type="button" className="mt-28">
+                                <BorderButton buttonText="View All Annual Report" sidePadding="4" />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
