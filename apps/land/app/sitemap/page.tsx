@@ -1,10 +1,13 @@
+import MainHeader from "../../components/header/MainHeader";
 import Content from "../../components/pages/sitemap/Content";
-import Header from "../../components/pages/sitemap/Header";
 
 const SitemapPage = () => {
   return (
     <>
-      <Header/>
+      <MainHeader
+        title="Sitemap"
+        bgColor="flickr-blue"
+      />
       <Content/>
     </>
   )

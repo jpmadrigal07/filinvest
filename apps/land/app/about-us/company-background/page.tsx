@@ -1,10 +1,14 @@
+import MainHeader from "../../../components/header/MainHeader";
 import Content from "../../../components/pages/about-us/company-background/Content";
-import Header from "../../../components/pages/about-us/company-background/Header";
 
 const DreamsBuiltGreen = () => {
   return (
     <>
-      <Header/>
+      <MainHeader
+        title="Company Background"
+        breadcrumbs="About Us / Company Background"
+        bgUrl="company-background.png"
+      />
       <Content/>
     </>
   )

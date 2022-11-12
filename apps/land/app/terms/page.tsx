@@ -1,10 +1,13 @@
+import MainHeader from "../../components/header/MainHeader";
 import Content from "../../components/pages/terms/Content";
-import Header from "../../components/pages/terms/Header";
 
 const TermsPage = () => {
   return (
     <>
-      <Header/>
+      <MainHeader
+        title="Terms & Condition"
+        bgColor="flickr-blue"
+      />
       <Content/>
     </>
   )

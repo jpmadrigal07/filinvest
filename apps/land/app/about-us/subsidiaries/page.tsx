@@ -1,10 +1,14 @@
+import MainHeader from "../../../components/header/MainHeader";
 import Content from "../../../components/pages/about-us/subsidiaries/Content";
-import Header from "../../../components/pages/about-us/subsidiaries/Header";
 
 const Subsidiaries = () => {
   return (
     <>
-      <Header/>
+      <MainHeader
+        title="Subsidiaries"
+        breadcrumbs="About Us / Subsidiaries"
+        bgUrl="subsidiaries.png"
+      />
       <Content/>
     </>
   )

@@ -1,10 +1,14 @@
+import MainHeader from "../../../components/header/MainHeader";
 import Content from "../../../components/pages/about-us/mission-vision/Content";
-import Header from "../../../components/pages/about-us/mission-vision/Header";
 
 const DreamsBuiltGreen = () => {
   return (
     <>
-      <Header/>
+      <MainHeader
+        title="Vision, Mission & Core Values"
+        breadcrumbs="About Us / Vision, Mission & Core Values"
+        bgUrl="mission-vision.png"
+      />
       <Content/>
     </>
   )

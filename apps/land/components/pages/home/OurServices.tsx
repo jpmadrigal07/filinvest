@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import ChevronRight from '../svg/ChevronRight'
+import ChevronRight from '../../svg/ChevronRight'
 
 const OurServices = () => {
   return (

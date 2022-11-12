@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import BorderButton from '../button/BorderButton'
+import BorderButton from '../../button/BorderButton'
 
 const AboutUs = () => {
   return (
