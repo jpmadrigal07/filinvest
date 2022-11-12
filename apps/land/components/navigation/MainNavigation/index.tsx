@@ -101,7 +101,7 @@ const MainNavigation = () => {
               <MainLogo />
             </div>
             <div className="flex-1">
-              <ul className="flex gap-7">
+              <ul className="flex gap-7 list-none">
                 {menus.map((menu, index) => {
                   const wrapperProps = {
                     ...menu,
