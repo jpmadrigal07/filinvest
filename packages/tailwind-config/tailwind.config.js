@@ -27,6 +27,7 @@ module.exports = {
         "sea-green": "#0D8149",
         gainsboro: "#DBDBDB",
         "ghost-white": "#F5F8FE",
+        "flickr-blue": "#115BEF",
       },
     },
   },
