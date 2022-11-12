@@ -1,3 +1,4 @@
+"use client"
 import React, { ReactNode } from 'react'
 
 const MainHeader = ({ title = "...", breadcrumbs, tabs, bgUrl = "dreams-built-green.png", bgColor }: { bgUrl?: string, title?: string, breadcrumbs?: string | ReactNode, tabs?: ReactNode, bgColor?: string }) => {
