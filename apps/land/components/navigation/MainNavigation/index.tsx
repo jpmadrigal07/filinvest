@@ -106,6 +106,7 @@ const MainNavigation = () => {
                   const wrapperProps = {
                     ...menu,
                     setCurrentMenuIndex: setCurrentMenuIndex,
+                    currentMenuIndex: currentMenuIndex,
                     setFlyoutMenu: setFlyoutMenu,
                     flyoutMenu: flyoutMenu,
                     menuIndex: index,
@@ -132,7 +133,10 @@ const MainNavigation = () => {
         </div>
         {flyoutMenu === "full" && (
           <div
-            onClick={() => setFlyoutMenu("")}
+            onClick={() => { 
+              setFlyoutMenu("");
+              setCurrentMenuIndex(null);
+            }}
             className="h-screen w-full bg-transparent"
           ></div>
         )}

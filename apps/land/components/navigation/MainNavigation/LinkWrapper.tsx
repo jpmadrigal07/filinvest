@@ -17,7 +17,8 @@ type T_Props = {
   isLink?: boolean;
   link?: string;
   subMenus?: T_Sub_Menus[];
-  setCurrentMenuIndex: Dispatch<number>;
+  currentMenuIndex?: number | null,
+  setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   flyoutMenu: string;
   menuIndex: number;
@@ -29,6 +30,7 @@ const LinkWrapper = ({
   isLink,
   subMenus,
   setCurrentMenuIndex,
+  currentMenuIndex,
   flyoutMenu,
   setFlyoutMenu,
   menuIndex,
@@ -115,8 +117,13 @@ const LinkWrapper = ({
           <span
             className="flex cursor-pointer items-center gap-2 hover:underline"
             onClick={() => {
-              setMenuType("full");
-              setCurrentMenuIndex(menuIndex);
+              if(menuIndex === currentMenuIndex) {
+                setMenuType("");
+                setCurrentMenuIndex(null);
+              } else {
+                setMenuType("full");
+                setCurrentMenuIndex(menuIndex);
+              }
             }}
           >
             {text}
