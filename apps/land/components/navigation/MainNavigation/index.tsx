@@ -9,6 +9,7 @@ import Link from "next/link";
 import Accordion from "./Accordion";
 import { menus } from "./menus";
 import { usePathname } from 'next/navigation'
+import ROUTES from "../../../helpers/routes";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
@@ -32,7 +33,9 @@ const MainNavigation = () => {
         >
           <div className="flex items-center gap-14 px-9 py-10 font-bold text-white">
             <div className="flex-none">
-              <MainLogo />
+              <Link href={ROUTES.HOME.url}>
+                <MainLogo />
+              </Link>
             </div>
             <div className="flex-1">
               <ul className="flex gap-7 list-none">
