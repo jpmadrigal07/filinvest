@@ -2,84 +2,23 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { INVESTOR_RELATIONS_SUB_ROUTES } from '../../../helpers/routes/investorRelations'
 
 const InvestorRelations = () => {
   return (
     <div className="flex divide-x divide-wild-blue-yonder py-8">
         <div className="flex-1 gap-20 flex flex-col pr-12">
-            <div className="flex gap-14">
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Our Company</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Investors Relations Program</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Presentations</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-            </div>
-            <div className="flex gap-14">
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Our Leaderhip</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Stock Information</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Research Reports</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-            </div>
-            <div className="flex gap-14">
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Structures</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Financial Highlights</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Disclosures</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-            </div>
-            <div className="flex gap-14">
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Corporate Governance</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
-                <div>
-                    <Link href="/company" className="hover:underline text-white">
-                        <h3 className="text-xl text-white">Press Releases</h3>
-                        <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                    </Link>
-                </div>
+            <div className="grid grid-cols-3 gap-x-6 gap-y-16">
+                {INVESTOR_RELATIONS_SUB_ROUTES.map((routes, index) => {
+                    return (
+                        <div key={index}>
+                            <Link href={routes.url} className="hover:underline text-white">
+                                <h3 className="text-xl text-white">{routes.name}</h3>
+                                <h4 className="text-white opacity-50">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
+                            </Link>
+                        </div>
+                    )
+                })}
             </div>
         </div>
         <div className="flex-none pl-12">

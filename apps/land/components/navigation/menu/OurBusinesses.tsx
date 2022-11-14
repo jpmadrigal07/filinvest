@@ -2,47 +2,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { OUR_BUSINESSES_SUB_ROUTES } from '../../../helpers/routes/ourBusinesses'
 
 const OurBusinesses = () => {
   return (
     <div className="flex divide-x divide-sonic-silver py-8">
         <div className="flex-none pr-24">
-            <div>
-                <Link href="/company-background" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">{`Residential >`}</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Offices</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Malls</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Insdustrial</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Co-Living</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Mixed-Use and Estates</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
+            {OUR_BUSINESSES_SUB_ROUTES.map((routes, index) => {
+                return (
+                    <div key={index} className={`${index > 0 && "mt-12"}`}>
+                        <Link href={routes.url} className="hover:underline text-white">
+                            <h3 className="text-xl text-white">{routes.name}</h3>
+                            <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
+                        </Link>
+                    </div>
+                )
+            })}
         </div>
         <div className="flex-1 gap-6 px-24 flex">
             <div className="flex-1 flex flex-col gap-12">

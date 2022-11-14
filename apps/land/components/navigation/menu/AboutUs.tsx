@@ -2,41 +2,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { ABOUT_US_SUB_ROUTES } from '../../../helpers/routes/aboutUs'
 
 const AboutUs = () => {
   return (
     <div className="flex divide-x divide-sonic-silver py-8">
         <div className="flex-none pr-24">
-            <div>
-                <Link href="/company-background" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Company Background</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Vision, Mission, and Core Values</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Dreams Built Green</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">#PusongFilinvest</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
-            <div className="mt-12">
-                <Link href="/asdasd" className="hover:underline text-white">
-                    <h3 className="text-xl text-white">Subsidiaries</h3>
-                    <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
-                </Link>
-            </div>
+            {ABOUT_US_SUB_ROUTES.map((routes, index) => {
+                return (
+                    <div key={index} className={`${index > 0 && "mt-12"}`}>
+                        <Link href={routes.url} className="hover:underline text-white">
+                            <h3 className="text-xl text-white">{routes.name}</h3>
+                            <h4 className="text-white opacity-50">Excepteur sint occaecat cupidatat non.</h4>
+                        </Link>
+                    </div>
+                )
+            })}
         </div>
         <div className="flex-1 gap-6 px-24 flex">
             <div className="flex-1">

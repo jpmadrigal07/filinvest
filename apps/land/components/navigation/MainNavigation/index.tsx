@@ -7,85 +7,19 @@ import { Popover, Transition } from '@headlessui/react'
 import HamburgerMenu from "../../svg/HamburgerMenu";
 import Link from "next/link";
 import Accordion from "./Accordion";
-import AboutUs from "../menu/AboutUs";
-import OurBusinesses from "../menu/OurBusinesses";
-import Residences from "../menu/Residences";
-import InvestorRelations from "../menu/InvestorRelations";
+import { menus } from "./menus";
+import { usePathname } from 'next/navigation'
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
 const MainNavigation = () => {
+  const pathname = usePathname();
   const [flyoutMenu, setFlyoutMenu] = useState<T_Flyout_Menu>("");
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number | null>(null);
 
-  const menus = [
-    {
-      text: "About Us",
-      fullComponent: <AboutUs/>,
-    },
-    {
-      text: "Our Businesses",
-      fullComponent: <OurBusinesses/>,
-    },
-    {
-      text: "Residences",
-      fullComponent: <Residences/>,
-    },
-    {
-      text: "Sellers",
-      subMenus: [
-        {
-          title: "Seller's Hub",
-          subTitle: "Lorem ipsum volpar makeri totga ginuis",
-          link: "/seller-hub"
-        },
-        {
-          title: "Seller Accreditation Tool",
-          subTitle: "Lorem ipsum volpar makeri totga ginuis",
-          link: "/seller-accreditation-tool"
-        },
-      ],
-    },
-    {
-      text: "Buyers",
-      subMenus: [
-        {
-          title: "Calculator",
-          subTitle: "Lorem ipsum volpar makeri totga ginuis",
-          link: "/calculator"
-        },
-        {
-          title: "Online Appointment",
-          subTitle: "Lorem ipsum volpar makeri totga ginuis",
-          link: "/online-appointment"
-        },
-        {
-          title: "FilPay",
-          subTitle: "Lorem ipsum volpar makeri totga ginuis",
-          link: "/filpay"
-        },
-        {
-          title: "MyHome",
-          subTitle: "Lorem ipsum volpar makeri totga ginuis",
-          link: "/my-home"
-        },
-      ],
-    },
-    {
-      text: "News",
-      isLink: true,
-      link: "/news",
-    },
-    {
-      text: "#PusongFilinvest",
-      isLink: true,
-      link: "/pusong-filinvest",
-    },
-    {
-      text: "Investor Relations",
-      fullComponent: <InvestorRelations/>,
-    },
-  ];
+  useEffect(() => {
+    setFlyoutMenu("");
+  }, [pathname])
 
   return (
     <nav className="absolute w-full z-10">
