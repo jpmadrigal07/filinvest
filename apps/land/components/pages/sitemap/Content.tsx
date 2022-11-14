@@ -8,7 +8,7 @@ const Content = () => {
         <Link href="/about-us/company-background" className="hover:underline text-jet text-xl font-bold">Home</Link>
         <div>
             <Link href="/about-us/company-background" className="hover:underline text-jet text-xl font-bold">About Us</Link>
-            <ul className="ml-6 mt-2">
+            <ul className="ml-6 mt-2 list-none">
                 <li className="py-2"><Link href="/about-us/company-background" className="hover:underline">Company Background</Link></li>
                 <li className="py-2"><Link href="/about-us/company-background" className="hover:underline">Vision, Mission, And Core Values</Link></li>
                 <li className="py-2"><Link href="/about-us/company-background" className="hover:underline">Dream Built Green</Link></li>
@@ -18,7 +18,7 @@ const Content = () => {
         </div>
         <div>
             <Link href="/about-us/company-background" className="hover:underline text-jet text-xl font-bold">Our Businesses</Link>
-            <ul className="ml-6 mt-2">
+            <ul className="ml-6 mt-2 list-none">
                 <li className="py-2"><Link href="/about-us/company-background" className="hover:underline">Residential</Link></li>
                 <li className="py-2"><Link href="/about-us/company-background" className="hover:underline">Offices</Link></li>
                 <li className="py-2"><Link href="/about-us/company-background" className="hover:underline">Co-Living</Link></li>

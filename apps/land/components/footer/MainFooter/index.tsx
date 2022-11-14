@@ -24,7 +24,7 @@ const MainFooter = () => {
             </div>
             <div className="flex-1 flex flex-col gap-8">
                 <h3 className="text-white text-md font-bold">Quick Links</h3>
-                <ul className="flex flex-col gap-3 text-white">
+                <ul className="flex flex-col gap-3 text-white list-none">
                     <li><Link href="/loan-calculator" className="hover:underline">Loan Calculator</Link></li>
                     <li><Link href="/book-apointment" className="hover:underline">Book Appointment</Link></li>
                     <li><Link href="/contact-us" className="hover:underline">Contact Us</Link></li>
@@ -34,7 +34,7 @@ const MainFooter = () => {
             </div>
             <div className="flex-1 flex flex-col gap-8">
                 <h3 className="text-white text-md font-bold">Filinvest Land</h3>
-                <ul className="flex flex-col gap-3 text-white">
+                <ul className="flex flex-col gap-3 text-white list-none">
                     <li><Link href="/company-background" className="hover:underline">Company Background</Link></li>
                     <li><Link href="/investor-relations-program" className="hover:underline">Investor Relations Program</Link></li>
                     <li><Link href="/disclosures" className="hover:underline">Disclosures</Link></li>
@@ -44,7 +44,7 @@ const MainFooter = () => {
             </div>
             <div className="flex-1 flex flex-col gap-8">
                 <h3 className="text-white text-md font-bold">Contact Us</h3>
-                <ul className="flex flex-col gap-3 text-white">
+                <ul className="flex flex-col gap-3 text-white list-none">
                     <li className="flex items-center gap-3"><Phone/><Link href="tel:+63288500888<" className="hover:underline">(63 2) 8-850-0888</Link></li>
                     <li className="flex items-center gap-3"><Phone/><Link href="tel:+639190764836" className="hover:underline">(63 919) 076-4836</Link></li>
                     <li className="flex items-center gap-3"><Mail/><Link href="mailto:test@gmail.com" className="hover:underline">test@gmail.com</Link></li>

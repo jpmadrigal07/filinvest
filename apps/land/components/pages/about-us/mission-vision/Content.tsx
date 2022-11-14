@@ -20,7 +20,7 @@ const Content = () => {
                 </div>
                 <div className="flex-1">
                     <h3 className="text-4xl font-bold text-jet">Mission</h3>
-                    <ul className="text-dim-gray mt-8">
+                    <ul className="text-dim-gray mt-8 list-none">
                         <li>To enliven and enrich lives in Filinvest communities</li>
                         <li>To enable and encourage the growth of our partners</li>
                         <li>To create and add value for our investors</li>
