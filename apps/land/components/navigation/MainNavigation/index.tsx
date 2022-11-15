@@ -23,7 +23,7 @@ const MainNavigation = () => {
   }, [pathname]);
 
   return (
-    <nav className="absolute z-10 w-full">
+    <nav className="absolute z-50 w-full">
       <div className="hidden lg:block">
         <div
           className={combineClass(
@@ -78,11 +78,11 @@ const MainNavigation = () => {
           ></div>
         )}
       </div>
-      <Popover className="relative z-0 lg:hidden">
+      <Popover className="relative z-40 lg:hidden">
         {({ open }) => (
           <>
             <div
-              className={`relative z-10  ${
+              className={`relative z-50  ${
                 open ? "bg-royal-dark-blue" : "bg-transparent"
               } transition duration-200 ease-out`}
             >
@@ -105,7 +105,7 @@ const MainNavigation = () => {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 -translate-y-1"
             >
-              <Popover.Panel className="absolute inset-x-0 z-10 transform shadow-lg">
+              <Popover.Panel className="absolute inset-x-0 z-50 transform shadow-lg">
                 <div className="bg-royal-dark-blue">
                   {menus.map((item, index) => {
                     if (item.fullComponent) {
