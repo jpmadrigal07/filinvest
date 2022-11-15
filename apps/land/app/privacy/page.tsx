@@ -1,7 +1,7 @@
 import MainHeader from "../../components/header/MainHeader";
 import Content from "../../components/pages/privacy-policy/Content";
 
-const PrivacyPolicyPage = () => {
+const PrivacyPage = () => {
   return (
     <>
       <MainHeader title="Privacy Policy" bgColor="flickr-blue" />
@@ -10,4 +10,4 @@ const PrivacyPolicyPage = () => {
   );
 };
 
-export default PrivacyPolicyPage;
+export default PrivacyPage;
