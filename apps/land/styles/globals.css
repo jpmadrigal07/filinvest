@@ -2,8 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul,
+  ol {
+    list-style: revert;
+  }
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura/Futura\ Book\ font.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura/futura\ medium\ bt.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura/futura\ medium\ bt.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: "Futura";
 }

@@ -1,0 +1,57 @@
+"use client";
+import Image from "next/image";
+import React, { ReactNode } from "react";
+
+const MainHeader = ({
+  title = "...",
+  breadcrumbs,
+  tabs,
+  bgUrl = "dreams-built-green.png",
+  bgColor,
+}: {
+  bgUrl?: string;
+  title?: string;
+  breadcrumbs?: string | ReactNode;
+  tabs?: ReactNode;
+  bgColor?: string;
+}) => {
+  return (
+    <>
+      {bgColor ? (
+        <section
+          className={`h-1/4 w-full ${
+            bgColor ? `bg-${bgColor}` : "bg-flickr-blue"
+          }`}
+        >
+          <div className="flex flex-col items-center justify-center pt-60 pb-36">
+            <h1 className="mb-4 text-6xl font-extrabold text-white">{title}</h1>
+          </div>
+        </section>
+      ) : (
+        <section>
+          <div className="absolute z-10 w-full">
+            <div className={`flex flex-col items-center justify-center py-60`}>
+              <h1 className="mb-4 text-6xl font-extrabold text-white">
+                {title}
+              </h1>
+              {breadcrumbs && (
+                <h5 className="text-sm text-white">{breadcrumbs}</h5>
+              )}
+              {tabs}
+            </div>
+          </div>
+          <div className="z-0">
+            <Image
+              src={`/${bgUrl}`}
+              width={3844}
+              height={1312}
+              alt="Picture of the author"
+            />
+          </div>
+        </section>
+      )}
+    </>
+  );
+};
+
+export default MainHeader;
