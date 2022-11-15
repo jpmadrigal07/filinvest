@@ -1,2 +1,2 @@
-const ROUTES = { url: "/", name: "Home", directory: ["Home"] }
-export default ROUTES;
+const HOME_ROUTES = { url: "/", name: "Home", directory: ["Home"] }
+export default HOME_ROUTES;

@@ -1,6 +1,8 @@
 "use client"
 import Link from 'next/link'
 import React from 'react'
+import { EMAIL_ADD, FACEBOOK_URL, LINKEDIN_URL, OFFICE_ADDRESS, PHONE_NUMBER, TEL_NUMBER, TWITTER_URL } from '../../../helpers/constants'
+import ROUTES from '../../../helpers/routes'
 import Facebook from '../../svg/Facebook'
 import LinkedIn from '../../svg/LinkedIn'
 import Mail from '../../svg/Mail'
@@ -11,11 +13,14 @@ import Send from '../../svg/Send'
 import Twitter from '../../svg/Twitter'
 
 const MainFooter = () => {
+    const { HOME, BUYERS, CONTACT_US, NEWS, SITEMAP, ABOUT_US, INVESTOR_RELATIONS, CAREERS, PRIVACY_POLICY, TERMS_OF_USE } = ROUTES;
   return (
     <footer>
         <div className="flex flex-col lg:flex-row gap-9 lg:gap-36 bg-royal-dark-blue px-4 py-6 lg:px-16 lg:py-16">
             <div className="flex-1 flex flex-col gap-5">
-                <MainLogo/>
+                <Link href={HOME.url}>
+                    <MainLogo />
+                </Link>
                 <h3 className="text-white text-md font-md">Get exclusive digital marketing updates straight to your inbox.</h3>
                 <div className="flex items-center gap-3 border-b-2 border-white py-2">
                     <input type="email" placeholder="Email Address" className="bg-transparent text-white w-full ring-none border-none" />
@@ -25,45 +30,45 @@ const MainFooter = () => {
             <div className="flex-1 flex flex-col gap-8">
                 <h3 className="text-white text-md font-bold">Quick Links</h3>
                 <ul className="flex flex-col gap-3 text-white list-none">
-                    <li><Link href="/loan-calculator" className="hover:underline">Loan Calculator</Link></li>
-                    <li><Link href="/book-apointment" className="hover:underline">Book Appointment</Link></li>
-                    <li><Link href="/contact-us" className="hover:underline">Contact Us</Link></li>
-                    <li><Link href="/news-stories" className="hover:underline">News & Stories</Link></li>
-                    <li><Link href="/sitemap" className="hover:underline">Sitemap</Link></li>
+                    <li><Link href={BUYERS.CALCULATOR.url} className="hover:underline">{BUYERS.CALCULATOR.name}</Link></li>
+                    <li><Link href={BUYERS.ONLINE_APPOINTMENT.url} className="hover:underline">Book Appointment</Link></li>
+                    <li><Link href={CONTACT_US.url} className="hover:underline">{CONTACT_US.name}</Link></li>
+                    <li><Link href={NEWS.url} className="hover:underline">News & Stories</Link></li>
+                    <li><Link href={SITEMAP.url} className="hover:underline">{SITEMAP.name}</Link></li>
                 </ul>
-            </div>
+            </div> 
             <div className="flex-1 flex flex-col gap-8">
                 <h3 className="text-white text-md font-bold">Filinvest Land</h3>
                 <ul className="flex flex-col gap-3 text-white list-none">
-                    <li><Link href="/company-background" className="hover:underline">Company Background</Link></li>
-                    <li><Link href="/investor-relations-program" className="hover:underline">Investor Relations Program</Link></li>
-                    <li><Link href="/disclosures" className="hover:underline">Disclosures</Link></li>
-                    <li><Link href="/careers" className="hover:underline">Careers</Link></li>
-                    <li><Link href="/subsidiaries" className="hover:underline">Subsidiaries</Link></li>
+                    <li><Link href={ABOUT_US.COMPANY_BACKGROUND.url} className="hover:underline">{ABOUT_US.COMPANY_BACKGROUND.name}</Link></li>
+                    <li><Link href={INVESTOR_RELATIONS.INVESTOR_RELATIONS_PROGRAM.url} className="hover:underline">{INVESTOR_RELATIONS.INVESTOR_RELATIONS_PROGRAM.name}</Link></li>
+                    <li><Link href={INVESTOR_RELATIONS.DISCLOSURES.url} className="hover:underline">{INVESTOR_RELATIONS.DISCLOSURES.name}</Link></li>
+                    <li><Link href={CAREERS.url} className="hover:underline">{CAREERS.name}</Link></li>
+                    <li><Link href={ABOUT_US.SUBSIDIARIES.url} className="hover:underline">{ABOUT_US.SUBSIDIARIES.name}</Link></li>
                 </ul>
             </div>
             <div className="flex-1 flex flex-col gap-8">
                 <h3 className="text-white text-md font-bold">Contact Us</h3>
                 <ul className="flex flex-col gap-3 text-white list-none">
-                    <li className="flex items-center gap-3"><Phone/><Link href="tel:+63288500888<" className="hover:underline">(63 2) 8-850-0888</Link></li>
-                    <li className="flex items-center gap-3"><Phone/><Link href="tel:+639190764836" className="hover:underline">(63 919) 076-4836</Link></li>
-                    <li className="flex items-center gap-3"><Mail/><Link href="mailto:test@gmail.com" className="hover:underline">test@gmail.com</Link></li>
-                    <li className="flex gap-3"><div className="flex-1"><MapLine/></div>Filinvest Building, 79 EDSA, Mandaluyong City, 1550 Philippines</li>
+                    <li className="flex items-center gap-3"><Phone/><Link href={`tel:${TEL_NUMBER.number}`} className="hover:underline">{TEL_NUMBER.text}</Link></li>
+                    <li className="flex items-center gap-3"><Phone/><Link href={`tel:${PHONE_NUMBER.number}`} className="hover:underline">{PHONE_NUMBER.text}</Link></li>
+                    <li className="flex items-center gap-3"><Mail/><Link href={`mailto:${EMAIL_ADD}`} className="hover:underline">{EMAIL_ADD}</Link></li>
+                    <li className="flex gap-3"><div className="flex-1"><MapLine/></div>{OFFICE_ADDRESS}</li>
                 </ul>
             </div>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-center gap-9 bg-oxford-blue px-4 py-6 lg:px-16 lg:py-8">
             <div className="flex-1">
-                <h3 className="text-white">© Copyright 2019. Filinvest Land Inc. All Rights Reserved.</h3>
+                <h3 className="text-white">{`© Copyright ${new Date().getFullYear()}. Filinvest Land Inc. All Rights Reserved.`}</h3>
             </div>
             <div className="flex-1 flex gap-9">
-                <Link href="https://www.facebook.com/filinvest/" target="_blank"><Facebook/></Link>
-                <Link href="https://twitter.com/filinvest" target="_blank"><Twitter/></Link>
-                <Link href="https://www.linkedin.com/company/filinvest" target="_blank"><LinkedIn/></Link>
+                <Link href={FACEBOOK_URL} target="_blank"><Facebook/></Link>
+                <Link href={TWITTER_URL} target="_blank"><Twitter/></Link>
+                <Link href={LINKEDIN_URL} target="_blank"><LinkedIn/></Link>
             </div>
             <div className="flex-none flex gap-7">
-                <Link href="/privacy-policy" className="hover:underline text-white">Privacy Policy</Link>
-                <Link href="/terms-of-use" className="hover:underline text-white">Terms of Use</Link>
+                <Link href={PRIVACY_POLICY.url} className="hover:underline text-white">{PRIVACY_POLICY.name}</Link>
+                <Link href={TERMS_OF_USE.url} className="hover:underline text-white">{TERMS_OF_USE.name}</Link>
             </div>
         </div>
     </footer>
