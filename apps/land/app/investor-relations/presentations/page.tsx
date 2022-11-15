@@ -9,9 +9,9 @@ const PresentationPage = () => {
         breadcrumbs="Home / Investor Relations / Presentations"
         bgUrl="presentations.png"
       />
-      <Content/>
+      <Content />
     </>
-  )
-}
+  );
+};
 
 export default PresentationPage;

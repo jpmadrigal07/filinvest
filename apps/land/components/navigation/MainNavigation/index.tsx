@@ -1,14 +1,14 @@
-"use client"
+"use client";
 import React, { useState, Fragment, useEffect } from "react";
 import { combineClass } from "../../../helpers/combineClass";
 import MainLogo from "../../svg/MainLogo";
 import LinkWrapper from "./LinkWrapper";
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition } from "@headlessui/react";
 import HamburgerMenu from "../../svg/HamburgerMenu";
 import Link from "next/link";
 import Accordion from "./Accordion";
 import { menus } from "./menus";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import ROUTES from "../../../helpers/routes";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
@@ -20,10 +20,10 @@ const MainNavigation = () => {
 
   useEffect(() => {
     setFlyoutMenu("");
-  }, [pathname])
+  }, [pathname]);
 
   return (
-    <nav className="absolute w-full z-10">
+    <nav className="absolute z-10 w-full">
       <div className="hidden lg:block">
         <div
           className={combineClass(
@@ -38,7 +38,7 @@ const MainNavigation = () => {
               </Link>
             </div>
             <div className="flex-1">
-              <ul className="flex gap-7 list-none">
+              <ul className="flex list-none gap-7">
                 {menus.map((menu, index) => {
                   const wrapperProps = {
                     ...menu,
@@ -57,7 +57,7 @@ const MainNavigation = () => {
               </ul>
             </div>
             <div className="flex-none">
-              <button className="bg-blue py-4 px-9 text-white hover:opacity-90 focus:bg-dark-cornflower-blue delay-50 transition">
+              <button className="bg-blue focus:bg-dark-cornflower-blue delay-50 py-4 px-9 text-white transition hover:opacity-90">
                 Reserve Now
               </button>
             </div>
@@ -70,7 +70,7 @@ const MainNavigation = () => {
         </div>
         {flyoutMenu === "full" && (
           <div
-            onClick={() => { 
+            onClick={() => {
               setFlyoutMenu("");
               setCurrentMenuIndex(null);
             }}
@@ -78,15 +78,19 @@ const MainNavigation = () => {
           ></div>
         )}
       </div>
-      <Popover className="lg:hidden relative z-0">
+      <Popover className="relative z-0 lg:hidden">
         {({ open }) => (
           <>
-            <div className={`relative z-10  ${open ? "bg-royal-dark-blue" : "bg-transparent"} duration-200 ease-out transition`}>
+            <div
+              className={`relative z-10  ${
+                open ? "bg-royal-dark-blue" : "bg-transparent"
+              } transition duration-200 ease-out`}
+            >
               <div className="flex items-center gap-14 px-4 py-5">
                 <div className="flex-1">
                   <MainLogo />
                 </div>
-                <Popover.Button className="flex-none p-3 focus:bg-oxford-blue delay-50 transition focus:outline-none focus:ring-none">
+                <Popover.Button className="focus:bg-oxford-blue delay-50 focus:ring-none flex-none p-3 transition focus:outline-none">
                   <HamburgerMenu />
                 </Popover.Button>
               </div>
@@ -103,29 +107,48 @@ const MainNavigation = () => {
             >
               <Popover.Panel className="absolute inset-x-0 z-10 transform shadow-lg">
                 <div className="bg-royal-dark-blue">
-                  { menus.map((item, index) => {
-                    if(item.fullComponent) {
+                  {menus.map((item, index) => {
+                    if (item.fullComponent) {
                       return (
                         <Accordion key={index} title={item.text}>
                           <div className="px-9 pb-10">
                             {menus[index]?.fullComponent}
                           </div>
                         </Accordion>
-                      )
-                    } else if(!item.fullComponent && item.subMenus) {
+                      );
+                    } else if (!item.fullComponent && item.subMenus) {
                       return (
                         <Accordion key={index} title={item.text}>
-                          <div className="flex flex-col gap-4 divide-y divide-solid divide-oxford-blue">
+                          <div className="divide-oxford-blue flex flex-col gap-4 divide-y divide-solid">
                             {item.subMenus.map((subMenu, subMenuIndex) => (
-                              <Link key={subMenuIndex} href={subMenu.link} className="pt-4"><div className="mb-2 text-lg text-white">{subMenu.title}</div><div className="text-sm text-white opacity-50">{subMenu.subTitle}</div></Link>
+                              <Link
+                                key={subMenuIndex}
+                                href={subMenu.link}
+                                className="pt-4"
+                              >
+                                <div className="mb-2 text-lg text-white">
+                                  {subMenu.title}
+                                </div>
+                                <div className="text-sm text-white opacity-50">
+                                  {subMenu.subTitle}
+                                </div>
+                              </Link>
                             ))}
                           </div>
                         </Accordion>
-                      )
+                      );
                     } else {
-                      return <Link key={index} href={item.link} className="flex w-full py-4 px-4 text-lg font-medium text-white hover:bg-oxford-blue focus:bg-oxford-blue">{item.text}</Link>
+                      return (
+                        <Link
+                          key={index}
+                          href={item.link}
+                          className="hover:bg-oxford-blue focus:bg-oxford-blue flex w-full py-4 px-4 text-lg font-medium text-white"
+                        >
+                          {item.text}
+                        </Link>
+                      );
                     }
-                  }) }
+                  })}
                 </div>
               </Popover.Panel>
             </Transition>

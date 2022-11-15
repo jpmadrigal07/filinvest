@@ -17,7 +17,7 @@ type T_Props = {
   isLink?: boolean;
   link?: string;
   subMenus?: T_Sub_Menus[];
-  currentMenuIndex?: number | null,
+  currentMenuIndex?: number | null;
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   flyoutMenu: string;
@@ -85,12 +85,12 @@ const LinkWrapper = ({
                 >
                   <Popover.Panel className="absolute z-10 mt-3 w-screen max-w-sm transform px-2 sm:px-0">
                     <div className="overflow-hidden shadow-lg">
-                      <div className="relative grid gap-6 bg-royal-dark-blue px-3 py-3 sm:gap-8">
+                      <div className="bg-royal-dark-blue relative grid gap-6 px-3 py-3 sm:gap-8">
                         {subMenus.map((item, index) => (
                           <Link
                             href={item.link}
                             key={index}
-                            className="-m-3 flex items-start py-3 transition duration-150 ease-in-out hover:bg-oxford-blue"
+                            className="hover:bg-oxford-blue -m-3 flex items-start py-3 transition duration-150 ease-in-out"
                           >
                             {/* <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" /> */}
                             <div className="ml-4">
@@ -117,7 +117,7 @@ const LinkWrapper = ({
           <span
             className="flex cursor-pointer items-center gap-2 hover:underline"
             onClick={() => {
-              if(menuIndex === currentMenuIndex) {
+              if (menuIndex === currentMenuIndex) {
                 setMenuType("");
                 setCurrentMenuIndex(null);
               } else {

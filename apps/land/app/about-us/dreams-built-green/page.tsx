@@ -9,9 +9,9 @@ const DreamsBuiltGreen = () => {
         breadcrumbs="About Us / Dreams Built Green"
         bgUrl="dreams-built-green.png"
       />
-      <Content/>
+      <Content />
     </>
-  )
-}
+  );
+};
 
 export default DreamsBuiltGreen;

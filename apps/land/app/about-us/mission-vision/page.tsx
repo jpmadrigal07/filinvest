@@ -9,9 +9,9 @@ const DreamsBuiltGreen = () => {
         breadcrumbs="About Us / Vision, Mission & Core Values"
         bgUrl="mission-vision.png"
       />
-      <Content/>
+      <Content />
     </>
-  )
-}
+  );
+};
 
 export default DreamsBuiltGreen;

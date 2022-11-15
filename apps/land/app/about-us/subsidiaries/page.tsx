@@ -9,9 +9,9 @@ const Subsidiaries = () => {
         breadcrumbs="About Us / Subsidiaries"
         bgUrl="subsidiaries.png"
       />
-      <Content/>
+      <Content />
     </>
-  )
-}
+  );
+};
 
 export default Subsidiaries;

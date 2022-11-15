@@ -9,9 +9,9 @@ const InvestorRelationsProgramPage = () => {
         breadcrumbs="Home / Investor Relations / Investor Relations Program"
         bgUrl="investor-relations-program.png"
       />
-      <Content/>
+      <Content />
     </>
-  )
-}
+  );
+};
 
 export default InvestorRelationsProgramPage;
