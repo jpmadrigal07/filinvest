@@ -15,15 +15,14 @@ const Tabs = ({ items }: { items: ItemProps[] }) => {
     <div className="mt-12 flex gap-8">
       {items?.map((item) => {
         return (
-          <div
+          <Link
+            href={item.link}
             className={`${
               item.link === pathname ? "border-b-2 border-white" : ""
-            }  pb-2 hover:border-b-2 hover:border-white`}
+            }  pb-2 text-xl text-white hover:border-b-2 hover:border-white`}
           >
-            <Link href={item.link} className="text-xl text-white">
-              {item.title}
-            </Link>
-          </div>
+            {item.title}
+          </Link>
         );
       })}
     </div>
