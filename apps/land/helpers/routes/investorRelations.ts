@@ -28,6 +28,21 @@ const INVESTOR_RELATIONS_PROGRAM = {
   name: "Investor Relations Program",
   directory: [...INVESTOR_RELATIONS.directory, "Investor Relations Program"],
 };
+const SHARE_INFORMATION = {
+  url: `${INVESTOR_RELATIONS.url}/share-information`,
+  name: "Share Information",
+  directory: [...INVESTOR_RELATIONS.directory, "Share Information"],
+};
+const DIVIDEND_HISTORY = {
+  url: `${INVESTOR_RELATIONS.url}/dividend-history`,
+  name: "Dividend History",
+  directory: [...INVESTOR_RELATIONS.directory, "Dividend History"],
+};
+const DIVIDEND_POLICY = {
+  url: `${INVESTOR_RELATIONS.url}/dividend-policy`,
+  name: "Dividend Policy",
+  directory: [...INVESTOR_RELATIONS.directory, "Dividend Policy"],
+};
 const STOCK_INFORMATION = {
   url: `${INVESTOR_RELATIONS.url}/stock-information`,
   name: "Stock Information",
@@ -60,6 +75,9 @@ const DISCLOSURES = {
 };
 const INVESTOR_RELATIONS_ROUTES = {
   ...INVESTOR_RELATIONS,
+  SHARE_INFORMATION,
+  DIVIDEND_HISTORY,
+  DIVIDEND_POLICY,
   OUR_COMPANY,
   OUR_LEADERSHIP,
   STRUCTURES,
