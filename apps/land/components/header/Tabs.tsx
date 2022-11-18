@@ -13,9 +13,10 @@ const Tabs = ({ items }: { items: ItemProps[] }) => {
 
   return (
     <div className="mt-12 flex gap-8">
-      {items?.map((item) => {
+      {items?.map((item, index) => {
         return (
           <Link
+            key={index}
             href={item.link}
             className={`${
               item.link === pathname ? "border-b-2 border-white" : ""
