@@ -1,29 +1,16 @@
 import MainHeader from "../../../components/header/MainHeader";
-import Tabs from "../../../components/header/Tabs";
 import Content from "../../../components/pages/investor-relations/dividend-policy/Content";
+import { HEADER_INFO } from "../../../components/pages/investor-relations/constants";
 
 const DividendPolicyPage = () => {
-  const tabItems = [
-    {
-      title: "Share Information",
-      link: "/investor-relations/share-information",
-    },
-    {
-      title: "Dividend History",
-      link: "/investor-relations/dividend-history",
-    },
-    {
-      title: "Dividend Policy",
-      link: "/investor-relations/dividend-policy",
-    },
-  ];
+  const { title, breadcrumbs, image, tabs } = HEADER_INFO.dividendPolicy;
   return (
     <>
       <MainHeader
-        title="Dividend Policy"
-        breadcrumbs="Home / Investor Relations / Dividend Policy"
-        bgUrl="dividend-history.png"
-        tabs={<Tabs items={tabItems} />}
+        title={title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={image}
+        tabs={tabs}
       />
       <Content />
     </>
