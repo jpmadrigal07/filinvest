@@ -35,10 +35,10 @@ const Content = () => {
         </p>
         <h2 className="text-jet text-center text-4xl font-bold">Dividends</h2>
       </div>
-      <h2 className="text-dim-gray text-center text-xl">
+      <h3 className="text-dim-gray text-center text-xl">
         2022 Dividends to be paid on June 2, 2022 to shareholders as of record
         May 11, 2022.
-      </h2>
+      </h3>
       <div className="mx-32">
         <Image
           src={`/graph-share-information.png`}
