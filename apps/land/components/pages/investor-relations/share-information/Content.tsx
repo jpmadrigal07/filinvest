@@ -1,108 +1,5 @@
 import React from "react";
-
-const top20 = [
-  {
-    shareholder: "Filinvest Development Corporation",
-    shares: "15,681,457,022",
-    percentage: "64.67%",
-  },
-  {
-    shareholder: "PCD Nominee Corporation (Filipino)",
-    shares: "4,593,989,925",
-    percentage: "18.94%",
-  },
-  {
-    shareholder: "PCD Nominee Corporation (Non-Filipino)",
-    shares: "3,373,331,093",
-    percentage: "13.91%",
-  },
-  {
-    shareholder: "PGI Retirement Fund Inc.",
-    shares: "115,281,500",
-    percentage: "00.48%",
-  },
-  {
-    shareholder: "Philippines International Life Insurance Co. Inc",
-    shares: "60,000,000",
-    percentage: "00.25%",
-  },
-  {
-    shareholder: "Josefina Multi-Ventures Corporation",
-    shares: "54,809,000",
-    percentage: "00.23%",
-  },
-  {
-    shareholder: "Pryce Corporation",
-    shares: "50,802,000",
-    percentage: "00.21%",
-  },
-  {
-    shareholder: "Don Manuel Investments Corporation",
-    shares: "47,918,000",
-    percentage: "00.20%",
-  },
-  {
-    shareholder: "F. Yap Securities, Inc.",
-    shares: "32,000,000",
-    percentage: "00.13%",
-  },
-  {
-    shareholder: "Michael Gotianun",
-    shares: "11,235,913",
-    percentage: "00.05%",
-  },
-  {
-    shareholder: "Lucio W. Yan &/or Clara Y. Yan",
-    shares: "10,687,500",
-    percentage: "00.04%",
-  },
-  {
-    shareholder: "Joseph M. Yap &/or Josephine G. Yap",
-    shares: "7,694,843",
-    percentage: "00.03%",
-  },
-  {
-    shareholder: "Joseph M. Yap",
-    shares: "6,444,115",
-    percentage: "00.03%",
-  },
-  {
-    shareholder: "Hinundayan Holdings Corporation",
-    shares: "5,100,000",
-    percentage: "00.02%",
-  },
-  {
-    shareholder: "Executive Optical, Inc.",
-    shares: "5,040,647",
-    percentage: "00.02%",
-  },
-  {
-    shareholder:
-      "Berck Y. Cheng or Alving Y. Cheng or Diana Y. Cheng or Cheryl Y. Cheng",
-    shares: "5,000,000",
-    percentage: "00.02%",
-  },
-  {
-    shareholder: "Jonathan Dee Co",
-    shares: "5,000,000",
-    percentage: "00.02%",
-  },
-  {
-    shareholder: "R Magdalena Bosch",
-    shares: "4,877,928",
-    percentage: "00.02%",
-  },
-  {
-    shareholder: "Veronica P. Fernandez",
-    shares: "4,064,940",
-    percentage: "00.02%",
-  },
-  {
-    shareholder: "Luis L. Fernandez",
-    shares: "4,064,940",
-    percentage: "00.02%",
-  },
-];
+import { TOP_20_SHAREHOLDERS } from "../constants";
 
 const Content = () => {
   return (
@@ -202,7 +99,7 @@ const Content = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {top20.map((item, index) => (
+                  {TOP_20_SHAREHOLDERS.map((item, index) => (
                     <tr key={index} className="divide-x divide-gray-200">
                       <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                         {item.shareholder}

@@ -1,30 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
-const tableHeader = [
-  "Total Dividends (Php M)",
-  "1,212.48",
-  "1,357.94",
-  "1,500",
-  "1,500",
-  "1,500",
-  "1,500",
-  "1,571",
-  "747",
-  "1,140",
-];
-const dividends = [
-  "Pay-out rate (%)",
-  "31%",
-  "30%",
-  "30%",
-  "29%",
-  "26%",
-  "25%",
-  "25%",
-  "20%",
-  "30%",
-];
+import { TABLE_TITLE_DIVIDENDS, TABLE_VALUES_DIVIDENDS } from "../constants";
 
 const Content = () => {
   return (
@@ -54,7 +30,7 @@ const Content = () => {
               <table className="min-w-full divide-y divide-gray-300">
                 <thead className="bg-dark-cornflower-blue">
                   <tr className="divide-x divide-gray-200">
-                    {tableHeader.map((header, index) => (
+                    {TABLE_TITLE_DIVIDENDS.map((header, index) => (
                       <th
                         key={index}
                         scope="col"
@@ -67,7 +43,7 @@ const Content = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
                   <tr className="divide-x divide-gray-200">
-                    {dividends.map((dividend, index) => {
+                    {TABLE_VALUES_DIVIDENDS.map((dividend, index) => {
                       if (index === 0) {
                         return (
                           <td
