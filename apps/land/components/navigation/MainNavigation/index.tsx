@@ -20,6 +20,7 @@ const MainNavigation = () => {
 
   useEffect(() => {
     setFlyoutMenu("");
+    setCurrentMenuIndex(null);
   }, [pathname]);
 
   return (
