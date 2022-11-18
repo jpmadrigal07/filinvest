@@ -2,7 +2,7 @@ import AboutUs from "../menu/AboutUs";
 import OurBusinesses from "../menu/OurBusinesses";
 import Residences from "../menu/Residences";
 import InvestorRelations from "../menu/InvestorRelations";
-import ROUTES from "../../../helpers/routes";
+import ROUTES from "@/helpers/routes";
 
 export const menus = [
   {

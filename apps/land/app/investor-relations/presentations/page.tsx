@@ -1,5 +1,5 @@
-import MainHeader from "../../../components/header/MainHeader";
-import Content from "../../../components/pages/investor-relations/presentations/Content";
+import MainHeader from "@/components/header/MainHeader";
+import Content from "@/components/pages/investor-relations/presentations/Content";
 
 const PresentationPage = () => {
   return (

@@ -1,8 +1,8 @@
 import React, { Dispatch, Fragment } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
-import { combineClass } from "../../../helpers/combineClass";
-import ChevronDown from "../../svg/ChevronDown";
+import { combineClass } from "@/helpers/combineClass";
+import ChevronDown from "@/components/svg/ChevronDown";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 

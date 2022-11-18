@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import BorderButton from "../../button/BorderButton";
-import RedDownTriangle from "../../svg/RedDownTriangle";
+import BorderButton from "@/components/button/BorderButton";
+import RedDownTriangle from "@/components/svg/RedDownTriangle";
 
 const StockReport = () => {
   return (

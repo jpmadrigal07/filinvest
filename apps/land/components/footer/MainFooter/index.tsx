@@ -9,16 +9,16 @@ import {
   PHONE_NUMBER,
   TEL_NUMBER,
   TWITTER_URL,
-} from "../../../helpers/constants";
-import ROUTES from "../../../helpers/routes";
-import Facebook from "../../svg/Facebook";
-import LinkedIn from "../../svg/LinkedIn";
-import Mail from "../../svg/Mail";
-import MainLogo from "../../svg/MainLogo";
-import MapLine from "../../svg/MapLine";
-import Phone from "../../svg/Phone";
-import Send from "../../svg/Send";
-import Twitter from "../../svg/Twitter";
+} from "@/helpers/constants";
+import ROUTES from "@/helpers/routes";
+import Facebook from "@/components/svg/Facebook";
+import LinkedIn from "@/components/svg/LinkedIn";
+import Mail from "@/components/svg/Mail";
+import MainLogo from "@/components/svg/MainLogo";
+import MapLine from "@/components/svg/MapLine";
+import Phone from "@/components/svg/Phone";
+import Send from "@/components/svg/Send";
+import Twitter from "@/components/svg/Twitter";
 
 const MainFooter = () => {
   const {

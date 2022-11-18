@@ -1,6 +1,6 @@
 import Breadcrumbs from "../../header/Breadcrumbs";
 import Tabs from "../../header/Tabs";
-import ROUTES from "../../../helpers/routes";
+import ROUTES from "@/helpers/routes";
 
 const { INVESTOR_RELATIONS, HOME } = ROUTES;
 const { SHARE_INFORMATION, DIVIDEND_HISTORY, DIVIDEND_POLICY } =

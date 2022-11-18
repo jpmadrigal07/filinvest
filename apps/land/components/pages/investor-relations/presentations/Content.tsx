@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import BorderButton from "../../../button/BorderButton";
-import ArrowRight from "../../../svg/ArrowRight";
+import ArrowRight from "@/components/svg/ArrowRight";
 
 const Content = () => {
   return (

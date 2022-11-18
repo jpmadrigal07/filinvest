@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
-import ChevronDown from "../../svg/ChevronDown";
+import ChevronDown from "@/components/svg/ChevronDown";
 
 const Accordion = ({
   title,

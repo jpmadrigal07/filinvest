@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { INVESTOR_RELATIONS_SUB_ROUTES } from "../../../helpers/routes/investorRelations";
+import { INVESTOR_RELATIONS_SUB_ROUTES } from "@/helpers/routes/investorRelations";
 
 const InvestorRelations = () => {
   return (

@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import ChevronCircleLeft from "../../svg/ChevronCircleLeft";
-import ChevronCircleRight from "../../svg/ChevronCircleRight";
-import BorderButton from "../../button/BorderButton";
+import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
+import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
+import BorderButton from "@/components/button/BorderButton";
 
 const InvestorRelations = () => {
   return (
