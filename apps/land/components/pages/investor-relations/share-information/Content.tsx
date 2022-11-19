@@ -1,5 +1,6 @@
 import React from "react";
 import { TOP_20_SHAREHOLDERS } from "../constants";
+import Stocks from "./Stocks";
 
 const Content = () => {
   return (
@@ -9,6 +10,7 @@ const Content = () => {
           Share Information
         </h2>
       </div>
+      <Stocks />
       <div className="mx-16 mt-4 flex flex-col">
         <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
