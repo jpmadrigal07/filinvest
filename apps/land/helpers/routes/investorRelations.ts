@@ -18,11 +18,31 @@ const STRUCTURES = {
   name: "Structures",
   directory: [...INVESTOR_RELATIONS.directory, "Structures"],
 };
+
+// CORPORATE GOVERNANCE
 const CORPORATE_GOVERNANCE = {
   url: `${INVESTOR_RELATIONS.url}/corporate-governance`,
   name: "Corporate Governance",
   directory: [...INVESTOR_RELATIONS.directory, "Corporate Governance"],
 };
+const BOARD_COMMITTEES = {
+  url: `${CORPORATE_GOVERNANCE.url}/board-committees`,
+  name: "Board Committees",
+  directory: [...CORPORATE_GOVERNANCE.directory, "Board Committees"],
+};
+const ENTERPRISE_RISK_MANAGEMENT = {
+  url: `${BOARD_COMMITTEES.url}/enterprise-risk-management`,
+  name: "Enterprise Risk Management",
+  directory: [...BOARD_COMMITTEES.directory, "Enterprise Risk Management"],
+};
+const COMBINED_CORPORATE_GOVERNANCE = {
+  ...CORPORATE_GOVERNANCE,
+  BOARD_COMMITTEES: {
+    ...BOARD_COMMITTEES,
+    ENTERPRISE_RISK_MANAGEMENT,
+  },
+};
+
 const INVESTOR_RELATIONS_PROGRAM = {
   url: `${INVESTOR_RELATIONS.url}/investor-relations-program`,
   name: "Investor Relations Program",
@@ -81,7 +101,7 @@ const INVESTOR_RELATIONS_ROUTES = {
   OUR_COMPANY,
   OUR_LEADERSHIP,
   STRUCTURES,
-  CORPORATE_GOVERNANCE,
+  CORPORATE_GOVERNANCE: COMBINED_CORPORATE_GOVERNANCE,
   INVESTOR_RELATIONS_PROGRAM,
   STOCK_INFORMATION,
   FINANCIAL_HIGHLIGHTS,
@@ -94,7 +114,7 @@ export const INVESTOR_RELATIONS_SUB_ROUTES = [
   OUR_COMPANY,
   OUR_LEADERSHIP,
   STRUCTURES,
-  CORPORATE_GOVERNANCE,
+  COMBINED_CORPORATE_GOVERNANCE,
   INVESTOR_RELATIONS_PROGRAM,
   STOCK_INFORMATION,
   FINANCIAL_HIGHLIGHTS,
