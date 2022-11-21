@@ -63,7 +63,9 @@ const Content = () => {
           <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
             <LinkedIn />
           </div>
-          <h3 className="text-jet text-xl font-bold">asdasdasd</h3>
+          <h3 className="text-jet text-xl font-bold">
+            Code Of Business Conduct And Ethics
+          </h3>
           <BorderButton
             buttonText="View"
             textColor="dark-cornflower-blue"
