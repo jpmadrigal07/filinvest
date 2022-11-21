@@ -27,6 +27,10 @@ const TAB_ITEMS = [
     link: ANNUAL_CORPORATE_GOVERNANCE_REPORT.url,
   },
   {
+    title: BOARD_COMMITTEES.name,
+    link: BOARD_COMMITTEES.url,
+  },
+  {
     title: ENTERPRISE_RISK_MANAGEMENT.name,
     link: ENTERPRISE_RISK_MANAGEMENT.url,
   },
@@ -97,6 +101,14 @@ export const HEADER_INFO = {
           { title: ANNUAL_CORPORATE_GOVERNANCE_REPORT.name },
         ]}
       />
+    ),
+    image: headerImage,
+    tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  boardCommittees: {
+    title: CORPORATE_GOVERNANCE.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: BOARD_COMMITTEES.name }]} />
     ),
     image: headerImage,
     tabs: <Tabs items={TAB_ITEMS} />,
