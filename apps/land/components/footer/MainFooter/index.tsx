@@ -35,8 +35,8 @@ const MainFooter = () => {
   } = ROUTES;
   return (
     <footer>
-      <div className="bg-royal-dark-blue flex flex-col gap-9 px-4 py-6 lg:flex-row lg:gap-36 lg:px-16 lg:py-16">
-        <div className="flex flex-1 flex-col gap-5">
+      <div className="bg-royal-dark-blue flex flex-col gap-9 px-4 py-6 lg:flex-row lg:gap-36 lg:px-16 lg:py-24">
+        <div className="flex flex-1 flex-col gap-14">
           <Link href={HOME.url}>
             <MainLogo />
           </Link>
