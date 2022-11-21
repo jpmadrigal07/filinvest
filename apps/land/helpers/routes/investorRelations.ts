@@ -53,6 +53,14 @@ const CODE_BUSINESS_CONDUCT_ETHICS = {
     "Code Of Business Conduct & Ethics",
   ],
 };
+const ANNUAL_CORPORATE_GOVERNANCE_REPORT = {
+  url: `${BOARD_COMMITTEES.url}/annual-corporate-governance-report`,
+  name: "Annual Corporate Governance & Report",
+  directory: [
+    ...BOARD_COMMITTEES.directory,
+    "Annual Corporate Governance & Report",
+  ],
+};
 const COMBINED_CORPORATE_GOVERNANCE = {
   ...CORPORATE_GOVERNANCE,
   BOARD_COMMITTEES: {
@@ -61,6 +69,7 @@ const COMBINED_CORPORATE_GOVERNANCE = {
     COMPANY_POLICIES,
     MANUAL_CORPORATE_GOVERNANCE,
     CODE_BUSINESS_CONDUCT_ETHICS,
+    ANNUAL_CORPORATE_GOVERNANCE_REPORT,
   },
 };
 
