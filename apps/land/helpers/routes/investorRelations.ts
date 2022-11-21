@@ -35,11 +35,17 @@ const ENTERPRISE_RISK_MANAGEMENT = {
   name: "Enterprise Risk Management",
   directory: [...BOARD_COMMITTEES.directory, "Enterprise Risk Management"],
 };
+const COMPANY_POLICIES = {
+  url: `${BOARD_COMMITTEES.url}/company-policies`,
+  name: "Company Policies",
+  directory: [...BOARD_COMMITTEES.directory, "Company Policies"],
+};
 const COMBINED_CORPORATE_GOVERNANCE = {
   ...CORPORATE_GOVERNANCE,
   BOARD_COMMITTEES: {
     ...BOARD_COMMITTEES,
     ENTERPRISE_RISK_MANAGEMENT,
+    COMPANY_POLICIES,
   },
 };
 

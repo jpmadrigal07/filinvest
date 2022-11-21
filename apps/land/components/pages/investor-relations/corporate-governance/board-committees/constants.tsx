@@ -5,12 +5,16 @@ import ROUTES from "@/helpers/routes";
 const { INVESTOR_RELATIONS } = ROUTES;
 const { CORPORATE_GOVERNANCE } = INVESTOR_RELATIONS;
 const { BOARD_COMMITTEES } = CORPORATE_GOVERNANCE;
-const { ENTERPRISE_RISK_MANAGEMENT } = BOARD_COMMITTEES;
+const { ENTERPRISE_RISK_MANAGEMENT, COMPANY_POLICIES } = BOARD_COMMITTEES;
 
 const TAB_ITEMS = [
   {
     title: ENTERPRISE_RISK_MANAGEMENT.name,
     link: ENTERPRISE_RISK_MANAGEMENT.url,
+  },
+  {
+    title: COMPANY_POLICIES.name,
+    link: COMPANY_POLICIES.url,
   },
 ];
 
@@ -38,6 +42,14 @@ export const HEADER_INFO = {
       <Breadcrumbs
         items={[...BREADCRUMBS, { title: ENTERPRISE_RISK_MANAGEMENT.name }]}
       />
+    ),
+    image: headerImage,
+    tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  companyPolicies: {
+    title: COMPANY_POLICIES.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: COMPANY_POLICIES.name }]} />
     ),
     image: headerImage,
     tabs: <Tabs items={TAB_ITEMS} />,
