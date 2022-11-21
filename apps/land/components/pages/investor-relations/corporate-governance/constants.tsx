@@ -11,6 +11,7 @@ const {
   MANUAL_CORPORATE_GOVERNANCE,
   CODE_BUSINESS_CONDUCT_ETHICS,
   ANNUAL_CORPORATE_GOVERNANCE_REPORT,
+  CORPORATE_SOCIAL_RESPONSIBILITY,
 } = CORPORATE_GOVERNANCE;
 
 const TAB_ITEMS = [
@@ -29,6 +30,10 @@ const TAB_ITEMS = [
   {
     title: BOARD_COMMITTEES.name,
     link: BOARD_COMMITTEES.url,
+  },
+  {
+    title: CORPORATE_SOCIAL_RESPONSIBILITY.name,
+    link: CORPORATE_SOCIAL_RESPONSIBILITY.url,
   },
   {
     title: ENTERPRISE_RISK_MANAGEMENT.name,
@@ -109,6 +114,19 @@ export const HEADER_INFO = {
     title: CORPORATE_GOVERNANCE.name,
     breadcrumbs: (
       <Breadcrumbs items={[...BREADCRUMBS, { title: BOARD_COMMITTEES.name }]} />
+    ),
+    image: headerImage,
+    tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  corporateSocialResponsibility: {
+    title: CORPORATE_GOVERNANCE.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[
+          ...BREADCRUMBS,
+          { title: CORPORATE_SOCIAL_RESPONSIBILITY.name },
+        ]}
+      />
     ),
     image: headerImage,
     tabs: <Tabs items={TAB_ITEMS} />,

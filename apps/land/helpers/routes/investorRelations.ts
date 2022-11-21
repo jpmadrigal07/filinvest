@@ -61,6 +61,14 @@ const ANNUAL_CORPORATE_GOVERNANCE_REPORT = {
     "Annual Corporate Governance & Report",
   ],
 };
+const CORPORATE_SOCIAL_RESPONSIBILITY = {
+  url: `${CORPORATE_GOVERNANCE.url}/corporate-social-responsibility`,
+  name: "Corporate Social Responsibility",
+  directory: [
+    ...CORPORATE_GOVERNANCE.directory,
+    "Corporate Social Responsibility",
+  ],
+};
 const COMBINED_CORPORATE_GOVERNANCE = {
   ...CORPORATE_GOVERNANCE,
   BOARD_COMMITTEES,
@@ -69,6 +77,7 @@ const COMBINED_CORPORATE_GOVERNANCE = {
   MANUAL_CORPORATE_GOVERNANCE,
   CODE_BUSINESS_CONDUCT_ETHICS,
   ANNUAL_CORPORATE_GOVERNANCE_REPORT,
+  CORPORATE_SOCIAL_RESPONSIBILITY,
 };
 
 const INVESTOR_RELATIONS_PROGRAM = {
