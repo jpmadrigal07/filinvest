@@ -40,12 +40,18 @@ const COMPANY_POLICIES = {
   name: "Company Policies",
   directory: [...BOARD_COMMITTEES.directory, "Company Policies"],
 };
+const MANUAL_CORPORATE_GOVERNANCE = {
+  url: `${BOARD_COMMITTEES.url}/manual-corporate-governance`,
+  name: "Manual Corporate Governance",
+  directory: [...BOARD_COMMITTEES.directory, "Manual Corporate Governance"],
+};
 const COMBINED_CORPORATE_GOVERNANCE = {
   ...CORPORATE_GOVERNANCE,
   BOARD_COMMITTEES: {
     ...BOARD_COMMITTEES,
     ENTERPRISE_RISK_MANAGEMENT,
     COMPANY_POLICIES,
+    MANUAL_CORPORATE_GOVERNANCE,
   },
 };
 

@@ -28,8 +28,8 @@ const MainHeader = ({
           </div>
         </section>
       ) : (
-        <section>
-          <div className="absolute z-10 w-full">
+        <section className="z-0">
+          <div className="absolute w-full">
             <div className={`flex flex-col items-center justify-center py-60`}>
               <h1 className="mb-4 text-6xl font-extrabold text-white">
                 {title}
