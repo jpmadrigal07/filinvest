@@ -1,6 +1,6 @@
 import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/board-committees/constants";
-import Content from "@/components/pages/investor-relations/corporate-governance/board-committees/annual-corporate-governance-report/Content";
+import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
+import Content from "@/components/pages/investor-relations/corporate-governance/annual-corporate-governance-report/Content";
 
 const AnnualCorporateGovernanceReportPage = () => {
   const { title, breadcrumbs, image, tabs } =

@@ -31,46 +31,44 @@ const BOARD_COMMITTEES = {
   directory: [...CORPORATE_GOVERNANCE.directory, "Board Committees"],
 };
 const ENTERPRISE_RISK_MANAGEMENT = {
-  url: `${BOARD_COMMITTEES.url}/enterprise-risk-management`,
+  url: `${CORPORATE_GOVERNANCE.url}/enterprise-risk-management`,
   name: "Enterprise Risk Management",
-  directory: [...BOARD_COMMITTEES.directory, "Enterprise Risk Management"],
+  directory: [...CORPORATE_GOVERNANCE.directory, "Enterprise Risk Management"],
 };
 const COMPANY_POLICIES = {
-  url: `${BOARD_COMMITTEES.url}/company-policies`,
+  url: `${CORPORATE_GOVERNANCE.url}/company-policies`,
   name: "Company Policies",
-  directory: [...BOARD_COMMITTEES.directory, "Company Policies"],
+  directory: [...CORPORATE_GOVERNANCE.directory, "Company Policies"],
 };
 const MANUAL_CORPORATE_GOVERNANCE = {
-  url: `${BOARD_COMMITTEES.url}/manual-corporate-governance`,
+  url: `${CORPORATE_GOVERNANCE.url}/manual-corporate-governance`,
   name: "Manual Corporate Governance",
-  directory: [...BOARD_COMMITTEES.directory, "Manual Corporate Governance"],
+  directory: [...CORPORATE_GOVERNANCE.directory, "Manual Corporate Governance"],
 };
 const CODE_BUSINESS_CONDUCT_ETHICS = {
-  url: `${BOARD_COMMITTEES.url}/code-business-conduct-ethics`,
+  url: `${CORPORATE_GOVERNANCE.url}/code-business-conduct-ethics`,
   name: "Code Of Business Conduct & Ethics",
   directory: [
-    ...BOARD_COMMITTEES.directory,
+    ...CORPORATE_GOVERNANCE.directory,
     "Code Of Business Conduct & Ethics",
   ],
 };
 const ANNUAL_CORPORATE_GOVERNANCE_REPORT = {
-  url: `${BOARD_COMMITTEES.url}/annual-corporate-governance-report`,
+  url: `${CORPORATE_GOVERNANCE.url}/annual-corporate-governance-report`,
   name: "Annual Corporate Governance & Report",
   directory: [
-    ...BOARD_COMMITTEES.directory,
+    ...CORPORATE_GOVERNANCE.directory,
     "Annual Corporate Governance & Report",
   ],
 };
 const COMBINED_CORPORATE_GOVERNANCE = {
   ...CORPORATE_GOVERNANCE,
-  BOARD_COMMITTEES: {
-    ...BOARD_COMMITTEES,
-    ENTERPRISE_RISK_MANAGEMENT,
-    COMPANY_POLICIES,
-    MANUAL_CORPORATE_GOVERNANCE,
-    CODE_BUSINESS_CONDUCT_ETHICS,
-    ANNUAL_CORPORATE_GOVERNANCE_REPORT,
-  },
+  BOARD_COMMITTEES,
+  ENTERPRISE_RISK_MANAGEMENT,
+  COMPANY_POLICIES,
+  MANUAL_CORPORATE_GOVERNANCE,
+  CODE_BUSINESS_CONDUCT_ETHICS,
+  ANNUAL_CORPORATE_GOVERNANCE_REPORT,
 };
 
 const INVESTOR_RELATIONS_PROGRAM = {
