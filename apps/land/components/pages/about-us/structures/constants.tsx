@@ -4,12 +4,16 @@ import ROUTES from "@/helpers/routes";
 
 const { ABOUT_US } = ROUTES;
 const { STRUCTURES } = ABOUT_US;
-const { ORGANIZATIONAL_CHART } = STRUCTURES;
+const { ORGANIZATIONAL_CHART, CONGLOMERATE_CHART } = STRUCTURES;
 
 const TAB_ITEMS = [
   {
     title: ORGANIZATIONAL_CHART.name,
     link: ORGANIZATIONAL_CHART.url,
+  },
+  {
+    title: CONGLOMERATE_CHART.name,
+    link: CONGLOMERATE_CHART.url,
   },
 ];
 
@@ -32,6 +36,16 @@ export const HEADER_INFO = {
     breadcrumbs: (
       <Breadcrumbs
         items={[...BREADCRUMBS, { title: ORGANIZATIONAL_CHART.name }]}
+      />
+    ),
+    image: headerImage,
+    tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  conglomerateChart: {
+    title: STRUCTURES.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[...BREADCRUMBS, { title: CONGLOMERATE_CHART.name }]}
       />
     ),
     image: headerImage,

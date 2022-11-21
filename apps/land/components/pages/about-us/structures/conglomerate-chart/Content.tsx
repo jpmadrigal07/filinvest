@@ -6,11 +6,11 @@ const Content = () => {
   return (
     <section className="mb-24 mt-9 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
       <h2 className="text-jet text-center text-4xl font-bold">
-        Organizational Chart
+        Conglomerate Chart
       </h2>
       <div className="mt-12">
         <Image
-          src="/organizational-chart.png"
+          src="/conglomerate-chart.png"
           width={3458}
           height={2642}
           alt="Picture of the author"
