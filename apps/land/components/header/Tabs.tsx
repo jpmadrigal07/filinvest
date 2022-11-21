@@ -12,7 +12,7 @@ const Tabs = ({ items }: { items: ItemProps[] }) => {
   const pathname = usePathname();
 
   return (
-    <div className="mt-12 flex gap-8">
+    <div className="mx-3 mt-12 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
       {items?.map((item, index) => {
         return (
           <Link
@@ -20,7 +20,7 @@ const Tabs = ({ items }: { items: ItemProps[] }) => {
             href={item.link}
             className={`${
               item.link === pathname ? "border-b-2 border-white" : ""
-            }  pb-2 text-xl text-white hover:border-b-2 hover:border-white`}
+            }  pb-2 text-center text-xl text-white hover:border-b-2 hover:border-white`}
           >
             {item.title}
           </Link>
