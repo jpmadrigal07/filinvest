@@ -9,12 +9,17 @@ const {
   ENTERPRISE_RISK_MANAGEMENT,
   COMPANY_POLICIES,
   MANUAL_CORPORATE_GOVERNANCE,
+  CODE_BUSINESS_CONDUCT_ETHICS,
 } = BOARD_COMMITTEES;
 
 const TAB_ITEMS = [
   {
     title: MANUAL_CORPORATE_GOVERNANCE.name,
     link: MANUAL_CORPORATE_GOVERNANCE.url,
+  },
+  {
+    title: CODE_BUSINESS_CONDUCT_ETHICS.name,
+    link: CODE_BUSINESS_CONDUCT_ETHICS.url,
   },
   {
     title: ENTERPRISE_RISK_MANAGEMENT.name,
@@ -67,6 +72,16 @@ export const HEADER_INFO = {
     breadcrumbs: (
       <Breadcrumbs
         items={[...BREADCRUMBS, { title: MANUAL_CORPORATE_GOVERNANCE.name }]}
+      />
+    ),
+    image: headerImage,
+    tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  codeBusinessConductEthics: {
+    title: CODE_BUSINESS_CONDUCT_ETHICS.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[...BREADCRUMBS, { title: CODE_BUSINESS_CONDUCT_ETHICS.name }]}
       />
     ),
     image: headerImage,

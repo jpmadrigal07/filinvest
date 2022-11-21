@@ -45,6 +45,11 @@ const MANUAL_CORPORATE_GOVERNANCE = {
   name: "Manual Corporate Governance",
   directory: [...BOARD_COMMITTEES.directory, "Manual Corporate Governance"],
 };
+const CODE_BUSINESS_CONDUCT_ETHICS = {
+  url: `${BOARD_COMMITTEES.url}/code-business-conduct-ethics`,
+  name: "Code Business Conduct Ethics",
+  directory: [...BOARD_COMMITTEES.directory, "Code Business Conduct Ethics"],
+};
 const COMBINED_CORPORATE_GOVERNANCE = {
   ...CORPORATE_GOVERNANCE,
   BOARD_COMMITTEES: {
@@ -52,6 +57,7 @@ const COMBINED_CORPORATE_GOVERNANCE = {
     ENTERPRISE_RISK_MANAGEMENT,
     COMPANY_POLICIES,
     MANUAL_CORPORATE_GOVERNANCE,
+    CODE_BUSINESS_CONDUCT_ETHICS,
   },
 };
 
