@@ -4,7 +4,8 @@ import ROUTES from "@/helpers/routes";
 
 const { ABOUT_US } = ROUTES;
 const { STRUCTURES } = ABOUT_US;
-const { ORGANIZATIONAL_CHART, CONGLOMERATE_CHART } = STRUCTURES;
+const { ORGANIZATIONAL_CHART, CONGLOMERATE_CHART, SHAREHOLDING_STRUCTURE } =
+  STRUCTURES;
 
 const TAB_ITEMS = [
   {
@@ -14,6 +15,10 @@ const TAB_ITEMS = [
   {
     title: CONGLOMERATE_CHART.name,
     link: CONGLOMERATE_CHART.url,
+  },
+  {
+    title: SHAREHOLDING_STRUCTURE.name,
+    link: SHAREHOLDING_STRUCTURE.url,
   },
 ];
 
@@ -46,6 +51,16 @@ export const HEADER_INFO = {
     breadcrumbs: (
       <Breadcrumbs
         items={[...BREADCRUMBS, { title: CONGLOMERATE_CHART.name }]}
+      />
+    ),
+    image: headerImage,
+    tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  shareholdingStructure: {
+    title: STRUCTURES.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[...BREADCRUMBS, { title: SHAREHOLDING_STRUCTURE.name }]}
       />
     ),
     image: headerImage,
