@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import LinkedIn from "../../../svg/LinkedIn";
+import LinkedIn from "@/components/svg/LinkedIn";
 
 const Content = () => {
   return (

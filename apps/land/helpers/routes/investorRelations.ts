@@ -18,15 +18,87 @@ const STRUCTURES = {
   name: "Structures",
   directory: [...INVESTOR_RELATIONS.directory, "Structures"],
 };
+
+// CORPORATE GOVERNANCE
 const CORPORATE_GOVERNANCE = {
   url: `${INVESTOR_RELATIONS.url}/corporate-governance`,
   name: "Corporate Governance",
   directory: [...INVESTOR_RELATIONS.directory, "Corporate Governance"],
 };
+const BOARD_COMMITTEES = {
+  url: `${CORPORATE_GOVERNANCE.url}/board-committees`,
+  name: "Board Committees",
+  directory: [...CORPORATE_GOVERNANCE.directory, "Board Committees"],
+};
+const ENTERPRISE_RISK_MANAGEMENT = {
+  url: `${CORPORATE_GOVERNANCE.url}/enterprise-risk-management`,
+  name: "Enterprise Risk Management",
+  directory: [...CORPORATE_GOVERNANCE.directory, "Enterprise Risk Management"],
+};
+const COMPANY_POLICIES = {
+  url: `${CORPORATE_GOVERNANCE.url}/company-policies`,
+  name: "Company Policies",
+  directory: [...CORPORATE_GOVERNANCE.directory, "Company Policies"],
+};
+const MANUAL_CORPORATE_GOVERNANCE = {
+  url: `${CORPORATE_GOVERNANCE.url}/manual-corporate-governance`,
+  name: "Manual Corporate Governance",
+  directory: [...CORPORATE_GOVERNANCE.directory, "Manual Corporate Governance"],
+};
+const CODE_BUSINESS_CONDUCT_ETHICS = {
+  url: `${CORPORATE_GOVERNANCE.url}/code-business-conduct-ethics`,
+  name: "Code Of Business Conduct & Ethics",
+  directory: [
+    ...CORPORATE_GOVERNANCE.directory,
+    "Code Of Business Conduct & Ethics",
+  ],
+};
+const ANNUAL_CORPORATE_GOVERNANCE_REPORT = {
+  url: `${CORPORATE_GOVERNANCE.url}/annual-corporate-governance-report`,
+  name: "Annual Corporate Governance & Report",
+  directory: [
+    ...CORPORATE_GOVERNANCE.directory,
+    "Annual Corporate Governance & Report",
+  ],
+};
+const CORPORATE_SOCIAL_RESPONSIBILITY = {
+  url: `${CORPORATE_GOVERNANCE.url}/corporate-social-responsibility`,
+  name: "Corporate Social Responsibility",
+  directory: [
+    ...CORPORATE_GOVERNANCE.directory,
+    "Corporate Social Responsibility",
+  ],
+};
+const COMBINED_CORPORATE_GOVERNANCE = {
+  ...CORPORATE_GOVERNANCE,
+  BOARD_COMMITTEES,
+  ENTERPRISE_RISK_MANAGEMENT,
+  COMPANY_POLICIES,
+  MANUAL_CORPORATE_GOVERNANCE,
+  CODE_BUSINESS_CONDUCT_ETHICS,
+  ANNUAL_CORPORATE_GOVERNANCE_REPORT,
+  CORPORATE_SOCIAL_RESPONSIBILITY,
+};
+
 const INVESTOR_RELATIONS_PROGRAM = {
   url: `${INVESTOR_RELATIONS.url}/investor-relations-program`,
   name: "Investor Relations Program",
   directory: [...INVESTOR_RELATIONS.directory, "Investor Relations Program"],
+};
+const SHARE_INFORMATION = {
+  url: `${INVESTOR_RELATIONS.url}/share-information`,
+  name: "Share Information",
+  directory: [...INVESTOR_RELATIONS.directory, "Share Information"],
+};
+const DIVIDEND_HISTORY = {
+  url: `${INVESTOR_RELATIONS.url}/dividend-history`,
+  name: "Dividend History",
+  directory: [...INVESTOR_RELATIONS.directory, "Dividend History"],
+};
+const DIVIDEND_POLICY = {
+  url: `${INVESTOR_RELATIONS.url}/dividend-policy`,
+  name: "Dividend Policy",
+  directory: [...INVESTOR_RELATIONS.directory, "Dividend Policy"],
 };
 const STOCK_INFORMATION = {
   url: `${INVESTOR_RELATIONS.url}/stock-information`,
@@ -60,10 +132,13 @@ const DISCLOSURES = {
 };
 const INVESTOR_RELATIONS_ROUTES = {
   ...INVESTOR_RELATIONS,
+  SHARE_INFORMATION,
+  DIVIDEND_HISTORY,
+  DIVIDEND_POLICY,
   OUR_COMPANY,
   OUR_LEADERSHIP,
   STRUCTURES,
-  CORPORATE_GOVERNANCE,
+  CORPORATE_GOVERNANCE: COMBINED_CORPORATE_GOVERNANCE,
   INVESTOR_RELATIONS_PROGRAM,
   STOCK_INFORMATION,
   FINANCIAL_HIGHLIGHTS,
@@ -76,7 +151,7 @@ export const INVESTOR_RELATIONS_SUB_ROUTES = [
   OUR_COMPANY,
   OUR_LEADERSHIP,
   STRUCTURES,
-  CORPORATE_GOVERNANCE,
+  COMBINED_CORPORATE_GOVERNANCE,
   INVESTOR_RELATIONS_PROGRAM,
   STOCK_INFORMATION,
   FINANCIAL_HIGHLIGHTS,

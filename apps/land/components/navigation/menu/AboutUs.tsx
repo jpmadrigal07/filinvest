@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { ABOUT_US_SUB_ROUTES } from "../../../helpers/routes/aboutUs";
+import { ABOUT_US_SUB_ROUTES } from "@/helpers/routes/aboutUs";
 
 const AboutUs = () => {
   return (

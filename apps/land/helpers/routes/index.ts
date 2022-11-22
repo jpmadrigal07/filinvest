@@ -12,6 +12,7 @@ import CAREERS from "./careers";
 import CONTACT_US from "./contactUs";
 import PRIVACY_POLICY from "./privacyPolicy";
 import TERMS_OF_USE from "./termsOfUse";
+import FINANCIALS from "./financials";
 const ROUTES = {
   HOME,
   ABOUT_US,
@@ -27,5 +28,6 @@ const ROUTES = {
   CONTACT_US,
   PRIVACY_POLICY,
   TERMS_OF_USE,
+  FINANCIALS,
 };
 export default ROUTES;

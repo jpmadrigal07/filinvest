@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import MainLogo from "../../svg/MainLogo";
+import MainLogo from "@/components/svg/MainLogo";
 
 const HeroSection = () => {
   return (
     <>
       <section className="flex h-screen w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat">
-        <div className="mx-auto mt-64 w-2/4 text-center">
+        <div className="mx-auto mt-64 w-3/4 text-center 2xl:w-2/4">
           <h1 className="mb-4 text-8xl font-extrabold text-white">
             Dreams Built Green
           </h1>
@@ -20,7 +20,7 @@ const HeroSection = () => {
           </h4>
         </div>
       </section>
-      <div className="absolute -mt-80 flex w-full items-center justify-center gap-12">
+      <div className="absolute -mt-64 flex w-full items-center justify-center gap-12 2xl:-mt-80">
         <div className="relative">
           <Image
             src="/prestige-home.png"

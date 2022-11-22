@@ -1,5 +1,3 @@
-const colors = require("tailwindcss/colors");
-
 module.exports = {
   content: [
     `src/**/*.{js,ts,jsx,tsx}`,
@@ -28,6 +26,7 @@ module.exports = {
         gainsboro: "#DBDBDB",
         "ghost-white": "#F5F8FE",
         "flickr-blue": "#115BEF",
+        "alice-blue": "#E1E6EF",
       },
     },
   },

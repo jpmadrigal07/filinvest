@@ -9,16 +9,16 @@ import {
   PHONE_NUMBER,
   TEL_NUMBER,
   TWITTER_URL,
-} from "../../../helpers/constants";
-import ROUTES from "../../../helpers/routes";
-import Facebook from "../../svg/Facebook";
-import LinkedIn from "../../svg/LinkedIn";
-import Mail from "../../svg/Mail";
-import MainLogo from "../../svg/MainLogo";
-import MapLine from "../../svg/MapLine";
-import Phone from "../../svg/Phone";
-import Send from "../../svg/Send";
-import Twitter from "../../svg/Twitter";
+} from "@/helpers/constants";
+import ROUTES from "@/helpers/routes";
+import Facebook from "@/components/svg/Facebook";
+import LinkedIn from "@/components/svg/LinkedIn";
+import Mail from "@/components/svg/Mail";
+import MainLogo from "@/components/svg/MainLogo";
+import MapLine from "@/components/svg/MapLine";
+import Phone from "@/components/svg/Phone";
+import Send from "@/components/svg/Send";
+import Twitter from "@/components/svg/Twitter";
 
 const MainFooter = () => {
   const {
@@ -35,8 +35,8 @@ const MainFooter = () => {
   } = ROUTES;
   return (
     <footer>
-      <div className="bg-royal-dark-blue flex flex-col gap-9 px-4 py-6 lg:flex-row lg:gap-36 lg:px-16 lg:py-16">
-        <div className="flex flex-1 flex-col gap-5">
+      <div className="bg-royal-dark-blue flex flex-col gap-9 px-4 py-6 lg:flex-row lg:gap-36 lg:px-16 lg:py-24">
+        <div className="flex flex-1 flex-col gap-14">
           <Link href={HOME.url}>
             <MainLogo />
           </Link>

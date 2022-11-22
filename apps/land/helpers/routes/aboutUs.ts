@@ -28,6 +28,35 @@ const SUBSIDIARIES = {
   name: "Subsidiaries",
   directory: [...ABOUT_US.directory, "Subsidiaries"],
 };
+
+// STRUCTURES
+const STRUCTURES = {
+  url: `${ABOUT_US.url}/structures`,
+  name: "Structures",
+  directory: [...ABOUT_US.directory, "Structures"],
+};
+const ORGANIZATIONAL_CHART = {
+  url: `${STRUCTURES.url}/organizational-chart`,
+  name: "Organizational Chart",
+  directory: [...STRUCTURES.directory, "Organizational Chart"],
+};
+const CONGLOMERATE_CHART = {
+  url: `${STRUCTURES.url}/conglomerate-chart`,
+  name: "Conglomerate Chart",
+  directory: [...STRUCTURES.directory, "Conglomerate Chart"],
+};
+const SHAREHOLDING_STRUCTURE = {
+  url: `${STRUCTURES.url}/shareholding-structure`,
+  name: "Shareholding Structure",
+  directory: [...STRUCTURES.directory, "Shareholding Structure"],
+};
+const COMBINED_STRUCTURES = {
+  ...STRUCTURES,
+  ORGANIZATIONAL_CHART,
+  CONGLOMERATE_CHART,
+  SHAREHOLDING_STRUCTURE,
+};
+
 const ABOUT_US_ROUTES = {
   ...ABOUT_US,
   COMPANY_BACKGROUND,
@@ -35,6 +64,7 @@ const ABOUT_US_ROUTES = {
   DREAMS_BUILT_GREEN,
   PUSONG_FILINVEST,
   SUBSIDIARIES,
+  STRUCTURES: COMBINED_STRUCTURES,
 };
 export const ABOUT_US_SUB_ROUTES = [
   COMPANY_BACKGROUND,
@@ -42,5 +72,6 @@ export const ABOUT_US_SUB_ROUTES = [
   DREAMS_BUILT_GREEN,
   PUSONG_FILINVEST,
   SUBSIDIARIES,
+  COMBINED_STRUCTURES,
 ];
 export default ABOUT_US_ROUTES;

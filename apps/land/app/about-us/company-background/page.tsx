@@ -1,5 +1,5 @@
-import MainHeader from "../../../components/header/MainHeader";
-import Content from "../../../components/pages/about-us/company-background/Content";
+import MainHeader from "@/components/header/MainHeader";
+import Content from "@/components/pages/about-us/company-background/Content";
 
 const DreamsBuiltGreen = () => {
   return (

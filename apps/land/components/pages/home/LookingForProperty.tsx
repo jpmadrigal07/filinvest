@@ -1,6 +1,6 @@
 import React from "react";
-import ChevronDown from "../../svg/ChevronDown";
-import Search from "../../svg/Search";
+import ChevronDown from "@/components/svg/ChevronDown";
+import Search from "@/components/svg/Search";
 import RangeSlider from "./RangeSlider";
 
 const LookingForProperty = () => {

@@ -1,5 +1,5 @@
-import MainHeader from "../../components/header/MainHeader";
-import Content from "../../components/pages/terms/Content";
+import MainHeader from "@/components/header/MainHeader";
+import Content from "@/components/pages/terms/Content";
 
 const TermsPage = () => {
   return (

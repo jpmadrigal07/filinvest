@@ -1,8 +1,8 @@
 import React, { Dispatch, Fragment } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
-import { combineClass } from "../../../helpers/combineClass";
-import ChevronDown from "../../svg/ChevronDown";
+import { combineClass } from "@/helpers/combineClass";
+import ChevronDown from "@/components/svg/ChevronDown";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
@@ -20,7 +20,6 @@ type T_Props = {
   currentMenuIndex?: number | null;
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
-  flyoutMenu: string;
   menuIndex: number;
 };
 
@@ -31,7 +30,6 @@ const LinkWrapper = ({
   subMenus,
   setCurrentMenuIndex,
   currentMenuIndex,
-  flyoutMenu,
   setFlyoutMenu,
   menuIndex,
 }: T_Props) => {

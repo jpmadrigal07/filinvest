@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import ChevronCircleLeft from "../../svg/ChevronCircleLeft";
-import ChevronCircleRight from "../../svg/ChevronCircleRight";
-import BorderButton from "../../button/BorderButton";
+import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
+import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
+import BorderButton from "@/components/button/BorderButton";
 
 const InvestorRelations = () => {
   return (
-    <section className="justfify-center mx-3 flex gap-24 pt-44 lg:mx-9 xl:mx-16 2xl:mx-44">
-      <div className="w-1/3 flex-none">
+    <section className="mx-3 flex gap-16 pt-44 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="w-1/4 flex-none">
         <h4 className="text-dark-cornflower-blue font-bold">
           INVESTOR RELATIONS
         </h4>
@@ -33,8 +33,8 @@ const InvestorRelations = () => {
             <div className="flex-none">
               <Image
                 src="/pie-chart.png"
-                width={120}
-                height={120}
+                width={90}
+                height={90}
                 alt="Picture of the author"
               />
             </div>
@@ -58,8 +58,8 @@ const InvestorRelations = () => {
             <div className="flex-none">
               <Image
                 src="/pie-chart.png"
-                width={120}
-                height={120}
+                width={90}
+                height={90}
                 alt="Picture of the author"
               />
             </div>
@@ -81,8 +81,8 @@ const InvestorRelations = () => {
             <div className="flex-none">
               <Image
                 src="/pie-chart.png"
-                width={120}
-                height={120}
+                width={90}
+                height={90}
                 alt="Picture of the author"
               />
             </div>
@@ -102,8 +102,8 @@ const InvestorRelations = () => {
             <div className="flex-none">
               <Image
                 src="/pie-chart.png"
-                width={120}
-                height={120}
+                width={90}
+                height={90}
                 alt="Picture of the author"
               />
             </div>

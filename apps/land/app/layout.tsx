@@ -1,6 +1,6 @@
 import "../styles/globals.css";
-import MainFooter from "../components/footer/MainFooter";
-import MainNavigation from "../components/navigation/MainNavigation";
+import MainFooter from "@/components/footer/MainFooter";
+import MainNavigation from "@/components/navigation/MainNavigation";
 
 export default function RootLayout({
   children,
