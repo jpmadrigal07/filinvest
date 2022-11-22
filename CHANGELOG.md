@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://repo.projectgrey.net/filinvest/filinvest/compare/v0.0.0...v0.1.0) (2022-11-22)
+
+### Features
+
+- Added annual corporate governance report page ([6b0cb24](https://repo.projectgrey.net/filinvest/filinvest/commits/6b0cb24401bd76f3f1ae1bdb111dec9c2f051528))
+- Added board committees page ([8eb5b85](https://repo.projectgrey.net/filinvest/filinvest/commits/8eb5b857f8ae3715fec0f0a3e9fbf6466b2c06d5))
+- Added breadcrumb component ([26f8cc1](https://repo.projectgrey.net/filinvest/filinvest/commits/26f8cc17d0b9e7749e2c1aea062d831db075fb0c))
+- Added code of business conduct and ethics ([c3ab4b4](https://repo.projectgrey.net/filinvest/filinvest/commits/c3ab4b4bb931a31470140a006de1dca74a3d0fc7))
+- Added company policies page ([9d5200f](https://repo.projectgrey.net/filinvest/filinvest/commits/9d5200f2a3a9c7b32d9632d758a604bbd74911ff))
+- Added conglomerate chart page ([0c1e3a8](https://repo.projectgrey.net/filinvest/filinvest/commits/0c1e3a8ec44b6f1e9909453bbe8fea6666278b4f))
+- Added corporate social page ([8638ced](https://repo.projectgrey.net/filinvest/filinvest/commits/8638ced21355ed0f7197664f521e3e6649e4a01b))
+- Added dividend history page ([18e0afe](https://repo.projectgrey.net/filinvest/filinvest/commits/18e0afebe6797668c8777b26ae49bd107ed33c56))
+- Added enterprise risk management page ([3b7a574](https://repo.projectgrey.net/filinvest/filinvest/commits/3b7a5741b232621d295ac44f0555e2e956779d0c))
+- Added financial highlights page ([f33c51c](https://repo.projectgrey.net/filinvest/filinvest/commits/f33c51cf408ec8a098bd9adb0ca1899dbb78aee8))
+- Added financials annual reports page ([d268239](https://repo.projectgrey.net/filinvest/filinvest/commits/d26823903b2ac4dba0e9ccb8098dd6af987c0a3d))
+- Added manual corporate governance ([567d7d0](https://repo.projectgrey.net/filinvest/filinvest/commits/567d7d0c639c559a8fcb85ff86df7b741c5596cd))
+- Added organizational chart page ([6b89849](https://repo.projectgrey.net/filinvest/filinvest/commits/6b89849715df9723bc0b6466e5f23f111bcb6713))
+- Added share information page ([89b8147](https://repo.projectgrey.net/filinvest/filinvest/commits/89b814747bd1ef161fde46dbf7ff91a93cc4e3b9))
+- Added shareholding structure pages ([f4e1f88](https://repo.projectgrey.net/filinvest/filinvest/commits/f4e1f88ebf9d4c8f55c8a6bd978ada50548d1d6f))
+- added ts paths for component and helpers ([7438c2d](https://repo.projectgrey.net/filinvest/filinvest/commits/7438c2ddcfa8d7e82c732db79f21dd89eeeaec34))
+- setup eslint recommended ([fe297ed](https://repo.projectgrey.net/filinvest/filinvest/commits/fe297ed78ed1da5ad5e917b193cbe41eb4208444))
+
+### Bug Fixes
+
+- change investor relations pages path ([03bcacd](https://repo.projectgrey.net/filinvest/filinvest/commits/03bcacd4223e1cdb54af976a9c749c73c758aa15))
+- header tabs margin x ([45264d4](https://repo.projectgrey.net/filinvest/filinvest/commits/45264d4fe0a80f229d64531abb908d17d9b95149))
+- header tabs padding ([559b7b5](https://repo.projectgrey.net/filinvest/filinvest/commits/559b7b57b604bf3c4d7bcacacc3b1dc29e9a9668))
+- Main navigation click link change page ([d7c5e2f](https://repo.projectgrey.net/filinvest/filinvest/commits/d7c5e2fd364d4160e74db2738e7aea9de60d66f1))
+- overlay header fix margin ([45d9d93](https://repo.projectgrey.net/filinvest/filinvest/commits/45d9d939658b1dc9885b8ccd6e7c248f76e862f5))
+- tailwind intellisense ([d1ad97e](https://repo.projectgrey.net/filinvest/filinvest/commits/d1ad97ec1e5b561d16f727d1b6a42a5c9c8f85d8))
+
 ## 0.0.0 (2022-11-15)
 
 ### Features
