@@ -1,17 +1,20 @@
 import MainHeader from "@/components/header/MainHeader";
+import { HEADER_INFO } from "@/components/pages/about-us/constants";
 import Content from "@/components/pages/about-us/company-background/Content";
 
-const DreamsBuiltGreen = () => {
+const CompanyBackgroundPage = () => {
+  const { title, breadcrumbs, image, tabs } = HEADER_INFO.companyBackground;
   return (
     <>
       <MainHeader
-        title="Company Background"
-        breadcrumbs="About Us / Company Background"
-        bgUrl="company-background.png"
+        title={title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={image}
+        tabs={tabs}
       />
       <Content />
     </>
   );
 };
 
-export default DreamsBuiltGreen;
+export default CompanyBackgroundPage;
