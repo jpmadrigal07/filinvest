@@ -20,7 +20,6 @@ type T_Props = {
   currentMenuIndex?: number | null;
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
-  flyoutMenu: string;
   menuIndex: number;
 };
 
@@ -31,7 +30,6 @@ const LinkWrapper = ({
   subMenus,
   setCurrentMenuIndex,
   currentMenuIndex,
-  flyoutMenu,
   setFlyoutMenu,
   menuIndex,
 }: T_Props) => {
