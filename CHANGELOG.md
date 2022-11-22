@@ -21,17 +21,17 @@ All notable changes to this project will be documented in this file. See [standa
 - Added organizational chart page ([6b89849](https://repo.projectgrey.net/filinvest/filinvest/commits/6b89849715df9723bc0b6466e5f23f111bcb6713))
 - Added share information page ([89b8147](https://repo.projectgrey.net/filinvest/filinvest/commits/89b814747bd1ef161fde46dbf7ff91a93cc4e3b9))
 - Added shareholding structure pages ([f4e1f88](https://repo.projectgrey.net/filinvest/filinvest/commits/f4e1f88ebf9d4c8f55c8a6bd978ada50548d1d6f))
-- added ts paths for component and helpers ([7438c2d](https://repo.projectgrey.net/filinvest/filinvest/commits/7438c2ddcfa8d7e82c732db79f21dd89eeeaec34))
-- setup eslint recommended ([fe297ed](https://repo.projectgrey.net/filinvest/filinvest/commits/fe297ed78ed1da5ad5e917b193cbe41eb4208444))
+- Added ts paths for component and helpers ([7438c2d](https://repo.projectgrey.net/filinvest/filinvest/commits/7438c2ddcfa8d7e82c732db79f21dd89eeeaec34))
+- Setup eslint recommended ([fe297ed](https://repo.projectgrey.net/filinvest/filinvest/commits/fe297ed78ed1da5ad5e917b193cbe41eb4208444))
 
 ### Bug Fixes
 
-- change investor relations pages path ([03bcacd](https://repo.projectgrey.net/filinvest/filinvest/commits/03bcacd4223e1cdb54af976a9c749c73c758aa15))
-- header tabs margin x ([45264d4](https://repo.projectgrey.net/filinvest/filinvest/commits/45264d4fe0a80f229d64531abb908d17d9b95149))
-- header tabs padding ([559b7b5](https://repo.projectgrey.net/filinvest/filinvest/commits/559b7b57b604bf3c4d7bcacacc3b1dc29e9a9668))
+- Change investor relations pages path ([03bcacd](https://repo.projectgrey.net/filinvest/filinvest/commits/03bcacd4223e1cdb54af976a9c749c73c758aa15))
+- Header tabs margin x ([45264d4](https://repo.projectgrey.net/filinvest/filinvest/commits/45264d4fe0a80f229d64531abb908d17d9b95149))
+- Header tabs padding ([559b7b5](https://repo.projectgrey.net/filinvest/filinvest/commits/559b7b57b604bf3c4d7bcacacc3b1dc29e9a9668))
 - Main navigation click link change page ([d7c5e2f](https://repo.projectgrey.net/filinvest/filinvest/commits/d7c5e2fd364d4160e74db2738e7aea9de60d66f1))
-- overlay header fix margin ([45d9d93](https://repo.projectgrey.net/filinvest/filinvest/commits/45d9d939658b1dc9885b8ccd6e7c248f76e862f5))
-- tailwind intellisense ([d1ad97e](https://repo.projectgrey.net/filinvest/filinvest/commits/d1ad97ec1e5b561d16f727d1b6a42a5c9c8f85d8))
+- Overlay header fix margin ([45d9d93](https://repo.projectgrey.net/filinvest/filinvest/commits/45d9d939658b1dc9885b8ccd6e7c248f76e862f5))
+- Tailwind intellisense ([d1ad97e](https://repo.projectgrey.net/filinvest/filinvest/commits/d1ad97ec1e5b561d16f727d1b6a42a5c9c8f85d8))
 
 ## 0.0.0 (2022-11-15)
 
