@@ -5,11 +5,11 @@ import BorderButton from "../../button/BorderButton";
 
 const Projects = () => {
   return (
-    <section className="pt-72">
+    <section className="pt-[22rem] 2xl:pt-72">
       <h4 className="text-dark-cornflower-blue text-center font-bold">
         PROJECTS
       </h4>
-      <h2 className="text-jet mt-2 text-center text-4xl font-extrabold">
+      <h2 className="text-jet pt- mt-2 text-center text-4xl font-extrabold">
         Our Flagship Projects
       </h2>
       <h4 className="text-dim-gray mt-4 text-center">

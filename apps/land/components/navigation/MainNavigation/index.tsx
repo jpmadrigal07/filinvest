@@ -39,7 +39,7 @@ const MainNavigation = () => {
               </Link>
             </div>
             <div className="flex-1">
-              <ul className="flex list-none gap-7">
+              <ul className="flex list-none items-center gap-7 text-center">
                 {menus.map((menu, index) => {
                   const wrapperProps = {
                     ...menu,
