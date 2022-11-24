@@ -6,7 +6,7 @@ const MainHeader = ({
   title,
   breadcrumbs,
   tabs,
-  bgUrl = "dreams-built-green.png",
+  bgUrl = "blue-header-bg.png",
   isBlueHeader = false,
 }: {
   bgUrl?: string;
@@ -36,7 +36,7 @@ const MainHeader = ({
           )}
           <div className="z-0">
             <Image
-              src={`/blue-header-bg.png`}
+              src={`/${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"
