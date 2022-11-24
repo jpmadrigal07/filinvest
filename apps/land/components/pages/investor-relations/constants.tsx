@@ -3,7 +3,7 @@ import Tabs from "../../header/Tabs";
 import ROUTES from "@/helpers/routes";
 
 const { INVESTOR_RELATIONS, HOME } = ROUTES;
-const { SHARE_INFORMATION, DIVIDEND_HISTORY, DIVIDEND_POLICY } =
+const { SHARE_INFORMATION, DIVIDEND_HISTORY, DIVIDEND_POLICY, DISCLOSURES } =
   INVESTOR_RELATIONS;
 
 const TAB_ITEMS = [
@@ -70,6 +70,13 @@ export const HEADER_INFO = {
     ),
     image: dividendHistoryImage,
     tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  disclosures: {
+    title: DISCLOSURES.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: DISCLOSURES.name }]} />
+    ),
+    image: "disclosures.png",
   },
 };
 
