@@ -4,7 +4,7 @@ import Content from "@/components/pages/privacy-policy/Content";
 const PrivacyPage = () => {
   return (
     <>
-      <MainHeader title="Privacy Policy" bgColor="flickr-blue" />
+      <MainHeader title="Privacy Policy" isBlueHeader={true} />
       <Content />
     </>
   );

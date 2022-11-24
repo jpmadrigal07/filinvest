@@ -4,7 +4,7 @@ import Content from "@/components/pages/terms/Content";
 const TermsPage = () => {
   return (
     <>
-      <MainHeader title="Terms & Condition" bgColor="flickr-blue" />
+      <MainHeader title="Terms & Condition" isBlueHeader={true} />
       <Content />
     </>
   );
