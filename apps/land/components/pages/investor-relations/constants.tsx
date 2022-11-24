@@ -33,8 +33,18 @@ const BREADCRUMBS = [
 ];
 
 const dividendHistoryImage = "dividend-history.png";
+const investorRelationsImage = "investor-relations.png";
 
 export const HEADER_INFO = {
+  investorRelations: {
+    title: INVESTOR_RELATIONS.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[BREADCRUMBS[0], { title: INVESTOR_RELATIONS.name }]}
+      />
+    ),
+    image: investorRelationsImage,
+  },
   dividendPolicy: {
     title: DIVIDEND_POLICY.name,
     breadcrumbs: (

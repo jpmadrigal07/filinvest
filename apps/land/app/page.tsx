@@ -17,7 +17,7 @@ const HomePage = () => {
       <OurBusinesses />
       <OurServices />
       <AboutUs />
-      <NewsStories />
+      <NewsStories className="pt-44" />
       <InvestorRelations />
       <StockReport />
     </>
