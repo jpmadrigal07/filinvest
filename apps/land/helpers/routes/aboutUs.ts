@@ -29,6 +29,28 @@ const SUBSIDIARIES = {
   directory: [...ABOUT_US.directory, "Subsidiaries"],
 };
 
+// OUR LEADERSHIP
+const OUR_LEADERSHIP = {
+  url: `${ABOUT_US.url}/our-leadership`,
+  name: "Our Leadership",
+  directory: [...ABOUT_US.directory, "Our Leadership"],
+};
+const BOARD_OF_DIRECTORS = {
+  url: `${OUR_LEADERSHIP.url}/board-of-directors`,
+  name: "Board of Directors",
+  directory: [...OUR_LEADERSHIP.directory, "Board of Directors"],
+};
+const SENIOR_MANAGEMENT_TEAM = {
+  url: `${OUR_LEADERSHIP.url}/senior-management-team`,
+  name: "Senior Management Team",
+  directory: [...OUR_LEADERSHIP.directory, "Senior Management Team"],
+};
+const COMBINED_OUR_LEADERSHIP = {
+  ...OUR_LEADERSHIP,
+  BOARD_OF_DIRECTORS,
+  SENIOR_MANAGEMENT_TEAM,
+};
+
 // STRUCTURES
 const STRUCTURES = {
   url: `${ABOUT_US.url}/structures`,
@@ -63,6 +85,7 @@ const ABOUT_US_ROUTES = {
   MISSION_VISION,
   DREAMS_BUILT_GREEN,
   PUSONG_FILINVEST,
+  OUR_LEADERSHIP: COMBINED_OUR_LEADERSHIP,
   SUBSIDIARIES,
   STRUCTURES: COMBINED_STRUCTURES,
 };
@@ -73,5 +96,6 @@ export const ABOUT_US_SUB_ROUTES = [
   PUSONG_FILINVEST,
   SUBSIDIARIES,
   COMBINED_STRUCTURES,
+  COMBINED_OUR_LEADERSHIP,
 ];
 export default ABOUT_US_ROUTES;
