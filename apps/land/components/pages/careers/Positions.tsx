@@ -1,12 +1,15 @@
+"use client";
+import CareersModal from "@/components/modal/CareersModal";
 import MapPin from "@/components/svg/MapPin";
 import PhoneBlue from "@/components/svg/PhoneBlue";
 import { combineClass } from "@/helpers/combineClass";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./Accordion";
 import Requirements from "./Requirements";
 
 const Positions = () => {
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const tabs = [
     { name: "All", href: "#", current: true },
     { name: "Business", href: "#", current: false },
@@ -45,25 +48,25 @@ const Positions = () => {
         <div className="mx-32 mt-9 2xl:mx-56">
           <div className="flex flex-col gap-5">
             <Accordion title="Accounting Analyst" description="MANDALUYONG">
-              <Requirements />
+              <Requirements setModalOpen={setIsFormModalOpen} />
             </Accordion>
             <Accordion title="Accounting Assistant" description="MANDALUYONG">
-              <Requirements />
+              <Requirements setModalOpen={setIsFormModalOpen} />
             </Accordion>
             <Accordion title="Accounting Supervisor" description="MANDALUYONG">
-              <Requirements />
+              <Requirements setModalOpen={setIsFormModalOpen} />
             </Accordion>
             <Accordion title="Accounting Analyst" description="MANDALUYONG">
-              <Requirements />
+              <Requirements setModalOpen={setIsFormModalOpen} />
             </Accordion>
             <Accordion
               title="Administrative Assistant"
               description="MANDALUYONG"
             >
-              <Requirements />
+              <Requirements setModalOpen={setIsFormModalOpen} />
             </Accordion>
             <Accordion title="Broker Sales Manager" description="MANDALUYONG">
-              <Requirements />
+              <Requirements setModalOpen={setIsFormModalOpen} />
             </Accordion>
             <div className="mb-9 flex justify-center gap-4">
               <div className="bg-dark-cornflower-blue px-3 py-[5px] text-white">
@@ -190,6 +193,7 @@ const Positions = () => {
           </p>
         </div>
       </div>
+      <CareersModal setOpen={setIsFormModalOpen} open={isFormModalOpen} />
     </div>
   );
 };

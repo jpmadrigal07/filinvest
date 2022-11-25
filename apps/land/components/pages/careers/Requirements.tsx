@@ -1,6 +1,10 @@
-import React from "react";
+import React, { Dispatch } from "react";
 
-const Requirements = () => {
+const Requirements = ({
+  setModalOpen,
+}: {
+  setModalOpen: Dispatch<boolean>;
+}) => {
   return (
     <div className="mx-6 mb-4">
       <h3 className="text-jet text-2xl font-bold underline">
@@ -49,7 +53,10 @@ const Requirements = () => {
           equivalent
         </li>
       </ul>
-      <button className="bg-blue-ryb mt-8 rounded-full py-3 px-8 text-white">
+      <button
+        className="bg-blue-ryb mt-8 rounded-full py-3 px-8 text-white"
+        onClick={() => setModalOpen(true)}
+      >
         Apply for this Position Now
       </button>
     </div>

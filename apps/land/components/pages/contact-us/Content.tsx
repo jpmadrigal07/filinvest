@@ -84,16 +84,16 @@ const Content = () => {
               <div className="relative mt-4 flex items-start">
                 <div className="flex h-5 items-center">
                   <input
-                    id="candidates"
-                    aria-describedby="candidates-description"
+                    id="privacy"
+                    aria-describedby="privacy"
                     name="candidates"
                     type="checkbox"
-                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                    className="text-dark-cornflower-blue focus:ring-none h-4 w-4 rounded border-gray-300"
                   />
                 </div>
                 <div className="ml-3 text-sm">
                   <label
-                    htmlFor="candidates"
+                    htmlFor="privacy"
                     className="font-medium text-gray-700"
                   >
                     I understand and agree to the{" "}
