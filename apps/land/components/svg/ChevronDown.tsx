@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChevronDown = () => {
+const ChevronDown = ({ color = "white" }: { color?: string }) => {
   return (
     <svg
       width="13"
@@ -11,7 +11,7 @@ const ChevronDown = () => {
     >
       <path
         d="M1 1L6.42331 7M6.57618 6.99977L12 1.00016"
-        stroke="white"
+        stroke={color}
         strokeWidth="2"
         strokeLinecap="round"
       />

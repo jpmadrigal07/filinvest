@@ -27,6 +27,7 @@ module.exports = {
         "ghost-white": "#F5F8FE",
         "flickr-blue": "#115BEF",
         "alice-blue": "#E1E6EF",
+        cultured: "#f6f6f6",
       },
     },
   },
