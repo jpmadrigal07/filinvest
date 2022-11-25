@@ -22,7 +22,7 @@ const MainHeader = ({
           {title && (
             <div className="absolute w-full">
               <div
-                className={`flex flex-col items-center justify-center py-48`}
+                className={`flex flex-col items-center justify-center py-40 2xl:py-48`}
               >
                 <h1 className="mb-4 text-6xl font-extrabold text-white">
                   {title}
@@ -46,7 +46,9 @@ const MainHeader = ({
       ) : (
         <section className="z-0">
           <div className="absolute w-full">
-            <div className={`flex flex-col items-center justify-center py-60`}>
+            <div
+              className={`flex flex-col items-center justify-center py-44 2xl:py-60`}
+            >
               <h1 className="mb-4 text-6xl font-extrabold text-white">
                 {title}
               </h1>
