@@ -1,8 +1,8 @@
 export const BUYERS = { url: "/buyers", name: "Buyers", directory: ["Buyers"] };
 const CALCULATOR = {
-  url: `${BUYERS.url}/calculator`,
-  name: "Calculator",
-  directory: [...BUYERS.directory, "Calculator"],
+  url: `${BUYERS.url}/home-loan-calculator`,
+  name: "Home Loan Calculator",
+  directory: [...BUYERS.directory, "Home Loan Calculator"],
 };
 const ONLINE_APPOINTMENT = {
   url: `${BUYERS.url}/online-appointment`,
