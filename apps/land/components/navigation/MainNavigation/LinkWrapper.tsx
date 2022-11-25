@@ -55,7 +55,7 @@ const LinkWrapper = ({
       {!isLink && !link && subMenus && (
         <>
           <Popover className="relative">
-            {() => (
+            {({ close }) => (
               <>
                 <Popover.Button
                   className={combineClass(
@@ -88,6 +88,7 @@ const LinkWrapper = ({
                           <Link
                             href={item.link}
                             key={index}
+                            onClick={() => close()}
                             className="hover:bg-oxford-blue flex items-start transition duration-150 ease-in-out"
                           >
                             {/* <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" /> */}
