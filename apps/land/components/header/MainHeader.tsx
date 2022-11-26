@@ -8,12 +8,14 @@ const MainHeader = ({
   tabs,
   bgUrl = "blue-header-bg.png",
   isBlueHeader = false,
+  isTitleSmall = false,
 }: {
   bgUrl?: string;
   title?: string;
   breadcrumbs?: string | ReactNode;
   tabs?: ReactNode;
   isBlueHeader?: boolean;
+  isTitleSmall?: boolean;
 }) => {
   return (
     <>
@@ -22,9 +24,13 @@ const MainHeader = ({
           {title && (
             <div className="absolute w-full">
               <div
-                className={`flex flex-col items-center justify-center py-40 2xl:py-48`}
+                className={`flex flex-col items-center justify-center py-40 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:py-48`}
               >
-                <h1 className="mb-4 text-6xl font-extrabold text-white">
+                <h1
+                  className={`mb-4 ${
+                    isTitleSmall ? "text-4xl" : "text-6xl"
+                  } text-center font-extrabold text-white`}
+                >
                   {title}
                 </h1>
                 {breadcrumbs && (
