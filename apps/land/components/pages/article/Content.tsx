@@ -7,7 +7,7 @@ import React from "react";
 
 const Content = () => {
   return (
-    <section className="-mt-36 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72">
+    <section className="-mt-48 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72">
       <div className="flex flex-col items-center gap-6">
         <Image
           src={`/article.png`}
