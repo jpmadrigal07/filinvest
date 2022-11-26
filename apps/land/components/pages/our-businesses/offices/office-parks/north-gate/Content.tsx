@@ -7,7 +7,7 @@ import Flag from "@/components/svg/Flag";
 
 const Content = () => {
   return (
-    <section className="-mt-32 mb-16 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-60">
+    <section className="-mt-72 mb-16 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-[26rem]">
       <div className="relative flex justify-center">
         <Image
           src="/northgate-office.png"

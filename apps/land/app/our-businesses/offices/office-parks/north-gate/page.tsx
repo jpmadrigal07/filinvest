@@ -4,7 +4,7 @@ import Content from "@/components/pages/our-businesses/offices/office-parks/nort
 const OfficeParksPage = () => {
   return (
     <>
-      <MainHeader isBlueHeader />
+      <MainHeader isBlueHeader bgUrl="blue-header-bg-2.png" />
       <Content />
     </>
   );
