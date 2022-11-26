@@ -1,6 +1,6 @@
 import React from "react";
 
-const Diamond = () => {
+const Diamond = ({ color = "#0550E3" }: { color?: string }) => {
   return (
     <svg
       width="15"
@@ -11,11 +11,11 @@ const Diamond = () => {
     >
       <path
         d="M6.99998 0.0149936L13.0765 6.71366L0.952196 6.73963L6.99998 0.0149936Z"
-        fill="#0550E3"
+        fill={color}
       />
       <path
         d="M7.13867 13.057L0.972587 6.44063L13.0955 6.2516L7.13867 13.057Z"
-        fill="#0550E3"
+        fill={color}
       />
     </svg>
   );

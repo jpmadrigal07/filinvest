@@ -1,6 +1,6 @@
 import React from "react";
 
-const MapPin = () => {
+const MapPin = ({ color = "#163e82" }: { color?: string }) => {
   return (
     <svg
       id="location_on_black_24dp"
@@ -20,7 +20,7 @@ const MapPin = () => {
         data-name="Path 43"
         d="M13.16,2A8.154,8.154,0,0,0,5,10.16c0,6.12,8.16,15.154,8.16,15.154s8.16-9.034,8.16-15.154A8.154,8.154,0,0,0,13.16,2Zm0,11.074a2.914,2.914,0,1,1,2.914-2.914A2.915,2.915,0,0,1,13.16,13.074Z"
         transform="translate(0.828 0.331)"
-        fill="#163e82"
+        fill={color}
       />
     </svg>
   );

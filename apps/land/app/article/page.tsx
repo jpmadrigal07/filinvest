@@ -1,7 +1,7 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/article/Content";
 
-const AnnualReportsPage = () => {
+const ArticlePage = () => {
   return (
     <>
       <MainHeader
@@ -15,4 +15,4 @@ const AnnualReportsPage = () => {
   );
 };
 
-export default AnnualReportsPage;
+export default ArticlePage;
