@@ -1,11 +1,14 @@
+"use client";
 import PageNextPrevButton from "@/components/button/PageNextPrevButton";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Facebook from "@/components/svg/Facebook";
 import Twitter from "@/components/svg/Twitter";
 import LinkedIn from "@/components/svg/LinkedIn";
+import BioInfo from "@/components/drawer/BioInfo";
 
 const Content = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="bg-white p-32">
@@ -31,12 +34,16 @@ const Content = () => {
             />
             <div className="absolute -bottom-6 z-20 w-full">
               <div className="flex h-full justify-center">
-                <Image
-                  src={`/button-person.png`}
-                  width={47}
-                  height={47}
-                  alt="Picture of the author"
-                />
+                <button type="button" onClick={() => setSidebarOpen(true)}>
+                  {" "}
+                  <Image
+                    src={`/button-person.png`}
+                    width={47}
+                    height={47}
+                    alt="Picture of the author"
+                    className="hover:cursor-pointer"
+                  />
+                </button>
               </div>
             </div>
             <div className="absolute bottom-0 z-10 h-1/2 w-full bg-gradient-to-t from-black group-hover:hidden">
@@ -249,6 +256,7 @@ const Content = () => {
           />
         </div>
       </div>
+      <BioInfo setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
     </section>
   );
 };
