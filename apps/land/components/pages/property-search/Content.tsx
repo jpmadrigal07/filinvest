@@ -1,6 +1,7 @@
 import ChevronDown from "@/components/svg/ChevronDown";
 import Diamond from "@/components/svg/Diamond";
 import MapPin from "@/components/svg/MapPin";
+import Search from "@/components/svg/Search";
 import Image from "next/image";
 import React from "react";
 import RangeSlider from "../home/RangeSlider";
@@ -48,6 +49,13 @@ const Content = () => {
           <h4 className="mt-1 text-sm text-white">
             Php 1,000,000 - Php 50,000,000
           </h4>
+        </div>
+        <div className="flex-none">
+          <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-5 px-8 transition">
+            <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
+              <Search /> Search
+            </div>
+          </button>
         </div>
       </div>
       <div className="mt-16 lg:mx-9 xl:mx-16 2xl:mx-44">
