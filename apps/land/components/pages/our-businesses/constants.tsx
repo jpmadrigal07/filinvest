@@ -2,7 +2,7 @@ import Breadcrumbs from "@/components/header/Breadcrumbs";
 import ROUTES from "@/helpers/routes";
 
 const { OUR_BUSINESSES } = ROUTES;
-const { RESIDENTIAL } = OUR_BUSINESSES;
+const { RESIDENTIAL, CORPORATE_CENTERS } = OUR_BUSINESSES;
 
 const BREADCRUMBS = [
   {
@@ -20,5 +20,14 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: RESIDENTIAL.name }]} />
     ),
     image: headerImage,
+  },
+  corporateCenters: {
+    title: CORPORATE_CENTERS.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[...BREADCRUMBS, { title: CORPORATE_CENTERS.name }]}
+      />
+    ),
+    image: "company-background-2.png",
   },
 };

@@ -1,6 +1,9 @@
 import React from "react";
 
-const MapPin = ({ color = "#163e82" }: { color?: string }) => {
+const MapPin = ({
+  color = "#163e82",
+  ...props
+}: { color?: string } & React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       id="location_on_black_24dp"
@@ -8,6 +11,7 @@ const MapPin = ({ color = "#163e82" }: { color?: string }) => {
       width="27.977"
       height="27.977"
       viewBox="0 0 27.977 27.977"
+      {...props}
     >
       <path
         id="Path_42"

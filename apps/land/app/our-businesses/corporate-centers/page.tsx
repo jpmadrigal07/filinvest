@@ -1,9 +1,9 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
-import Content from "@/components/pages/our-businesses/residential/Content";
+import Content from "@/components/pages/our-businesses/corporate-centers/Content";
 
-const ResidentialPage = () => {
-  const { title, breadcrumbs, image } = HEADER_INFO.residential;
+const CorporateCentersPage = () => {
+  const { title, breadcrumbs, image } = HEADER_INFO.corporateCenters;
   return (
     <>
       <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
@@ -12,4 +12,4 @@ const ResidentialPage = () => {
   );
 };
 
-export default ResidentialPage;
+export default CorporateCentersPage;

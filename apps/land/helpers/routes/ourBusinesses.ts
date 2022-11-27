@@ -8,6 +8,11 @@ const RESIDENTIAL = {
   name: "Residential",
   directory: [...OUR_BUSINESSES.directory, "Residential"],
 };
+const CORPORATE_CENTERS = {
+  url: `${OUR_BUSINESSES.url}/corporate-centers`,
+  name: "Corporate Centers",
+  directory: [...OUR_BUSINESSES.directory, "Corporate Centers"],
+};
 
 const OFFICES = {
   url: `${OUR_BUSINESSES.url}/offices`,
@@ -47,6 +52,7 @@ const MIXEDUSE_ESTATES = {
 const OUR_BUSINESSES_ROUTES = {
   ...OUR_BUSINESSES,
   RESIDENTIAL,
+  CORPORATE_CENTERS,
   OFFICES: COMBINED_OFFICES,
   MALLS,
   INDUSTRIAL,
@@ -55,6 +61,7 @@ const OUR_BUSINESSES_ROUTES = {
 };
 export const OUR_BUSINESSES_SUB_ROUTES = [
   RESIDENTIAL,
+  CORPORATE_CENTERS,
   COMBINED_OFFICES,
   MALLS,
   INDUSTRIAL,
