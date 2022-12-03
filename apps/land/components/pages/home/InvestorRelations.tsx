@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
-import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
+// import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
+// import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
 import BorderButton from "@/components/button/BorderButton";
 
 const InvestorRelations = () => {
   return (
-    <section className="mx-3 flex gap-16 pt-44 lg:mx-9 xl:mx-16 2xl:mx-44">
-      <div className="w-1/4 flex-none">
+    <section className="mx-6 flex flex-col gap-16 pt-44 lg:mx-9 lg:flex-row xl:mx-16 2xl:mx-44">
+      <div className="flex-1 lg:w-1/4">
         <h4 className="text-dark-cornflower-blue font-bold">
           INVESTOR RELATIONS
         </h4>
@@ -27,8 +27,8 @@ const InvestorRelations = () => {
           />
         </button>
       </div>
-      <div className="flex flex-col gap-20">
-        <div className="flex flex-1 gap-9">
+      <div className="flex flex-col gap-12 xl:gap-20">
+        <div className="flex flex-1 flex-col gap-9 xl:flex-row">
           <div className="flex min-w-[450px] items-center gap-9">
             <div className="flex-none">
               <Image
@@ -76,7 +76,7 @@ const InvestorRelations = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-1 gap-9">
+        <div className="flex flex-1 flex-col gap-9 xl:flex-row">
           <div className="flex min-w-[450px] items-center gap-9">
             <div className="flex-none">
               <Image
@@ -117,10 +117,10 @@ const InvestorRelations = () => {
             </div>
           </div>
         </div>
-        <div className="mt-16 ml-16 flex gap-6">
+        {/* <div className="mt-16 ml-16 flex gap-6">
           <ChevronCircleLeft />
           <ChevronCircleRight />
-        </div>
+        </div> */}
       </div>
     </section>
   );
