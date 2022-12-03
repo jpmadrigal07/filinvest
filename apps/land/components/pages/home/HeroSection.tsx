@@ -12,7 +12,7 @@ const HeroSection = () => {
   return (
     <>
       <section className="flex h-screen w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat">
-        <div className="mx-auto mt-72 w-3/4 text-center lg:mt-64 2xl:w-2/4">
+        <div className="xs:mt-72 mx-auto mt-40 w-3/4 text-center lg:mt-64 2xl:w-2/4">
           <h1 className="mb-4 text-6xl font-extrabold text-white md:text-8xl">
             Dreams Built Green
           </h1>
