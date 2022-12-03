@@ -2,6 +2,11 @@
 import Image from "next/image";
 import React from "react";
 import BorderButton from "../../button/BorderButton";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Projects = () => {
   return (
@@ -16,42 +21,170 @@ const Projects = () => {
         Filinvest Land properties are some of the most sought after in the
         Philippines.
       </h4>
-      <div className="relative mt-28">
-        <div className="absolute flex w-1/4 flex-col items-center gap-12 bg-white px-12 pt-4 pb-12">
-          <div>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <div className="relative mt-28">
+            <div className="absolute flex w-1/4 flex-col items-center gap-12 bg-white px-12 pt-4 pb-12">
+              <div>
+                <Image
+                  src="/activa-logo.png"
+                  width={228}
+                  height={50}
+                  alt="Picture of the author"
+                />
+              </div>
+              <div>
+                <h2 className="text-jet mb-2 text-center text-3xl font-bold">
+                  Activa Cubao
+                </h2>
+                <h4 className="text-dim-gray text-center font-bold">
+                  Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
+                  volutpat diam. Euismod nisi porta.
+                </h4>
+              </div>
+              <div>
+                <button type="button">
+                  <BorderButton
+                    buttonText="Learn More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </button>
+              </div>
+            </div>
             <Image
-              src="/activa-logo.png"
-              width={228}
-              height={50}
+              src="/projects-activa.png"
+              width={2840}
+              height={560}
               alt="Picture of the author"
             />
           </div>
-          <div>
-            <h2 className="text-jet mb-2 text-center text-3xl font-bold">
-              Activa Cubao
-            </h2>
-            <h4 className="text-dim-gray text-center font-bold">
-              Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
-              volutpat diam. Euismod nisi porta.
-            </h4>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative mt-28">
+            <div className="absolute flex w-1/4 flex-col items-center gap-12 bg-white px-12 pt-4 pb-12">
+              <div>
+                <Image
+                  src="/activa-logo.png"
+                  width={228}
+                  height={50}
+                  alt="Picture of the author"
+                />
+              </div>
+              <div>
+                <h2 className="text-jet mb-2 text-center text-3xl font-bold">
+                  Activa Cubao
+                </h2>
+                <h4 className="text-dim-gray text-center font-bold">
+                  Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
+                  volutpat diam. Euismod nisi porta.
+                </h4>
+              </div>
+              <div>
+                <button type="button">
+                  <BorderButton
+                    buttonText="Learn More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </button>
+              </div>
+            </div>
+            <Image
+              src="/projects-activa.png"
+              width={2840}
+              height={560}
+              alt="Picture of the author"
+            />
           </div>
-          <div>
-            <button type="button">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
-            </button>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative mt-28">
+            <div className="absolute flex w-1/4 flex-col items-center gap-12 bg-white px-12 pt-4 pb-12">
+              <div>
+                <Image
+                  src="/activa-logo.png"
+                  width={228}
+                  height={50}
+                  alt="Picture of the author"
+                />
+              </div>
+              <div>
+                <h2 className="text-jet mb-2 text-center text-3xl font-bold">
+                  Activa Cubao
+                </h2>
+                <h4 className="text-dim-gray text-center font-bold">
+                  Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
+                  volutpat diam. Euismod nisi porta.
+                </h4>
+              </div>
+              <div>
+                <button type="button">
+                  <BorderButton
+                    buttonText="Learn More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </button>
+              </div>
+            </div>
+            <Image
+              src="/projects-activa.png"
+              width={2840}
+              height={560}
+              alt="Picture of the author"
+            />
           </div>
-        </div>
-        <Image
-          src="/projects-activa.png"
-          width={2840}
-          height={560}
-          alt="Picture of the author"
-        />
-      </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative mt-28">
+            <div className="absolute flex w-1/4 flex-col items-center gap-12 bg-white px-12 pt-4 pb-12">
+              <div>
+                <Image
+                  src="/activa-logo.png"
+                  width={228}
+                  height={50}
+                  alt="Picture of the author"
+                />
+              </div>
+              <div>
+                <h2 className="text-jet mb-2 text-center text-3xl font-bold">
+                  Activa Cubao
+                </h2>
+                <h4 className="text-dim-gray text-center font-bold">
+                  Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
+                  volutpat diam. Euismod nisi porta.
+                </h4>
+              </div>
+              <div>
+                <button type="button">
+                  <BorderButton
+                    buttonText="Learn More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </button>
+              </div>
+            </div>
+            <Image
+              src="/projects-activa.png"
+              width={2840}
+              height={560}
+              alt="Picture of the author"
+            />
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </section>
   );
 };
