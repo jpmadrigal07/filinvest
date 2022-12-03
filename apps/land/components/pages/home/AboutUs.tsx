@@ -5,7 +5,7 @@ import BorderButton from "../../button/BorderButton";
 
 const AboutUs = () => {
   return (
-    <section className="justfify-center mx-3 flex items-center gap-24 pt-44 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="justfify-center mx-6 flex flex-col items-center gap-12 pt-36 lg:mx-9 lg:flex-row lg:gap-24 xl:mx-16 xl:pt-44 2xl:mx-44">
       <div className="flex-1">
         <Image
           src="/family-about-us.png"
@@ -14,7 +14,7 @@ const AboutUs = () => {
           alt="Picture of the author"
         />
       </div>
-      <div className="w-1/3 flex-none">
+      <div className="flex-none lg:w-1/3">
         <h4 className="text-dark-cornflower-blue font-bold">ABOUT US</h4>
         <h2 className="text-jet mt-2 text-4xl font-extrabold">
           We Build the

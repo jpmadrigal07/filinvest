@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment } from "react";
+import React, { Dispatch, Fragment, ReactNode } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
 import { combineClass } from "@/helpers/combineClass";
@@ -12,7 +12,7 @@ type T_Sub_Menus = {
   link: string;
 };
 
-type T_Props = {
+interface I_Props {
   text: string;
   isLink?: boolean;
   link?: string;
@@ -21,7 +21,8 @@ type T_Props = {
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   menuIndex: number;
-};
+  fullComponent?: ReactNode;
+}
 
 const LinkWrapper = ({
   text,
@@ -32,7 +33,8 @@ const LinkWrapper = ({
   currentMenuIndex,
   setFlyoutMenu,
   menuIndex,
-}: T_Props) => {
+  fullComponent,
+}: I_Props) => {
   const setMenuType = (type: T_Flyout_Menu) => {
     setFlyoutMenu(type);
   };
@@ -52,7 +54,7 @@ const LinkWrapper = ({
           </Link>
         </>
       )}
-      {!isLink && !link && subMenus && (
+      {!isLink && !link && !fullComponent && subMenus && (
         <>
           <Popover className="relative">
             {({ close }) => (
@@ -111,7 +113,7 @@ const LinkWrapper = ({
           </Popover>
         </>
       )}
-      {!isLink && !link && !subMenus && (
+      {!isLink && !link && fullComponent && (
         <>
           <span
             className="flex cursor-pointer items-center gap-2 hover:underline"

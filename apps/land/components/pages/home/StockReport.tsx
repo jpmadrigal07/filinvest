@@ -6,9 +6,9 @@ import RedDownTriangle from "@/components/svg/RedDownTriangle";
 
 const StockReport = () => {
   return (
-    <section className="flex pt-24">
-      <div className="bg-oxford-blue flex-1 py-20 px-9">
-        <div className="mx-auto w-1/2">
+    <section className="flex flex-col pt-24 lg:flex-row">
+      <div className="bg-oxford-blue flex-1 py-20 px-6 lg:px-9">
+        <div className="mx-auto lg:w-1/2">
           <h2 className="text-3xl font-bold text-white">Stock Information</h2>
           <div className="flex flex-col py-6 px-12">
             <h3 className="ml-7 text-2xl text-white">FLI</h3>
@@ -62,11 +62,11 @@ const StockReport = () => {
           </div>
         </div>
       </div>
-      <div className="bg-vivid-sky-blue flex-1 py-20 px-16">
+      <div className="bg-vivid-sky-blue flex-1 py-20 px-6 lg:px-16">
         <h2 className="text-3xl font-bold text-white">Annual Report</h2>
         <div className="mt-24 flex gap-14">
-          <div className="flex items-center gap-12">
-            <div className="w-1/3 flex-none">
+          <div className="flex flex-col gap-12 md:flex-row md:items-center">
+            <div className="flex-none md:w-1/3">
               <Image
                 src="/fli-stock-reports.png"
                 width={487}

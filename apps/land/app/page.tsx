@@ -10,17 +10,17 @@ import StockReport from "@/components/pages/home/StockReport";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <HeroSection />
       <Projects />
       <LookingForProperty />
       <OurBusinesses />
       <OurServices />
       <AboutUs />
-      <NewsStories className="pt-44" />
+      <NewsStories className="pt-36 xl:pt-44" />
       <InvestorRelations />
       <StockReport />
-    </>
+    </div>
   );
 };
 

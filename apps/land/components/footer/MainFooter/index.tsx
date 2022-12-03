@@ -35,7 +35,7 @@ const MainFooter = () => {
   } = ROUTES;
   return (
     <footer>
-      <div className="bg-royal-dark-blue flex flex-col gap-9 px-4 py-6 lg:flex-row lg:gap-36 lg:px-16 lg:py-24">
+      <div className="bg-royal-dark-blue flex flex-col gap-9 px-6 py-12 lg:flex-row lg:gap-36 lg:px-16 lg:py-24">
         <div className="flex flex-1 flex-col gap-14">
           <Link href={HOME.url}>
             <MainLogo />
@@ -155,7 +155,7 @@ const MainFooter = () => {
               </Link>
             </li>
             <li className="flex gap-3">
-              <div className="flex-1">
+              <div className="flex-none xl:flex-1">
                 <MapLine />
               </div>
               {OFFICE_ADDRESS}
@@ -163,7 +163,7 @@ const MainFooter = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-oxford-blue flex flex-col gap-9 px-4 py-6 lg:flex-row lg:items-center lg:px-16 lg:py-8">
+      <div className="bg-oxford-blue flex flex-col gap-9 px-6 py-12 lg:flex-row lg:items-center lg:px-16 lg:py-8">
         <div className="flex-1">
           <h3 className="text-white">{`© Copyright ${new Date().getFullYear()}. Filinvest Land Inc. All Rights Reserved.`}</h3>
         </div>
