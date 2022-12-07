@@ -75,7 +75,9 @@ const MainHeader = ({
                 {title}
               </h1>
               {breadcrumbs && (
-                <h5 className="text-xs text-white lg:text-sm">{breadcrumbs}</h5>
+                <h5 className="text-center text-xs text-white lg:text-sm">
+                  {breadcrumbs}
+                </h5>
               )}
               {tabs}
             </div>

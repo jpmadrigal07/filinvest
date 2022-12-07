@@ -11,6 +11,7 @@ const BREADCRUMBS = [
 ];
 
 const headerImage = "pusong-filinvest.png";
+const headerImageSmall = "pusong-filinvest-small.png";
 const customTitle = "#Pusongfilinvest";
 
 export const HEADER_INFO = {
@@ -19,6 +20,7 @@ export const HEADER_INFO = {
     breadcrumbs: (
       <Breadcrumbs items={[...BREADCRUMBS, { title: PUSONG_FILINVEST.name }]} />
     ),
+    imageSmall: headerImageSmall,
     image: headerImage,
   },
 };

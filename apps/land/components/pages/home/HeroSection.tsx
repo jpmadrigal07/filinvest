@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import MainLogo from "@/components/svg/MainLogo";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import "swiper/css";
