@@ -28,7 +28,7 @@ const Development = () => {
           transform="translate(1049 1598)"
           fill="none"
           stroke="#fff"
-          stroke-width="1"
+          strokeWidth="1"
         >
           <circle cx="52" cy="52" r="52" stroke="none" />
           <circle cx="52" cy="52" r="51.5" fill="none" />

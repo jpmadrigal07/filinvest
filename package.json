@@ -27,8 +27,6 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {
-    "swiper": "^8.4.5"
-  },
+  "dependencies": {},
   "packageManager": "yarn@1.22.18"
 }

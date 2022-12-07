@@ -10,7 +10,7 @@ import StockReport from "@/components/pages/home/StockReport";
 
 const HomePage = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div>
       <HeroSection />
       <Projects />
       <LookingForProperty />

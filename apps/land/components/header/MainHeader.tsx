@@ -7,10 +7,12 @@ const MainHeader = ({
   breadcrumbs,
   tabs,
   bgUrl = "blue-header-bg.png",
+  bgUrlSmall = "blue-header-bg-small.png",
   isBlueHeader = false,
   isTitleSmall = false,
 }: {
   bgUrl?: string;
+  bgUrlSmall?: string;
   title?: string;
   breadcrumbs?: string | ReactNode;
   tabs?: ReactNode;
@@ -40,11 +42,19 @@ const MainHeader = ({
               </div>
             </div>
           )}
-          <div className="z-0">
+          <div className="z-0 hidden md:block">
             <Image
               src={`/${bgUrl}`}
               width={3844}
               height={1312}
+              alt="Picture of the author"
+            />
+          </div>
+          <div className="z-0 block md:hidden">
+            <Image
+              src={`/${bgUrlSmall}`}
+              width={1036}
+              height={806}
               alt="Picture of the author"
             />
           </div>
@@ -53,22 +63,30 @@ const MainHeader = ({
         <section className="z-0">
           <div className="absolute w-full">
             <div
-              className={`flex flex-col items-center justify-center py-44 2xl:py-60`}
+              className={`flex flex-col items-center justify-center py-28 md:py-24 lg:py-44 2xl:py-60`}
             >
-              <h1 className="mb-4 text-6xl font-extrabold text-white">
+              <h1 className="mb-2 text-2xl font-extrabold text-white lg:mb-4 lg:text-6xl">
                 {title}
               </h1>
               {breadcrumbs && (
-                <h5 className="text-sm text-white">{breadcrumbs}</h5>
+                <h5 className="text-xs text-white lg:text-sm">{breadcrumbs}</h5>
               )}
               {tabs}
             </div>
           </div>
-          <div className="z-0">
+          <div className="z-0 hidden md:block">
             <Image
               src={`/${bgUrl}`}
               width={3844}
               height={1312}
+              alt="Picture of the author"
+            />
+          </div>
+          <div className="z-0 block md:hidden">
+            <Image
+              src={`/${bgUrlSmall}`}
+              width={1036}
+              height={806}
               alt="Picture of the author"
             />
           </div>

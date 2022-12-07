@@ -24,6 +24,7 @@ const BREADCRUMBS = [
 ];
 
 const headerImage = "company-background-2.png";
+const headerImageSmall = "company-background-2-small.png";
 const customTitle = "We Build The Filipino Dream";
 
 export const HEADER_INFO = {
@@ -35,6 +36,7 @@ export const HEADER_INFO = {
       />
     ),
     image: headerImage,
+    imageSmall: headerImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
   missionVision: {
@@ -43,6 +45,7 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: MISSION_VISION.name }]} />
     ),
     image: headerImage,
+    imageSmall: headerImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
 };
