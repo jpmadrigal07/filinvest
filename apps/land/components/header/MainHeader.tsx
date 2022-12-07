@@ -63,9 +63,15 @@ const MainHeader = ({
         <section className="z-0">
           <div className="absolute w-full">
             <div
-              className={`flex flex-col items-center justify-center py-28 md:py-24 lg:py-44 2xl:py-60`}
+              className={`flex flex-col items-center justify-center ${
+                tabs ? "py-28" : "py-32"
+              }  md:py-24 lg:py-44 2xl:py-60`}
             >
-              <h1 className="mb-2 text-2xl font-extrabold text-white lg:mb-4 lg:text-6xl">
+              <h1
+                className={`mb-2 ${
+                  tabs ? "text-2xl" : "text-3xl"
+                } font-extrabold text-white lg:mb-4 lg:text-6xl`}
+              >
                 {title}
               </h1>
               {breadcrumbs && (

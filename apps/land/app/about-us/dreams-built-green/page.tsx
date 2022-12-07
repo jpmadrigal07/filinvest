@@ -8,6 +8,7 @@ const DreamsBuiltGreen = () => {
         title="Dreams Built Green"
         breadcrumbs="About Us / Dreams Built Green"
         bgUrl="dreams-built-green.png"
+        bgUrlSmall="dreams-built-green-small.png"
       />
       <Content />
     </>

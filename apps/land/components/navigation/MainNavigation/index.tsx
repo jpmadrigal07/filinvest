@@ -80,7 +80,7 @@ const MainNavigation = () => {
         )}
       </div>
       <Popover className="relative z-40 lg:hidden">
-        {({ open }) => (
+        {({ open, close }) => (
           <>
             <div
               className={`relative z-50  ${
@@ -89,7 +89,9 @@ const MainNavigation = () => {
             >
               <div className="flex items-center gap-14 py-5 pl-6 pr-4 md:pl-4 md:pr-4">
                 <div className="flex-1">
-                  <MainLogo />
+                  <Link href={ROUTES.HOME.url}>
+                    <MainLogo />
+                  </Link>
                 </div>
                 <Popover.Button className="focus:bg-oxford-blue delay-50 focus:ring-none flex-none p-3 transition focus:outline-none">
                   <HamburgerMenu />
@@ -118,6 +120,7 @@ const MainNavigation = () => {
                                 key={subMenuIndex}
                                 href={subMenu.link}
                                 className="pt-4"
+                                onClick={() => close()}
                               >
                                 <div className="mb-2 text-lg text-white">
                                   {subMenu.title}
