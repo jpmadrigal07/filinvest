@@ -34,7 +34,12 @@ const HeroSection = () => {
             alt="Picture of the author"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
-            <MainLogo />
+            <Image
+              src="/prestige.png"
+              width={211}
+              height={67}
+              alt="Picture of the author"
+            />
           </div>
         </div>
         <div className="relative">
@@ -45,7 +50,12 @@ const HeroSection = () => {
             alt="Picture of the author"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
-            <MainLogo />
+            <Image
+              src="/aspire.png"
+              width={190}
+              height={68}
+              alt="Picture of the author"
+            />
           </div>
         </div>
         <div className="relative">
@@ -56,7 +66,12 @@ const HeroSection = () => {
             alt="Picture of the author"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
-            <MainLogo />
+            <Image
+              src="/futura.png"
+              width={198}
+              height={67}
+              alt="Picture of the author"
+            />
           </div>
         </div>
       </div>
@@ -83,7 +98,12 @@ const HeroSection = () => {
                 alt="Picture of the author"
               />
               <div className="absolute -mt-24 flex w-full items-center justify-center">
-                <MainLogo />
+                <Image
+                  src="/prestige.png"
+                  width={211}
+                  height={67}
+                  alt="Picture of the author"
+                />
               </div>
             </div>
           </SwiperSlide>
@@ -96,7 +116,12 @@ const HeroSection = () => {
                 alt="Picture of the author"
               />
               <div className="absolute -mt-24 flex w-full items-center justify-center">
-                <MainLogo />
+                <Image
+                  src="/aspire.png"
+                  width={190}
+                  height={68}
+                  alt="Picture of the author"
+                />
               </div>
             </div>
           </SwiperSlide>
@@ -109,7 +134,12 @@ const HeroSection = () => {
                 alt="Picture of the author"
               />
               <div className="absolute -mt-24 flex w-full items-center justify-center">
-                <MainLogo />
+                <Image
+                  src="/futura.png"
+                  width={198}
+                  height={67}
+                  alt="Picture of the author"
+                />
               </div>
             </div>
           </SwiperSlide>
