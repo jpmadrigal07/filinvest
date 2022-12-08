@@ -34,6 +34,7 @@ const BREADCRUMBS = [
 ];
 
 const headerImage = "structures.png";
+const headerImageSmall = "structures-small.png";
 
 export const HEADER_INFO = {
   organizationalChart: {
@@ -43,6 +44,7 @@ export const HEADER_INFO = {
         items={[...BREADCRUMBS, { title: ORGANIZATIONAL_CHART.name }]}
       />
     ),
+    imageSmall: headerImageSmall,
     image: headerImage,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
@@ -53,6 +55,7 @@ export const HEADER_INFO = {
         items={[...BREADCRUMBS, { title: CONGLOMERATE_CHART.name }]}
       />
     ),
+    imageSmall: headerImageSmall,
     image: headerImage,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
@@ -63,6 +66,7 @@ export const HEADER_INFO = {
         items={[...BREADCRUMBS, { title: SHAREHOLDING_STRUCTURE.name }]}
       />
     ),
+    imageSmall: headerImageSmall,
     image: headerImage,
     tabs: <Tabs items={TAB_ITEMS} />,
   },

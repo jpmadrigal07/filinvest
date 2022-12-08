@@ -8,6 +8,7 @@ const Subsidiaries = () => {
         title="Subsidiaries"
         breadcrumbs="About Us / Subsidiaries"
         bgUrl="subsidiaries.png"
+        bgUrlSmall="subsidiaries-small.png"
       />
       <Content />
     </>

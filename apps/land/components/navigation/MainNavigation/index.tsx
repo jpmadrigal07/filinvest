@@ -138,6 +138,7 @@ const MainNavigation = () => {
                         <Link
                           key={index}
                           href={item.link}
+                          onClick={() => close()}
                           className="hover:bg-oxford-blue focus:bg-oxford-blue flex w-full py-4 px-4 text-lg font-medium text-white"
                         >
                           {item.text}

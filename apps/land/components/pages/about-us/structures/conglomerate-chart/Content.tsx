@@ -5,10 +5,10 @@ import React from "react";
 const Content = () => {
   return (
     <section className="mb-24 mt-9 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
-      <h2 className="text-jet text-center text-4xl font-bold">
+      <h2 className="text-jet text-center text-3xl font-bold md:text-4xl">
         Conglomerate Chart
       </h2>
-      <div className="mt-12">
+      <div className="mx-auto mt-6 w-4/5 md:mt-12 lg:w-full">
         <Image
           src="/conglomerate-chart.png"
           width={3458}
@@ -16,7 +16,7 @@ const Content = () => {
           alt="Picture of the author"
         />
       </div>
-      <div className="mt-32 flex">
+      <div className="mx-6 mt-32 flex flex-col gap-12 md:flex-row md:gap-0 lg:mx-0">
         <div className="flex-none">
           <PageNextPrevButton
             imgName="investor-relations-program-next-prev.png"
@@ -24,7 +24,7 @@ const Content = () => {
             isLeft={true}
           />
         </div>
-        <div className="grow"></div>
+        <div className="hidden grow md:block"></div>
         <div className="flex-none">
           <PageNextPrevButton
             imgName="investor-relations-program-next-prev.png"

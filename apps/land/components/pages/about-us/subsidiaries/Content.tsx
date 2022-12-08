@@ -5,7 +5,7 @@ import BorderButton from "../../../button/BorderButton";
 const Content = () => {
   return (
     <section className="mt-16 mb-28 flex flex-col gap-6">
-      <div className="mx-3 grid grid-cols-3 gap-6 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mx-6 grid gap-6 md:grid-cols-2 lg:mx-9 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
         <div className="bg-ghost-white flex flex-col gap-10 px-7 pt-6 pb-12">
           <Image
             src="/residential-sales.png"

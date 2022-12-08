@@ -6,10 +6,10 @@ import Table from "./Table";
 const Content = () => {
   return (
     <section className="mb-24 mt-9 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
-      <h2 className="text-jet text-center text-4xl font-bold">
+      <h2 className="text-jet text-center text-3xl font-bold md:text-4xl">
         Shareholding Structure
       </h2>
-      <p className="text-dim-gray">
+      <p className="text-dim-gray mx-6 lg:mx-0">
         The names, addresses, citizenship, number of shares held, and percentage
         to total of persons owning more than five percent (5%) of the
         outstanding voting shares of the Company as of 28 February 2022 are as
@@ -51,7 +51,7 @@ const Content = () => {
           ],
         ]}
       />
-      <p className="text-dim-gray">
+      <p className="text-dim-gray mx-6 lg:mx-0">
         Except as stated above, the Board of Directors and Management of the
         Company have no knowledge of any person who, as of the date of the
         annual report, was directly or indirectly the beneficial owner of more
@@ -59,7 +59,7 @@ const Content = () => {
         voting power or investment power with respect to shares comprising more
         than five percent (5%) of the Company’s outstanding common stock.
       </p>
-      <p className="text-dim-gray">
+      <p className="text-dim-gray mx-6 lg:mx-0">
         As of 28 February 2022, 38,382,404 or 0.44% of the total outstanding
         voting shares of FDC is owned by foreigners.
       </p>
@@ -69,7 +69,7 @@ const Content = () => {
           <span>FDC Shareholding Structure </span>
         </button>
       </div>
-      <div className="mt-24 flex">
+      <div className="mx-6 mt-24 flex lg:mx-0">
         <div className="flex-none">
           <PageNextPrevButton
             imgName="investor-relations-program-next-prev.png"
