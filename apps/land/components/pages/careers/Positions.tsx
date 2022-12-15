@@ -23,6 +23,7 @@ const stringifiedQuery = qs.stringify(
   { addQueryPrefix: true }
 );
 
+// eslint-disable-next-line no-unused-vars
 const fetcher = (data: any) =>
   fetch(`http://localhost:9000/api/careers${stringifiedQuery}`).then((res) =>
     res.json()
