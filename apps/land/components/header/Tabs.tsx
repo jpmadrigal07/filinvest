@@ -20,7 +20,7 @@ const Tabs = ({ items }: { items: ItemProps[] }) => {
             href={item.link}
             className={`${
               item.link === pathname ? "border-b-2 border-white" : ""
-            } flex-shrink-0 pb-2 text-center text-sm text-white hover:border-b-2 hover:border-white lg:text-xl`}
+            } flex-shrink-0 pb-2 text-center text-sm text-white hover:border-b-2 hover:border-white lg:flex-shrink lg:text-xl`}
           >
             {item.title}
           </Link>

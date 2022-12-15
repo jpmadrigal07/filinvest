@@ -9,7 +9,7 @@ const OUR_COMPANY = {
   directory: [...INVESTOR_RELATIONS.directory, "Our Company"],
 };
 const OUR_LEADERSHIP = {
-  url: `${INVESTOR_RELATIONS.url}/our-leadership`,
+  url: `about-us/our-leadership/board-of-directors`,
   name: "Our Leadership",
   directory: [...INVESTOR_RELATIONS.directory, "Our Leadership"],
 };
@@ -106,7 +106,7 @@ const STOCK_INFORMATION = {
   directory: [...INVESTOR_RELATIONS.directory, "Stock Information"],
 };
 const FINANCIAL_HIGHLIGHTS = {
-  url: `${INVESTOR_RELATIONS.url}/financial-highlights`,
+  url: `financials/financial-highlights`,
   name: "Finance Highlights",
   directory: [...INVESTOR_RELATIONS.directory, "Finance Highlights"],
 };

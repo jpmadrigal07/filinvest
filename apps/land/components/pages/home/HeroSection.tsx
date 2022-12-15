@@ -7,20 +7,26 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const HeroSection = () => {
+const HeroSection = ({ homeContent }: any) => {
+  const content = homeContent;
   return (
     <>
       <section className="flex h-screen w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat">
         <div className="xs:mt-72 mx-auto mt-40 w-3/4 text-center lg:mt-64 2xl:w-2/4">
           <h1 className="mb-4 text-6xl font-extrabold text-white md:text-8xl">
-            Dreams Built Green
+            {content && content.content
+              ? content.content[0].children[0].text
+              : "..."}
           </h1>
           <h4 className="text-lg text-white">
-            With over 50 years of experience, Filinvest Land, Inc. (FLI) is one
+            {/* With over 50 years of experience, Filinvest Land, Inc. (FLI) is one
             of the leading full-range
             <br className="hidden md:block" />
             property developers in the Philippines with a diverse project
-            portfolio spanning the archipelago.
+            portfolio spanning the archipelago. */}
+            {content && content.content
+              ? content.content[1].children[0].text
+              : "..."}
           </h4>
         </div>
       </section>

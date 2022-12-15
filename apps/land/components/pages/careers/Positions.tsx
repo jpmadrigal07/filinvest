@@ -7,8 +7,29 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Accordion from "./Accordion";
 import Requirements from "./Requirements";
+import useSWR from "swr";
+import qs from "qs";
+
+const query = {
+  "site.title": {
+    equals: "Land",
+  },
+};
+
+const stringifiedQuery = qs.stringify(
+  {
+    where: query, // ensure that `qs` adds the `where` property, too!
+  },
+  { addQueryPrefix: true }
+);
+
+const fetcher = (data: any) =>
+  fetch(`http://localhost:9000/api/careers${stringifiedQuery}`).then((res) =>
+    res.json()
+  );
 
 const Positions = () => {
+  const careers: any = useSWR("test", fetcher);
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const tabs = [
     { name: "All", href: "#", current: true },
@@ -47,27 +68,15 @@ const Positions = () => {
       <div className="divide-alice-blue divide-y">
         <div className="mx-32 mt-9 2xl:mx-56">
           <div className="flex flex-col gap-5">
-            <Accordion title="Accounting Analyst" description="MANDALUYONG">
-              <Requirements setModalOpen={setIsFormModalOpen} />
-            </Accordion>
-            <Accordion title="Accounting Assistant" description="MANDALUYONG">
-              <Requirements setModalOpen={setIsFormModalOpen} />
-            </Accordion>
-            <Accordion title="Accounting Supervisor" description="MANDALUYONG">
-              <Requirements setModalOpen={setIsFormModalOpen} />
-            </Accordion>
-            <Accordion title="Accounting Analyst" description="MANDALUYONG">
-              <Requirements setModalOpen={setIsFormModalOpen} />
-            </Accordion>
-            <Accordion
-              title="Administrative Assistant"
-              description="MANDALUYONG"
-            >
-              <Requirements setModalOpen={setIsFormModalOpen} />
-            </Accordion>
-            <Accordion title="Broker Sales Manager" description="MANDALUYONG">
-              <Requirements setModalOpen={setIsFormModalOpen} />
-            </Accordion>
+            {careers &&
+              careers.data &&
+              careers.data.docs.map((doc: any) => {
+                return (
+                  <Accordion title={doc.title} description={doc.location}>
+                    <Requirements setModalOpen={setIsFormModalOpen} />
+                  </Accordion>
+                );
+              })}
             <div className="mb-9 flex justify-center gap-4">
               <div className="bg-dark-cornflower-blue px-3 py-[5px] text-white">
                 1
