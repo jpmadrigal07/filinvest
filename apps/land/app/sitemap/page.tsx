@@ -4,7 +4,7 @@ import Content from "@/components/pages/sitemap/Content";
 const SitemapPage = () => {
   return (
     <>
-      <MainHeader title="Sitemap" bgColor="flickr-blue" />
+      <MainHeader title="Sitemap" />
       <Content />
     </>
   );

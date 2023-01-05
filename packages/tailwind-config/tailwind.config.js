@@ -6,6 +6,14 @@ module.exports = {
     `../../packages/**/*.{js,ts,jsx,tsx}`,
   ],
   theme: {
+    screens: {
+      xs: "414px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
         "dark-cornflower-blue": "#163E82",
@@ -27,6 +35,8 @@ module.exports = {
         "ghost-white": "#F5F8FE",
         "flickr-blue": "#115BEF",
         "alice-blue": "#E1E6EF",
+        cultured: "#f6f6f6",
+        "permanent-geranium-lake": "#E02826",
       },
     },
   },

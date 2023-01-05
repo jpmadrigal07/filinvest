@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment } from "react";
+import React, { Dispatch, Fragment, ReactNode } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
 import { combineClass } from "@/helpers/combineClass";
@@ -12,7 +12,7 @@ type T_Sub_Menus = {
   link: string;
 };
 
-type T_Props = {
+interface I_Props {
   text: string;
   isLink?: boolean;
   link?: string;
@@ -21,7 +21,8 @@ type T_Props = {
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   menuIndex: number;
-};
+  fullComponent?: ReactNode;
+}
 
 const LinkWrapper = ({
   text,
@@ -32,7 +33,8 @@ const LinkWrapper = ({
   currentMenuIndex,
   setFlyoutMenu,
   menuIndex,
-}: T_Props) => {
+  fullComponent,
+}: I_Props) => {
   const setMenuType = (type: T_Flyout_Menu) => {
     setFlyoutMenu(type);
   };
@@ -52,10 +54,10 @@ const LinkWrapper = ({
           </Link>
         </>
       )}
-      {!isLink && !link && subMenus && (
+      {!isLink && !link && !fullComponent && subMenus && (
         <>
           <Popover className="relative">
-            {() => (
+            {({ close }) => (
               <>
                 <Popover.Button
                   className={combineClass(
@@ -81,21 +83,22 @@ const LinkWrapper = ({
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="absolute z-10 mt-3 w-screen max-w-sm transform px-2 sm:px-0">
+                  <Popover.Panel className="absolute z-10 mt-3">
                     <div className="overflow-hidden shadow-lg">
-                      <div className="bg-royal-dark-blue relative grid gap-6 px-3 py-3 sm:gap-8">
+                      <div className="bg-royal-dark-blue gap-6 sm:gap-8">
                         {subMenus.map((item, index) => (
                           <Link
                             href={item.link}
                             key={index}
-                            className="hover:bg-oxford-blue -m-3 flex items-start py-3 transition duration-150 ease-in-out"
+                            onClick={() => close()}
+                            className="hover:bg-oxford-blue flex items-start transition duration-150 ease-in-out"
                           >
                             {/* <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" /> */}
-                            <div className="ml-4">
-                              <p className="text-lg font-medium text-white">
+                            <div className="w-[290px] p-4">
+                              <p className="whitespace-nowrap text-left text-lg font-medium text-white">
                                 {item.title}
                               </p>
-                              <p className="mt-1 text-sm text-white opacity-50">
+                              <p className="mt-1 text-left text-sm text-white opacity-50">
                                 {item.subTitle}
                               </p>
                             </div>
@@ -110,7 +113,7 @@ const LinkWrapper = ({
           </Popover>
         </>
       )}
-      {!isLink && !link && !subMenus && (
+      {!isLink && !link && fullComponent && (
         <>
           <span
             className="flex cursor-pointer items-center gap-2 hover:underline"

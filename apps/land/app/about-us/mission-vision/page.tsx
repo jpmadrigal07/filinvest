@@ -1,17 +1,22 @@
 import MainHeader from "@/components/header/MainHeader";
+import { HEADER_INFO } from "@/components/pages/about-us/constants";
 import Content from "@/components/pages/about-us/mission-vision/Content";
 
-const DreamsBuiltGreen = () => {
+const MissionVisionPage = () => {
+  const { title, breadcrumbs, image, tabs, imageSmall } =
+    HEADER_INFO.missionVision;
   return (
     <>
       <MainHeader
-        title="Vision, Mission & Core Values"
-        breadcrumbs="About Us / Vision, Mission & Core Values"
-        bgUrl="mission-vision.png"
+        title={title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={image}
+        bgUrlSmall={imageSmall}
+        tabs={tabs}
       />
       <Content />
     </>
   );
 };
 
-export default DreamsBuiltGreen;
+export default MissionVisionPage;

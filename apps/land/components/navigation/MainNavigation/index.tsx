@@ -80,16 +80,18 @@ const MainNavigation = () => {
         )}
       </div>
       <Popover className="relative z-40 lg:hidden">
-        {({ open }) => (
+        {({ open, close }) => (
           <>
             <div
               className={`relative z-50  ${
                 open ? "bg-royal-dark-blue" : "bg-transparent"
               } transition duration-200 ease-out`}
             >
-              <div className="flex items-center gap-14 px-4 py-5">
+              <div className="flex items-center gap-14 py-5 pl-6 pr-4 md:pl-4 md:pr-4">
                 <div className="flex-1">
-                  <MainLogo />
+                  <Link href={ROUTES.HOME.url}>
+                    <MainLogo />
+                  </Link>
                 </div>
                 <Popover.Button className="focus:bg-oxford-blue delay-50 focus:ring-none flex-none p-3 transition focus:outline-none">
                   <HamburgerMenu />
@@ -109,15 +111,7 @@ const MainNavigation = () => {
               <Popover.Panel className="absolute inset-x-0 z-50 transform shadow-lg">
                 <div className="bg-royal-dark-blue">
                   {menus.map((item, index) => {
-                    if (item.fullComponent) {
-                      return (
-                        <Accordion key={index} title={item.text}>
-                          <div className="px-9 pb-10">
-                            {menus[index]?.fullComponent}
-                          </div>
-                        </Accordion>
-                      );
-                    } else if (!item.fullComponent && item.subMenus) {
+                    if (item.subMenus) {
                       return (
                         <Accordion key={index} title={item.text}>
                           <div className="divide-oxford-blue flex flex-col gap-4 divide-y divide-solid">
@@ -126,6 +120,7 @@ const MainNavigation = () => {
                                 key={subMenuIndex}
                                 href={subMenu.link}
                                 className="pt-4"
+                                onClick={() => close()}
                               >
                                 <div className="mb-2 text-lg text-white">
                                   {subMenu.title}
@@ -143,6 +138,7 @@ const MainNavigation = () => {
                         <Link
                           key={index}
                           href={item.link}
+                          onClick={() => close()}
                           className="hover:bg-oxford-blue focus:bg-oxford-blue flex w-full py-4 px-4 text-lg font-medium text-white"
                         >
                           {item.text}
