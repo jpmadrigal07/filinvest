@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://repo.projectgrey.net/filinvest/filinvest/compare/v0.1.0...v0.2.0) (2023-01-05)
+
+### Features
+
+- Added article page ([eb0a020](https://repo.projectgrey.net/filinvest/filinvest/commits/eb0a020529a6cf1aca29275421cb009c6085a8b5))
+- Added awards page ([a26aa63](https://repo.projectgrey.net/filinvest/filinvest/commits/a26aa63dbe983211ec5e2da9d1dc7213e956851c))
+- Added bio info modal for team page ([5a7a856](https://repo.projectgrey.net/filinvest/filinvest/commits/5a7a856ed33c0840675f18c43d36166f69d8e631))
+- Added board of directors ([f7c5eb7](https://repo.projectgrey.net/filinvest/filinvest/commits/f7c5eb761b7766e966f9845c6a9d17cba698e7e3))
+- Added board senior management page ([9bec670](https://repo.projectgrey.net/filinvest/filinvest/commits/9bec6704626098917f9781cf90220789918a3459))
+- Added careers modals applications ([fd74fb4](https://repo.projectgrey.net/filinvest/filinvest/commits/fd74fb4a3040b26903751fe7099122b978518255))
+- Added careers page ([8447e66](https://repo.projectgrey.net/filinvest/filinvest/commits/8447e66c996df9bba9d7e054acfe07859a1d6551))
+- Added contact us page ([153012f](https://repo.projectgrey.net/filinvest/filinvest/commits/153012fb8bed7b75ffad087ed99f8d75376cde08))
+- Added corporate centers page ([54d628e](https://repo.projectgrey.net/filinvest/filinvest/commits/54d628e308abf9198ea80b242db4a852f4903714))
+- Added disclousures page ([ccb61c8](https://repo.projectgrey.net/filinvest/filinvest/commits/ccb61c893aeb336a5034ffd14e0cabe9edd18cb2))
+- Added filpayal page ([3c68f2f](https://repo.projectgrey.net/filinvest/filinvest/commits/3c68f2f1364f21443fc8400447c3c464ab35d68c))
+- Added home loan calculator page ([fc3e5c7](https://repo.projectgrey.net/filinvest/filinvest/commits/fc3e5c73ba884c95487856ce0986828137248933))
+- Added investor relations page ([01d1fce](https://repo.projectgrey.net/filinvest/filinvest/commits/01d1fcece2f807a5f0b53ab8e655a1b0fab7aae6))
+- Added new company background page ([b30348b](https://repo.projectgrey.net/filinvest/filinvest/commits/b30348ba455ca461f92c3f965d3c8d1033dd0fbe))
+- Added new mission vision page ([7d06690](https://repo.projectgrey.net/filinvest/filinvest/commits/7d066904319e22d6c91a6d0e6d0b60c3a55ef359))
+- Added news page ([efdb4d3](https://repo.projectgrey.net/filinvest/filinvest/commits/efdb4d3e8484030ef84c3341a70db6a07f15b5f6))
+- Added office page ([d488299](https://repo.projectgrey.net/filinvest/filinvest/commits/d488299ba116321687ddb51e55ebd77638c93a4d))
+- Added office park single page ([3341d61](https://repo.projectgrey.net/filinvest/filinvest/commits/3341d61bd732099ffe4f519382fe81f6ab00acd5))
+- Added office parks page ([97acfb3](https://repo.projectgrey.net/filinvest/filinvest/commits/97acfb3b3826aef4a38dca5c95d19fda29303402))
+- Added property search page ([7b2e551](https://repo.projectgrey.net/filinvest/filinvest/commits/7b2e55154be5bcac890ef5c90087cef15d8a9767))
+- Added pusong filinvest page ([66fba32](https://repo.projectgrey.net/filinvest/filinvest/commits/66fba321bda7573cd15dd3647fbe6ffd7fe3ac1c))
+- Added residential search page ([210701b](https://repo.projectgrey.net/filinvest/filinvest/commits/210701b70e7025efd2bcc741d30f3104eed14b85))
+- Added swipe image on Projects section from home page ([2c4d450](https://repo.projectgrey.net/filinvest/filinvest/commits/2c4d4506e408978d27999aed8118e52d90676706))
+- All section of home compatible to all screen sizes ([e7d42df](https://repo.projectgrey.net/filinvest/filinvest/commits/e7d42dfedb8553c6f19d1a61dc285ef5ba1e327f))
+
+### Bug Fixes
+
+- adjust top padding when small desktop for main header ([f058e90](https://repo.projectgrey.net/filinvest/filinvest/commits/f058e90309228864898f8e70a81d00c37f1a363f))
+- Change iamge on overflow image in home page ([de62f4a](https://repo.projectgrey.net/filinvest/filinvest/commits/de62f4ac8036bf23040860ad6512e424e077c944))
+- Home investor relations mobile view ([adafa67](https://repo.projectgrey.net/filinvest/filinvest/commits/adafa6755a06c4e925c96304f62be15297424e1f))
+- Main Header and Company BG small screen view ([b3c9ccb](https://repo.projectgrey.net/filinvest/filinvest/commits/b3c9ccbb4897569a5659ac513daae9416c1728df))
+- Make popover close when link click ([7545796](https://repo.projectgrey.net/filinvest/filinvest/commits/7545796cf5e11159f87fc7b60e3d07ad788586ed))
+- Make popover menu on main nav width fix ([f85b42f](https://repo.projectgrey.net/filinvest/filinvest/commits/f85b42f7ffab4b86958a325d7dc334dce73152d4))
+- Mobile view of Built mission vision and built with green page ([9ce05e5](https://repo.projectgrey.net/filinvest/filinvest/commits/9ce05e51631ce3698bed09eae4444fc96968fd8a))
+- Pusong Filinvest mobile view ([56ea315](https://repo.projectgrey.net/filinvest/filinvest/commits/56ea315f3dc4200c3420be3014401d824533ce9d))
+- Remove package lock ([3929d5e](https://repo.projectgrey.net/filinvest/filinvest/commits/3929d5ea73594ae5d69a70262648ed3224414f99))
+- Structures pages mobile view ([747e9b9](https://repo.projectgrey.net/filinvest/filinvest/commits/747e9b98c518939a000f4c54a0d560525003de06))
+
 ## [0.1.0](https://repo.projectgrey.net/filinvest/filinvest/compare/v0.0.0...v0.1.0) (2022-11-22)
 
 ### Features
