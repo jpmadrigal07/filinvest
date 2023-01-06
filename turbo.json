@@ -4,7 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
-      "env": ["CMS_API_URL"]
+      "env": ["CMS_API_URL", "NODE_ENV"]
     },
     "lint": {
       "outputs": []
