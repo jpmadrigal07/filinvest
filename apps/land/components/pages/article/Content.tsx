@@ -11,7 +11,9 @@ import useSWR from "swr";
 import moment from "moment";
 
 const fetcher = (path: any) =>
-  fetch(`http://localhost:9000/api/news/${path}`).then((res) => res.json());
+  fetch(`${process.env.CMS_API_URL}/api/news/${path}`).then((res) =>
+    res.json()
+  );
 
 const Content = () => {
   const pathname = usePathname();
@@ -30,7 +32,7 @@ const Content = () => {
       <section className="-mt-48 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72">
         <div className="flex flex-col items-center gap-6">
           <Image
-            src={`http://localhost:9000${news && news.data ? "" : "/"}${
+            src={`${process.env.CMS_API_URL}${news && news.data ? "" : "/"}${
               news?.data?.coverImage.url
             }`}
             width={1036}

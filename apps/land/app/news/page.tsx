@@ -16,7 +16,9 @@ const stringifiedQuery = qs.stringify(
 );
 
 async function getNews() {
-  const res = await fetch(`http://localhost:9000/api/news${stringifiedQuery}`);
+  const res = await fetch(
+    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}`
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

@@ -24,7 +24,9 @@ const stringifiedQuery = qs.stringify(
 );
 
 async function getPages() {
-  const res = await fetch(`http://localhost:9000/api/pages${stringifiedQuery}`);
+  const res = await fetch(
+    `${process.env.CMS_API_URL}/api/pages${stringifiedQuery}`
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

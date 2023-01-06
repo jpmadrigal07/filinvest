@@ -17,7 +17,7 @@ const stringifiedQuery = qs.stringify(
 
 async function geProjects() {
   const res = await fetch(
-    `http://localhost:9000/api/projects${stringifiedQuery}`
+    `${process.env.CMS_API_URL}/api/projects${stringifiedQuery}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");

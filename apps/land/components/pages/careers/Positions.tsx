@@ -25,8 +25,8 @@ const stringifiedQuery = qs.stringify(
 
 // eslint-disable-next-line no-unused-vars
 const fetcher = (data: any) =>
-  fetch(`http://localhost:9000/api/careers${stringifiedQuery}`).then((res) =>
-    res.json()
+  fetch(`${process.env.CMS_API_URL}/api/careers${stringifiedQuery}`).then(
+    (res) => res.json()
   );
 
 const Positions = () => {
