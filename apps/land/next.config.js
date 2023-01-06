@@ -1,8 +1,6 @@
-if (process.env.NODE_ENV === "development") {
-  require("dotenv").config({
-    path: "../../.env",
-  });
-}
+require("dotenv").config({
+  path: "../../.env",
+});
 
 module.exports = {
   reactStrictMode: true,
@@ -11,7 +9,7 @@ module.exports = {
     appDir: true,
   },
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", process.env.CMS_API_URL],
   },
   async rewrites() {
     return [
