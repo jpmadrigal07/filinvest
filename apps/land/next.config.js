@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: "../../.env",
+});
+
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
@@ -11,12 +15,12 @@ module.exports = {
     return [
       {
         source: `/api/:path*`,
-        destination: `http://localhost:9000/api/:path*`,
+        destination: `${process.env.CMS_API_URL}/api/:path*`,
         basePath: false,
       },
       {
         source: `/files/:path*`,
-        destination: `http://localhost:9000/files/:path*`,
+        destination: `${process.env.CMS_API_URL}/files/:path*`,
         basePath: false,
       },
     ];
