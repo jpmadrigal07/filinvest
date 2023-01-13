@@ -1,6 +1,5 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
-import { isAdminOrHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
 
@@ -29,6 +28,12 @@ export const News: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+    },
+    {
+      name: "slug",
+      type: "text",
+      required: true,
+      unique: true,
     },
     {
       name: "coverImage", // required

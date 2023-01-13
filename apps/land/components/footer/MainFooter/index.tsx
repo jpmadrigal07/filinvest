@@ -181,11 +181,16 @@ const MainFooter = () => {
         <div className="flex flex-none gap-7">
           <Link
             href={PRIVACY_POLICY.url}
+            prefetch={false}
             className="text-white hover:underline"
           >
             {PRIVACY_POLICY.name}
           </Link>
-          <Link href={TERMS_OF_USE.url} className="text-white hover:underline">
+          <Link
+            href={TERMS_OF_USE.url}
+            prefetch={false}
+            className="text-white hover:underline"
+          >
             {TERMS_OF_USE.name}
           </Link>
         </div>

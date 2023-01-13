@@ -22,7 +22,8 @@ async function getNews() {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  return res.json();
+  const jsonData = await res.json();
+  return jsonData.docs ? jsonData.docs : null;
 }
 
 const NewsPage = async () => {

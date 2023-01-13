@@ -9,3 +9,5 @@ export const TEL_NUMBER = { number: "+63288500888", text: "(63 919) 076-4836" };
 export const EMAIL_ADD = "test@gmail.com";
 export const OFFICE_ADDRESS =
   "Filinvest Building, 79 EDSA, Mandaluyong City, 1550 Philippines";
+export const WEB_TITLE = "Filinvest Land, Inc.";
+export const FAVICON_NAME = "favicon.png";

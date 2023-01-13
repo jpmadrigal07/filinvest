@@ -9,7 +9,6 @@ import moment from "moment";
 import Link from "next/link";
 
 const Content = ({ news }: any) => {
-  const newsArr = news && news.docs ? news.docs : null;
   const [position, setPosition] = useState<"list" | "grid">("grid");
   return (
     <section className="my-24 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
@@ -26,53 +25,55 @@ const Content = ({ news }: any) => {
         />
         <SelectCategory />
       </div>
-      <div
-        className={`grid ${
-          position === "grid" ? "grid-cols-3" : "grid-cols-1"
-        } mt-12 gap-x-9 gap-y-20`}
-      >
-        {newsArr.map((singleNews: any) => {
-          return (
-            <div
-              key={singleNews.id}
-              className={`flex ${
-                position === "grid"
-                  ? "flex-col gap-4"
-                  : "flex-row items-center gap-16"
-              }`}
-            >
-              <div>
-                <Image
-                  src={`${singleNews.coverImage.url}`}
-                  width={518}
-                  height={403}
-                  alt="Picture of the author"
-                />
-              </div>
-              <div className="flex flex-col gap-4">
-                <h3 className="text-jet text-2xl font-bold">
-                  {singleNews.title}
-                </h3>
-                <p className="text-dim-gray text-sm">
-                  Posted by Admin on {moment(singleNews.createdAt).format("ll")}
-                </p>
-                <p className="text-dim-gray truncate">
-                  {singleNews.content[0].children[0].text}
-                </p>
-                <div className="mt-4">
-                  <Link href={`/article/${singleNews.id}`}>
-                    <BorderButton
-                      buttonText="Read More"
-                      textColor="dark-cornflower-blue"
-                      borderColor="dark-cornflower-blue"
-                    />
-                  </Link>
+      {news && news.length > 0 ? (
+        <div
+          className={`grid ${
+            position === "grid" ? "grid-cols-3" : "grid-cols-1"
+          } mt-12 gap-x-9 gap-y-20`}
+        >
+          {news.map((item: any) => {
+            return (
+              <div
+                key={item.id}
+                className={`flex ${
+                  position === "grid"
+                    ? "flex-col gap-4"
+                    : "flex-row items-center gap-16"
+                }`}
+              >
+                <div className="bg-ghost-white h-[400px]">
+                  <Image
+                    src={item.coverImage.url}
+                    width={position === "grid" ? item.coverImage.width : 600}
+                    height={position === "grid" ? item.coverImage.height : 600}
+                    alt={item.coverImage.alt}
+                  />
+                </div>
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-jet text-2xl font-bold">{item.title}</h3>
+                  <p className="text-dim-gray text-sm">
+                    Posted by Admin on {moment(item.createdAt).format("ll")}
+                  </p>
+                  <p className="text-dim-gray truncate">
+                    {item.content[0].children[0].text}
+                  </p>
+                  <div className="mt-4">
+                    <Link href={`/article/${item.slug}`}>
+                      <BorderButton
+                        buttonText="Read More"
+                        textColor="dark-cornflower-blue"
+                        borderColor="dark-cornflower-blue"
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        <h3 className="text-silver-chalice text-xl italic">No news found.</h3>
+      )}
     </section>
   );
 };

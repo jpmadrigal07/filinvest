@@ -13,7 +13,7 @@ import ROUTES from "@/helpers/routes";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
-const MainNavigation = () => {
+const MainNavigation = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const [flyoutMenu, setFlyoutMenu] = useState<T_Flyout_Menu>("");
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number | null>(null);
@@ -24,7 +24,7 @@ const MainNavigation = () => {
   }, [pathname]);
 
   return (
-    <nav className="absolute z-50 w-full">
+    <nav className={`absolute z-50 w-full ${className}`}>
       <div className="hidden lg:block">
         <div
           className={combineClass(
@@ -58,9 +58,11 @@ const MainNavigation = () => {
               </ul>
             </div>
             <div className="flex-none">
-              <button className="bg-blue focus:bg-dark-cornflower-blue delay-50 py-4 px-9 text-white transition hover:opacity-90">
-                Reserve Now
-              </button>
+              <Link href="/contact-us">
+                <button className="bg-blue focus:bg-dark-cornflower-blue delay-50 py-4 px-9 text-white transition hover:opacity-90">
+                  Reserve Now
+                </button>
+              </Link>
             </div>
           </div>
           <Transition appear show={flyoutMenu === "full"} as={Fragment}>

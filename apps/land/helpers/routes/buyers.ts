@@ -5,7 +5,7 @@ const CALCULATOR = {
   directory: [...BUYERS.directory, "Home Loan Calculator"],
 };
 const ONLINE_APPOINTMENT = {
-  url: `${BUYERS.url}/online-appointment`,
+  url: `/contact-us`,
   name: "Online Appointment",
   directory: [...BUYERS.directory, "Online Appointment"],
 };
@@ -15,7 +15,7 @@ const FILPAY = {
   directory: [...BUYERS.directory, "FilPay"],
 };
 const MYHOME = {
-  url: `${BUYERS.url}/myhome`,
+  url: `/myhome`,
   name: "MyHome",
   directory: [...BUYERS.directory, "MyHome"],
 };

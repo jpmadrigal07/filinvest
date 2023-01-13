@@ -1,9 +1,43 @@
 import Content from "@/components/pages/article/Content";
+import { notFound } from "next/navigation";
+import qs from "qs";
 
-const ArticlePage = async () => {
+type PageProps = {
+  params: {
+    newsId: string;
+  };
+};
+
+async function getNewsContent(slug: string) {
+  const query = {
+    slug: {
+      equals: slug,
+    },
+  };
+  const stringifiedQuery = qs.stringify(
+    {
+      where: query, // ensure that `qs` adds the `where` property, too!
+    },
+    { addQueryPrefix: true }
+  );
+  const res = await fetch(
+    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}`
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  const jsonData = await res.json();
+  return jsonData ? jsonData.docs[0] : null;
+}
+
+const ArticlePage = async ({ params: { newsId } }: PageProps) => {
+  const content = await getNewsContent(newsId);
+  if (!content) {
+    notFound();
+  }
   return (
     <>
-      <Content />
+      <Content {...content} />
     </>
   );
 };

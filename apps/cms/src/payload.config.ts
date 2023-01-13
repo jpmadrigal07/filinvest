@@ -2,6 +2,7 @@ import { buildConfig } from "payload/config";
 import path from "path";
 import { Users } from "./collections/Users";
 import { Sites } from "./collections/Sites";
+import { Menu } from "./collections/Menu";
 import { Files } from "./collections/Files";
 import { Pages } from "./collections/Pages";
 import { News } from "./collections/News";
@@ -46,6 +47,7 @@ export default buildConfig({
     NewsCategories,
     ProjectCategories,
     Files,
+    Menu,
   ],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
