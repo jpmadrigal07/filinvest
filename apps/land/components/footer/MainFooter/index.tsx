@@ -9,6 +9,7 @@ import {
   PHONE_NUMBER,
   TEL_NUMBER,
   TWITTER_URL,
+  WEB_TITLE,
 } from "@/helpers/constants";
 import ROUTES from "@/helpers/routes";
 import Facebook from "@/components/svg/Facebook";
@@ -165,7 +166,7 @@ const MainFooter = () => {
       </div>
       <div className="bg-oxford-blue flex flex-col gap-9 px-6 py-12 lg:flex-row lg:items-center lg:px-16 lg:py-8">
         <div className="flex-1">
-          <h3 className="text-white">{`© Copyright ${new Date().getFullYear()}. Filinvest Land Inc. All Rights Reserved.`}</h3>
+          <h3 className="text-white">{`© Copyright ${new Date().getFullYear()}. ${WEB_TITLE} All Rights Reserved.`}</h3>
         </div>
         <div className="flex flex-1 gap-9">
           <Link href={FACEBOOK_URL} target="_blank">
@@ -181,16 +182,11 @@ const MainFooter = () => {
         <div className="flex flex-none gap-7">
           <Link
             href={PRIVACY_POLICY.url}
-            prefetch={false}
             className="text-white hover:underline"
           >
             {PRIVACY_POLICY.name}
           </Link>
-          <Link
-            href={TERMS_OF_USE.url}
-            prefetch={false}
-            className="text-white hover:underline"
-          >
+          <Link href={TERMS_OF_USE.url} className="text-white hover:underline">
             {TERMS_OF_USE.name}
           </Link>
         </div>

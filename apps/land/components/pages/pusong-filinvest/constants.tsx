@@ -12,7 +12,7 @@ const BREADCRUMBS = [
 
 const headerImage = "pusong-filinvest.png";
 const headerImageSmall = "pusong-filinvest-small.png";
-const customTitle = "#Pusongfilinvest";
+const customTitle = "#PusongFilinvest";
 
 export const HEADER_INFO = {
   pusongFilinvest: {

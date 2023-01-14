@@ -1,5 +1,4 @@
-import Content from "@/components/pages/article/Content";
-import { notFound } from "next/navigation";
+import { FAVICON_NAME } from "@/helpers/constants";
 import qs from "qs";
 
 type PageProps = {
@@ -31,16 +30,24 @@ async function getNewsContent(slug: string) {
   return jsonData ? jsonData.docs[0] : null;
 }
 
-const ArticlePage = async ({ params: { newsId } }: PageProps) => {
+export default async function Head({ params: { newsId } }: PageProps) {
   const content = await getNewsContent(newsId);
   if (!content) {
-    notFound();
+    return (
+      <>
+        <title>Page not found</title>
+        <meta name="description" content="Filinvest" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href={`/${FAVICON_NAME}`} />
+      </>
+    );
   }
   return (
     <>
-      <Content {...content} />
+      <title>{content.title}</title>
+      <meta name="description" content="Filinvest" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/x-icon" href={`/${FAVICON_NAME}`} />
     </>
   );
-};
-
-export default ArticlePage;
+}
