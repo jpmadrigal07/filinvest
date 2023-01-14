@@ -1,3 +1,4 @@
+import ABOUT_US_ROUTES from "@/helpers/routes/aboutUs";
 import Link from "next/link";
 import React from "react";
 
@@ -51,7 +52,7 @@ const Content = () => {
         FILINVEST DEVELOPMENT CORPORATION (“FDC”) FILINVEST LAND, INC. (“FLI”),
         together with{" "}
         <Link
-          href="/affiliates"
+          href={ABOUT_US_ROUTES.SUBSIDIARIES.url}
           className="text-dark-cornflower-blue underline"
         >
           their respective affiliates and wholly-owned subsidiaries

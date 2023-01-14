@@ -3,7 +3,7 @@ import Content from "@/components/pages/investor-relations/share-information/Con
 import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
 
 const ShareInformationPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.shareInformation;
+  const { title, breadcrumbs, image, tabs } = HEADER_INFO.stockInformation;
   return (
     <>
       <MainHeader

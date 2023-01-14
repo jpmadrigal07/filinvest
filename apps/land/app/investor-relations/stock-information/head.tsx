@@ -2,7 +2,7 @@ import { FAVICON_NAME, WEB_TITLE } from "@/helpers/constants";
 import INVESTOR_RELATIONS_ROUTES from "@/helpers/routes/investorRelations";
 
 export default async function Head() {
-  const title = `${INVESTOR_RELATIONS_ROUTES.SHARE_INFORMATION.name} | ${WEB_TITLE}`;
+  const title = `${INVESTOR_RELATIONS_ROUTES.STOCK_INFORMATION.name} | ${WEB_TITLE}`;
   return (
     <>
       <title>{title}</title>

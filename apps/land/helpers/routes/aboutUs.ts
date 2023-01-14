@@ -19,9 +19,9 @@ const DREAMS_BUILT_GREEN = {
   directory: [...ABOUT_US.directory, "Dreams Built Green"],
 };
 const PUSONG_FILINVEST = {
-  url: `${ABOUT_US.url}/pusong-filinvest`,
+  url: `/pusong-filinvest`,
   name: "#PusongFilinvest",
-  directory: [...ABOUT_US.directory, "#PusongFilinvest"],
+  directory: ["#PusongFilinvest"],
 };
 const SUBSIDIARIES = {
   url: `${ABOUT_US.url}/subsidiaries`,

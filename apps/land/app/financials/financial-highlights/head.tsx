@@ -1,8 +1,8 @@
 import { FAVICON_NAME, WEB_TITLE } from "@/helpers/constants";
-import BUYERS_ROUTES from "@/helpers/routes/financials";
+import FINANCIALS_ROUTES from "@/helpers/routes/financials";
 
 export default async function Head() {
-  const title = `${BUYERS_ROUTES.FINANCIAL_HIGHLIGHTS.name} | ${WEB_TITLE}`;
+  const title = `${FINANCIALS_ROUTES.FINANCIAL_HIGHLIGHTS.name} | ${WEB_TITLE}`;
   return (
     <>
       <title>{title}</title>

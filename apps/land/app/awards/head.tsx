@@ -1,7 +1,7 @@
 import { FAVICON_NAME, WEB_TITLE } from "@/helpers/constants";
 
 export default async function Head() {
-  const title = `Awards| ${WEB_TITLE}`;
+  const title = `Awards | ${WEB_TITLE}`;
   return (
     <>
       <title>{title}</title>
