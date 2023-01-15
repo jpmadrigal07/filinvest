@@ -56,7 +56,7 @@ const LookingForProperty = () => {
           </h4>
         </div>
         <div className="flex-none">
-          <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-5 px-8 transition">
+          <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition">
             <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
               <Search /> Search
             </div>
