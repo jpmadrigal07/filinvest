@@ -1,13 +1,16 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
+import ChevronLeft from "@/components/svg/ChevronLeft";
+import ChevronRight from "@/components/svg/ChevronRight";
 
 const OurBusinesses = () => {
+  const swiperRefMobile = useRef();
   return (
     <section className="pt-28">
       <h4 className="text-dark-cornflower-blue mx-6 text-center font-bold md:mx-0">
@@ -93,14 +96,35 @@ const OurBusinesses = () => {
           </div>
         </div>
       </div>
-      <div className="mt-12 block md:hidden">
+      <div className="relative mt-12 flex items-center justify-center md:hidden">
+        <div className="absolute z-40">
+          <div className="flex gap-64 md:gap-[43rem]">
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRefMobile.current?.slidePrev()}
+            >
+              <ChevronLeft color="#000000" />
+            </div>
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRefMobile.current?.slideNext()}
+            >
+              <ChevronRight color="#000000" />
+            </div>
+          </div>
+        </div>
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
           centeredSlides={true}
           freeMode={true}
           loop={true}
-          navigation={true}
+          onBeforeInit={(swiper) => {
+            // @ts-expect-error
+            swiperRefMobile.current = swiper;
+          }}
           modules={[Navigation, FreeMode]}
           className="mySwiper"
         >
