@@ -13,6 +13,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
+      short: { raw: "(max-height: 768px) and (min-width: 1280px)" },
     },
     extend: {
       colors: {

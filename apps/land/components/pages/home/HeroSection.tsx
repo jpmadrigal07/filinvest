@@ -33,7 +33,9 @@ const HeroSection = ({ homeContent }: any) => {
           </h4>
         </div>
       </section>
-      <div className="absolute -mt-64 hidden w-full items-center justify-center gap-6 lg:flex 2xl:-mt-80 2xl:gap-12">
+      <div
+        className={`2xl:-pt-80 short:pt-32 absolute -mt-64 hidden w-full items-center justify-center gap-6 lg:flex 2xl:gap-12`}
+      >
         <div className="relative">
           <Image
             src="/prestige-home.png"
@@ -84,18 +86,18 @@ const HeroSection = ({ homeContent }: any) => {
         </div>
       </div>
       <div className="absolute -mt-24 flex w-full items-center justify-center gap-12 md:-mt-64 lg:hidden 2xl:-mt-80">
-        <div className="absolute z-50">
+        <div className="absolute z-40">
           <div className="flex gap-64 md:gap-[43rem]">
-            {/* @ts-expect-error */}
             <div
               className="rounded-full bg-white px-4 py-3 shadow-2xl"
+              // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
-            {/* @ts-expect-error */}
             <div
               className="rounded-full bg-white px-4 py-3 shadow-2xl"
+              // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
               <ChevronRight color="#000000" />

@@ -10,7 +10,9 @@ import "swiper/css/pagination";
 
 const Projects = () => {
   return (
-    <section className="pt-60 md:pt-72 lg:pt-[22rem] 2xl:pt-72">
+    <section
+      className={`short:pt-[28rem] pt-60 md:pt-72 lg:pt-[22rem] 2xl:pt-72`}
+    >
       <h4 className="text-dark-cornflower-blue mx-6 text-center font-bold md:mx-0">
         PROJECTS
       </h4>

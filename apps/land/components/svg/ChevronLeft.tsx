@@ -19,7 +19,7 @@ const ChevronLeft = ({
       <path
         d="M7.14777 1.08079L1.07543 6.42298M1.0736 6.57584L6.99978 12.0798"
         stroke={color}
-        stroke-width="2"
+        strokeWidth="2"
         stroke-linecap="round"
       />
     </svg>
