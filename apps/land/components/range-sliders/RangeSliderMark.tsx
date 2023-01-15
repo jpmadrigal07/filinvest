@@ -11,12 +11,27 @@ const RangeSliderMark = ({
   marks,
   min = 0,
   defaultValue = 0,
+  step = 1,
+  onValueChange = () => null,
+  value = 0,
 }: {
   marks: T_Marks;
   min?: number;
+  step?: number | null;
+  value: number;
   defaultValue?: number;
+  onValueChange: Function;
 }) => {
-  return <Slider min={min} marks={marks} defaultValue={defaultValue} />;
+  return (
+    <Slider
+      min={min}
+      marks={marks}
+      step={step}
+      defaultValue={defaultValue}
+      onChange={(value) => onValueChange(value)}
+      value={value}
+    />
+  );
 };
 
 export default RangeSliderMark;
