@@ -3,7 +3,8 @@ import Tabs from "../../header/Tabs";
 import ROUTES from "@/helpers/routes";
 
 const { ABOUT_US } = ROUTES;
-const { MISSION_VISION, COMPANY_BACKGROUND } = ABOUT_US;
+const { MISSION_VISION, COMPANY_BACKGROUND, DREAMS_BUILT_GREEN, SUBSIDIARIES } =
+  ABOUT_US;
 
 const TAB_ITEMS = [
   {
@@ -47,5 +48,23 @@ export const HEADER_INFO = {
     image: headerImage,
     imageSmall: headerImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
+  },
+  dreamsBuiltGreen: {
+    title: DREAMS_BUILT_GREEN.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[...BREADCRUMBS, { title: DREAMS_BUILT_GREEN.name }]}
+      />
+    ),
+    image: "dreams-built-green.png",
+    imageSmall: "dreams-built-green-small.png",
+  },
+  subsidiaries: {
+    title: SUBSIDIARIES.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: SUBSIDIARIES.name }]} />
+    ),
+    image: "subsidiaries.png",
+    imageSmall: "subsidiaries-small.png",
   },
 };

@@ -44,4 +44,8 @@ export function middleware(request: NextRequest) {
     url.pathname = BUYERS_ROUTES.CALCULATOR.url;
     return NextResponse.redirect(url);
   }
+  if (url.pathname === ABOUT_US_ROUTES.url) {
+    url.pathname = ABOUT_US_ROUTES.COMPANY_BACKGROUND.url;
+    return NextResponse.redirect(url);
+  }
 }
