@@ -1,3 +1,4 @@
+import ScreenFooter from "@/components/footer/ScreenFooter";
 import AboutUs from "@/components/pages/home/AboutUs";
 import HeroSection from "@/components/pages/home/HeroSection";
 import InvestorRelations from "@/components/pages/home/InvestorRelations";
@@ -29,6 +30,7 @@ const HomePage = async () => {
       <NewsStories className="pt-36 xl:pt-44" />
       <InvestorRelations />
       <StockReport />
+      <ScreenFooter />
     </div>
   );
 };
