@@ -1,14 +1,18 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import BorderButton from "../../button/BorderButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import ChevronLeft from "@/components/svg/ChevronLeft";
+import ChevronRight from "@/components/svg/ChevronRight";
 
 const Projects = () => {
+  const swiperRef = useRef();
+  const swiperRefMobile = useRef();
   return (
     <section
       className={`short:pt-[28rem] pt-60 md:pt-72 lg:pt-[22rem] 2xl:pt-72`}
@@ -23,7 +27,25 @@ const Projects = () => {
         Filinvest Land properties are some of the most sought after in the
         Philippines.
       </h4>
-      <div className="hidden md:block">
+      <div className="relative hidden md:block">
+        <div className="absolute right-6 bottom-6 z-40">
+          <div className="flex gap-7">
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
+              <ChevronLeft color="#000000" />
+            </div>
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              <ChevronRight color="#000000" />
+            </div>
+          </div>
+        </div>
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -31,7 +53,10 @@ const Projects = () => {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
+          onBeforeInit={(swiper) => {
+            // @ts-expect-error
+            swiperRef.current = swiper;
+          }}
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
@@ -83,7 +108,25 @@ const Projects = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="block md:hidden">
+      <div className="flex items-center justify-center md:hidden">
+        <div className="absolute z-40">
+          <div className="flex gap-64 md:gap-[43rem]">
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRefMobile.current?.slidePrev()}
+            >
+              <ChevronLeft color="#000000" />
+            </div>
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRefMobile.current?.slideNext()}
+            >
+              <ChevronRight color="#000000" />
+            </div>
+          </div>
+        </div>
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -91,7 +134,10 @@ const Projects = () => {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
+          onBeforeInit={(swiper) => {
+            // @ts-expect-error
+            swiperRefMobile.current = swiper;
+          }}
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >

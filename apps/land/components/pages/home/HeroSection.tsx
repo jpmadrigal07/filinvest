@@ -89,14 +89,14 @@ const HeroSection = ({ homeContent }: any) => {
         <div className="absolute z-40">
           <div className="flex gap-64 md:gap-[43rem]">
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-2xl"
+              className="rounded-full bg-white px-4 py-3 shadow-md"
               // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-2xl"
+              className="rounded-full bg-white px-4 py-3 shadow-md"
               // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
