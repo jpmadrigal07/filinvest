@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChevronRight = ({
+const ChevronLeft = ({
   color = "white",
   classes,
 }: {
@@ -17,13 +17,13 @@ const ChevronRight = ({
       className={classes}
     >
       <path
-        d="M1.57446 12.54L7.50075 7.03621M7.49846 6.88335L1.42622 1.54097"
+        d="M7.14777 1.08079L1.07543 6.42298M1.0736 6.57584L6.99978 12.0798"
         stroke={color}
-        strokeWidth="2"
-        strokeLinecap="round"
+        stroke-width="2"
+        stroke-linecap="round"
       />
     </svg>
   );
 };
 
-export default ChevronRight;
+export default ChevronLeft;

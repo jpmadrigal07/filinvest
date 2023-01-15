@@ -1,14 +1,17 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, FreeMode } from "swiper";
+import { Navigation, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import ChevronLeft from "@/components/svg/ChevronLeft";
+import ChevronRight from "@/components/svg/ChevronRight";
 
 const HeroSection = ({ homeContent }: any) => {
   const content = homeContent;
+  const swiperRef = useRef();
   return (
     <>
       <section className="flex h-screen w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat">
@@ -81,6 +84,24 @@ const HeroSection = ({ homeContent }: any) => {
         </div>
       </div>
       <div className="absolute -mt-24 flex w-full items-center justify-center gap-12 md:-mt-64 lg:hidden 2xl:-mt-80">
+        <div className="absolute z-50">
+          <div className="flex gap-64 md:gap-[43rem]">
+            {/* @ts-expect-error */}
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-2xl"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
+              <ChevronLeft color="#000000" />
+            </div>
+            {/* @ts-expect-error */}
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-2xl"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              <ChevronRight color="#000000" />
+            </div>
+          </div>
+        </div>
         <Swiper
           slidesPerView={2}
           spaceBetween={15}
@@ -90,8 +111,11 @@ const HeroSection = ({ homeContent }: any) => {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
-          modules={[Pagination, Navigation, FreeMode]}
+          onBeforeInit={(swiper) => {
+            // @ts-expect-error
+            swiperRef.current = swiper;
+          }}
+          modules={[Navigation, FreeMode]}
           className="mySwiper"
         >
           <SwiperSlide>
