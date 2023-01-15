@@ -108,9 +108,9 @@ const Projects = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="flex items-center justify-center md:hidden">
-        <div className="absolute z-40">
-          <div className="flex gap-64 md:gap-[43rem]">
+      <div className="relative flex items-center justify-center md:hidden">
+        <div className="absolute bottom-0 z-40">
+          <div className="flex gap-6 md:gap-[43rem]">
             <div
               className="rounded-full bg-white px-4 py-3 shadow-md"
               // @ts-expect-error
