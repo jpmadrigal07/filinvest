@@ -62,7 +62,7 @@ const Content = () => {
           />
         </div>
         <div className="flex-1 px-8 md:px-24 lg:pl-24">
-          <h2 className="text-jet text-3xl font-bold">
+          <h2 className="text-jet text-6xl font-bold">
             With Over 50 Years Of Experience
           </h2>
           <p className="text-dim-gray mt-4">
@@ -83,22 +83,19 @@ const Content = () => {
       </div>
       <div className="mt-20 flex flex-col items-center gap-12 lg:flex-row lg:gap-0">
         <div className="hidden flex-1 pl-36 pr-24 lg:block">
-          <h2 className="text-jet text-3xl font-bold">
-            With Over 50 Years Of Experience
-          </h2>
+          <h2 className="text-jet text-4xl font-bold">Pharetra Convallis</h2>
           <p className="text-dim-gray mt-4">
-            Filinvest Land, Inc. (FLI) is one of the leading full-range property
-            developers in the Philippines with a diverse project portfolio
-            spanning the archipelago. The company has developed over 3,000
-            hectares of land into homes for over 160,000 families.
+            Urna et pharetra pharetra massa massa. Commodo elit at imperdiet dui
+            accumsan sit amet. Laoreet suspendisse interdum consectetur libero
+            id faucibus nisl tincidunt. Laoreet sit amet cursus sit amet dictum
+            sit amet justo. Purus sit amet luctus venenatis lectus magna
+            fringilla. Pharetra convallis posuere morbi leo urna molestie at
+            elementum eu. Arcu cursus euismod quis viverra nibh cras.
           </p>
           <p className="text-dim-gray mt-4">
-            From residential communities, FLI has diversified into building
-            townships, mid-rise and high-rise condominiums, BPO hubs, office
-            buildings, shopping centers and leisure developments. With over 250
-            ongoing developments in 50 key areas across the country, FLI
-            continues to expand and innovate, propelled by its commitment to
-            build the Filipino dream.
+            Elit pellentesque habitant morbi tristique senectus et netus et
+            malesuada. Ac tortor vitae purus faucibus ornare suspendisse sed
+            nisi. Libero id faucibus nisl tincidunt eget nullam.
           </p>
         </div>
         <div className="flex-1">

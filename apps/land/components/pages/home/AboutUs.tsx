@@ -1,5 +1,7 @@
 "use client";
+import ABOUT_US_ROUTES from "@/helpers/routes/aboutUs";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import BorderButton from "../../button/BorderButton";
 
@@ -32,11 +34,13 @@ const AboutUs = () => {
           Filipino dream across the Philippines.
         </h4>
         <button type="button" className="mt-14">
-          <BorderButton
-            buttonText="Learn More"
-            textColor="dark-cornflower-blue"
-            borderColor="dark-cornflower-blue"
-          />
+          <Link href={ABOUT_US_ROUTES.COMPANY_BACKGROUND.url}>
+            <BorderButton
+              buttonText="Learn More"
+              textColor="dark-cornflower-blue"
+              borderColor="dark-cornflower-blue"
+            />
+          </Link>
         </button>
       </div>
     </section>

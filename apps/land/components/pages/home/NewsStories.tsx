@@ -1,12 +1,16 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import BorderButton from "../../button/BorderButton";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import Link from "next/link";
+import NEWS_ROUTES from "@/helpers/routes/news";
+import ChevronLeft from "@/components/svg/ChevronLeft";
+import ChevronRight from "@/components/svg/ChevronRight";
 
 const NewsStories = ({
   className,
@@ -15,6 +19,7 @@ const NewsStories = ({
   className?: string;
   isHomePage?: boolean;
 }) => {
+  const swiperRef = useRef();
   return (
     <section className={className}>
       <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
@@ -40,13 +45,15 @@ const NewsStories = ({
             )}
           </div>
           <div className="mt-12 flex-none">
-            <button type="button">
-              <BorderButton
-                buttonText="See More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
-            </button>
+            <Link href={NEWS_ROUTES.url}>
+              <button type="button">
+                <BorderButton
+                  buttonText="See More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="mt-16 hidden gap-12 md:flex">
@@ -96,13 +103,34 @@ const NewsStories = ({
             </h4>
           </div>
         </div>
-        <div className="mt-16 block md:hidden">
+        <div className="relative mt-16 flex items-center justify-center md:hidden">
+          <div className="absolute -bottom-12 z-40">
+            <div className="flex gap-6 md:gap-[43rem]">
+              <div
+                className="rounded-full bg-white px-4 py-3 shadow-md"
+                // @ts-expect-error
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <ChevronLeft color="#000000" />
+              </div>
+              <div
+                className="rounded-full bg-white px-4 py-3 shadow-md"
+                // @ts-expect-error
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <ChevronRight color="#000000" />
+              </div>
+            </div>
+          </div>
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
             centeredSlides={true}
             loop={true}
-            navigation={true}
+            onBeforeInit={(swiper) => {
+              // @ts-expect-error
+              swiperRef.current = swiper;
+            }}
             modules={[Navigation]}
             className="mySwiper"
           >

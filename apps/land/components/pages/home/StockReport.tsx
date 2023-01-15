@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import BorderButton from "@/components/button/BorderButton";
 import RedDownTriangle from "@/components/svg/RedDownTriangle";
+import Link from "next/link";
+import FINANCIAL_ROUTES from "@/helpers/routes/financials";
 
 const StockReport = () => {
   return (
@@ -90,10 +92,12 @@ const StockReport = () => {
               </div>
               <div>
                 <button type="button" className="mt-28">
-                  <BorderButton
-                    buttonText="View All Annual Report"
-                    sidePadding="4"
-                  />
+                  <Link href={FINANCIAL_ROUTES.ANNUAL_REPORTS.url}>
+                    <BorderButton
+                      buttonText="View All Annual Report"
+                      sidePadding="4"
+                    />
+                  </Link>
                 </button>
               </div>
             </div>

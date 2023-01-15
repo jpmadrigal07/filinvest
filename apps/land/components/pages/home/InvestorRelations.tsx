@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-// import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
-// import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
 import BorderButton from "@/components/button/BorderButton";
+import Link from "next/link";
+import FINANCIAL_ROUTES from "@/helpers/routes/financials";
 
 const InvestorRelations = () => {
   return (
@@ -20,11 +20,13 @@ const InvestorRelations = () => {
           consequat semper viverra nam libero justo laoreet sit.
         </h4>
         <button type="button" className="mt-16">
-          <BorderButton
-            buttonText="Learn More"
-            textColor="dark-cornflower-blue"
-            borderColor="dark-cornflower-blue"
-          />
+          <Link href={FINANCIAL_ROUTES.FINANCIAL_HIGHLIGHTS.url}>
+            <BorderButton
+              buttonText="Learn More"
+              textColor="dark-cornflower-blue"
+              borderColor="dark-cornflower-blue"
+            />
+          </Link>
         </button>
       </div>
       <div className="flex flex-col gap-12 xl:gap-20">
