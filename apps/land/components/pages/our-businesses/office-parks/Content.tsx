@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const Content = () => {
   return (
-    <section className="-mt-32 mb-32 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-40">
-      <div className="flex gap-9">
+    <section className="mx-9 -mt-12 mb-32 md:-mt-12 lg:-mt-32 xl:mx-16 2xl:mx-44 2xl:-mt-40">
+      <div className="flex flex-col gap-9 md:flex-row">
         <div className="flex-1">
           <div>
             <Image
