@@ -30,6 +30,11 @@ const MALLS = {
   name: "Malls",
   directory: [...OUR_BUSINESSES.directory, "malls"],
 };
+const TOWNSCAPES = {
+  url: `${OUR_BUSINESSES.url}/townscapes`,
+  name: "Townscapes",
+  directory: [...OUR_BUSINESSES.directory, "Townscapes"],
+};
 const INDUSTRIAL = {
   url: `${OUR_BUSINESSES.url}/industrial`,
   name: "Industrial",
@@ -52,6 +57,7 @@ const OUR_BUSINESSES_ROUTES = {
   OFFICES,
   OFFICE_PARKS,
   MALLS,
+  TOWNSCAPES,
   INDUSTRIAL,
   COLIVING,
   MIXEDUSE_ESTATES,
@@ -62,6 +68,7 @@ export const OUR_BUSINESSES_SUB_ROUTES = [
   OFFICES,
   OFFICE_PARKS,
   MALLS,
+  TOWNSCAPES,
   INDUSTRIAL,
   COLIVING,
   MIXEDUSE_ESTATES,

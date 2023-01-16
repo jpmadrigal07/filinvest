@@ -9,23 +9,21 @@ const Content = () => {
     <section className="mx-9 mt-24 mb-32 xl:mx-16 2xl:mx-44">
       <div>
         <h2 className="text-jet text-center text-4xl font-bold">
-          Bringing life to the city
+          Our Master-Planned Township
         </h2>
         <p className="text-dim-gray mt-8">
-          Filinvest creates a wealth of shopping, dining and entertainment
-          options with retail hubs such as Festival Supermall and Westgate
-          Center, as well as pocket commercial areas near its residential
-          projects. The company continues to aggressively expand its retail
-          portfolio with new developments such as the Il Corso lifestyle strip
-          within City di Mare in Cebu, Main Square in Rizal, Fora in Tagaytay
-          with a number of malls and other commercial developments bringing
-          retail choices to Filipinos soon.
+          Filinvest creates sprawling township developments that feature a
+          complete live-work-play environment where residents can live life to
+          the fullest. Drawing from the rich culture and natural beauty of their
+          locations, these township feature residential communities, commercial
+          areas and civic places within a short distance from each other to make
+          a family’s life more convenient.
         </p>
       </div>
       <div className="mt-16">
         <div className="flex flex-col items-center gap-7 md:flex-row">
           <div className="flex-1">
-            <h3 className="text-jet text-2xl">6 malls found</h3>
+            <h3 className="text-jet text-2xl">6 townscapes found</h3>
           </div>
           <div className="flex flex-none items-center gap-9">
             <h3 className="text-jet text-xl">Filter by</h3>
