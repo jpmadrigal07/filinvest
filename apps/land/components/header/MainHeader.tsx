@@ -48,6 +48,7 @@ const MainHeader = ({
               width={3844}
               height={1312}
               alt="Picture of the author"
+              priority
             />
           </div>
           <div className="z-0 block md:hidden">
@@ -56,6 +57,7 @@ const MainHeader = ({
               width={1036}
               height={806}
               alt="Picture of the author"
+              priority
             />
           </div>
         </section>
@@ -88,6 +90,7 @@ const MainHeader = ({
               width={3844}
               height={1312}
               alt="Picture of the author"
+              priority
             />
           </div>
           <div className="z-0 block md:hidden">
@@ -96,6 +99,7 @@ const MainHeader = ({
               width={1036}
               height={806}
               alt="Picture of the author"
+              priority
             />
           </div>
         </section>

@@ -14,19 +14,25 @@ const RangeSliderMark = ({
   step = 1,
   onValueChange = () => null,
   value = 0,
+  allowCross = false,
+  range = false,
 }: {
-  marks: T_Marks;
+  marks?: T_Marks;
   min?: number;
   step?: number | null;
-  value: number;
-  defaultValue?: number;
+  value: number | number[];
+  defaultValue?: number | number[];
   onValueChange: Function;
+  allowCross?: boolean;
+  range?: boolean;
 }) => {
   return (
     <Slider
       min={min}
       marks={marks}
       step={step}
+      range={range}
+      allowCross={allowCross}
       defaultValue={defaultValue}
       onChange={(value) => onValueChange(value)}
       value={value}

@@ -8,11 +8,12 @@ import { Navigation, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Diamond from "@/components/svg/Diamond";
 
 const Content = () => {
   return (
     <section className="-mt-6 2xl:-mt-36">
-      <div className="mx-6 flex flex-col gap-2 md:flex-row lg:mx-9 lg:gap-16 xl:mx-16 2xl:mx-44">
+      <div className="mx-6 flex flex-col gap-2 md:flex-row lg:mx-9 lg:gap-8 xl:mx-16 2xl:mx-44">
         <div className="flex flex-1 flex-col items-center gap-6 bg-white py-16 px-6 shadow-xl lg:w-1/4 lg:flex-none lg:px-12">
           <Image
             src="/vision-icon.png"
@@ -34,16 +35,57 @@ const Content = () => {
             alt="Picture of the author"
           />
           <h3 className="text-jet text-4xl font-bold">Mission</h3>
-          <ul className="text-jet text-lg">
-            <li>To enliven and enrich lives in Filinvest communities</li>
-            <li>To enable and encourage the growth of our partners</li>
-            <li>To create and add value for our investors</li>
-            <li>
-              To build platforms that create vibrant and sustainable ecosystems
-            </li>
-            <li>To respect and protect the environment</li>
-            <li>To keep affordable housing at our core</li>
-          </ul>
+          <div>
+            <div className="mt-1 flex items-center gap-3">
+              <div className="mt-1 flex-none">
+                <Diamond />
+              </div>
+              <p className="text-jet flex-1 text-lg">
+                To enliven and enrich lives in Filinvest communities
+              </p>
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="mt-1 flex-none">
+                <Diamond />
+              </div>
+              <p className="text-jet flex-1 text-lg">
+                To enable and encourage the growth of our partners
+              </p>
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="mt-1 flex-none">
+                <Diamond />
+              </div>
+              <p className="text-jet flex-1 text-lg">
+                To create and add value for our investors
+              </p>
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="mt-1 flex-none">
+                <Diamond />
+              </div>
+              <p className="text-jet flex-1 text-lg">
+                To build platforms that create vibrant and sustainable
+                ecosystems
+              </p>
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="mt-1 flex-none">
+                <Diamond />
+              </div>
+              <p className="text-jet flex-1 text-lg">
+                To respect and protect the environment
+              </p>
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="mt-1 flex-none">
+                <Diamond />
+              </div>
+              <p className="text-jet flex-1 text-lg">
+                To keep affordable housing at our core
+              </p>
+            </div>
+          </div>
         </div>
         <div className="flex flex-1 flex-col items-center gap-6 bg-white py-16 px-6 shadow-xl lg:w-1/4 lg:flex-none lg:px-12">
           <Image

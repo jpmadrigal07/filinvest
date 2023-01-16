@@ -1,9 +1,19 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import ChevronDown from "@/components/svg/ChevronDown";
 import Search from "@/components/svg/Search";
-import RangeSlider from "./RangeSlider";
+import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
+import { toCurrency } from "@/helpers/homeCalculator";
 
 const LookingForProperty = () => {
+  const [priceRange, setPriceRange] = useState([20, 50]);
+  const [priceCurrencyRange, setPriceCurrencyRange] = useState([0, 0]);
+  useEffect(() => {
+    const pricePerValue = 1000000;
+    const min = priceRange[0] * pricePerValue;
+    const max = priceRange[1] * pricePerValue;
+    setPriceCurrencyRange([min, max]);
+  }, [priceRange]);
   return (
     <section className="mx-6 pt-28 lg:mx-0">
       <h2 className="text-jet mt-2 text-center text-4xl font-extrabold">
@@ -50,9 +60,15 @@ const LookingForProperty = () => {
         </div>
         <div className="w-full flex-1">
           <h3 className="mb-1 text-white">Price Range</h3>
-          <RangeSlider />
+          <RangeSliderMark
+            range
+            defaultValue={priceRange}
+            onValueChange={setPriceRange}
+            value={priceRange}
+          />
           <h4 className="mt-1 text-sm text-white">
-            Php 50,000 - Php 50,000,000
+            Php {toCurrency(priceCurrencyRange[0])} - Php{" "}
+            {toCurrency(priceCurrencyRange[1])}
           </h4>
         </div>
         <div className="flex-none">
@@ -103,9 +119,15 @@ const LookingForProperty = () => {
           </div>
           <div className="w-full flex-1">
             <h3 className="mb-1 text-white">Price Range</h3>
-            <RangeSlider />
+            <RangeSliderMark
+              range
+              defaultValue={priceRange}
+              onValueChange={setPriceRange}
+              value={priceRange}
+            />
             <h4 className="mt-1 text-sm text-white">
-              Php 50,000 - Php 50,000,000
+              Php {toCurrency(priceCurrencyRange[0])} - Php{" "}
+              {toCurrency(priceCurrencyRange[1])}
             </h4>
           </div>
           <div className="flex-none">
