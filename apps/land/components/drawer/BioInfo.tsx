@@ -31,7 +31,7 @@ export default function BioInfo({ sidebarOpen = false, setSidebarOpen }: any) {
               <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
-            <div className="fixed right-0 left-96 bottom-0 top-80 z-40 flex">
+            <div className="fixed right-0 left-0 bottom-0 top-32 z-40 flex md:left-44 md:top-80 lg:left-96">
               <Transition.Child
                 as={Fragment}
                 enter="transition ease-in-out duration-300 transform"
@@ -42,7 +42,7 @@ export default function BioInfo({ sidebarOpen = false, setSidebarOpen }: any) {
                 leaveTo="opacity-0"
               >
                 <Dialog.Panel className="relative flex w-full flex-1 flex-col bg-white">
-                  <div className="flex justify-end px-16 pt-6">
+                  <div className="flex justify-end px-8 pt-6 lg:px-16">
                     <p
                       className="text-dark-cornflower-blue p-3 text-xl hover:cursor-pointer focus:cursor-pointer"
                       onClick={() => setSidebarOpen(false)}
@@ -50,7 +50,7 @@ export default function BioInfo({ sidebarOpen = false, setSidebarOpen }: any) {
                       x
                     </p>
                   </div>
-                  <div className="flex h-0 flex-1 gap-12 overflow-y-auto px-16 pb-16 pt-6">
+                  <div className="flex h-0 flex-1 flex-col gap-12 overflow-y-auto px-16 pb-16 pt-6 lg:flex-row">
                     <div className="flex flex-col gap-3">
                       <Image
                         src={`/jonathan-gotianun.png`}
@@ -127,7 +127,7 @@ export default function BioInfo({ sidebarOpen = false, setSidebarOpen }: any) {
                       <p className="text-dark-cornflower-blue text-xl font-bold">
                         Company Info
                       </p>
-                      <p className="text-dim-gray">
+                      <p className="text-dim-gray pb-12">
                         Consectetur adipiscing elit duis tristique sollicitudin.
                         Sagittis orci a scelerisque purus semper eget. Nisl nisi
                         scelerisque eu ultrices. Enim sit amet venenatis urna
