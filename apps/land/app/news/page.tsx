@@ -34,6 +34,7 @@ const NewsPage = async () => {
         title="Latest on Filinvest Land"
         isBlueHeader
         bgUrl="blue-header-bg.png"
+        isTitleSmall
       />
       <Content news={news} />
     </>

@@ -11,16 +11,16 @@ import Link from "next/link";
 const Content = ({ news }: any) => {
   const [position, setPosition] = useState<"list" | "grid">("grid");
   return (
-    <section className="my-24 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="my-12 mx-9 gap-9 xl:my-24 xl:mx-16 2xl:mx-44">
       <div className="flex items-center justify-end gap-7">
         <List
           color={position === "list" ? "#0550E3" : "#303030"}
-          className="hover:cursor-pointer focus:cursor-pointer"
+          className="hidden hover:cursor-pointer focus:cursor-pointer md:block"
           onClick={() => setPosition("list")}
         />
         <Grid
           color={position === "grid" ? "#0550E3" : "#303030"}
-          className="hover:cursor-pointer focus:cursor-pointer"
+          className="hidden hover:cursor-pointer focus:cursor-pointer md:block"
           onClick={() => setPosition("grid")}
         />
         <SelectCategory />
@@ -28,7 +28,9 @@ const Content = ({ news }: any) => {
       {news && news.length > 0 ? (
         <div
           className={`grid ${
-            position === "grid" ? "grid-cols-3" : "grid-cols-1"
+            position === "grid"
+              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              : "grid-cols-1"
           } mt-12 gap-x-9 gap-y-20`}
         >
           {news.map((item: any) => {
