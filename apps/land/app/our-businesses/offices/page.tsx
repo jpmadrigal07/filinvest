@@ -2,7 +2,7 @@ import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/offices/constants";
 import Content from "@/components/pages/our-businesses/offices/Content";
 
-const OfficeParksPage = () => {
+const OfficePage = () => {
   const { title, breadcrumbs, image } = HEADER_INFO.offices;
   return (
     <>
@@ -12,4 +12,4 @@ const OfficeParksPage = () => {
   );
 };
 
-export default OfficeParksPage;
+export default OfficePage;

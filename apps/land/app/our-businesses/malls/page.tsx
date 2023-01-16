@@ -2,7 +2,7 @@ import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
 import Content from "@/components/pages/our-businesses/malls/Content";
 
-const OfficeParksPage = () => {
+const MallsPage = () => {
   const { title, breadcrumbs, image } = HEADER_INFO.malls;
   return (
     <>
@@ -12,4 +12,4 @@ const OfficeParksPage = () => {
   );
 };
 
-export default OfficeParksPage;
+export default MallsPage;

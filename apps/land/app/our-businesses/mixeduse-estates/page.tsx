@@ -1,9 +1,9 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
-import Content from "@/components/pages/our-businesses/townscapes/Content";
+import Content from "@/components/pages/our-businesses/mixeduse-estates/Content";
 
-const TownscapesPage = () => {
-  const { title, breadcrumbs, image } = HEADER_INFO.townscapes;
+const MixeduseEstatesPage = () => {
+  const { title, breadcrumbs, image } = HEADER_INFO.mixedUseEstates;
   return (
     <>
       <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
@@ -12,4 +12,4 @@ const TownscapesPage = () => {
   );
 };
 
-export default TownscapesPage;
+export default MixeduseEstatesPage;
