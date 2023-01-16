@@ -14,9 +14,9 @@ const Content = () => {
           width={1574}
           height={882}
           alt="Picture of the author"
-          className="z-10"
+          className="z-10 hidden md:block"
         />
-        <div className="absolute -bottom-36 z-50 rounded-full bg-white p-12">
+        <div className="absolute -bottom-[27rem] z-0 rounded-full bg-white p-12 shadow-md md:-bottom-36 md:z-50 md:shadow-none">
           <Image
             src="/northgate-logo.png"
             width={190}
@@ -26,7 +26,7 @@ const Content = () => {
           />
         </div>
       </div>
-      <div className="divide-gainsboro mx-16 mt-44 divide-y">
+      <div className="divide-gainsboro mx-6 mt-[27rem] divide-y md:mx-16 md:mt-44">
         <div className="py-9">
           <h2 className="text-jet text-4xl font-bold">Northgate Cyberzone</h2>
           <p className="text-dim-gray mt-6">
