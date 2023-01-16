@@ -9,6 +9,7 @@ const {
   TOWNSCAPES,
   MIXEDUSE_ESTATES,
   INDUSTRIAL,
+  COLIVING,
 } = OUR_BUSINESSES;
 
 const BREADCRUMBS = [
@@ -64,5 +65,12 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: INDUSTRIAL.name }]} />
     ),
     image: "industrial-header-bg.png",
+  },
+  coliving: {
+    title: COLIVING.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: COLIVING.name }]} />
+    ),
+    image: "coliving-header-bg.png",
   },
 };
