@@ -46,7 +46,7 @@ const Positions = () => {
     <div className="mt-12">
       <div className="border-alice-blue border-b">
         <nav
-          className="-mb-px flex items-center justify-center space-x-8"
+          className="-mb-px flex items-center justify-center space-x-8 overflow-auto"
           aria-label="Tabs"
         >
           {tabs.map((tab) => (
@@ -104,7 +104,7 @@ const Positions = () => {
           <h2 className="text-dark-cornflower-blue text-4xl font-bold">
             Call our HR department at:
           </h2>
-          <div className="mx-9 mt-14 grid grid-cols-3 gap-4 2xl:mx-14">
+          <div className="mt-14 grid grid-cols-1 gap-4 md:mx-9 md:grid-cols-2 lg:grid-cols-3 2xl:mx-14">
             <div className="bg-cultured flex flex-col gap-3 p-8">
               <div className="flex items-center gap-3">
                 <div className="flex-none">
@@ -192,7 +192,7 @@ const Positions = () => {
               </div>
             </div>
           </div>
-          <p className="text-jet mx-9 mt-6 2xl:mx-14">
+          <p className="text-jet mt-6 md:mx-9 2xl:mx-14">
             Or email us at{" "}
             <Link
               href="mailto:WeRecruitTalent@filinvestland.com"

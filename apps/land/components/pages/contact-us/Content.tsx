@@ -9,7 +9,7 @@ const Content = () => {
 
   return (
     <section className="mt-24">
-      <div className="flex gap-24 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mx-9 flex flex-col gap-24 md:flex-row xl:mx-16 2xl:mx-44">
         <div className="flex-1">
           <h2 className="text-dark-cornflower-blue text-4xl font-bold">
             Send us a message
@@ -202,7 +202,7 @@ const Content = () => {
                 </div>
                 <div>
                   <p className="text-jet mt-3 font-bold">Davao</p>
-                  <p className="text-dim-gray mt-4">(63 919) 076-4836</p>
+                  <p className="text-dim-gray mt-3">(63 919) 076-4836</p>
                 </div>
               </div>
             </div>

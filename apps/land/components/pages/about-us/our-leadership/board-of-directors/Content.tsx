@@ -10,7 +10,7 @@ import BioInfo from "@/components/drawer/BioInfo";
 const Content = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
+    <section className="short:-mt-24 -mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="bg-white p-32">
         <h2 className="text-jet text-5xl font-bold">Board of Directors</h2>
         <p className="text-dim-gray mt-6">

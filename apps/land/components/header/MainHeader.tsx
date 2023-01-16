@@ -26,11 +26,11 @@ const MainHeader = ({
           {title && (
             <div className="absolute w-full">
               <div
-                className={`flex flex-col items-center justify-center py-40 md:py-24 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:py-48`}
+                className={`flex flex-col items-center justify-center py-32 md:py-24 lg:mx-9 lg:py-40 xl:mx-16 2xl:mx-44 2xl:py-48`}
               >
                 <h1
                   className={`mb-4 ${
-                    isTitleSmall ? "text-4xl" : "text-6xl"
+                    isTitleSmall ? "text-4xl lg:text-6xl" : "text-6xl"
                   } text-center font-extrabold text-white`}
                 >
                   {title}

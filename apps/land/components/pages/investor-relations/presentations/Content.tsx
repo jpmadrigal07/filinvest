@@ -42,7 +42,7 @@ const Content = () => {
             alt="Picture of the author"
           />
           <div className="bg-dark-cornflower-blue flex items-center gap-4 px-4 py-1 xl:p-4">
-            <h4 className="flex-1 font-bold font-bold text-white">{`President's Report 2019 - Annual Stockholders' Meeting`}</h4>
+            <h4 className="flex-1 font-bold font-bold text-white">{`President's Report 2019 - Annual Stockhol...`}</h4>
             <ArrowRight />
           </div>
         </div>

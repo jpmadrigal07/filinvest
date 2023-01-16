@@ -1,11 +1,21 @@
+"use client";
 import ChevronDown from "@/components/svg/ChevronDown";
 import Search from "@/components/svg/Search";
-import React from "react";
-import RangeSlider from "@/components/pages/home/RangeSlider";
+import React, { useEffect, useState } from "react";
+import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
+import { toCurrency } from "@/helpers/homeCalculator";
 
 const Content = () => {
+  const [priceRange, setPriceRange] = useState([20, 50]);
+  const [priceCurrencyRange, setPriceCurrencyRange] = useState([0, 0]);
+  useEffect(() => {
+    const pricePerValue = 1000000;
+    const min = priceRange[0] * pricePerValue;
+    const max = priceRange[1] * pricePerValue;
+    setPriceCurrencyRange([min, max]);
+  }, [priceRange]);
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-32">
       <div className="bg-dark-cornflower-blue mx-16 flex items-center gap-8 px-10 py-6 lg:mx-9 xl:mx-16 2xl:mx-44">
@@ -44,9 +54,15 @@ const Content = () => {
         </div>
         <div className="w-full flex-1">
           <h3 className="mb-1 text-white">Price Range</h3>
-          <RangeSlider />
+          <RangeSliderMark
+            range
+            defaultValue={priceRange}
+            onValueChange={setPriceRange}
+            value={priceRange}
+          />
           <h4 className="mt-1 text-sm text-white">
-            Php 1,000,000 - Php 50,000,000
+            Php {toCurrency(priceCurrencyRange[0])} - Php{" "}
+            {toCurrency(priceCurrencyRange[1])}
           </h4>
         </div>
         <div className="flex-none">

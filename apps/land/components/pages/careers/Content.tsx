@@ -5,11 +5,11 @@ import Positions from "./Positions";
 
 const Content = () => {
   return (
-    <section className="mt-24 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-9 mt-24 xl:mx-16 2xl:mx-44">
       <h2 className="text-dark-cornflower-blue text-4xl font-bold">
         Why Become a Filinvest dream builder?
       </h2>
-      <div className="mt-20 flex gap-12">
+      <div className="mt-20 flex flex-col gap-12 md:flex-row">
         <div>
           <div className="flex items-center gap-6">
             <div>
