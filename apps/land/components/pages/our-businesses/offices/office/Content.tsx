@@ -1,7 +1,9 @@
+import Bath from "@/components/svg/Bath";
+import Bed from "@/components/svg/Bed";
 import Facebook from "@/components/svg/Facebook";
 import Flag from "@/components/svg/Flag";
 import LinkedIn from "@/components/svg/LinkedIn";
-import Search from "@/components/svg/Search";
+import RulerPencil from "@/components/svg/RulerPencil";
 import Image from "next/image";
 import React from "react";
 
@@ -9,7 +11,7 @@ const Content = () => {
   return (
     <section>
       <div className="border-gainsboro border-b-[1px]">
-        <div className="my-4 flex gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="my-4 mx-9 flex flex-col gap-9 lg:flex-row xl:mx-16 2xl:mx-44">
           <div className="flex flex-1 items-center gap-4">
             <Image
               src="/activa-logo.png"
@@ -19,25 +21,25 @@ const Content = () => {
             />
             <h3 className="text-jet text-2xl font-bold">Activa Cubao</h3>
           </div>
-          <div className="divide-gainsboro flex flex-1 items-center divide-x">
+          <div className="divide-gainsboro flex flex-1 flex-col items-center md:flex-row md:divide-x">
             <div className="flex items-center gap-6 px-5 py-4">
-              <Facebook color="#303030" />
+              <RulerPencil />
               <h3 className="text-jet whitespace-nowrap text-xl">1600 sq ft</h3>
             </div>
             <div className="flex items-center gap-6 px-5 py-4">
-              <Facebook color="#303030" />
+              <Bed />
               <h3 className="text-jet whitespace-nowrap text-xl">
                 5 Staff Rooms
               </h3>
             </div>
             <div className="flex items-center gap-6 px-5 py-4">
-              <Facebook color="#303030" />
+              <Bath />
               <h3 className="text-jet whitespace-nowrap text-xl">
                 2 Bathrooms
               </h3>
             </div>
           </div>
-          <div className="flex flex-1 items-center justify-center">
+          <div className="flex flex-1 items-center justify-center md:items-start md:justify-start lg:items-center lg:justify-center">
             <button className="bg-blue focus:bg-blue-ryb delay-50 py-5 px-9 text-white transition hover:opacity-90">
               REQUEST A SHOWING
             </button>
@@ -45,11 +47,11 @@ const Content = () => {
         </div>
       </div>
       <div className="border-gainsboro border-b-[1px] pt-16 pb-24">
-        <div className="flex gap-16 lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="mx-9 flex flex-col gap-16 lg:flex-row xl:mx-16 2xl:mx-44">
           <div className="divide-gainsboro flex flex-1 flex-col gap-6 divide-y">
-            <div className="flex items-center pb-9">
+            <div className="flex flex-col gap-12 pb-9 md:flex-row md:items-center md:gap-0">
               <div className="flex flex-1 flex-col gap-3">
-                <Search />
+                <Flag classes="w-5 h-5" />
                 <h3 className="text-jet mt-2 text-2xl font-bold">
                   100 Sen. Gil Puyat Ave.
                 </h3>
@@ -63,13 +65,13 @@ const Content = () => {
                 </button>
               </div>
             </div>
-            <div className="flex gap-24 py-9">
+            <div className="flex flex-col gap-24 py-9 md:flex-row">
               <div className="flex-none">
                 <h3 className="text-jet text-xl font-bold">Leasable Area</h3>
               </div>
               <div className="flex flex-1 gap-12">
                 <div className="flex flex-col gap-4">
-                  <div className="flex">
+                  <div className="flex flex-col md:flex-row">
                     <div className="w-52 flex-none">
                       <p className="text-dim-gray whitespace-nowrap text-lg">
                         Floor:
@@ -81,7 +83,7 @@ const Content = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex">
+                  <div className="flex flex-col md:flex-row">
                     <div className="w-52 flex-none">
                       <p className="text-dim-gray whitespace-nowrap text-lg">
                         Wall:
@@ -91,7 +93,7 @@ const Content = () => {
                       <p className="text-jet text-lg">Plastered finish</p>
                     </div>
                   </div>
-                  <div className="flex">
+                  <div className="flex flex-col md:flex-row">
                     <div className="w-52 flex-none">
                       <p className="text-dim-gray whitespace-nowrap text-lg">
                         Ceiling:
@@ -103,7 +105,7 @@ const Content = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex">
+                  <div className="flex flex-col md:flex-row">
                     <div className="w-52 flex-none">
                       <p className="text-dim-gray whitespace-nowrap text-lg">
                         Height Clearance:
@@ -115,7 +117,7 @@ const Content = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex">
+                  <div className="flex flex-col md:flex-row">
                     <div className="w-52 flex-none">
                       <p className="text-dim-gray whitespace-nowrap text-lg">
                         VRF:
@@ -129,13 +131,13 @@ const Content = () => {
               </div>
             </div>
             <div>
-              <div className="flex gap-24 py-9">
+              <div className="flex flex-col gap-24 py-9 md:flex-row">
                 <div className="flex-none">
                   <h3 className="text-jet text-xl font-bold">Leasable Area</h3>
                 </div>
                 <div className="flex flex-1 gap-12">
                   <div className="flex flex-col gap-4">
-                    <div className="flex">
+                    <div className="flex flex-col md:flex-row">
                       <div className="w-52 flex-none">
                         <p className="text-dim-gray whitespace-nowrap text-lg">
                           Floor:
@@ -147,7 +149,7 @@ const Content = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-col md:flex-row">
                       <div className="w-52 flex-none">
                         <p className="text-dim-gray whitespace-nowrap text-lg">
                           Wall:
@@ -160,7 +162,7 @@ const Content = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-col md:flex-row">
                       <div className="w-52 flex-none">
                         <p className="text-dim-gray whitespace-nowrap text-lg">
                           Ceiling:
@@ -173,7 +175,7 @@ const Content = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-col md:flex-row">
                       <div className="w-52 flex-none">
                         <p className="text-dim-gray whitespace-nowrap text-lg">
                           Height Clearance:
@@ -186,7 +188,7 @@ const Content = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-col md:flex-row">
                       <div className="w-52 flex-none">
                         <p className="text-dim-gray whitespace-nowrap text-lg">
                           VRF:
@@ -239,7 +241,7 @@ const Content = () => {
                   alt="Picture of the author"
                 />
               </div>
-              <div className="flex gap-24 py-9">
+              <div className="flex flex-col gap-24 py-9 md:flex-row">
                 <div className="flex-none">
                   <h3 className="text-jet text-xl font-bold">Description</h3>
                 </div>
@@ -265,7 +267,7 @@ const Content = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-24 pt-9">
+            <div className="flex flex-col gap-24 pt-9 md:flex-row">
               <div className="flex-none">
                 <h3 className="text-jet text-xl font-bold">Location</h3>
               </div>
@@ -283,8 +285,8 @@ const Content = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/3 flex-none 2xl:w-1/4">
-            <div className="bg-white px-9 pt-9 pb-12 shadow-xl">
+          <div className="w-full flex-none lg:w-1/3 2xl:w-1/3">
+            <div className="bg-white px-9 pt-9 pb-16 shadow-xl">
               <div className="flex items-center gap-6">
                 <Image
                   src="/constructionshared.png"
@@ -303,7 +305,7 @@ const Content = () => {
                   +63 912 2345 1122
                 </p>
               </div>
-              <div className="flex items-center gap-6">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
                 <p>Email:</p>
                 <p className="break-words text-xl font-bold">
                   lorenaemily@filinvest.com
@@ -320,11 +322,11 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <div className="py-24 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mx-9 py-24 xl:mx-16 2xl:mx-44">
         <h3 className="text-jet text-center text-4xl font-bold">
           Other Offices
         </h3>
-        <div className="mt-12 grid grid-cols-3 gap-12">
+        <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex flex-1 flex-col gap-4">
             <Image
               src="/100-west-cyberzone.png"
