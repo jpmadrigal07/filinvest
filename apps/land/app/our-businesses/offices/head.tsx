@@ -2,7 +2,7 @@ import { FAVICON_NAME, WEB_TITLE } from "@/helpers/constants";
 import OUR_BUSINESSES_ROUTES from "@/helpers/routes/ourBusinesses";
 
 export default async function Head() {
-  const title = `${OUR_BUSINESSES_ROUTES.OFFICES.OFFICE_PARKS.name} | ${WEB_TITLE}`;
+  const title = `${OUR_BUSINESSES_ROUTES.OFFICES.name} | ${WEB_TITLE}`;
   return (
     <>
       <title>{title}</title>
