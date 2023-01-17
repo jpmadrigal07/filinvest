@@ -1,9 +1,9 @@
 "use client";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import ChevronDown from "@/components/svg/ChevronDown";
-import Diamond from "@/components/svg/Diamond";
-import MapPin from "@/components/svg/MapPin";
-import Search from "@/components/svg/Search";
+import Flag from "@/components/svg/Flag";
+import Peso from "@/components/svg/Peso";
+import SizeBox from "@/components/svg/SizeBox";
 import { toCurrency } from "@/helpers/homeCalculator";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -67,13 +67,13 @@ const Content = () => {
             {toCurrency(priceCurrencyRange[1])}
           </h4>
         </div>
-        <div className="flex-none">
+        {/* <div className="flex-none">
           <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition">
             <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
               <Search /> Search
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="mt-16 lg:mx-9 xl:mx-16 2xl:mx-44">
         <p>4 properties found</p>
@@ -98,15 +98,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
+                  <Peso color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
+                  <Flag color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
+                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
@@ -132,15 +132,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
+                  <Peso color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
+                  <Flag color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
+                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
@@ -166,15 +166,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
+                  <Peso color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
+                  <Flag color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
+                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
@@ -200,15 +200,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
+                  <Peso color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
+                  <Flag color="#23A0CF" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
+                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
@@ -256,17 +256,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-permanent-geranium-lake text-2xl font-bold">
-                    P
-                  </p>
+                  <Peso color="#E02826" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#E02826" />
+                  <Flag color="#E02826" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#E02826" />
+                  <SizeBox color="#E02826" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
@@ -292,17 +290,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-permanent-geranium-lake text-2xl font-bold">
-                    P
-                  </p>
+                  <Peso color="#E02826" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#E02826" />
+                  <Flag color="#E02826" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#E02826" />
+                  <SizeBox color="#E02826" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
@@ -328,17 +324,15 @@ const Content = () => {
               </div>
               <div className="flex gap-2 pt-4 2xl:gap-6">
                 <div className="flex items-center justify-center gap-3">
-                  <p className="text-permanent-geranium-lake text-2xl font-bold">
-                    P
-                  </p>
+                  <Peso color="#E02826" classes="h-5 w-5" />
                   <p className="font-bold">7.5 M - 16 M</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#E02826" />
+                  <Flag color="#E02826" classes="h-5 w-5" />
                   <p className="font-bold">Cebu</p>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#E02826" />
+                  <SizeBox color="#E02826" classes="h-6 w-6" />
                   <p className="font-bold">730 - 2500 sqm</p>
                 </div>
               </div>
