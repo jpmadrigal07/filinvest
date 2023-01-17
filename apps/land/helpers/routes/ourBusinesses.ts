@@ -46,9 +46,9 @@ const COLIVING = {
   directory: [...OUR_BUSINESSES.directory, "co-living"],
 };
 const MIXEDUSE_ESTATES = {
-  url: `${OUR_BUSINESSES.url}/mixed-use-estates`,
+  url: `${OUR_BUSINESSES.url}/mixeduse-estates`,
   name: "Mixed-Use & Estates",
-  directory: [...OUR_BUSINESSES.directory, "mixed-use-estates"],
+  directory: [...OUR_BUSINESSES.directory, "mixeduse-estates"],
 };
 const OUR_BUSINESSES_ROUTES = {
   ...OUR_BUSINESSES,
