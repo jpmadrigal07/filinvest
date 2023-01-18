@@ -1,6 +1,6 @@
 "use client";
 import ChevronDown from "../svg/ChevronDown";
-import { Fragment, ReactNode, useState } from "react";
+import { Fragment, ReactNode, useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 
 type T_ValuesObj = {
@@ -9,10 +9,15 @@ type T_ValuesObj = {
 
 type T_MainDropdown = {
   values: T_ValuesObj | string[];
+  onValueChange: Function;
 };
 
-const MainDropdown = ({ values }: T_MainDropdown) => {
+const MainDropdown = ({ values, onValueChange }: T_MainDropdown) => {
   const [selected, setSelected] = useState<string>("");
+  useEffect(() => {
+    onValueChange(selected);
+  }, [selected, onValueChange]);
+
   const renderOptions = (optionsValues: any) => {
     if (!Array.isArray(optionsValues)) {
       let options: ReactNode[] = [];

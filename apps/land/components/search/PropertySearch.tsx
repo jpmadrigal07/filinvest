@@ -30,15 +30,24 @@ const PropertySearch = ({
       >
         <div className="w-full flex-1">
           <h3 className="text-white">Property Type</h3>
-          <MainDropdown values={LOCATION_OBJ} />
+          <MainDropdown
+            values={LOCATION_OBJ}
+            onValueChange={(value: string) => console.log("test 1", value)}
+          />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Location</h3>
-          <MainDropdown values={LOCATION_OBJ} />
+          <MainDropdown
+            values={LOCATION_OBJ}
+            onValueChange={(value: string) => console.log("test 2", value)}
+          />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Unit Size</h3>
-          <MainDropdown values={LOCATION_OBJ} />
+          <MainDropdown
+            values={LOCATION_OBJ}
+            onValueChange={(value: string) => console.log("test 3", value)}
+          />
         </div>
         <div className="w-full flex-1">
           <h3 className="mb-1 text-white">Price Range</h3>
