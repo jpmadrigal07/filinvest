@@ -4,6 +4,8 @@ import ChevronDown from "@/components/svg/ChevronDown";
 import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
+import MainDropdown from "../dropdown/MainDropdown";
+import { LOCATION_OBJ } from "@/helpers/constants";
 
 const PropertySearch = ({
   showSearch = true,
@@ -28,36 +30,15 @@ const PropertySearch = ({
       >
         <div className="w-full flex-1">
           <h3 className="text-white">Property Type</h3>
-          <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-            <input
-              type="email"
-              placeholder="Any"
-              className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-            />
-            <ChevronDown />
-          </div>
+          <MainDropdown values={LOCATION_OBJ} />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Location</h3>
-          <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-            <input
-              type="email"
-              placeholder="Cainta"
-              className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-            />
-            <ChevronDown />
-          </div>
+          <MainDropdown values={LOCATION_OBJ} />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Unit Size</h3>
-          <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-            <input
-              type="email"
-              placeholder="Any"
-              className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-            />
-            <ChevronDown />
-          </div>
+          <MainDropdown values={LOCATION_OBJ} />
         </div>
         <div className="w-full flex-1">
           <h3 className="mb-1 text-white">Price Range</h3>

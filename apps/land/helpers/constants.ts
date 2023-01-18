@@ -43,3 +43,10 @@ export const SAMPLE_NEWS = [
     slug: "test-slug-3",
   },
 ];
+
+export const VISAYAS_ARR = ["Cebu", "Bacolod", "Iloilo"];
+export const MM_ARR = ["Cebu", "Bacolod", "Iloilo"];
+export const LOCATION_OBJ = {
+  Visayas: VISAYAS_ARR,
+  "Metro Manila": MM_ARR,
+};
