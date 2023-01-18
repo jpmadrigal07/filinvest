@@ -44,9 +44,60 @@ export const SAMPLE_NEWS = [
   },
 ];
 
-export const VISAYAS_ARR = ["Cebu", "Bacolod", "Iloilo"];
-export const MM_ARR = ["Cebu", "Bacolod", "Iloilo"];
+export const MM_ARR = [
+  "Makati City",
+  "Manila",
+  "Muntinlupa",
+  "Parañaque",
+  "Pasay",
+  "Pasig City",
+  "Quezon City",
+  "San Juan",
+  "Taguig",
+];
+export const CALABARZON_ARR = ["Batangas", "Cavite", "Laguna", "Rizal"];
+export const LUZON_ARR = [
+  "Bulacan",
+  "Pampanga",
+  "Tarlac",
+  "Pangasinan",
+  "Palawan",
+];
+export const VISAYAS_ARR = [
+  "Bacolod",
+  "Cebu",
+  "Dumaguete City",
+  "Iloilo",
+  "Negros Occidental",
+];
+export const MINDANAO_ARR = [
+  "Butuan",
+  "Cagayan de Oro",
+  "Cotabato",
+  "Davao",
+  "Zamboanga",
+];
 export const LOCATION_OBJ = {
-  Visayas: VISAYAS_ARR,
   "Metro Manila": MM_ARR,
+  Calabrzon: CALABARZON_ARR,
+  Luzon: LUZON_ARR,
+  Visayas: VISAYAS_ARR,
+  Mindanao: MINDANAO_ARR,
 };
+export const PROPERTY_TYPE = [
+  "Residential",
+  "Corporate Centers",
+  "Offices",
+  "Malls",
+  "Townscapes",
+  "Industrial",
+  "Co-living",
+  "Mixed-use",
+];
+export const UNIT_SIZE = [
+  "Less than 1 ha",
+  "Less than 2 ha",
+  "Less than 3 ha",
+  "Less than 4 ha",
+  "Less than 5 ha",
+];

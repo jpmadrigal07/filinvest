@@ -9,23 +9,32 @@ type T_ValuesObj = {
 
 type T_MainDropdown = {
   values: T_ValuesObj | string[];
+  defaultValue?: string;
   onValueChange: Function;
 };
 
-const MainDropdown = ({ values, onValueChange }: T_MainDropdown) => {
-  const [selected, setSelected] = useState<string>("");
+const MainDropdown = ({
+  values,
+  onValueChange,
+  defaultValue = "",
+}: T_MainDropdown) => {
+  const [selected, setSelected] = useState<string>(defaultValue);
   useEffect(() => {
     onValueChange(selected);
   }, [selected, onValueChange]);
+  useEffect(() => {
+    if (defaultValue) {
+      setSelected(defaultValue);
+    }
+  }, [defaultValue]);
 
   const renderOptions = (optionsValues: any) => {
     if (!Array.isArray(optionsValues)) {
       let options: ReactNode[] = [];
       Object.keys(optionsValues).forEach((k: string, i) => {
         options.push(
-          <>
+          <div key={i}>
             <Listbox.Option
-              key={i}
               value={k}
               disabled
               className="cursor-default p-4 py-2"
@@ -57,7 +66,7 @@ const MainDropdown = ({ values, onValueChange }: T_MainDropdown) => {
               </Listbox.Option>
             ))}
             {Object.keys(optionsValues).length !== i + 1 && <hr />}
-          </>
+          </div>
         );
       });
       return options;
@@ -92,7 +101,7 @@ const MainDropdown = ({ values, onValueChange }: T_MainDropdown) => {
     }
   };
   return (
-    <div>
+    <>
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <Listbox.Button className="ring-none border-silver-chalice flex w-full items-center gap-3 border-b-[1px] bg-transparent py-2 text-white">
@@ -113,13 +122,13 @@ const MainDropdown = ({ values, onValueChange }: T_MainDropdown) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 w-full overflow-auto bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute z-40 mt-1 max-h-96 w-full overflow-auto bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {renderOptions(values)}
             </Listbox.Options>
           </Transition>
         </div>
       </Listbox>
-    </div>
+    </>
   );
 };
 

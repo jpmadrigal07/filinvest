@@ -71,9 +71,13 @@ const Positions = () => {
           <div className="flex flex-col gap-5">
             {careers &&
               careers.data &&
-              careers.data.docs.map((doc: any) => {
+              careers.data.docs.map((doc: any, index: number) => {
                 return (
-                  <Accordion title={doc.title} description={doc.location}>
+                  <Accordion
+                    key={index}
+                    title={doc.title}
+                    description={doc.location}
+                  >
                     <Requirements setModalOpen={setIsFormModalOpen} />
                   </Accordion>
                 );

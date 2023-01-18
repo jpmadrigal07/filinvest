@@ -42,9 +42,9 @@ const FeaturedArticles = ({
           sliderOnMobile ? "hidden md:grid" : ""
         } grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3`}
       >
-        {articles.map((article) => {
+        {articles.map((article, index) => {
           return (
-            <Link href={article.slug}>
+            <Link href={article.slug} key={index}>
               <Image
                 src={article.imgSrc}
                 width={article.width ? article.width : 1036}
@@ -104,9 +104,9 @@ const FeaturedArticles = ({
           modules={[Navigation]}
           className="mySwiper"
         >
-          {articles.map((article) => {
+          {articles.map((article, index) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <div>
                   <Image
                     src={article.imgSrc}

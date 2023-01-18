@@ -4,11 +4,24 @@ import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
 import PropertySearch from "@/components/search/PropertySearch";
 import FullPropertySlider from "@/components/Slider/FullPropertySlider";
+import { useSearchParams } from "next/navigation";
 
 const Content = () => {
+  const searchParams = useSearchParams();
+  const location = searchParams.get("location");
+  const unitSize = searchParams.get("unitSize");
+  const priceRangeFrom = searchParams.get("priceRangeFrom");
+  const priceRangeTo = searchParams.get("priceRangeTo");
+  const searchQuery = {
+    propertyType: "Residential",
+    location: location ? location : "",
+    unitSize: unitSize ? unitSize : "",
+    priceRangeFrom: priceRangeFrom ? priceRangeFrom : "",
+    priceRangeTo: priceRangeTo ? priceRangeTo : "",
+  };
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-32">
-      <PropertySearch className="mx-9 lg:mx-0" />
+      <PropertySearch className="mx-9 lg:mx-0" searchQuery={searchQuery} />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         <h2 className="text-jet text-center text-4xl font-bold">
           Find A Home That Suits You

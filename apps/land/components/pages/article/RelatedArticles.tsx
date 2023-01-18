@@ -23,9 +23,9 @@ const RelatedArticles = async () => {
         <hr className="w-full flex-1" />
       </div>
       <div className="cols mb-24 grid grid-cols-3 gap-12">
-        {news.map((item: any) => {
+        {news.map((item: any, index: number) => {
           return (
-            <div>
+            <div key={index}>
               <div className="bg-ghost-white h-[400px]">
                 <Image
                   src={item.coverImage.url ? item.coverImage.url : 300}

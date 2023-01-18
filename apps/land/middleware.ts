@@ -4,9 +4,14 @@ import ABOUT_US_ROUTES from "./helpers/routes/aboutUs";
 import INVESTOR_RELATIONS_ROUTES from "./helpers/routes/investorRelations";
 import FINANCIALS_ROUTES from "./helpers/routes/financials";
 import BUYERS_ROUTES from "./helpers/routes/buyers";
+import OUR_BUSINESSES_ROUTES from "./helpers/routes/ourBusinesses";
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
+  if (url.pathname === OUR_BUSINESSES_ROUTES.url) {
+    url.pathname = OUR_BUSINESSES_ROUTES.RESIDENTIAL.url;
+    return NextResponse.redirect(url);
+  }
   if (url.pathname === ABOUT_US_ROUTES.STRUCTURES.url) {
     url.pathname = ABOUT_US_ROUTES.STRUCTURES.ORGANIZATIONAL_CHART.url;
     return NextResponse.redirect(url);

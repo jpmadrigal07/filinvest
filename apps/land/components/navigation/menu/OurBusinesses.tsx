@@ -7,7 +7,7 @@ import { OUR_BUSINESSES_SUB_ROUTES } from "@/helpers/routes/ourBusinesses";
 const OurBusinesses = () => {
   return (
     <div className="divide-sonic-silver flex divide-x py-8">
-      <div className="flex-none pr-24">
+      <div className="h-[40rem] flex-none overflow-auto pr-24">
         {OUR_BUSINESSES_SUB_ROUTES.map((routes, index) => {
           return (
             <div key={index} className={`${index > 0 && "mt-12"}`}>

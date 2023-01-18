@@ -5,23 +5,61 @@ import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
-import { LOCATION_OBJ } from "@/helpers/constants";
+import { LOCATION_OBJ, PROPERTY_TYPE, UNIT_SIZE } from "@/helpers/constants";
+import { useRouter } from "next/navigation";
+
+type SearchQuery = {
+  propertyType: string;
+  location: string;
+  unitSize: string;
+  priceRangeFrom: string;
+  priceRangeTo: string;
+};
 
 const PropertySearch = ({
   showSearch = true,
   className,
+  searchQuery,
 }: {
   showSearch?: boolean;
   className?: string;
+  searchQuery?: SearchQuery;
 }) => {
+  const router = useRouter();
+  const [propertyType, setPropertyType] = useState("");
+  const [location, setLocation] = useState("");
+  const [unitSize, setUnitSize] = useState("");
   const [priceRange, setPriceRange] = useState([20, 50]);
   const [priceCurrencyRange, setPriceCurrencyRange] = useState([0, 0]);
+  useEffect(() => {
+    if (searchQuery) {
+      const { priceRangeFrom, priceRangeTo, propertyType, location, unitSize } =
+        searchQuery;
+      const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
+      const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
+      setPropertyType(propertyType);
+      setLocation(location);
+      setUnitSize(unitSize);
+      setPriceRange([numberFrom / 1000000, numberTo / 1000000]);
+      setPriceCurrencyRange([numberFrom, numberTo]);
+    }
+  }, [searchQuery]);
   useEffect(() => {
     const pricePerValue = 1000000;
     const min = priceRange[0] * pricePerValue;
     const max = priceRange[1] * pricePerValue;
     setPriceCurrencyRange([min, max]);
   }, [priceRange]);
+  const searchInit = () => {
+    const updatedPropertyType = propertyType
+      ? propertyType === "Mixed-use"
+        ? "mixeduse-estates"
+        : propertyType.toLocaleLowerCase().replace(/ /g, "-")
+      : "residential";
+    router.push(
+      `/our-businesses/${updatedPropertyType}?location=${location}&unitSize=${unitSize}&priceRangeFrom=${priceCurrencyRange[0]}&priceRangeTo=${priceCurrencyRange[1]}`
+    );
+  };
   return (
     <>
       {/* Large Screen */}
@@ -31,22 +69,25 @@ const PropertySearch = ({
         <div className="w-full flex-1">
           <h3 className="text-white">Property Type</h3>
           <MainDropdown
-            values={LOCATION_OBJ}
-            onValueChange={(value: string) => console.log("test 1", value)}
+            values={PROPERTY_TYPE}
+            defaultValue={propertyType}
+            onValueChange={setPropertyType}
           />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Location</h3>
           <MainDropdown
             values={LOCATION_OBJ}
-            onValueChange={(value: string) => console.log("test 2", value)}
+            defaultValue={location}
+            onValueChange={setLocation}
           />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Unit Size</h3>
           <MainDropdown
-            values={LOCATION_OBJ}
-            onValueChange={(value: string) => console.log("test 3", value)}
+            values={UNIT_SIZE}
+            defaultValue={unitSize}
+            onValueChange={setUnitSize}
           />
         </div>
         <div className="w-full flex-1">
@@ -64,7 +105,10 @@ const PropertySearch = ({
         </div>
         {showSearch && (
           <div className="flex-none">
-            <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition">
+            <button
+              className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition"
+              onClick={() => searchInit()}
+            >
               <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
                 <Search /> Search
               </div>
