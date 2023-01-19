@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ChevronDown from "@/components/svg/ChevronDown";
 import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
@@ -51,13 +50,8 @@ const PropertySearch = ({
     setPriceCurrencyRange([min, max]);
   }, [priceRange]);
   const searchInit = () => {
-    const updatedPropertyType = propertyType
-      ? propertyType === "Mixed-use"
-        ? "mixeduse-estates"
-        : propertyType.toLocaleLowerCase().replace(/ /g, "-")
-      : "residential";
     router.push(
-      `/our-businesses/${updatedPropertyType}?location=${location}&unitSize=${unitSize}&priceRangeFrom=${priceCurrencyRange[0]}&priceRangeTo=${priceCurrencyRange[1]}`
+      `/property-search?propertyType=${propertyType}&location=${location}&unitSize=${unitSize}&priceRangeFrom=${priceCurrencyRange[0]}&priceRangeTo=${priceCurrencyRange[1]}`
     );
   };
   return (

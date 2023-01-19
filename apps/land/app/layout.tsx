@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import MainFooter from "@/components/footer/MainFooter";
 import MainNavigation from "@/components/navigation/MainNavigation";
 import * as React from "react";
+import ReactQueryWrapper from "@/components/tanstack/ReactQueryWrapper";
 
 export default function RootLayout({
   children,
@@ -11,9 +12,11 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <MainNavigation />
-        <main>{children}</main>
-        <MainFooter />
+        <ReactQueryWrapper>
+          <MainNavigation />
+          <main>{children}</main>
+          <MainFooter />
+        </ReactQueryWrapper>
       </body>
     </html>
   );

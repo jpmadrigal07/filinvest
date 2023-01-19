@@ -10,6 +10,7 @@ const MainHeader = ({
   bgUrlSmall = "blue-header-bg-small.png",
   isBlueHeader = false,
   isTitleSmall = false,
+  otherUrl,
 }: {
   bgUrl?: string;
   bgUrlSmall?: string;
@@ -18,6 +19,7 @@ const MainHeader = ({
   tabs?: ReactNode;
   isBlueHeader?: boolean;
   isTitleSmall?: boolean;
+  otherUrl?: string;
 }) => {
   return (
     <>
@@ -44,7 +46,7 @@ const MainHeader = ({
           )}
           <div className="z-0 hidden md:block">
             <Image
-              src={`/${bgUrl}`}
+              src={otherUrl ? otherUrl : `/${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"
@@ -86,7 +88,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 hidden md:block">
             <Image
-              src={`/${bgUrl}`}
+              src={otherUrl ? otherUrl : `/${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"

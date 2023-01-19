@@ -54,6 +54,12 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "propertyType",
+      type: "relationship",
+      relationTo: "property-categories",
+      required: false,
+    },
+    {
       name: "location",
       type: "relationship",
       relationTo: "location-categories",

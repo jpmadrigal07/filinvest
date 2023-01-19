@@ -36,7 +36,7 @@ export const SAMPLE_NEWS = [
     imgSrc: "/award-3-news.png",
     width: 1036,
     height: 806,
-    alt: "asdasdasd",
+    alt: "Test",
     title:
       "Filinvest Activa recognized as the Best Mixed-use Development by Dot Property",
     desc: "Mattis molestie a iaculis at erat pellentesque adipiscing commodo nunc lobortis mattis.",

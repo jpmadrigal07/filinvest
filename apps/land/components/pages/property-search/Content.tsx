@@ -1,4 +1,3 @@
-"use client";
 import PropertySearch from "@/components/search/PropertySearch";
 import Flag from "@/components/svg/Flag";
 import Peso from "@/components/svg/Peso";
@@ -6,10 +5,20 @@ import SizeBox from "@/components/svg/SizeBox";
 import Image from "next/image";
 import React from "react";
 
-const Content = () => {
+type PageProps = {
+  searchParams: {
+    propertyType: string;
+    location: string;
+    unitSize: string;
+    priceRangeFrom: string;
+    priceRangeTo: string;
+  };
+};
+
+const Content = ({ searchParams }: PageProps) => {
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">
-      <PropertySearch showSearch={false} className="mx-9 lg:mx-0" />
+      <PropertySearch className="mx-9 lg:mx-0" searchQuery={searchParams} />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         <p>4 properties found</p>
         <div className="mt-7 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

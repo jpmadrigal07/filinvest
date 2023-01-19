@@ -1,5 +1,5 @@
 import MainHeader from "@/components/header/MainHeader";
-import Content from "@/components/pages/projects/Content";
+import Content from "@/components/pages/projects/ContentOld";
 import qs from "qs";
 
 const query = {
@@ -26,7 +26,7 @@ async function geProjects() {
 }
 
 const ProjectsPage = async () => {
-  const news = await geProjects();
+  // const news = await geProjects();
   return (
     <>
       <MainHeader
@@ -34,7 +34,7 @@ const ProjectsPage = async () => {
         isBlueHeader
         bgUrl="blue-header-bg.png"
       />
-      <Content news={news} />
+      {/* <Content news={news} /> */}
     </>
   );
 };
