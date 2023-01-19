@@ -102,9 +102,11 @@ export interface NewsCategory {
 export interface Project {
   id: string;
   title: string;
+  slug: string;
+  headerImage: string | File;
   logo: string | File;
   projectType: string | ProjectCategory;
-  location: string;
+  location: string | LocationCategory;
   size: string;
   coverImage: string | File;
   overview: {
@@ -124,6 +126,27 @@ export interface Project {
  * via the `definition` "project-categories".
  */
 export interface ProjectCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "location-categories".
+ */
+export interface LocationCategory {
+  id: string;
+  title: string;
+  locationGroup: string | LocationGroupCategory;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "location-group-categories".
+ */
+export interface LocationGroupCategory {
   id: string;
   title: string;
   createdAt: string;
@@ -167,6 +190,16 @@ export interface Advertisement {
     [k: string]: unknown;
   }[];
   site: string | Site;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "property-categories".
+ */
+export interface PropertyCategory {
+  id: string;
+  title: string;
   createdAt: string;
   updatedAt: string;
 }

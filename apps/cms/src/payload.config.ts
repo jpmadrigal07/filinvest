@@ -13,6 +13,9 @@ import { Advertisements } from "./collections/Advertisements";
 import { CareerCategories } from "./collections/CareerCategories";
 import { NewsCategories } from "./collections/NewsCategories";
 import { ProjectCategories } from "./collections/ProjectCategories";
+import { PropertyCategories } from "./collections/PropertyCategories";
+import { LocationGroupCategories } from "./collections/LocationGroupCategories";
+import { LocationCategories } from "./collections/LocationCategories";
 
 import { seed } from "./seed";
 import Logo from "./graphics/Logo";
@@ -46,6 +49,9 @@ export default buildConfig({
     CareerCategories,
     NewsCategories,
     ProjectCategories,
+    PropertyCategories,
+    LocationGroupCategories,
+    LocationCategories,
     Files,
     Menu,
   ],

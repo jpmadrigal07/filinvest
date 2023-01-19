@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
 
-export const ProjectCategories: CollectionConfig = {
-  slug: "project-categories",
+export const LocationCategories: CollectionConfig = {
+  slug: "location-categories",
   admin: {
     useAsTitle: "title",
     group: "Category",
@@ -21,6 +21,12 @@ export const ProjectCategories: CollectionConfig = {
     {
       name: "title",
       type: "text",
+      required: true,
+    },
+    {
+      name: "locationGroup",
+      type: "relationship",
+      relationTo: "location-group-categories",
       required: true,
     },
   ],

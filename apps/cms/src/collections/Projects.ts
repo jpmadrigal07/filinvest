@@ -31,6 +31,17 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "slug",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "headerImage",
+      type: "upload",
+      relationTo: "files",
+      required: true,
+    },
+    {
       name: "logo",
       type: "upload",
       relationTo: "files",
@@ -44,7 +55,8 @@ export const Projects: CollectionConfig = {
     },
     {
       name: "location",
-      type: "text",
+      type: "relationship",
+      relationTo: "location-categories",
       required: true,
     },
     {

@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
 
-export const ProjectCategories: CollectionConfig = {
-  slug: "project-categories",
+export const LocationGroupCategories: CollectionConfig = {
+  slug: "location-group-categories",
   admin: {
     useAsTitle: "title",
     group: "Category",
