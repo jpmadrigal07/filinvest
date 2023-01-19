@@ -4,21 +4,32 @@ import Peso from "@/components/svg/Peso";
 import SizeBox from "@/components/svg/SizeBox";
 import Image from "next/image";
 import React from "react";
+import { T_SearchQuery } from "@/types/global";
+import flattenLocations from "@/helpers/flattenLocations";
+import { getRequest } from "@/helpers/getRequest";
+import { PropertyCategory } from "shared-types";
 
 type PageProps = {
-  searchParams: {
-    propertyType: string;
-    location: string;
-    unitSize: string;
-    priceRangeFrom: string;
-    priceRangeTo: string;
-  };
+  searchParams: T_SearchQuery;
 };
 
-const Content = ({ searchParams }: PageProps) => {
+const Content = async ({ searchParams }: PageProps) => {
+  const propertyTypesRes: PropertyCategory[] = await getRequest(
+    "/api/property-categories"
+  );
+  const locationsRes = await getRequest("/api/location-categories?limit=20");
+  const propertyTypes = propertyTypesRes.map(
+    (propertyType) => propertyType.title
+  );
+  const locations = flattenLocations(locationsRes);
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">
-      <PropertySearch className="mx-9 lg:mx-0" searchQuery={searchParams} />
+      <PropertySearch
+        className="mx-9 lg:mx-0"
+        searchQuery={searchParams}
+        locations={locations}
+        propertyTypes={propertyTypes}
+      />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         <p>4 properties found</p>
         <div className="mt-7 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

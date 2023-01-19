@@ -2,7 +2,8 @@
   "compilerOptions": {
     "paths": {
       "@/components/*": ["./components/*"],
-      "@/helpers/*": ["./helpers/*"]
+      "@/helpers/*": ["./helpers/*"],
+      "@/types/*": ["./types/*"]
     },
     "plugins": [
       {

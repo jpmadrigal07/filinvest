@@ -6,23 +6,20 @@ import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
 import { LOCATION_OBJ, PROJECT_TYPE, UNIT_SIZE } from "@/helpers/constants";
 import { useRouter } from "next/navigation";
-
-type SearchQuery = {
-  propertyType: string;
-  location: string;
-  unitSize: string;
-  priceRangeFrom: string;
-  priceRangeTo: string;
-};
+import { T_Locations, T_SearchQuery } from "@/types/global";
 
 const PropertySearch = ({
   showSearch = true,
   className,
   searchQuery,
+  locations,
+  propertyTypes,
 }: {
   showSearch?: boolean;
   className?: string;
-  searchQuery?: SearchQuery;
+  searchQuery?: T_SearchQuery;
+  locations: T_Locations;
+  propertyTypes: string[];
 }) => {
   const router = useRouter();
   const [propertyType, setPropertyType] = useState("");
@@ -63,7 +60,7 @@ const PropertySearch = ({
         <div className="w-full flex-1">
           <h3 className="text-white">Property Type</h3>
           <MainDropdown
-            values={PROJECT_TYPE}
+            values={propertyTypes}
             defaultValue={propertyType}
             onValueChange={setPropertyType}
           />
@@ -71,7 +68,7 @@ const PropertySearch = ({
         <div className="w-full flex-1">
           <h3 className="text-white">Location</h3>
           <MainDropdown
-            values={LOCATION_OBJ}
+            values={locations}
             defaultValue={location}
             onValueChange={setLocation}
           />

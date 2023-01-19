@@ -23,6 +23,7 @@ const HomePage = async () => {
     <div>
       <HeroSection homeContent={content} />
       <Projects />
+      {/* @ts-expect-error */}
       <LookingForProperty />
       <OurBusinesses />
       <OurServices />
