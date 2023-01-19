@@ -1,28 +1,13 @@
 "use client";
 import React from "react";
 import SelectLocation from "@/components/select/SelectLocation";
-import PropertySearch from "@/components/search/PropertySearch";
-import { useSearchParams } from "next/navigation";
 import Projects from "@/components/list/Projects";
 import { SAMPLE_PROJECTS } from "@/helpers/constants";
 
 const Content = () => {
-  const searchParams = useSearchParams();
-  const location = searchParams.get("location");
-  const unitSize = searchParams.get("unitSize");
-  const priceRangeFrom = searchParams.get("priceRangeFrom");
-  const priceRangeTo = searchParams.get("priceRangeTo");
-  const searchQuery = {
-    propertyType: "Townscapes",
-    location: location ? location : "",
-    unitSize: unitSize ? unitSize : "",
-    priceRangeFrom: priceRangeFrom ? priceRangeFrom : "",
-    priceRangeTo: priceRangeTo ? priceRangeTo : "",
-  };
   return (
-    <section className="-mt-24 mb-32 flex flex-col gap-9 2xl:-mt-32">
-      <PropertySearch className="mx-9 lg:mx-0" searchQuery={searchQuery} />
-      <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
+    <section className="mx-9 mb-32 mt-16 xl:mx-16 2xl:mx-44">
+      <div>
         <div>
           <h2 className="text-jet text-center text-4xl font-bold">
             Our Master-Planned Township

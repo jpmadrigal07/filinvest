@@ -8,6 +8,7 @@ import { T_SearchQuery } from "@/types/global";
 import flattenLocations from "@/helpers/flattenLocations";
 import { getRequest } from "@/helpers/getRequest";
 import { PropertyCategory } from "shared-types";
+import qs from "qs";
 
 type PageProps = {
   searchParams: T_SearchQuery;
@@ -17,11 +18,40 @@ const Content = async ({ searchParams }: PageProps) => {
   const propertyTypesRes: PropertyCategory[] = await getRequest(
     "/api/property-categories"
   );
-  const locationsRes = await getRequest("/api/location-categories?limit=20");
+  const locationsRes = await getRequest("/api/location-categories?limit=30");
   const propertyTypes = propertyTypesRes.map(
     (propertyType) => propertyType.title
   );
   const locations = flattenLocations(locationsRes);
+  const query = {
+    "propertyType.title": {
+      equals: searchParams.propertyType,
+    },
+    "location.title": {
+      equals: searchParams.location,
+    },
+    and: [
+      {
+        price: {
+          greater_than_equal: searchParams.priceRangeFrom,
+        },
+      },
+      {
+        price: {
+          less_than_equal: searchParams.priceRangeTo,
+        },
+      },
+    ],
+  };
+  const stringifiedQuery = qs.stringify(
+    {
+      where: query, // ensure that `qs` adds the `where` property, too!
+    },
+    { addQueryPrefix: true }
+  );
+  const projectsRes = await getRequest(`/api/projects${stringifiedQuery}`);
+  console.log("asdasd", stringifiedQuery);
+  console.log("asdasd", projectsRes);
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">
       <PropertySearch

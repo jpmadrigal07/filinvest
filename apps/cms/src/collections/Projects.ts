@@ -36,6 +36,11 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "price",
+      type: "number",
+      required: true,
+    },
+    {
       name: "headerImage",
       type: "upload",
       relationTo: "files",
