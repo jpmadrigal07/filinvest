@@ -123,38 +123,29 @@ const PropertySearch = ({
         <div className="flex w-full flex-1 flex-col gap-8 md:flex-row">
           <div className="w-full flex-1">
             <h3 className="text-white">Property Type</h3>
-            <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-              <input
-                type="email"
-                placeholder="Any"
-                className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-              />
-              <ChevronDown />
-            </div>
+            <MainDropdown
+              values={PROPERTY_TYPE}
+              defaultValue={propertyType}
+              onValueChange={setPropertyType}
+            />
           </div>
           <div className="w-full flex-1">
             <h3 className="text-white">Location</h3>
-            <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-              <input
-                type="email"
-                placeholder="Cainta"
-                className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-              />
-              <ChevronDown />
-            </div>
+            <MainDropdown
+              values={LOCATION_OBJ}
+              defaultValue={location}
+              onValueChange={setLocation}
+            />
           </div>
         </div>
         <div className="flex w-full flex-1 flex-col gap-8 md:flex-row">
           <div className="w-full flex-1">
             <h3 className="text-white">Unit Size</h3>
-            <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-              <input
-                type="email"
-                placeholder="Any"
-                className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-              />
-              <ChevronDown />
-            </div>
+            <MainDropdown
+              values={UNIT_SIZE}
+              defaultValue={unitSize}
+              onValueChange={setUnitSize}
+            />
           </div>
           <div className="w-full flex-1">
             <h3 className="mb-1 text-white">Price Range</h3>

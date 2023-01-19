@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import { combineClass } from "@/helpers/combineClass";
 import ChevronDown from "../svg/ChevronDown";
-import MapPin from "../svg/MapPin";
+import Funnel from "../svg/Funnel";
 
 const SelectLocation = () => {
   return (
@@ -13,7 +13,7 @@ const SelectLocation = () => {
             className={combineClass("group inline-flex hover:underline")}
           >
             <div className="flex w-52 items-center bg-white py-3 px-2 shadow-xl">
-              <MapPin color="#030303" className="mx-2 flex-none" />
+              <Funnel color="#030303" className="mx-2 flex-none" />
               <p className="flex-1 text-left">By Location</p>
               <div className="flex flex-none flex-col gap-1 p-4">
                 <ChevronDown color="#303030" />
