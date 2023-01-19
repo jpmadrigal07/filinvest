@@ -5,7 +5,7 @@ import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
-import { LOCATION_OBJ, PROPERTY_TYPE, UNIT_SIZE } from "@/helpers/constants";
+import { LOCATION_OBJ, PROJECT_TYPE, UNIT_SIZE } from "@/helpers/constants";
 import { useRouter } from "next/navigation";
 
 type SearchQuery = {
@@ -69,7 +69,7 @@ const PropertySearch = ({
         <div className="w-full flex-1">
           <h3 className="text-white">Property Type</h3>
           <MainDropdown
-            values={PROPERTY_TYPE}
+            values={PROJECT_TYPE}
             defaultValue={propertyType}
             onValueChange={setPropertyType}
           />
@@ -124,7 +124,7 @@ const PropertySearch = ({
           <div className="w-full flex-1">
             <h3 className="text-white">Property Type</h3>
             <MainDropdown
-              values={PROPERTY_TYPE}
+              values={PROJECT_TYPE}
               defaultValue={propertyType}
               onValueChange={setPropertyType}
             />

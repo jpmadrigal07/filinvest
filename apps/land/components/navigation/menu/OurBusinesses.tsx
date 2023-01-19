@@ -3,16 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { OUR_BUSINESSES_SUB_ROUTES } from "@/helpers/routes/ourBusinesses";
+import { PROPERTY_TYPE, LOCATION_OBJ, BRAND_ARR } from "@/helpers/constants";
+import ChevronRight from "@/components/svg/ChevronRight";
 
 const OurBusinesses = () => {
+  const locations = Object.keys(LOCATION_OBJ);
   return (
     <div className="divide-sonic-silver flex divide-x py-8">
-      <div className="h-[40rem] flex-none overflow-auto pr-24">
+      <div className="h-[40rem] flex-none pr-24 hover:overflow-auto">
         {OUR_BUSINESSES_SUB_ROUTES.map((routes, index) => {
           return (
             <div key={index} className={`${index > 0 && "mt-12"}`}>
               <Link href={routes.url} className="text-white hover:underline">
-                <h3 className="text-xl text-white">{routes.name}</h3>
+                <div className="flex items-center gap-3">
+                  <h3 className="text-xl text-white">{routes.name}</h3>
+                  {routes.name === "Residential" && <ChevronRight />}
+                </div>
                 <h4 className="text-white opacity-50">
                   Excepteur sint occaecat cupidatat non.
                 </h4>
@@ -26,12 +32,19 @@ const OurBusinesses = () => {
           <div className="flex gap-24">
             <div className="w-1/3 flex-none">
               <h3 className="text-xl text-white">Browse by</h3>
-              <h3 className="text-xl text-white">Project Type</h3>
+              <h3 className="text-xl text-white">Property Type</h3>
             </div>
             <div className="flex flex-col gap-6">
-              <h4 className="text-white opacity-50">Condo</h4>
-              <h4 className="text-white opacity-50">House & Lot</h4>
-              <h4 className="text-white opacity-50">Lot Only</h4>
+              {PROPERTY_TYPE.map((type) => {
+                return (
+                  <Link
+                    className="text-white opacity-50 hover:underline"
+                    href={"/"}
+                  >
+                    {type}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div className="flex gap-24">
@@ -40,10 +53,16 @@ const OurBusinesses = () => {
               <h3 className="text-xl text-white">Location</h3>
             </div>
             <div className="flex flex-col gap-6">
-              <h4 className="text-white opacity-50">Metro Manila</h4>
-              <h4 className="text-white opacity-50">Rest of Luzon</h4>
-              <h4 className="text-white opacity-50">Visayas</h4>
-              <h4 className="text-white opacity-50">Mindanao</h4>
+              {locations.map((location) => {
+                return (
+                  <Link
+                    className="text-white opacity-50 hover:underline"
+                    href={"/"}
+                  >
+                    {location}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div className="flex gap-24">
@@ -52,9 +71,16 @@ const OurBusinesses = () => {
               <h3 className="text-xl text-white">Brand</h3>
             </div>
             <div className="flex flex-col gap-6">
-              <h4 className="text-white opacity-50">Prestige</h4>
-              <h4 className="text-white opacity-50">Aspire</h4>
-              <h4 className="text-white opacity-50">Futura</h4>
+              {BRAND_ARR.map((brand) => {
+                return (
+                  <Link
+                    className="text-white opacity-50 hover:underline"
+                    href={"/"}
+                  >
+                    {brand}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>

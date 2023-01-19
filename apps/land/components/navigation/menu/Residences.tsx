@@ -27,7 +27,7 @@ const Residences = () => {
           <div className="flex gap-24">
             <div className="w-1/3 flex-none">
               <h3 className="text-xl text-white">Browse by</h3>
-              <h3 className="text-xl text-white">Project Type</h3>
+              <h3 className="text-xl text-white">Property Type</h3>
             </div>
             <div className="flex flex-col gap-6">
               <h4 className="text-white opacity-50">Condo</h4>

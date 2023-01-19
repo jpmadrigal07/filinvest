@@ -79,12 +79,12 @@ export const MINDANAO_ARR = [
 ];
 export const LOCATION_OBJ = {
   "Metro Manila": MM_ARR,
-  Calabrzon: CALABARZON_ARR,
+  Calabarzon: CALABARZON_ARR,
   Luzon: LUZON_ARR,
   Visayas: VISAYAS_ARR,
   Mindanao: MINDANAO_ARR,
 };
-export const PROPERTY_TYPE = [
+export const PROJECT_TYPE = [
   "Residential",
   "Corporate Centers",
   "Offices",
@@ -174,3 +174,7 @@ export const SAMPLE_PROJECTS = [
     location: "Makati City",
   },
 ];
+
+export const PROPERTY_TYPE = ["Condominium", "House & Lot", "Lot Only"];
+
+export const BRAND_ARR = ["Prestige", "Futura", "Aspire"];
