@@ -4,7 +4,7 @@ import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
-import { LOCATION_OBJ, PROJECT_TYPE, UNIT_SIZE } from "@/helpers/constants";
+import { UNIT_SIZE } from "@/helpers/constants";
 import { useRouter } from "next/navigation";
 import { T_Locations } from "@/types/global";
 import usePropertySearch from "@/components/search/hooks/usePropertySearch";
@@ -128,7 +128,7 @@ const PropertySearch = ({
           <div className="w-full flex-1">
             <h3 className="text-white">Property Type</h3>
             <MainDropdown
-              values={PROJECT_TYPE}
+              values={propertyTypes}
               defaultValue={propertyType}
               onValueChange={setPropertyType}
             />
@@ -136,7 +136,7 @@ const PropertySearch = ({
           <div className="w-full flex-1">
             <h3 className="text-white">Location</h3>
             <MainDropdown
-              values={LOCATION_OBJ}
+              values={locations}
               defaultValue={location}
               onValueChange={setLocation}
             />
@@ -165,7 +165,10 @@ const PropertySearch = ({
           </div>
           {showSearch && (
             <div className="flex-none">
-              <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition">
+              <button
+                className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition"
+                onClick={() => searchInit()}
+              >
                 <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
                   <Search /> Search
                 </div>
