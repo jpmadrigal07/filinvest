@@ -45,9 +45,14 @@ const PropertySearch = ({
     location,
   } = searchParams;
   const searchInit = () => {
-    router.push(
-      `/property-search?propertyType=${propertyType}&location=${location}&unitSize=${unitSize}&priceRangeFrom=${priceRangeFrom}&priceRangeTo=${priceRangeTo}`
-    );
+    const params = [
+      `propertyType=${encodeURIComponent(propertyType)}`,
+      `location=${location}`,
+      `unitSize=${unitSize}`,
+      `priceRangeFrom=${priceRangeFrom}`,
+      `priceRangeTo=${priceRangeTo}`,
+    ];
+    router.push(`/property-search?${params.join("&")}`);
   };
   useEffect(() => {
     if (propertiesRes && onPropertyResultChange) {

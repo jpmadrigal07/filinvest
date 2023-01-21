@@ -58,7 +58,7 @@ function usePropertySearch() {
     const priceRangeTo = searchParams.get("priceRangeTo");
     const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
     const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
-    setPropertyType(propertyType ? propertyType : "");
+    setPropertyType(propertyType ? decodeURIComponent(propertyType) : "");
     setLocation(location ? location : "");
     setUnitSize(unitSize ? unitSize : "");
     setPriceRange([numberFrom / 1000000, numberTo / 1000000]);
