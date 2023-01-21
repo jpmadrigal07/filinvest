@@ -10,3 +10,5 @@ export type T_SearchQuery = {
   priceRangeTo: string | number;
   priceRange?: number[];
 };
+
+export type T_Brands = "Land" | "Prestige" | "Futura" | "Aspire";

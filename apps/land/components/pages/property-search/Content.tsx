@@ -32,14 +32,16 @@ const Content = ({
         onLoading={setIsPropertyLoading}
       />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
-        <p>
-          {projects.length} {projects.length > 1 ? "properties" : "property"}{" "}
-          found
-        </p>
         {!isPropertyLoading ? (
-          <TileProjects projects={projects} />
+          <>
+            <p>
+              {projects.length}{" "}
+              {projects.length > 1 ? "properties" : "property"} found
+            </p>
+            <TileProjects projects={projects} />
+          </>
         ) : (
-          <h2 className="text-jet mt-12">Loading...</h2>
+          <p>Searching...</p>
         )}
       </div>
       <div className="bg-ghost-white mt-24 flex flex-col items-center py-24">
@@ -63,12 +65,19 @@ const Content = ({
         </div>
         <div className="mx-9 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
           <div className="bg-white shadow-xl">
-            <div>
+            <div className="relative">
               <Image
                 src="/quest-cenia.png"
                 width={1042}
                 height={748}
                 alt="Picture of the author"
+              />
+              <Image
+                src={`/futura-property.png`}
+                width={222}
+                height={222}
+                alt={`Futura Tag`}
+                className="absolute -right-12 -bottom-28"
               />
             </div>
             <div className="divide-gainsboro divide-y p-6">
@@ -97,12 +106,19 @@ const Content = ({
             </div>
           </div>
           <div className="bg-white shadow-xl">
-            <div>
+            <div className="relative">
               <Image
                 src="/quest-cenia.png"
                 width={1042}
                 height={748}
                 alt="Picture of the author"
+              />
+              <Image
+                src={`/futura-property.png`}
+                width={222}
+                height={222}
+                alt={`Futura Tag`}
+                className="absolute -right-12 -bottom-28"
               />
             </div>
             <div className="divide-gainsboro divide-y p-6">
@@ -131,12 +147,19 @@ const Content = ({
             </div>
           </div>
           <div className="bg-white shadow-xl">
-            <div>
+            <div className="relative">
               <Image
                 src="/quest-cenia.png"
                 width={1042}
                 height={748}
                 alt="Picture of the author"
+              />
+              <Image
+                src={`/futura-property.png`}
+                width={222}
+                height={222}
+                alt={`Futura Tag`}
+                className="absolute -right-12 -bottom-28"
               />
             </div>
             <div className="divide-gainsboro divide-y p-6">
