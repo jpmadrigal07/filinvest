@@ -1,205 +1,43 @@
+"use client";
 import PropertySearch from "@/components/search/PropertySearch";
 import Flag from "@/components/svg/Flag";
 import Peso from "@/components/svg/Peso";
 import SizeBox from "@/components/svg/SizeBox";
 import Image from "next/image";
-import React from "react";
-import { T_SearchQuery } from "@/types/global";
-import flattenLocations from "@/helpers/flattenLocations";
-import { getRequest } from "@/helpers/getRequest";
-import { PropertyCategory } from "shared-types";
-import qs from "qs";
+import React, { useState } from "react";
+import TileProjects from "@/components/list/TileProjects";
+import { T_Locations } from "@/types/global";
+import { Project } from "shared-types";
 
-type PageProps = {
-  searchParams: T_SearchQuery;
-};
-
-const Content = async ({ searchParams }: PageProps) => {
-  const propertyTypesRes: PropertyCategory[] = await getRequest(
-    "/api/property-categories"
-  );
-  const locationsRes = await getRequest("/api/location-categories?limit=30");
-  const propertyTypes = propertyTypesRes.map(
-    (propertyType) => propertyType.title
-  );
-  const locations = flattenLocations(locationsRes);
-  const query = {
-    "propertyType.title": {
-      equals: searchParams.propertyType,
-    },
-    "location.title": {
-      equals: searchParams.location,
-    },
-    and: [
-      {
-        price: {
-          greater_than_equal: searchParams.priceRangeFrom,
-        },
-      },
-      {
-        price: {
-          less_than_equal: searchParams.priceRangeTo,
-        },
-      },
-    ],
-  };
-  const stringifiedQuery = qs.stringify(
-    {
-      where: query, // ensure that `qs` adds the `where` property, too!
-    },
-    { addQueryPrefix: true }
-  );
-  const projectsRes = await getRequest(`/api/projects${stringifiedQuery}`);
-  console.log("asdasd", stringifiedQuery);
-  console.log("asdasd", projectsRes);
+const Content = ({
+  locations,
+  propertyTypes,
+}: {
+  locations: T_Locations;
+  propertyTypes: string[];
+}) => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [isPropertyLoading, setIsPropertyLoading] = useState<boolean>(false);
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">
       <PropertySearch
         className="mx-9 lg:mx-0"
-        searchQuery={searchParams}
         locations={locations}
         propertyTypes={propertyTypes}
+        onPropertyResultChange={setProjects}
+        showSearch={false}
+        onLoading={setIsPropertyLoading}
       />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
-        <p>4 properties found</p>
-        <div className="mt-7 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <Peso color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Flag color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <Peso color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Flag color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <Peso color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Flag color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <Peso color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Flag color="#23A0CF" classes="h-5 w-5" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <SizeBox color="#23A0CF" classes="h-6 w-6" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p>
+          {projects.length} {projects.length > 1 ? "properties" : "property"}{" "}
+          found
+        </p>
+        {!isPropertyLoading ? (
+          <TileProjects projects={projects} />
+        ) : (
+          <h2 className="text-jet mt-12">Loading...</h2>
+        )}
       </div>
       <div className="bg-ghost-white mt-24 flex flex-col items-center py-24">
         <div className="mx-6 md:mx-9 lg:mx-0 lg:w-1/3">

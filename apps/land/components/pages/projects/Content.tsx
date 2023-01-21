@@ -15,8 +15,8 @@ const Content = ({ project }: { project: Project }) => {
     <div>
       <MainHeader
         title={project.title}
-        // @ts-expect-error
         otherUrl={`${process.env.CMS_API_URL}${encodeURI(
+          // @ts-expect-error
           project.headerImage.url
         )}`}
       />

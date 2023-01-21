@@ -104,6 +104,7 @@ export interface Project {
   title: string;
   slug: string;
   logo: File;
+  price: number;
   headerImage: File;
   projectType: ProjectCategory;
   location: LocationCategory;

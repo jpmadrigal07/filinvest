@@ -1,17 +1,22 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/property-search/Content";
-import { T_SearchQuery } from "@/types/global";
+import flattenLocations from "@/helpers/flattenLocations";
+import { getRequest } from "@/helpers/getRequest";
+import { PropertyCategory } from "shared-types";
 
-type PageProps = {
-  searchParams: T_SearchQuery;
-};
-
-const PropertySearchPage = async ({ searchParams }: PageProps) => {
+const PropertySearchPage = async () => {
+  const propertyTypesRes: PropertyCategory[] = await getRequest(
+    "/api/property-categories"
+  );
+  const locationsRes = await getRequest("/api/location-categories?limit=30");
+  const propertyTypes = propertyTypesRes.map(
+    (propertyType) => propertyType.title
+  );
+  const locations = flattenLocations(locationsRes);
   return (
     <>
       <MainHeader title="Property Search" bgUrl="office-parks.png" />
-      {/* @ts-expect-error */}
-      <Content searchParams={searchParams} />
+      <Content locations={locations} propertyTypes={propertyTypes} />
     </>
   );
 };

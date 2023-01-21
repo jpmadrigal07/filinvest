@@ -6,6 +6,7 @@ export type T_SearchQuery = {
   propertyType: string;
   location: string;
   unitSize: string;
-  priceRangeFrom: string;
-  priceRangeTo: string;
+  priceRangeFrom: string | number;
+  priceRangeTo: string | number;
+  priceRange?: number[];
 };

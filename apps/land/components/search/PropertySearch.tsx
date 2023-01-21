@@ -1,56 +1,65 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, useEffect } from "react";
 import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
 import { LOCATION_OBJ, PROJECT_TYPE, UNIT_SIZE } from "@/helpers/constants";
 import { useRouter } from "next/navigation";
-import { T_Locations, T_SearchQuery } from "@/types/global";
+import { T_Locations } from "@/types/global";
+import usePropertySearch from "@/components/search/hooks/usePropertySearch";
+import { Project } from "shared-types";
 
 const PropertySearch = ({
   showSearch = true,
   className,
-  searchQuery,
   locations,
   propertyTypes,
+  onPropertyResultChange,
+  onLoading,
 }: {
   showSearch?: boolean;
   className?: string;
-  searchQuery?: T_SearchQuery;
   locations: T_Locations;
   propertyTypes: string[];
+  onPropertyResultChange?: Dispatch<Project[]>;
+  onLoading?: Dispatch<boolean>;
 }) => {
   const router = useRouter();
-  const [propertyType, setPropertyType] = useState("");
-  const [location, setLocation] = useState("");
-  const [unitSize, setUnitSize] = useState("");
-  const [priceRange, setPriceRange] = useState([20, 50]);
-  const [priceCurrencyRange, setPriceCurrencyRange] = useState([0, 0]);
-  useEffect(() => {
-    if (searchQuery) {
-      const { priceRangeFrom, priceRangeTo, propertyType, location, unitSize } =
-        searchQuery;
-      const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
-      const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
-      setPropertyType(propertyType);
-      setLocation(location);
-      setUnitSize(unitSize);
-      setPriceRange([numberFrom / 1000000, numberTo / 1000000]);
-      setPriceCurrencyRange([numberFrom, numberTo]);
-    }
-  }, [searchQuery]);
-  useEffect(() => {
-    const pricePerValue = 1000000;
-    const min = priceRange[0] * pricePerValue;
-    const max = priceRange[1] * pricePerValue;
-    setPriceCurrencyRange([min, max]);
-  }, [priceRange]);
+  const {
+    data: propertiesRes,
+    isLoading,
+    isFetching,
+    searchParams,
+    setPropertyType,
+    setLocation,
+    setUnitSize,
+    setPriceRange,
+  } = usePropertySearch();
+  const {
+    priceRange,
+    propertyType,
+    unitSize,
+    priceRangeFrom,
+    priceRangeTo,
+    location,
+  } = searchParams;
   const searchInit = () => {
     router.push(
-      `/property-search?propertyType=${propertyType}&location=${location}&unitSize=${unitSize}&priceRangeFrom=${priceCurrencyRange[0]}&priceRangeTo=${priceCurrencyRange[1]}`
+      `/property-search?propertyType=${propertyType}&location=${location}&unitSize=${unitSize}&priceRangeFrom=${priceRangeFrom}&priceRangeTo=${priceRangeTo}`
     );
   };
+  useEffect(() => {
+    if (propertiesRes && onPropertyResultChange) {
+      onPropertyResultChange(propertiesRes);
+    }
+  }, [propertiesRes, onPropertyResultChange]);
+  useEffect(() => {
+    if (onLoading) {
+      const isLoadingOrFetching = isLoading || isFetching;
+      onLoading(isLoadingOrFetching);
+    }
+  }, [isLoading, isFetching, onLoading]);
   return (
     <>
       {/* Large Screen */}
@@ -90,8 +99,7 @@ const PropertySearch = ({
             value={priceRange}
           />
           <h4 className="mt-1 text-sm text-white">
-            Php {toCurrency(priceCurrencyRange[0])} - Php{" "}
-            {toCurrency(priceCurrencyRange[1])}
+            Php {toCurrency(priceRangeFrom)} - Php {toCurrency(priceRangeTo)}
           </h4>
         </div>
         {showSearch && (
@@ -147,8 +155,7 @@ const PropertySearch = ({
               value={priceRange}
             />
             <h4 className="mt-1 text-sm text-white">
-              Php {toCurrency(priceCurrencyRange[0])} - Php{" "}
-              {toCurrency(priceCurrencyRange[1])}
+              Php {toCurrency(priceRangeFrom)} - Php {toCurrency(priceRangeTo)}
             </h4>
           </div>
           {showSearch && (

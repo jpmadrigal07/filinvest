@@ -22,7 +22,7 @@ const SizeBox = ({
         width="31.0909"
         height="31.0909"
         stroke={color}
-        stroke-width="3"
+        strokeWidth="3"
       />
       <rect y="15.7273" width="12.2727" height="12.2727" fill="white" />
       <rect
