@@ -164,6 +164,9 @@ export interface Career {
   responsibilities: {
     [k: string]: unknown;
   }[];
+  requirements: {
+    [k: string]: unknown;
+  }[];
   careersCategory: CareerCategory;
   site: Site;
   _status?: "draft" | "published";
