@@ -2,60 +2,69 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { ABOUT_US_SUB_ROUTES } from "@/helpers/routes/aboutUs";
+// import { ABOUT_US_SUB_ROUTES } from "@/helpers/routes/aboutUs";
 
-const AboutUs = () => {
+type T_AboutUsMenu = {
+  title: string;
+  subTitle?: string;
+  link: string;
+};
+const AboutUs = ({
+  aboutUsMenu,
+  firstAwards,
+  secondAwards,
+}: {
+  aboutUsMenu?: T_AboutUsMenu[];
+  firstAwards: any;
+  secondAwards: any;
+}) => {
   return (
     <div className="divide-sonic-silver flex divide-x py-8">
       <div className="flex-none pr-24">
-        {ABOUT_US_SUB_ROUTES.map((routes, index) => {
-          return (
-            <div key={index} className={`${index > 0 && "mt-12"}`}>
-              <Link href={routes.url} className="text-white hover:underline">
-                <h3 className="text-xl text-white">{routes.name}</h3>
-                <h4 className="text-white opacity-50">
-                  Excepteur sint occaecat cupidatat non.
-                </h4>
-              </Link>
-            </div>
-          );
-        })}
+        {aboutUsMenu &&
+          aboutUsMenu.map((routes: T_AboutUsMenu, index: number) => {
+            return (
+              <div key={index} className={`${index > 0 && "mt-12"}`}>
+                <Link href={routes.link} className="text-white hover:underline">
+                  <h3 className="text-xl text-white">{routes.title}</h3>
+                  <h4 className="text-white opacity-50">{routes.subTitle}</h4>
+                </Link>
+              </div>
+            );
+          })}
       </div>
       <div className="flex flex-1 gap-6 px-24">
         <div className="flex-1">
           <h3 className="text-xl text-white">Awards</h3>
           <h2 className="mt-4 text-4xl text-white">
-            Non diam phasellus vestibulum amet volute Consequat quis
+            {firstAwards.value.title}
           </h2>
           <h4 className="mt-4 text-white opacity-50">
-            Mattis molestie a iaculis at erat pellentesque adipiscing commodo
-            nunc lobortis mattis.
+            {firstAwards.value.description}
           </h4>
           <div className="mt-9">
             <Image
-              src="/awards-about-us.png"
-              width={375}
-              height={120}
-              alt="Picture of the author"
+              src={`${process.env.CMS_API_URL}${firstAwards.value.coverImage.url}`}
+              width={firstAwards.value.coverImage.width}
+              height={firstAwards.value.coverImage.height}
+              alt="awards"
             />
           </div>
         </div>
         <div className="flex-1">
           <h3 className="text-xl text-white">Awards</h3>
           <h2 className="mt-4 text-4xl text-white">
-            Nam aliquam sem et tortor consequat id porta. Pretium nibh ipsum
-            con.
+            {secondAwards.value.title}
           </h2>
           <h4 className="mt-4 text-white opacity-50">
-            Mattis molestie a iaculis at erat pellentesque adipiscing commodo
-            nunc lobortis mattis.
+            {secondAwards.value.description}
           </h4>
           <div className="mt-9">
             <Image
-              src="/awards-2-about-us.png"
-              width={375}
-              height={120}
-              alt="Picture of the author"
+              src={`${process.env.CMS_API_URL}${secondAwards.value.coverImage.url}`}
+              width={secondAwards.value.coverImage.width}
+              height={secondAwards.value.coverImage.height}
+              alt="awards"
             />
           </div>
         </div>

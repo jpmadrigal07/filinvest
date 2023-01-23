@@ -6,7 +6,7 @@ type Contents = {
   [k: string]: unknown;
 }[];
 
-const serializeContents = (contents?: Contents) =>
+const serializeChildren = (contents?: Contents) =>
   contents?.map((content: any, i: number) => {
     if (content && content.children.length > 0) {
       const finalizedContent = content.children.map((child: any) => {
@@ -128,4 +128,4 @@ const finalizeTags = (
   }
 };
 
-export default serializeContents;
+export default serializeChildren;

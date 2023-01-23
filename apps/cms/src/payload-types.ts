@@ -8,6 +8,59 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation".
+ */
+export interface Navigation {
+  id: string;
+  mainMenu: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    firstFeaturedSlug?:
+      | {
+          value: string | News;
+          relationTo: "news";
+        }
+      | {
+          value: string | Project;
+          relationTo: "projects";
+        };
+    secondFeaturedSlug?:
+      | {
+          value: string | News;
+          relationTo: "news";
+        }
+      | {
+          value: string | Project;
+          relationTo: "projects";
+        };
+    subMenu: {
+      link: {
+        type?: "reference" | "custom";
+        newTab?: boolean;
+        reference: {
+          value: string | Page;
+          relationTo: "pages";
+        };
+        url: string;
+        label: string;
+        description?: string;
+      };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
  */
 export interface Page {
@@ -163,6 +216,47 @@ export interface LocationGroupCategory {
   title: string;
   createdAt: string;
   updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  filinvestLogo: string | File;
+  emailDescription: string;
+  quickLinks: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    id?: string;
+  }[];
+  filinvestLand: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    id?: string;
+  }[];
+  firstPhone: string;
+  secondPhone: string;
+  emailAddress: string;
+  address: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

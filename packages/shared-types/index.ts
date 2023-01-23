@@ -217,3 +217,58 @@ export interface Menu {
   createdAt: string;
   updatedAt: string;
 }
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation".
+ */
+export interface NavigationSubMenu {
+  link: {
+    type?: "reference" | "custom";
+    newTab?: boolean;
+    reference: {
+      value: Page;
+      relationTo: "pages";
+    };
+    url: string;
+    label: string;
+    description?: string;
+  };
+  id?: string;
+}
+export interface NavigationMenu {
+  link: {
+    type?: "reference" | "custom";
+    newTab?: boolean;
+    reference: {
+      value: Page;
+      relationTo: "pages";
+    };
+    url: string;
+    label: string;
+    description?: string;
+  };
+  firstFeaturedSlug?:
+    | {
+        value: News;
+        relationTo: "news";
+      }
+    | {
+        value: Project;
+        relationTo: "projects";
+      };
+  secondFeaturedSlug?:
+    | {
+        value: News;
+        relationTo: "news";
+      }
+    | {
+        value: Project;
+        relationTo: "projects";
+      };
+  subMenu: NavigationSubMenu[];
+  id?: string;
+}
+export interface Navigation {
+  id: string;
+  mainMenu: NavigationMenu[];
+}

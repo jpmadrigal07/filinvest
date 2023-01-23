@@ -1,8 +1,16 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { LocationGroupCategory, PropertyCategory, Site } from "shared-types";
+import useGetLocationGroup from "../MainNavigation/hooks/useGetLocationGroup";
+import useGetPropertyTypes from "../MainNavigation/hooks/useGetPropertyTypes";
+import useGetSites from "../MainNavigation/hooks/useGetSites";
 
 const Residences = () => {
+  const { data: locationGroup } = useGetLocationGroup();
+  const { data: propertyTypes } = useGetPropertyTypes();
+  const { data: brands } = useGetSites();
   return (
     <div className="divide-sonic-silver flex divide-x py-8">
       <div className="flex-none pr-24">
@@ -30,9 +38,22 @@ const Residences = () => {
               <h3 className="text-xl text-white">Property Type</h3>
             </div>
             <div className="flex flex-col gap-6">
-              <h4 className="text-white opacity-50">Condo</h4>
-              <h4 className="text-white opacity-50">House & Lot</h4>
-              <h4 className="text-white opacity-50">Lot Only</h4>
+              {propertyTypes ? (
+                propertyTypes.map((type: PropertyCategory) => {
+                  return (
+                    <Link
+                      className="text-white opacity-50 hover:underline"
+                      href={`/property-search?propertyType=${type.title}`}
+                    >
+                      {type.title}
+                    </Link>
+                  );
+                })
+              ) : (
+                <p className="text-white opacity-50 hover:underline">
+                  Loading...
+                </p>
+              )}
             </div>
           </div>
           <div className="flex gap-24">
@@ -41,10 +62,22 @@ const Residences = () => {
               <h3 className="text-xl text-white">Location</h3>
             </div>
             <div className="flex flex-col gap-6">
-              <h4 className="text-white opacity-50">Metro Manila</h4>
-              <h4 className="text-white opacity-50">Rest of Luzon</h4>
-              <h4 className="text-white opacity-50">Visayas</h4>
-              <h4 className="text-white opacity-50">Mindanao</h4>
+              {locationGroup ? (
+                locationGroup.map((location: LocationGroupCategory) => {
+                  return (
+                    <Link
+                      className="text-white opacity-50 hover:underline"
+                      href={`/property-search?locationGroup=${location.title}`}
+                    >
+                      {location.title}
+                    </Link>
+                  );
+                })
+              ) : (
+                <p className="text-white opacity-50 hover:underline">
+                  Loading...
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -55,9 +88,22 @@ const Residences = () => {
               <h3 className="text-xl text-white">Brand</h3>
             </div>
             <div className="flex flex-col gap-6">
-              <h4 className="text-white opacity-50">Prestige</h4>
-              <h4 className="text-white opacity-50">Aspire</h4>
-              <h4 className="text-white opacity-50">Futura</h4>
+              {brands ? (
+                brands.map((brand: Site) => {
+                  return (
+                    <Link
+                      className="text-white opacity-50 hover:underline"
+                      href={`/property-search?locationGroup=${brand.title}`}
+                    >
+                      {brand.title}
+                    </Link>
+                  );
+                })
+              ) : (
+                <p className="text-white opacity-50 hover:underline">
+                  Loading...
+                </p>
+              )}
             </div>
           </div>
         </div>

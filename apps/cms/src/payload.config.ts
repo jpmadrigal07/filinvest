@@ -2,6 +2,7 @@ import { buildConfig } from "payload/config";
 import path from "path";
 import { Users } from "./collections/Users";
 import { Sites } from "./collections/Sites";
+import { Awards } from "./collections/Awards";
 import { Menu } from "./collections/Menu";
 import { Files } from "./collections/Files";
 import { Pages } from "./collections/Pages";
@@ -16,6 +17,9 @@ import { ProjectCategories } from "./collections/ProjectCategories";
 import { PropertyCategories } from "./collections/PropertyCategories";
 import { LocationGroupCategories } from "./collections/LocationGroupCategories";
 import { LocationCategories } from "./collections/LocationCategories";
+
+import { Navigation } from "./globals/Navigation";
+import { Footer } from "./globals/Footer";
 
 import { seed } from "./seed";
 import Logo from "./graphics/Logo";
@@ -42,6 +46,7 @@ export default buildConfig({
     Pages,
     News,
     Projects,
+    Awards,
     Careers,
     Advertisements,
     Users,
@@ -55,6 +60,7 @@ export default buildConfig({
     Files,
     Menu,
   ],
+  globals: [Navigation, Footer],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

@@ -4,8 +4,8 @@ import { isAdminOrHasSiteAccessOrPublished } from "../access/isAdminHasSiteAcces
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
 
-export const Projects: CollectionConfig = {
-  slug: "projects",
+export const Awards: CollectionConfig = {
+  slug: "awards",
   admin: {
     useAsTitle: "title",
     group: "Content",
@@ -31,73 +31,12 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      name: "slug",
-      type: "text",
-      required: true,
-    },
-    {
-      name: "price",
-      type: "number",
-      required: true,
-    },
-    {
-      name: "headerImage",
-      type: "upload",
-      relationTo: "files",
-      required: true,
-    },
-    {
-      name: "logo",
-      type: "upload",
-      relationTo: "files",
-      required: true,
-    },
-    {
-      name: "projectType",
-      type: "relationship",
-      relationTo: "project-categories",
-      required: true,
-    },
-    {
-      name: "propertyType",
-      type: "relationship",
-      relationTo: "property-categories",
-      required: false,
-    },
-    {
-      name: "location",
-      type: "relationship",
-      relationTo: "location-categories",
-      required: true,
-    },
-    {
-      name: "size",
+      name: "description",
       type: "text",
       required: true,
     },
     {
       name: "coverImage",
-      type: "upload",
-      relationTo: "files",
-      required: true,
-    },
-    {
-      name: "shortDescription",
-      type: "text",
-      required: true,
-    },
-    {
-      name: "overview",
-      type: "richText",
-      required: true,
-    },
-    {
-      name: "locationTab",
-      type: "richText",
-      required: true,
-    },
-    {
-      name: "mapImage",
       type: "upload",
       relationTo: "files",
       required: true,
