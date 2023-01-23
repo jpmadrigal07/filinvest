@@ -9,6 +9,7 @@ export type T_SearchQuery = {
   priceRangeFrom: string | number;
   priceRangeTo: string | number;
   priceRange?: number[];
+  brand?: string;
 };
 
 export type T_Brands = "Land" | "Prestige" | "Futura" | "Aspire";

@@ -7,24 +7,43 @@ import qs from "qs";
 
 export async function getProperties(searchParams: T_SearchQuery) {
   const query = {
-    "propertyType.title": {
-      equals: searchParams.propertyType,
-    },
-    "location.title": {
-      equals: searchParams.location,
-    },
-    and: [
-      {
-        price: {
-          greater_than_equal: searchParams.priceRangeFrom,
-        },
-      },
-      {
-        price: {
-          less_than_equal: searchParams.priceRangeTo,
-        },
-      },
-    ],
+    ...(searchParams.brand
+      ? {
+          "site.title": {
+            equals: searchParams.brand,
+          },
+        }
+      : {}),
+    ...(searchParams.propertyType
+      ? {
+          "propertyType.title": {
+            equals: searchParams.propertyType,
+          },
+        }
+      : {}),
+    ...(searchParams.location
+      ? {
+          "location.title": {
+            equals: searchParams.location,
+          },
+        }
+      : {}),
+    ...(searchParams.priceRangeFrom
+      ? {
+          and: [
+            {
+              price: {
+                greater_than_equal: searchParams.priceRangeFrom,
+              },
+            },
+            {
+              price: {
+                less_than_equal: searchParams.priceRangeTo,
+              },
+            },
+          ],
+        }
+      : {}),
   };
   const stringifiedQuery = qs.stringify(
     {
@@ -47,12 +66,14 @@ function usePropertySearch() {
   const searchParams = useSearchParams();
   const [propertyType, setPropertyType] = useState("");
   const [location, setLocation] = useState("");
+  const [brand, setBrand] = useState("");
   const [unitSize, setUnitSize] = useState("");
   const [priceRange, setPriceRange] = useState([20, 50]);
   const [priceCurrencyRange, setPriceCurrencyRange] = useState([0, 0]);
   useEffect(() => {
     const propertyType = searchParams.get("propertyType");
     const location = searchParams.get("location");
+    const brand = searchParams.get("brand");
     const unitSize = searchParams.get("unitSize");
     const priceRangeFrom = searchParams.get("priceRangeFrom");
     const priceRangeTo = searchParams.get("priceRangeTo");
@@ -63,6 +84,7 @@ function usePropertySearch() {
     setUnitSize(unitSize ? unitSize : "");
     setPriceRange([numberFrom / 1000000, numberTo / 1000000]);
     setPriceCurrencyRange([numberFrom, numberTo]);
+    setBrand(brand ? brand : "");
   }, [searchParams]);
   useEffect(() => {
     const pricePerValue = 1000000;
@@ -77,6 +99,7 @@ function usePropertySearch() {
     priceRangeFrom: priceCurrencyRange[0],
     priceRangeTo: priceCurrencyRange[1],
     priceRange,
+    brand,
   };
   const query = useQuery(
     ["property", formattedSearchParams],
