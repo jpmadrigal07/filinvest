@@ -33,7 +33,7 @@ const formatNavigations = (navigations: Navigation) => {
         />
       );
     } else if (menu.link.label === "Residences") {
-      wideMenuComponent = <Residences />;
+      wideMenuComponent = <Residences property={menu.firstFeaturedSlug} />;
     } else if (menu.link.label === "Investor Relations") {
       wideMenuComponent = (
         <InvestorRelations

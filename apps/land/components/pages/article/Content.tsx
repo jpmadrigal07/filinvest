@@ -22,9 +22,7 @@ const Content = (props: News) => {
       <section className="-mt-48 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72">
         <div className="flex flex-col items-center gap-6">
           <Image
-            src={`${process.env.CMS_API_URL}${props && props ? "" : "/"}${
-              props?.coverImage.url
-            }`}
+            src={`${props && props ? "" : "/"}${props?.coverImage.url}`}
             width={1036}
             height={806}
             alt="Picture of the author"

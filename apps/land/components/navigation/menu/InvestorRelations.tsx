@@ -46,7 +46,9 @@ const InvestorRelations = ({
         <h2 className="mt-4 text-4xl text-white">Featured blog posts</h2>
         <div className="mt-6">
           <Image
-            src={`${process.env.CMS_API_URL}${news.value.coverImage.url}`}
+            src={`${!news.value.coverImage.url ? "/" : ""}${
+              news.value.coverImage.url
+            }`}
             width={350}
             height={news.value.coverImage.height}
             alt="news"

@@ -45,7 +45,7 @@ const Content = ({ news }: any) => {
               >
                 <div className="bg-ghost-white h-[400px]">
                   <Image
-                    src={item.coverImage.url}
+                    src={`${item.coverImage.url}`}
                     width={position === "grid" ? item.coverImage.width : 600}
                     height={position === "grid" ? item.coverImage.height : 600}
                     alt={item.coverImage.alt}

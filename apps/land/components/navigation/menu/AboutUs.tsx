@@ -44,7 +44,9 @@ const AboutUs = ({
           </h4>
           <div className="mt-9">
             <Image
-              src={`${process.env.CMS_API_URL}${firstAwards.value.coverImage.url}`}
+              src={`${!firstAwards.value.coverImage.url ? "/" : ""}${
+                firstAwards.value.coverImage.url
+              }`}
               width={firstAwards.value.coverImage.width}
               height={firstAwards.value.coverImage.height}
               alt="awards"
@@ -61,7 +63,9 @@ const AboutUs = ({
           </h4>
           <div className="mt-9">
             <Image
-              src={`${process.env.CMS_API_URL}${secondAwards.value.coverImage.url}`}
+              src={`${!secondAwards.value.coverImage.url ? "/" : ""}${
+                secondAwards.value.coverImage.url
+              }`}
               width={secondAwards.value.coverImage.width}
               height={secondAwards.value.coverImage.height}
               alt="awards"

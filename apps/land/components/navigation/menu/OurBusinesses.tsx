@@ -132,7 +132,9 @@ const OurBusinesses = ({
           </p>
           <div className="mt-9">
             <Image
-              src={`${process.env.CMS_API_URL}${property.value.coverImage.url}`}
+              src={`${!property.value.coverImage.url ? "/" : ""}${
+                property.value.coverImage.url
+              }`}
               width={350}
               height={property.value.coverImage.height}
               alt="property"
