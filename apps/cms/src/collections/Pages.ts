@@ -3,6 +3,14 @@ import { isAdmin } from "../access/isAdmin";
 import { isAdminOrHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
+import {
+  HomeHeroSection,
+  HomeProjectsSection,
+  HomePropertySearchSection,
+  HomeOurBusinessesSection,
+  HomeOurServicesSection,
+  HomeAboutUsSection,
+} from "../blocks/Home";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -32,7 +40,16 @@ export const Pages: CollectionConfig = {
     },
     {
       name: "content",
-      type: "richText",
+      type: "blocks",
+      required: true,
+      blocks: [
+        HomeHeroSection,
+        HomeProjectsSection,
+        HomePropertySearchSection,
+        HomeOurBusinessesSection,
+        HomeOurServicesSection,
+        HomeAboutUsSection,
+      ],
     },
     {
       name: "site",
