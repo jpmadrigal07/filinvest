@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import qs from "qs";
+import usePriceRangeSettings from "./usePriceRangeSettings";
 
 export async function getProperties(searchParams: T_SearchQuery) {
   const query = {
@@ -64,12 +65,12 @@ export async function getProperties(searchParams: T_SearchQuery) {
 function usePropertySearch() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { data: priceRangeMinMax } = usePriceRangeSettings();
   const [propertyType, setPropertyType] = useState("");
   const [location, setLocation] = useState("");
   const [brand, setBrand] = useState("");
   const [unitSize, setUnitSize] = useState("");
-  const [priceRange, setPriceRange] = useState([20, 50]);
-  const [priceCurrencyRange, setPriceCurrencyRange] = useState([0, 0]);
+  const [priceRange, setPriceRange] = useState([0, 0]);
   useEffect(() => {
     const propertyType = searchParams.get("propertyType");
     const location = searchParams.get("location");
@@ -82,22 +83,21 @@ function usePropertySearch() {
     setPropertyType(propertyType ? decodeURIComponent(propertyType) : "");
     setLocation(location ? location : "");
     setUnitSize(unitSize ? unitSize : "");
-    setPriceRange([numberFrom / 1000000, numberTo / 1000000]);
-    setPriceCurrencyRange([numberFrom, numberTo]);
+    setPriceRange([numberFrom, numberTo]);
     setBrand(brand ? brand : "");
   }, [searchParams]);
   useEffect(() => {
-    const pricePerValue = 1000000;
-    const min = priceRange[0] * pricePerValue;
-    const max = priceRange[1] * pricePerValue;
-    setPriceCurrencyRange([min, max]);
-  }, [priceRange]);
+    if (priceRangeMinMax) {
+      setPriceRange(priceRangeMinMax);
+    }
+  }, [priceRangeMinMax]);
+
   const formattedSearchParams = {
     propertyType,
     location,
     unitSize,
-    priceRangeFrom: priceCurrencyRange[0],
-    priceRangeTo: priceCurrencyRange[1],
+    priceRangeFrom: priceRange[0],
+    priceRangeTo: priceRange[1],
     priceRange,
     brand,
   };
@@ -116,6 +116,7 @@ function usePropertySearch() {
     setLocation,
     setUnitSize,
     setPriceRange,
+    priceRangeMinMax,
   };
 }
 

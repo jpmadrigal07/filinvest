@@ -35,6 +35,7 @@ const PropertySearch = ({
     setLocation,
     setUnitSize,
     setPriceRange,
+    priceRangeMinMax,
   } = usePropertySearch();
   const {
     priceRange,
@@ -65,6 +66,7 @@ const PropertySearch = ({
       onLoading(isLoadingOrFetching);
     }
   }, [isLoading, isFetching, onLoading]);
+
   return (
     <>
       {/* Large Screen */}
@@ -99,6 +101,8 @@ const PropertySearch = ({
           <h3 className="mb-1 text-white">Price Range</h3>
           <RangeSliderMark
             range
+            min={priceRangeMinMax ? priceRangeMinMax[0] : 0}
+            max={priceRangeMinMax ? priceRangeMinMax[1] : 100000000}
             defaultValue={priceRange}
             onValueChange={setPriceRange}
             value={priceRange}
@@ -155,6 +159,8 @@ const PropertySearch = ({
             <h3 className="mb-1 text-white">Price Range</h3>
             <RangeSliderMark
               range
+              min={priceRangeMinMax ? priceRangeMinMax[0] : 0}
+              max={priceRangeMinMax ? priceRangeMinMax[1] : 100000000}
               defaultValue={priceRange}
               onValueChange={setPriceRange}
               value={priceRange}

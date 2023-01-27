@@ -24,6 +24,7 @@ import { Footer } from "./globals/Footer";
 import { seed } from "./seed";
 import Logo from "./graphics/Logo";
 import Icon from "./graphics/Icon";
+import { PropertySearch } from "./globals/PropertySearch";
 
 export default buildConfig({
   cors: "*",
@@ -60,7 +61,7 @@ export default buildConfig({
     Files,
     Menu,
   ],
-  globals: [Navigation, Footer],
+  globals: [Navigation, Footer, PropertySearch],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

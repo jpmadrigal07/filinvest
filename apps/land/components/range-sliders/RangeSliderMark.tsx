@@ -9,7 +9,8 @@ type T_Marks = {
 
 const RangeSliderMark = ({
   marks,
-  min = 0,
+  min = undefined,
+  max = undefined,
   defaultValue = 0,
   step = 1,
   onValueChange = () => null,
@@ -18,7 +19,8 @@ const RangeSliderMark = ({
   range = false,
 }: {
   marks?: T_Marks;
-  min?: number;
+  min?: number | undefined;
+  max?: number | undefined;
   step?: number | null;
   value: number | number[];
   defaultValue?: number | number[];
@@ -29,6 +31,7 @@ const RangeSliderMark = ({
   return (
     <Slider
       min={min}
+      max={max}
       marks={marks}
       step={step}
       range={range}
