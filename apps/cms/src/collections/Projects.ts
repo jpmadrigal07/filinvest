@@ -72,7 +72,8 @@ export const Projects: CollectionConfig = {
     },
     {
       name: "size",
-      type: "text",
+      label: "Size (sqm)",
+      type: "number",
       required: true,
     },
     {

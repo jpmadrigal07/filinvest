@@ -29,6 +29,13 @@ export async function getProperties(searchParams: T_SearchQuery) {
           },
         }
       : {}),
+    ...(searchParams.unitSize
+      ? {
+          size: {
+            equals: searchParams.unitSize,
+          },
+        }
+      : {}),
     ...(searchParams.priceRangeFrom
       ? {
           and: [
@@ -112,6 +119,10 @@ function usePropertySearch() {
   return {
     ...query,
     searchParams: formattedSearchParams,
+    propertyType,
+    location,
+    brand,
+    unitSize,
     setPropertyType,
     setLocation,
     setUnitSize,

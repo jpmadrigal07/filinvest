@@ -4,11 +4,11 @@ import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
-import { UNIT_SIZE } from "@/helpers/constants";
 import { useRouter } from "next/navigation";
 import { T_Locations } from "@/types/global";
 import usePropertySearch from "@/components/search/hooks/usePropertySearch";
 import { Project } from "shared-types";
+import MainInput from "../input/MainInput";
 
 const PropertySearch = ({
   showSearch = true,
@@ -36,6 +36,8 @@ const PropertySearch = ({
     setUnitSize,
     setPriceRange,
     priceRangeMinMax,
+    propertyType: currentPropertyType,
+    location: currentLocation,
   } = usePropertySearch();
   const {
     priceRange,
@@ -79,6 +81,7 @@ const PropertySearch = ({
             values={propertyTypes}
             defaultValue={propertyType}
             onValueChange={setPropertyType}
+            currentValue={currentPropertyType}
           />
         </div>
         <div className="w-full flex-1">
@@ -87,14 +90,15 @@ const PropertySearch = ({
             values={locations}
             defaultValue={location}
             onValueChange={setLocation}
+            currentValue={currentLocation}
           />
         </div>
         <div className="w-full flex-1">
-          <h3 className="text-white">Unit Size</h3>
-          <MainDropdown
-            values={UNIT_SIZE}
+          <h3 className="text-white">Unit Size (sqm)</h3>
+          <MainInput
+            type="number"
             defaultValue={unitSize}
-            onValueChange={setUnitSize}
+            onChange={(e) => setUnitSize(e.target.value)}
           />
         </div>
         <div className="w-full flex-1">
@@ -135,6 +139,7 @@ const PropertySearch = ({
               values={propertyTypes}
               defaultValue={propertyType}
               onValueChange={setPropertyType}
+              currentValue={currentPropertyType}
             />
           </div>
           <div className="w-full flex-1">
@@ -143,16 +148,17 @@ const PropertySearch = ({
               values={locations}
               defaultValue={location}
               onValueChange={setLocation}
+              currentValue={currentLocation}
             />
           </div>
         </div>
         <div className="flex w-full flex-1 flex-col gap-8 md:flex-row">
           <div className="w-full flex-1">
-            <h3 className="text-white">Unit Size</h3>
-            <MainDropdown
-              values={UNIT_SIZE}
+            <h3 className="text-white">Unit Size(sqm)</h3>
+            <MainInput
+              type="number"
               defaultValue={unitSize}
-              onValueChange={setUnitSize}
+              onChange={(e) => setUnitSize(e.target.value)}
             />
           </div>
           <div className="w-full flex-1">
