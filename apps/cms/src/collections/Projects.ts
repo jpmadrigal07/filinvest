@@ -49,6 +49,7 @@ export const Projects: CollectionConfig = {
     },
     {
       name: "logo",
+      label: "Logo (Height: 100px)",
       type: "upload",
       relationTo: "files",
       required: true,
@@ -79,6 +80,7 @@ export const Projects: CollectionConfig = {
     },
     {
       name: "coverImage",
+      label: "Cover Image (Size: 1920x833)",
       type: "upload",
       relationTo: "files",
       required: true,

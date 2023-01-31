@@ -9,7 +9,6 @@ import { Pages } from "./collections/Pages";
 import { News } from "./collections/News";
 import { Projects } from "./collections/Projects";
 import { Careers } from "./collections/Careers";
-import { Advertisements } from "./collections/Advertisements";
 
 import { CareerCategories } from "./collections/CareerCategories";
 import { NewsCategories } from "./collections/NewsCategories";
@@ -49,7 +48,6 @@ export default buildConfig({
     Projects,
     Awards,
     Careers,
-    Advertisements,
     Users,
     Sites,
     CareerCategories,

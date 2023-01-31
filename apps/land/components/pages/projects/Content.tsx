@@ -64,7 +64,8 @@ const Content = ({ project }: { project: Project }) => {
             <div className="flex flex-col justify-center">
               <p className="text-jet text-lg">SIZE</p>
               <p className="text-dark-cornflower-blue text-lg font-bold">
-                {project.size}
+                {new Intl.NumberFormat("en-US").format(Number(project.size))}{" "}
+                sqm
               </p>
             </div>
           </div>
