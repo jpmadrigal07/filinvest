@@ -37,6 +37,7 @@ export const News: CollectionConfig = {
     },
     {
       name: "coverImage", // required
+      label: "Cover Image (Size: 1364x663)",
       type: "upload", // required
       relationTo: "files", // required
       required: true,

@@ -42,6 +42,7 @@ export const Projects: CollectionConfig = {
     },
     {
       name: "headerImage",
+      label: "Header Image (Size: 1922x656)",
       type: "upload",
       relationTo: "files",
       required: true,
