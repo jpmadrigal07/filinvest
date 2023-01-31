@@ -23,9 +23,9 @@ const Content = (props: News) => {
         <div className="flex flex-col items-center gap-6">
           <Image
             src={`${props && props ? "" : "/"}${props?.coverImage.url}`}
-            width={1036}
-            height={806}
-            alt="Picture of the author"
+            width={1364}
+            height={663}
+            alt={`${props?.coverImage.alt}`}
           />
           <div className="mt-8 flex flex-col items-center gap-4">
             <Image
