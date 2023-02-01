@@ -5,7 +5,6 @@ import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
 import { useRouter } from "next/navigation";
-import { T_Locations } from "@/types/global";
 import usePropertySearch from "@/components/search/hooks/usePropertySearch";
 import { Project } from "shared-types";
 import MainInput from "../input/MainInput";
@@ -13,15 +12,11 @@ import MainInput from "../input/MainInput";
 const PropertySearch = ({
   showSearch = true,
   className,
-  locations,
-  propertyTypes,
   onPropertyResultChange,
   onLoading,
 }: {
   showSearch?: boolean;
   className?: string;
-  locations: T_Locations;
-  propertyTypes: string[];
   onPropertyResultChange?: Dispatch<Project[]>;
   onLoading?: Dispatch<boolean>;
 }) => {
@@ -35,7 +30,9 @@ const PropertySearch = ({
     setLocation,
     setUnitSize,
     setPriceRange,
-    priceRangeMinMax,
+    priceRangeSettings,
+    locationSettings,
+    propertyTypeSettings,
     propertyType: currentPropertyType,
     location: currentLocation,
   } = usePropertySearch();
@@ -78,7 +75,7 @@ const PropertySearch = ({
         <div className="w-full flex-1">
           <h3 className="text-white">Property Type</h3>
           <MainDropdown
-            values={propertyTypes}
+            values={propertyTypeSettings}
             defaultValue={propertyType}
             onValueChange={setPropertyType}
             currentValue={currentPropertyType}
@@ -87,7 +84,7 @@ const PropertySearch = ({
         <div className="w-full flex-1">
           <h3 className="text-white">Location</h3>
           <MainDropdown
-            values={locations}
+            values={locationSettings}
             defaultValue={location}
             onValueChange={setLocation}
             currentValue={currentLocation}
@@ -105,8 +102,8 @@ const PropertySearch = ({
           <h3 className="mb-1 text-white">Price Range</h3>
           <RangeSliderMark
             range
-            min={priceRangeMinMax ? priceRangeMinMax[0] : 0}
-            max={priceRangeMinMax ? priceRangeMinMax[1] : 100000000}
+            min={priceRangeSettings ? priceRangeSettings[0] : 0}
+            max={priceRangeSettings ? priceRangeSettings[1] : 100000000}
             defaultValue={priceRange}
             onValueChange={setPriceRange}
             value={priceRange}
@@ -136,7 +133,7 @@ const PropertySearch = ({
           <div className="w-full flex-1">
             <h3 className="text-white">Property Type</h3>
             <MainDropdown
-              values={propertyTypes}
+              values={propertyTypeSettings}
               defaultValue={propertyType}
               onValueChange={setPropertyType}
               currentValue={currentPropertyType}
@@ -145,7 +142,7 @@ const PropertySearch = ({
           <div className="w-full flex-1">
             <h3 className="text-white">Location</h3>
             <MainDropdown
-              values={locations}
+              values={locationSettings}
               defaultValue={location}
               onValueChange={setLocation}
               currentValue={currentLocation}
@@ -165,8 +162,8 @@ const PropertySearch = ({
             <h3 className="mb-1 text-white">Price Range</h3>
             <RangeSliderMark
               range
-              min={priceRangeMinMax ? priceRangeMinMax[0] : 0}
-              max={priceRangeMinMax ? priceRangeMinMax[1] : 100000000}
+              min={priceRangeSettings ? priceRangeSettings[0] : 0}
+              max={priceRangeSettings ? priceRangeSettings[1] : 100000000}
               defaultValue={priceRange}
               onValueChange={setPriceRange}
               value={priceRange}

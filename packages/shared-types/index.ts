@@ -272,3 +272,38 @@ export interface Navigation {
   id: string;
   mainMenu: NavigationMenu[];
 }
+
+export interface LocationSettings {
+  locationGroup: {
+    reference: {
+      value: LocationGroupCategory;
+      relationTo: "location-group-categories";
+    };
+  };
+  location: {
+    location: {
+      reference: {
+        value: LocationCategory;
+        relationTo: "location-categories";
+      };
+    };
+    id?: string;
+  }[];
+  id?: string;
+}
+export interface PropertyTypeSettings {
+  propertyType: {
+    reference: {
+      value: PropertyCategory;
+      relationTo: "property-categories";
+    };
+  };
+  id?: string;
+}
+export interface PropertySearch {
+  id: string;
+  minimumPriceRange: number;
+  maximumPriceRangeTo: number;
+  locations: LocationSettings[];
+  propertyTypes: PropertyTypeSettings[];
+}

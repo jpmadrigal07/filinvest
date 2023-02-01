@@ -1,22 +1,16 @@
 import { T_Locations } from "@/types/global";
-import { LocationCategory } from "shared-types";
+import { LocationSettings } from "shared-types";
 
-const flattenLocations = (locations: LocationCategory[]) => {
-  return locations.reduce((acc: T_Locations, obj: LocationCategory) => {
+const flattenLocations = (locations: LocationSettings[]) => {
+  return locations.reduce((acc: T_Locations, obj: LocationSettings) => {
     let accCopy = acc;
-    if (
-      accCopy &&
-      accCopy[obj.locationGroup.title] &&
-      accCopy[obj.locationGroup.title].length > 0
-    ) {
-      accCopy[obj.locationGroup.title].push(obj.title);
-    } else {
-      accCopy = {
-        ...accCopy,
-        [obj.locationGroup.title]: [obj.title],
-      };
-    }
-    return accCopy;
+    const subLocations = obj.location?.map(
+      (location) => location.location.reference.value.title
+    );
+    return {
+      ...accCopy,
+      [obj.locationGroup.reference?.value.title]: subLocations,
+    };
   }, {}) as T_Locations;
 };
 

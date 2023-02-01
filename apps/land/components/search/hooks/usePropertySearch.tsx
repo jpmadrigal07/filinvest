@@ -4,7 +4,9 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import qs from "qs";
-import usePriceRangeSettings from "./usePriceRangeSettings";
+import usePropertySearchSettings from "./usePropertySearchSettings";
+import flattenLocations from "@/helpers/flattenLocations";
+import flattenPropertyTypes from "@/helpers/flattenPropertyTypes";
 
 export async function getProperties(searchParams: T_SearchQuery) {
   const query = {
@@ -72,7 +74,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
 function usePropertySearch() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { data: priceRangeMinMax } = usePriceRangeSettings();
+  const { data: inputSettings } = usePropertySearchSettings();
   const [propertyType, setPropertyType] = useState("");
   const [location, setLocation] = useState("");
   const [brand, setBrand] = useState("");
@@ -94,10 +96,14 @@ function usePropertySearch() {
     setBrand(brand ? brand : "");
   }, [searchParams]);
   useEffect(() => {
-    if (priceRangeMinMax) {
-      setPriceRange(priceRangeMinMax);
+    if (inputSettings) {
+      setPriceRange(
+        inputSettings
+          ? [inputSettings.minimumPriceRange, inputSettings.maximumPriceRangeTo]
+          : [0, 10000000]
+      );
     }
-  }, [priceRangeMinMax]);
+  }, [inputSettings]);
 
   const formattedSearchParams = {
     propertyType,
@@ -127,7 +133,15 @@ function usePropertySearch() {
     setLocation,
     setUnitSize,
     setPriceRange,
-    priceRangeMinMax,
+    locationSettings: inputSettings
+      ? flattenLocations(inputSettings.locations)
+      : {},
+    propertyTypeSettings: inputSettings
+      ? flattenPropertyTypes(inputSettings.propertyTypes)
+      : {},
+    priceRangeSettings: inputSettings
+      ? [inputSettings.minimumPriceRange, inputSettings.maximumPriceRangeTo]
+      : [0, 10000000],
   };
 }
 

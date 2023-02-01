@@ -6,16 +6,9 @@ import SizeBox from "@/components/svg/SizeBox";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import TileProjects from "@/components/list/TileProjects";
-import { T_Locations } from "@/types/global";
 import { Project } from "shared-types";
 
-const Content = ({
-  locations,
-  propertyTypes,
-}: {
-  locations: T_Locations;
-  propertyTypes: string[];
-}) => {
+const Content = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isPropertyLoading, setIsPropertyLoading] = useState<boolean>(false);
   useEffect(() => {
@@ -25,8 +18,6 @@ const Content = ({
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">
       <PropertySearch
         className="mx-9 lg:mx-0"
-        locations={locations}
-        propertyTypes={propertyTypes}
         onPropertyResultChange={setProjects}
         showSearch={false}
         onLoading={setIsPropertyLoading}
