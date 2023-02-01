@@ -4,22 +4,11 @@ import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
 import PropertySearch from "@/components/search/PropertySearch";
 import FullPropertySlider from "@/components/Slider/FullPropertySlider";
-import { T_Locations } from "@/types/global";
 
-const Content = ({
-  locations,
-  propertyTypes,
-}: {
-  locations: T_Locations;
-  propertyTypes: string[];
-}) => {
+const Content = () => {
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-32">
-      <PropertySearch
-        className="mx-9 lg:mx-0"
-        locations={locations}
-        propertyTypes={propertyTypes}
-      />
+      <PropertySearch className="mx-9 lg:mx-0" />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         <h2 className="text-jet text-center text-4xl font-bold">
           Find A Home That Suits You
