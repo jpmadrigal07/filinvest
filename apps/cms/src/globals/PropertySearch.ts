@@ -1,15 +1,11 @@
 import { GlobalConfig } from "payload/types";
-import { isAdmin } from "../access/isAdmin";
+import location from "../fields/location";
+import propertyType from "../fields/propertyType";
 
 export const PropertySearch: GlobalConfig = {
   slug: "property-search",
-  access: {
-    read: () => true,
-    update: isAdmin,
-  },
   fields: [
     {
-      label: "priceRange",
       type: "row",
       fields: [
         {
@@ -23,6 +19,33 @@ export const PropertySearch: GlobalConfig = {
           required: true,
         },
       ],
+    },
+    {
+      name: "locations",
+      type: "array",
+      fields: [
+        location({
+          label: "Location Group",
+          relationTo: "location-group-categories",
+          fieldName: "locationGroup",
+        }),
+        {
+          name: "location",
+          type: "array",
+          fields: [
+            location({
+              label: "Location",
+              relationTo: "location-categories",
+              fieldName: "location",
+            }),
+          ],
+        },
+      ],
+    },
+    {
+      name: "propertyTypes",
+      type: "array",
+      fields: [propertyType()],
     },
   ],
 };
