@@ -2,43 +2,29 @@
 import React from "react";
 import BorderButton from "../../button/BorderButton";
 import Link from "next/link";
-import NEWS_ROUTES from "@/helpers/routes/news";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
-import { SAMPLE_NEWS } from "@/helpers/constants";
 
-const NewsStories = ({
-  className,
-  isHomePage = true,
-}: {
-  className?: string;
-  isHomePage?: boolean;
-}) => {
+const NewsStories = ({ content }: any) => {
+  const flattenNews = content
+    ? content.content[6].newsStories.map((newsStory: any) => newsStory.news)
+    : [];
   return (
-    <section className={className}>
+    <section className="pt-36 xl:pt-44">
       <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex flex-col justify-center md:flex-row md:items-center">
           <div className="flex-1">
-            {isHomePage ? (
-              <>
-                <h4 className="text-dark-cornflower-blue font-bold">
-                  NEWS & STORIES
-                </h4>
-                <h2 className="text-jet mt-2 text-4xl font-extrabold">
-                  Featured Articles
-                </h2>
-                <h4 className="text-dim-gray mt-4">{`Get updated to Filinvest Land's latest happenings.`}</h4>
-              </>
-            ) : (
-              <>
-                <h2 className="text-jet mt-2 text-4xl font-extrabold">
-                  Press Releases
-                </h2>
-                <h4 className="text-dim-gray mt-4">{`Get updated to Filinvest Land's latest happenings.`}</h4>
-              </>
-            )}
+            <h4 className="text-dark-cornflower-blue font-bold">
+              {content.content[6].title}
+            </h4>
+            <h2 className="text-jet mt-2 text-4xl font-extrabold">
+              {content.content[6].subTitle}
+            </h2>
+            <h4 className="text-dim-gray mt-4">
+              {content.content[6].description}
+            </h4>
           </div>
           <div className="mt-12 flex-none">
-            <Link href={NEWS_ROUTES.url}>
+            <Link href={content.content[6].learnMoreLink}>
               <button type="button">
                 <BorderButton
                   buttonText="See More"
@@ -52,7 +38,7 @@ const NewsStories = ({
         <FeaturedArticles
           className="mt-16"
           sliderOnMobile
-          articles={SAMPLE_NEWS}
+          articles={flattenNews}
         />
       </div>
     </section>

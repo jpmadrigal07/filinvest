@@ -15,12 +15,18 @@ const HomeAboutUsSection: Block = {
     },
     {
       name: "description",
-      type: "text",
+      type: "textarea",
       required: true,
     },
     {
       name: "learnMoreLink",
       type: "text",
+      required: true,
+    },
+    {
+      type: "upload",
+      name: "coverImage",
+      relationTo: "files",
       required: true,
     },
   ],

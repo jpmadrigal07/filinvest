@@ -9,13 +9,12 @@ import "swiper/css/pagination";
 import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 
-const HeroSection = ({ homeContent }: any) => {
-  const content = homeContent;
+const HeroSection = ({ content }: any) => {
   const swiperRef = useRef();
   return (
     <>
-      <section className="flex h-screen w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat">
-        <div className="xs:mt-72 mx-auto mt-40 w-3/4 text-center lg:mt-64 2xl:w-2/4">
+      <section className={`flex h-screen w-full`}>
+        <div className="xs:mt-72 z-40 mx-auto mt-40 w-3/4 text-center lg:mt-64 2xl:w-2/4">
           <h1 className="mb-4 text-6xl font-extrabold text-white md:text-8xl">
             {content.content[0].title}
           </h1>
@@ -23,6 +22,13 @@ const HeroSection = ({ homeContent }: any) => {
             {content.content[0].description}
           </h4>
         </div>
+        <Image
+          src={`${!content.content[0].mediaBackground.url ? "/" : ""}${
+            content.content[0].mediaBackground.url
+          }`}
+          fill
+          alt={content.content[0].prestigeImage.alt}
+        />
       </section>
       <div
         className={`2xl:-pt-80 short:pt-32 absolute -mt-64 hidden w-full items-center justify-center gap-6 lg:flex 2xl:gap-12`}
@@ -126,35 +132,21 @@ const HeroSection = ({ homeContent }: any) => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/prestige-home.png"
+                src={`${!content.content[0].prestigeImage.url ? "/" : ""}${
+                  content.content[0].prestigeImage.url
+                }`}
                 width={434}
                 height={500}
-                alt="Picture of the author"
+                alt={content.content[0].prestigeImage.alt}
               />
               <div className="absolute -mt-24 flex w-full items-center justify-center">
                 <Image
-                  src="/prestige.png"
-                  width={211}
-                  height={67}
-                  alt="Picture of the author"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="relative">
-              <Image
-                src="/aspire-home.png"
-                width={434}
-                height={500}
-                alt="Picture of the author"
-              />
-              <div className="absolute -mt-24 flex w-full items-center justify-center">
-                <Image
-                  src="/aspire.png"
+                  src={`${!content.content[0].prestigeLogo.url ? "/" : ""}${
+                    content.content[0].prestigeLogo.url
+                  }`}
                   width={190}
                   height={68}
-                  alt="Picture of the author"
+                  alt={content.content[0].prestigeLogo.alt}
                 />
               </div>
             </div>
@@ -162,17 +154,43 @@ const HeroSection = ({ homeContent }: any) => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/futura-home.png"
+                src={`${!content.content[0].aspireImage.url ? "/" : ""}${
+                  content.content[0].aspireImage.url
+                }`}
                 width={434}
                 height={500}
-                alt="Picture of the author"
+                alt={content.content[0].aspireImage.alt}
               />
               <div className="absolute -mt-24 flex w-full items-center justify-center">
                 <Image
-                  src="/futura.png"
+                  src={`${!content.content[0].aspireLogo.url ? "/" : ""}${
+                    content.content[0].aspireLogo.url
+                  }`}
+                  width={190}
+                  height={68}
+                  alt={content.content[0].aspireLogo.alt}
+                />
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="relative">
+              <Image
+                src={`${!content.content[0].futuraImage.url ? "/" : ""}${
+                  content.content[0].futuraImage.url
+                }`}
+                width={434}
+                height={500}
+                alt={content.content[0].futuraImage.alt}
+              />
+              <div className="absolute -mt-24 flex w-full items-center justify-center">
+                <Image
+                  src={`${!content.content[0].futuraLogo.url ? "/" : ""}${
+                    content.content[0].futuraLogo.url
+                  }`}
                   width={198}
                   height={67}
-                  alt="Picture of the author"
+                  alt={content.content[0].futuraLogo.alt}
                 />
               </div>
             </div>

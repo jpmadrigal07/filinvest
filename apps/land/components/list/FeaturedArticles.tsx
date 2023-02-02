@@ -10,22 +10,13 @@ import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
 import BorderButton from "../button/BorderButton";
-
-type T_Articles = {
-  imgSrc: string;
-  width?: number;
-  height?: number;
-  alt?: string;
-  title: string;
-  desc: string;
-  slug: string;
-};
+import moment from "moment";
 
 type T_ArticlesList = {
   sliderOnMobile?: boolean;
   className?: string;
   isList?: boolean;
-  articles: T_Articles[];
+  articles: any[];
 };
 
 const FeaturedArticles = ({
@@ -44,20 +35,22 @@ const FeaturedArticles = ({
       >
         {articles.map((article, index) => {
           return (
-            <Link href={article.slug} key={index}>
+            <Link href={`/article/${article.slug}`} key={index}>
               <Image
-                src={article.imgSrc}
-                width={article.width ? article.width : 1036}
-                height={article.height ? article.height : 806}
-                alt={article.alt ? article.alt : ""}
+                src={article.coverImage.url}
+                width={1364}
+                height={663}
+                alt={article.coverImage.alt}
               />
               <h2 className="text-jet mt-6 text-2xl font-bold">
                 {article.title}
               </h2>
-              <h4 className="text-dim-gray mt-4 text-sm">
-                Posted by Admin on April 22, 2022
+              <h4 className="text-dim-gray mt-4 text-sm opacity-70">
+                Posted on {moment(article.createdAt).format("MMM DD, YYYY")}
               </h4>
-              <h4 className="text-dim-gray mt-4">{article.desc}</h4>
+              <h4 className="text-dim-gray mt-4 truncate">
+                {article.content[0].children[0].text}
+              </h4>
               <div className="mt-12">
                 <BorderButton
                   buttonText="Read More"
@@ -107,18 +100,20 @@ const FeaturedArticles = ({
           {articles.map((article, index) => {
             return (
               <SwiperSlide key={index}>
-                <div>
+                <Link href={`/article/${article.slug}`}>
                   <Image
-                    src={article.imgSrc}
-                    width={article.width ? article.width : 1036}
-                    height={article.height ? article.height : 806}
-                    alt={article.alt ? article.alt : ""}
+                    src={article.coverImage.url}
+                    width={1364}
+                    height={663}
+                    alt={article.coverImage.alt}
                   />
                   <h2 className="text-jet mt-6 text-2xl font-bold">
                     {article.title}
                   </h2>
                   {/* <h4 className="text-dim-gray mt-4 text-sm">Posted by Admin on April 22, 2022</h4> */}
-                  <h4 className="text-dim-gray mt-4">{article.desc}</h4>
+                  <h4 className="text-dim-gray mt-4">
+                    {article.content[0].children[0].text}
+                  </h4>
                   {/* <div className="mt-12">
                                         <BorderButton
                                             buttonText="Read More"
@@ -126,7 +121,7 @@ const FeaturedArticles = ({
                                             borderColor="dark-cornflower-blue"
                                         />
                                     </div> */}
-                </div>
+                </Link>
               </SwiperSlide>
             );
           })}

@@ -21,17 +21,16 @@ const HomePage = async () => {
   const content = await getPageContent("639a5782b60dc36e6fc86c93");
   return (
     <div>
-      <HeroSection homeContent={content} />
-      <Projects />
-      {/* @ts-expect-error */}
-      <LookingForProperty />
-      <OurBusinesses />
-      <OurServices />
-      <AboutUs />
-      <NewsStories className="pt-36 xl:pt-44" />
-      <InvestorRelations />
-      <StockReport />
-      <ScreenFooter />
+      <HeroSection content={content} />
+      <Projects content={content} />
+      <LookingForProperty content={content} />
+      <OurBusinesses content={content} />
+      <OurServices content={content} />
+      <AboutUs content={content} />
+      <NewsStories content={content} />
+      <InvestorRelations content={content} />
+      <StockReport content={content} />
+      <ScreenFooter content={content} />
     </div>
   );
 };

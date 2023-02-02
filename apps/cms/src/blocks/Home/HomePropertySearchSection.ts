@@ -9,11 +9,6 @@ const HomePropertySearchSection: Block = {
       required: true,
     },
     {
-      name: "subTitle",
-      type: "text",
-      required: true,
-    },
-    {
       name: "description",
       type: "text",
       required: true,

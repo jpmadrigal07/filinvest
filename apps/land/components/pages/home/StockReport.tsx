@@ -4,14 +4,15 @@ import React from "react";
 import BorderButton from "@/components/button/BorderButton";
 import RedDownTriangle from "@/components/svg/RedDownTriangle";
 import Link from "next/link";
-import FINANCIAL_ROUTES from "@/helpers/routes/financials";
 
-const StockReport = () => {
+const StockReport = ({ content }: any) => {
   return (
     <section className="flex flex-col pt-24 lg:flex-row">
       <div className="bg-oxford-blue flex-1 py-20 px-6 lg:px-9">
         <div className="mx-auto lg:w-1/2">
-          <h2 className="text-3xl font-bold text-white">Stock Information</h2>
+          <h2 className="text-3xl font-bold text-white">
+            {content.content[8].stockInfoTitle}
+          </h2>
           <div className="flex flex-col py-6 px-12">
             <h3 className="ml-7 text-2xl text-white">FLI</h3>
             <div className="flex items-end gap-3">
@@ -65,19 +66,27 @@ const StockReport = () => {
         </div>
       </div>
       <div className="bg-vivid-sky-blue flex-1 py-20 px-6 lg:px-16">
-        <h2 className="text-3xl font-bold text-white">Annual Report</h2>
+        <h2 className="text-3xl font-bold text-white">
+          {content.content[8].annualReportTitle}
+        </h2>
         <div className="mt-24 flex gap-14">
           <div className="flex flex-col gap-12 md:flex-row md:items-center">
             <div className="flex-none md:w-1/3">
               <Image
-                src="/fli-stock-reports.png"
+                src={`${!content.content[8].annualReportImage.url ? "/" : ""}${
+                  content.content[8].annualReportImage.url
+                }`}
                 width={487}
                 height={671}
-                alt="Picture of the author"
+                alt={content.content[8].annualReportImage.url}
               />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-4">
+              <Link
+                href={content.content[8].downloadReportLink}
+                target="_blank"
+                className="flex items-center gap-4"
+              >
                 <div className="w-1/4 flex-none">
                   <Image
                     src="/download-stock-report.png"
@@ -89,10 +98,10 @@ const StockReport = () => {
                 <h4 className="text-normal text-white">
                   Download Annual Report For 2021
                 </h4>
-              </div>
+              </Link>
               <div>
                 <button type="button" className="mt-28">
-                  <Link href={FINANCIAL_ROUTES.ANNUAL_REPORTS.url}>
+                  <Link href={content.content[8].viewReportLink}>
                     <BorderButton
                       buttonText="View All Annual Report"
                       sidePadding="4"

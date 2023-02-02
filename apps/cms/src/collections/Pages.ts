@@ -10,6 +10,10 @@ import {
   HomeOurBusinessesSection,
   HomeOurServicesSection,
   HomeAboutUsSection,
+  HomeNewsStoriesSection,
+  HomeInvestorRelationSection,
+  HomeStockReportSection,
+  HomeFloatingButtons,
 } from "../blocks/Home";
 
 export const Pages: CollectionConfig = {
@@ -49,6 +53,10 @@ export const Pages: CollectionConfig = {
         HomeOurBusinessesSection,
         HomeOurServicesSection,
         HomeAboutUsSection,
+        HomeNewsStoriesSection,
+        HomeInvestorRelationSection,
+        HomeStockReportSection,
+        HomeFloatingButtons,
       ],
     },
     {

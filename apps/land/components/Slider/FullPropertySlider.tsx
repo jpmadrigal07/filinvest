@@ -8,8 +8,9 @@ import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
+import Link from "next/link";
 
-const FullPropertySlider = () => {
+const FullPropertySlider = ({ sliders }: any) => {
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
   return (
@@ -47,52 +48,65 @@ const FullPropertySlider = () => {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="relative mt-28">
-              <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
-                <div className="hidden lg:block">
-                  <Image
-                    src="/activa-logo.png"
-                    width={228}
-                    height={50}
-                    alt="Picture of the author"
-                  />
-                </div>
-                <div className="block lg:hidden">
-                  <Image
-                    src="/activa-logo.png"
-                    width={114}
-                    height={25}
-                    alt="Picture of the author"
-                  />
-                </div>
-                <div>
-                  <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
-                    Activa Cubao
-                  </h2>
-                  <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
-                    Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
-                    volutpat diam. Euismod nisi porta.
-                  </h4>
-                </div>
-                <div className="mt-2 lg:mt-0">
-                  <button type="button">
-                    <BorderButton
-                      buttonText="Learn More"
-                      textColor="dark-cornflower-blue"
-                      borderColor="dark-cornflower-blue"
-                    />
-                  </button>
-                </div>
-              </div>
-              <Image
-                src="/projects-activa.png"
-                width={2840}
-                height={560}
-                alt="Picture of the author"
-              />
-            </div>
-          </SwiperSlide>
+          {sliders
+            ? sliders.map((slider: any) => {
+                return (
+                  <SwiperSlide>
+                    <div className="relative mt-28">
+                      <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
+                        <div className="hidden lg:block">
+                          <Image
+                            src={`${!slider.blockLogo.url ? "/" : ""}${
+                              slider.blockLogo.url
+                            }`}
+                            width={228}
+                            height={50}
+                            alt={slider.blockLogo.alt}
+                          />
+                        </div>
+                        <div className="block lg:hidden">
+                          <Image
+                            src={`${!slider.blockLogo.url ? "/" : ""}${
+                              slider.blockLogo.url
+                            }`}
+                            width={114}
+                            height={25}
+                            alt={slider.blockLogo.alt}
+                          />
+                        </div>
+                        <div>
+                          <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
+                            {slider.blockTitle}
+                          </h2>
+                          <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
+                            {slider.blockDescription}
+                          </h4>
+                        </div>
+                        <div className="mt-2 lg:mt-0">
+                          <button type="button">
+                            <Link href={slider.blockLearnMoreLink}>
+                              <BorderButton
+                                buttonText="Learn More"
+                                textColor="dark-cornflower-blue"
+                                borderColor="dark-cornflower-blue"
+                              />
+                            </Link>
+                          </button>
+                        </div>
+                      </div>
+                      <Image
+                        src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
+                          slider.slideBackgroundImage.url
+                        }`}
+                        width={2840}
+                        height={560}
+                        alt={slider.slideBackgroundImage.alt}
+                      />
+                    </div>
+                  </SwiperSlide>
+                );
+              })
+            : null}
         </Swiper>
       </div>
       <div className="relative flex items-center justify-center md:hidden">
@@ -118,62 +132,72 @@ const FullPropertySlider = () => {
           slidesPerView={1}
           spaceBetween={30}
           loop={true}
-          pagination={{
-            clickable: true,
-          }}
           onBeforeInit={(swiper) => {
             // @ts-expect-error
             swiperRefMobile.current = swiper;
           }}
-          modules={[Pagination, Navigation]}
+          modules={[Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="relative mt-28">
-              <Image
-                src="/projects-activa.png"
-                width={2840}
-                height={560}
-                alt="Picture of the author"
-              />
-              <div className="relative mx-8 -mt-20 mb-12 flex flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 shadow-xl">
-                <div className="hidden lg:block">
-                  <Image
-                    src="/activa-logo.png"
-                    width={228}
-                    height={50}
-                    alt="Picture of the author"
-                  />
-                </div>
-                <div className="block lg:hidden">
-                  <Image
-                    src="/activa-logo.png"
-                    width={114}
-                    height={25}
-                    alt="Picture of the author"
-                  />
-                </div>
-                <div>
-                  <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
-                    Activa Cubao
-                  </h2>
-                  <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
-                    Neque sodales ut etiam sit amet nisl. Quis lectus nulla at
-                    volutpat diam. Euismod nisi porta.
-                  </h4>
-                </div>
-                <div className="mt-2 lg:mt-0">
-                  <button type="button">
-                    <BorderButton
-                      buttonText="Learn More"
-                      textColor="dark-cornflower-blue"
-                      borderColor="dark-cornflower-blue"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+          {sliders
+            ? sliders.map((slider: any) => {
+                return (
+                  <SwiperSlide>
+                    <div className="relative mt-28">
+                      <Image
+                        src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
+                          slider.slideBackgroundImage.url
+                        }`}
+                        width={2840}
+                        height={560}
+                        alt={slider.slideBackgroundImage.alt}
+                      />
+                      <div className="relative mx-8 -mt-20 mb-12 flex flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 shadow-xl">
+                        <div className="hidden lg:block">
+                          <Image
+                            src={`${!slider.blockLogo.url ? "/" : ""}${
+                              slider.blockLogo.url
+                            }`}
+                            width={228}
+                            height={50}
+                            alt={slider.blockLogo.alt}
+                          />
+                        </div>
+                        <div className="block lg:hidden">
+                          <Image
+                            src={`${!slider.blockLogo.url ? "/" : ""}${
+                              slider.blockLogo.url
+                            }`}
+                            width={114}
+                            height={25}
+                            alt={slider.blockLogo.alt}
+                          />
+                        </div>
+                        <div>
+                          <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
+                            {slider.blockTitle}
+                          </h2>
+                          <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
+                            {slider.blockDescription}
+                          </h4>
+                        </div>
+                        <div className="mt-2 lg:mt-0">
+                          <button type="button">
+                            <Link href={slider.blockLearnMoreLink}>
+                              <BorderButton
+                                buttonText="Learn More"
+                                textColor="dark-cornflower-blue"
+                                borderColor="dark-cornflower-blue"
+                              />
+                            </Link>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })
+            : null}
         </Swiper>
       </div>
     </>
