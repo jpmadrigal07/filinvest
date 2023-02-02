@@ -9,14 +9,14 @@ const InvestorRelations = ({ content }: any) => {
     <section className="mx-6 flex flex-col gap-16 pt-36 lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
       <div className="flex-1 lg:w-1/4">
         <h4 className="text-dark-cornflower-blue font-bold">
-          {content.content[6].title}
+          {content.content[7].title}
         </h4>
         <h2 className="text-jet mt-2 text-4xl font-extrabold">
-          {content.content[6].subTitle}
+          {content.content[7].subTitle}
         </h2>
-        <h4 className="text-dim-gray mt-4">{content.content[6].description}</h4>
+        <h4 className="text-dim-gray mt-4">{content.content[7].description}</h4>
         <button type="button" className="mt-16">
-          <Link href={content.content[6].learnMoreLink}>
+          <Link href={content.content[7].learnMoreLink}>
             <BorderButton
               buttonText="Learn More"
               textColor="dark-cornflower-blue"

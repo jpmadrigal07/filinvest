@@ -3,7 +3,6 @@ import path from "path";
 import { Users } from "./collections/Users";
 import { Sites } from "./collections/Sites";
 import { Awards } from "./collections/Awards";
-import { Menu } from "./collections/Menu";
 import { Files } from "./collections/Files";
 import { Pages } from "./collections/Pages";
 import { News } from "./collections/News";
@@ -57,7 +56,6 @@ export default buildConfig({
     LocationGroupCategories,
     LocationCategories,
     Files,
-    Menu,
   ],
   globals: [Navigation, Footer, PropertySearch],
   typescript: {

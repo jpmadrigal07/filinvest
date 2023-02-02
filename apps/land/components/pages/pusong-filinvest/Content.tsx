@@ -8,10 +8,9 @@ import { FreeMode, Pagination } from "swiper";
 import NEWS_ROUTES from "@/helpers/routes/news";
 import Link from "next/link";
 import BorderButton from "@/components/button/BorderButton";
-import { SAMPLE_NEWS } from "@/helpers/constants";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 
-const Content = () => {
+const Content = ({ news }: any) => {
   return (
     <section className="mt-12">
       <div className="lg:mx-9 xl:mx-16 2xl:mx-44">
@@ -134,11 +133,7 @@ const Content = () => {
             </Link>
           </div>
         </div>
-        <FeaturedArticles
-          className="mt-16"
-          sliderOnMobile
-          articles={SAMPLE_NEWS}
-        />
+        <FeaturedArticles className="mt-16" sliderOnMobile articles={news} />
       </div>
     </section>
   );

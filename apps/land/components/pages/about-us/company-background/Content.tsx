@@ -10,9 +10,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
-import { SAMPLE_NEWS } from "@/helpers/constants";
 
-const Content = () => {
+const Content = ({ news }: any) => {
   return (
     <section className="mt-16">
       <div className="mx-3 flex flex-col gap-12 md:flex-row lg:mx-9 lg:gap-36 xl:mx-16 2xl:mx-80">
@@ -139,7 +138,7 @@ const Content = () => {
         <FeaturedArticles
           className="mx-9 mt-16 md:mx-24"
           sliderOnMobile
-          articles={SAMPLE_NEWS}
+          articles={news}
         />
       </div>
     </section>

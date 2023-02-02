@@ -14,17 +14,23 @@ const NewsStories = ({ content }: any) => {
         <div className="flex flex-col justify-center md:flex-row md:items-center">
           <div className="flex-1">
             <h4 className="text-dark-cornflower-blue font-bold">
-              {content.content[6].title}
+              {content?.content[6].title}
             </h4>
             <h2 className="text-jet mt-2 text-4xl font-extrabold">
-              {content.content[6].subTitle}
+              {content?.content[6].subTitle}
             </h2>
             <h4 className="text-dim-gray mt-4">
-              {content.content[6].description}
+              {content?.content[6].description}
             </h4>
           </div>
           <div className="mt-12 flex-none">
-            <Link href={content.content[6].learnMoreLink}>
+            <Link
+              href={
+                content?.content[6].learnMoreLink
+                  ? content?.content[6].learnMoreLink
+                  : "/"
+              }
+            >
               <button type="button">
                 <BorderButton
                   buttonText="See More"
