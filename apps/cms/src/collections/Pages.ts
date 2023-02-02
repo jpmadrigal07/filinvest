@@ -15,6 +15,7 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -47,6 +48,7 @@ export const Pages: CollectionConfig = {
       type: "blocks",
       required: true,
       blocks: [
+        Header,
         HomeHeroSection,
         HomeProjectsSection,
         HomePropertySearchSection,
