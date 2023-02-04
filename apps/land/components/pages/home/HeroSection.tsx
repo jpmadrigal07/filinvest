@@ -11,6 +11,45 @@ import ChevronRight from "@/components/svg/ChevronRight";
 
 const HeroSection = ({ content }: any) => {
   const swiperRef = useRef();
+  const background = () => {
+    if (content.content[0].backgroundType === "image") {
+      return (
+        <Image
+          src={`${!content.content[0].mediaBackground.url ? "/" : ""}${
+            content.content[0].mediaBackground.url
+          }`}
+          fill
+          alt={content.content[0].prestigeImage.alt}
+        />
+      );
+    } else if (content.content[0].backgroundType === "video") {
+      return (
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute right-0 bottom-0 h-full w-full object-cover"
+        >
+          <source
+            src={content.content[0]?.videoBackground.url}
+            type={content.content[0]?.videoBackground.mimeType}
+          />
+        </video>
+      );
+    } else if (content.content[0].backgroundType === "youtube") {
+      const urlYt = content.content[0]?.youtubeBackground;
+      const formattedUrlYt = urlYt?.includes("https://www.youtube.com/watch?v=")
+        ? urlYt.replace("https://www.youtube.com/watch?v=", "")
+        : "";
+      return (
+        <iframe
+          className="pointer-events-none absolute right-0 bottom-0 h-full w-full object-cover"
+          src={`https://www.youtube.com/embed/${formattedUrlYt}?autoplay=1&mute=1&cc_load_policy=1&controls=0&loop=1&showinfo=0&modestbranding=1`}
+          allow="autoplay; modestbranding"
+        ></iframe>
+      );
+    }
+  };
   return (
     <>
       <section className={`flex h-screen w-full`}>
@@ -22,13 +61,7 @@ const HeroSection = ({ content }: any) => {
             {content.content[0].description}
           </h4>
         </div>
-        <Image
-          src={`${!content.content[0].mediaBackground.url ? "/" : ""}${
-            content.content[0].mediaBackground.url
-          }`}
-          fill
-          alt={content.content[0].prestigeImage.alt}
-        />
+        {background()}
       </section>
       <div
         className={`2xl:-pt-80 short:pt-32 absolute -mt-64 hidden w-full items-center justify-center gap-6 lg:flex 2xl:gap-12`}
