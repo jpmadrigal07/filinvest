@@ -41,6 +41,10 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "numberOfBedrooms",
+      type: "number",
+    },
+    {
       name: "headerImage",
       label: "Header Image (Size: 1922x656)",
       type: "upload",
@@ -71,6 +75,13 @@ export const Projects: CollectionConfig = {
       type: "relationship",
       relationTo: "location-categories",
       required: true,
+    },
+    {
+      name: "subLocation",
+      type: "relationship",
+      relationTo: "sub-location-categories",
+      hasMany: true,
+      unique: true,
     },
     {
       name: "size",

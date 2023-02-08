@@ -78,7 +78,46 @@ export interface Page {
   title: string;
   content: (
     | {
+        coverImage: string | File;
+        smallCoverImage?: string | File;
+        title: string;
+        breadcrumbs: {
+          link: {
+            type?: "reference" | "custom";
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: "pages";
+            };
+            url: string;
+            label: string;
+            description?: string;
+          };
+          id?: string;
+        }[];
+        tabs: {
+          link: {
+            type?: "reference" | "custom";
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: "pages";
+            };
+            url: string;
+            label: string;
+            description?: string;
+          };
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "header";
+      }
+    | {
+        backgroundType?: "image" | "video" | "youtube";
         mediaBackground: string | File;
+        videoBackground?: string | File;
+        youtubeBackground?: string;
         title: string;
         description: string;
         prestigeImage: string | File;
@@ -110,7 +149,6 @@ export interface Page {
       }
     | {
         title: string;
-        subTitle: string;
         description: string;
         id?: string;
         blockName?: string;
@@ -147,9 +185,49 @@ export interface Page {
         subTitle: string;
         description: string;
         learnMoreLink: string;
+        coverImage: string | File;
         id?: string;
         blockName?: string;
         blockType: "homeAboutUsSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        newsStories: {
+          news: string | News;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeNewsStoriesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeInvestorRelationSection";
+      }
+    | {
+        stockInfoTitle: string;
+        annualReportTitle: string;
+        downloadReportLink: string;
+        viewReportLink: string;
+        annualReportImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "homeStockReportSection";
+      }
+    | {
+        filPayLink: string;
+        messageLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeFloatingButtons";
       }
   )[];
   site: string | Site;
@@ -240,11 +318,13 @@ export interface Project {
   title: string;
   slug: string;
   price: number;
+  numberOfBedrooms?: number;
   headerImage: string | File;
   logo: string | File;
   projectType: string | ProjectCategory;
   propertyType?: string | PropertyCategory;
   location: string | LocationCategory;
+  subLocation?: string[] | SubLocationCategory[];
   size: number;
   coverImage: string | File;
   shortDescription: string;
@@ -296,6 +376,16 @@ export interface LocationCategory {
  * via the `definition` "location-group-categories".
  */
 export interface LocationGroupCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sub-location-categories".
+ */
+export interface SubLocationCategory {
   id: string;
   title: string;
   createdAt: string;
@@ -380,8 +470,15 @@ export interface Footer {
  */
 export interface PropertySearch {
   id: string;
-  minimumPriceRange: number;
-  maximumPriceRangeTo: number;
+  pricePoints: {
+    point: number;
+    id?: string;
+  }[];
+  unitSizes: {
+    sizeFrom: number;
+    sizeTo: number;
+    id?: string;
+  }[];
   locations: {
     locationGroup: {
       reference: {
@@ -437,16 +534,6 @@ export interface Career {
 export interface CareerCategory {
   id: string;
   title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "menu".
- */
-export interface Menu {
-  id: string;
-  owner?: string | User;
   createdAt: string;
   updatedAt: string;
 }

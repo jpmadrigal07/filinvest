@@ -1,5 +1,5 @@
 "use client";
-import React, { Dispatch, useEffect } from "react";
+import React, { Dispatch, useEffect, useState } from "react";
 import Search from "@/components/svg/Search";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import { toCurrency } from "@/helpers/homeCalculator";
@@ -7,7 +7,8 @@ import MainDropdown from "../dropdown/MainDropdown";
 import { useRouter } from "next/navigation";
 import usePropertySearch from "@/components/search/hooks/usePropertySearch";
 import { Project } from "shared-types";
-import MainInput from "../input/MainInput";
+import SecondaryDropdown from "../dropdown/SecondaryDropdown";
+import RangeSliderStep from "../range-sliders/RangeSliderStep";
 
 const PropertySearch = ({
   showSearch = true,
@@ -33,8 +34,8 @@ const PropertySearch = ({
     priceRangeSettings,
     locationSettings,
     propertyTypeSettings,
-    propertyType: currentPropertyType,
-    location: currentLocation,
+    unitSizeSettings,
+    priceRangeSteps,
   } = usePropertySearch();
   const {
     priceRange,
@@ -54,6 +55,7 @@ const PropertySearch = ({
     ];
     router.push(`/property-search?${params.join("&")}`);
   };
+  const [formattedUnitSizes, setFormattedUnitSizes] = useState<any>([]);
   useEffect(() => {
     if (propertiesRes && onPropertyResultChange) {
       onPropertyResultChange(propertiesRes);
@@ -65,6 +67,17 @@ const PropertySearch = ({
       onLoading(isLoadingOrFetching);
     }
   }, [isLoading, isFetching, onLoading]);
+  useEffect(() => {
+    if (unitSizeSettings && formattedUnitSizes.length === 0) {
+      const dataT = unitSizeSettings.map((unitSize) => {
+        return {
+          text: `${unitSize[0]} to ${unitSize[1]}`,
+          value: unitSize,
+        };
+      });
+      setFormattedUnitSizes(dataT);
+    }
+  }, [unitSizeSettings, formattedUnitSizes]);
 
   return (
     <>
@@ -78,7 +91,6 @@ const PropertySearch = ({
             values={propertyTypeSettings}
             defaultValue={propertyType}
             onValueChange={setPropertyType}
-            currentValue={currentPropertyType}
           />
         </div>
         <div className="w-full flex-1">
@@ -87,24 +99,20 @@ const PropertySearch = ({
             values={locationSettings}
             defaultValue={location}
             onValueChange={setLocation}
-            currentValue={currentLocation}
           />
         </div>
         <div className="w-full flex-1">
           <h3 className="text-white">Unit Size (sqm)</h3>
-          <MainInput
-            type="number"
+          <SecondaryDropdown
+            values={formattedUnitSizes}
             defaultValue={unitSize}
-            onChange={(e) => setUnitSize(e.target.value)}
+            onValueChange={setUnitSize}
           />
         </div>
         <div className="w-full flex-1">
           <h3 className="mb-1 text-white">Price Range</h3>
-          <RangeSliderMark
-            range
-            min={priceRangeSettings ? priceRangeSettings[0] : 0}
-            max={priceRangeSettings ? priceRangeSettings[1] : 100000000}
-            defaultValue={priceRange}
+          <RangeSliderStep
+            steps={priceRangeSteps}
             onValueChange={setPriceRange}
             value={priceRange}
           />
@@ -136,7 +144,6 @@ const PropertySearch = ({
               values={propertyTypeSettings}
               defaultValue={propertyType}
               onValueChange={setPropertyType}
-              currentValue={currentPropertyType}
             />
           </div>
           <div className="w-full flex-1">
@@ -145,17 +152,16 @@ const PropertySearch = ({
               values={locationSettings}
               defaultValue={location}
               onValueChange={setLocation}
-              currentValue={currentLocation}
             />
           </div>
         </div>
         <div className="flex w-full flex-1 flex-col gap-8 md:flex-row">
           <div className="w-full flex-1">
             <h3 className="text-white">Unit Size(sqm)</h3>
-            <MainInput
-              type="number"
+            <SecondaryDropdown
+              values={formattedUnitSizes}
               defaultValue={unitSize}
-              onChange={(e) => setUnitSize(e.target.value)}
+              onValueChange={setUnitSize}
             />
           </div>
           <div className="w-full flex-1">

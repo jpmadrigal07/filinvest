@@ -11,7 +11,6 @@ type T_MainDropdown = {
   values: T_ValuesObj | string[];
   defaultValue?: string;
   onValueChange: Function;
-  currentValue: string;
 };
 
 const MainDropdown = ({

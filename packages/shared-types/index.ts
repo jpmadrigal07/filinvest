@@ -155,6 +155,16 @@ export interface LocationGroupCategory {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sub-location-categories".
+ */
+export interface SubLocationCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "careers".
  */
 export interface Career {
@@ -300,10 +310,19 @@ export interface PropertyTypeSettings {
   };
   id?: string;
 }
+export interface UnitSizesSettings {
+  sizeFrom: number;
+  sizeTo: number;
+  id?: string;
+}
+export interface PricePointsSettings {
+  point: number;
+  id?: string;
+}
 export interface PropertySearch {
   id: string;
-  minimumPriceRange: number;
-  maximumPriceRangeTo: number;
+  pricePoints: PricePointsSettings[];
+  unitSizes: UnitSizesSettings[];
   locations: LocationSettings[];
   propertyTypes: PropertyTypeSettings[];
 }

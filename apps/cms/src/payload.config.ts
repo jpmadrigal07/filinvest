@@ -15,6 +15,7 @@ import { ProjectCategories } from "./collections/ProjectCategories";
 import { PropertyCategories } from "./collections/PropertyCategories";
 import { LocationGroupCategories } from "./collections/LocationGroupCategories";
 import { LocationCategories } from "./collections/LocationCategories";
+import { SubLocationCategories } from "./collections/SubLocationCategories";
 
 import { Navigation } from "./globals/Navigation";
 import { Footer } from "./globals/Footer";
@@ -55,6 +56,7 @@ export default buildConfig({
     PropertyCategories,
     LocationGroupCategories,
     LocationCategories,
+    SubLocationCategories,
     Files,
   ],
   globals: [Navigation, Footer, PropertySearch],

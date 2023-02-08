@@ -1,20 +1,37 @@
 import { GlobalConfig } from "payload/types";
 import location from "../fields/location";
 import propertyType from "../fields/propertyType";
+import { isAdmin } from "../access/isAdmin";
 
 export const PropertySearch: GlobalConfig = {
   slug: "property-search",
+  access: {
+    read: () => true,
+    update: isAdmin,
+  },
   fields: [
     {
-      type: "row",
+      name: "pricePoints",
+      type: "array",
       fields: [
         {
-          name: "minimumPriceRange",
+          name: "point",
+          type: "number",
+          required: true,
+        },
+      ],
+    },
+    {
+      name: "unitSizes",
+      type: "array",
+      fields: [
+        {
+          name: "sizeFrom",
           type: "number",
           required: true,
         },
         {
-          name: "maximumPriceRangeTo",
+          name: "sizeTo",
           type: "number",
           required: true,
         },

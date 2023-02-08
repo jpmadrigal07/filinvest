@@ -4,7 +4,7 @@ import "rc-slider/assets/index.css";
 import Slider from "rc-slider";
 
 type T_Marks = {
-  [key: number]: any;
+  [key: number | string]: any;
 };
 
 const RangeSliderMark = ({
