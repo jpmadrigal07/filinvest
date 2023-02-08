@@ -319,6 +319,20 @@ export interface PricePointsSettings {
   point: number;
   id?: string;
 }
+export interface BedroomRangeSettings {
+  bedroomFrom: number;
+  bedroomTo: number;
+  id?: string;
+}
+export interface SubLocationSettings {
+  subLocation: {
+    reference: {
+      value: SubLocationCategory;
+      relationTo: "sub-location-categories";
+    };
+  };
+  id?: string;
+}
 export interface PropertySearch {
   id: string;
   pricePoints: PricePointsSettings[];

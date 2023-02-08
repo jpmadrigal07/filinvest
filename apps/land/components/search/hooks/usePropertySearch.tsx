@@ -9,6 +9,8 @@ import flattenLocations from "@/helpers/flattenLocations";
 import flattenPropertyTypes from "@/helpers/flattenPropertyTypes";
 import flattenUnitSizes from "@/helpers/flattenUnitSizes";
 import flattenPricePoints from "@/helpers/flattenPricePoints";
+import flattenBedroomRange from "@/helpers/flattenBedroomRange";
+import flattenSubLocations from "@/helpers/flattenSubLocations";
 
 export async function getProperties(searchParams: T_SearchQuery) {
   const query = {
@@ -23,6 +25,20 @@ export async function getProperties(searchParams: T_SearchQuery) {
       ? {
           "propertyType.title": {
             equals: searchParams.propertyType,
+          },
+        }
+      : {}),
+    ...(searchParams.subLocation
+      ? {
+          "subLocation.title": {
+            equals: searchParams.subLocation,
+          },
+        }
+      : {}),
+    ...(searchParams.propertyName
+      ? {
+          title: {
+            equals: searchParams.propertyName,
           },
         }
       : {}),
@@ -62,6 +78,20 @@ export async function getProperties(searchParams: T_SearchQuery) {
             },
           ]
         : []),
+      ...(searchParams.bedroomsFrom
+        ? [
+            {
+              numberOfBedrooms: {
+                greater_than_equal: searchParams.bedroomsFrom,
+              },
+            },
+            {
+              numberOfBedrooms: {
+                less_than_equal: searchParams.bedroomsTo,
+              },
+            },
+          ]
+        : []),
     ],
   };
   const stringifiedQuery = qs.stringify(
@@ -90,6 +120,9 @@ function usePropertySearch() {
   const [unitSize, setUnitSize] = useState("");
   const [priceRange, setPriceRange] = useState([0, 0]);
   const [priceRangeSteps, setPriceRangeSteps] = useState([0, 100]);
+  const [propertyName, setPropertyName] = useState("");
+  const [bedrooms, setBedrooms] = useState("");
+  const [subLocation, setSubLocation] = useState("");
   useEffect(() => {
     const propertyType = searchParams.get("propertyType");
     const location = searchParams.get("location");
@@ -97,6 +130,9 @@ function usePropertySearch() {
     const unitSize = searchParams.get("unitSize");
     const priceRangeFrom = searchParams.get("priceRangeFrom");
     const priceRangeTo = searchParams.get("priceRangeTo");
+    const propertyName = searchParams.get("propertyName");
+    const bedrooms = searchParams.get("bedrooms");
+    const subLocation = searchParams.get("subLocation");
     const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
     const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
     setPropertyType(propertyType ? decodeURIComponent(propertyType) : "");
@@ -104,6 +140,9 @@ function usePropertySearch() {
     setUnitSize(unitSize ? unitSize : "");
     setPriceRange([numberFrom, numberTo]);
     setBrand(brand ? brand : "");
+    setPropertyName(propertyName ? propertyName : "");
+    setBedrooms(bedrooms ? bedrooms : "");
+    setSubLocation(subLocation ? subLocation : "");
   }, [searchParams]);
   useEffect(() => {
     if (inputSettings && inputSettings.pricePoints) {
@@ -123,10 +162,15 @@ function usePropertySearch() {
     unitSize,
     unitSizeFrom: unitSize ? Number(unitSize.split(" ")[0]) : 0,
     unitSizeTo: unitSize ? Number(unitSize.split(" ")[2]) : 0,
+    bedroomsFrom: bedrooms ? Number(bedrooms.split(" ")[0]) : 0,
+    bedroomsTo: bedrooms ? Number(bedrooms.split(" ")[2]) : 0,
     priceRangeFrom: priceRange[0],
     priceRangeTo: priceRange[1],
     priceRange,
     brand,
+    propertyName,
+    subLocation,
+    bedrooms,
   };
   const query = useQuery(
     ["property", formattedSearchParams],
@@ -144,7 +188,16 @@ function usePropertySearch() {
     setLocation,
     setUnitSize,
     setPriceRange,
+    setBedrooms,
+    setPropertyName,
+    setSubLocation,
     priceRangeSteps,
+    bedroomsSettings: inputSettings
+      ? flattenBedroomRange(inputSettings.bedroomRange)
+      : [],
+    subLocationSettings: inputSettings
+      ? flattenSubLocations(inputSettings.subLocations)
+      : {},
     unitSizeSettings: inputSettings
       ? flattenUnitSizes(inputSettings.unitSizes)
       : [],

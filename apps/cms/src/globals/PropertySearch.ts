@@ -2,6 +2,7 @@ import { GlobalConfig } from "payload/types";
 import location from "../fields/location";
 import propertyType from "../fields/propertyType";
 import { isAdmin } from "../access/isAdmin";
+import subLocation from "../fields/subLocation";
 
 export const PropertySearch: GlobalConfig = {
   slug: "property-search",
@@ -63,6 +64,27 @@ export const PropertySearch: GlobalConfig = {
       name: "propertyTypes",
       type: "array",
       fields: [propertyType()],
+    },
+    {
+      name: "subLocations",
+      type: "array",
+      fields: [subLocation()],
+    },
+    {
+      name: "bedroomRange",
+      type: "array",
+      fields: [
+        {
+          name: "bedroomFrom",
+          type: "number",
+          required: true,
+        },
+        {
+          name: "bedroomTo",
+          type: "number",
+          required: true,
+        },
+      ],
     },
   ],
 };

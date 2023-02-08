@@ -506,6 +506,20 @@ export interface PropertySearch {
     };
     id?: string;
   }[];
+  subLocations: {
+    subLocation: {
+      reference: {
+        value: string | SubLocationCategory;
+        relationTo: "sub-location-categories";
+      };
+    };
+    id?: string;
+  }[];
+  bedroomRange: {
+    bedroomFrom: number;
+    bedroomTo: number;
+    id?: string;
+  }[];
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

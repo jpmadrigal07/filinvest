@@ -80,8 +80,6 @@ export const Projects: CollectionConfig = {
       name: "subLocation",
       type: "relationship",
       relationTo: "sub-location-categories",
-      hasMany: true,
-      unique: true,
     },
     {
       name: "size",
