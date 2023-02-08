@@ -33,25 +33,9 @@ export async function getProperties(searchParams: T_SearchQuery) {
           },
         }
       : {}),
-    ...(searchParams.unitSizeFrom
-      ? {
-          and: [
-            {
-              size: {
-                greater_than_equal: searchParams.unitSizeFrom,
-              },
-            },
-            {
-              size: {
-                less_than_equal: searchParams.unitSizeTo,
-              },
-            },
-          ],
-        }
-      : {}),
-    ...(searchParams.priceRangeFrom
-      ? {
-          and: [
+    and: [
+      ...(searchParams.priceRangeFrom
+        ? [
             {
               price: {
                 greater_than_equal: searchParams.priceRangeFrom,
@@ -62,9 +46,23 @@ export async function getProperties(searchParams: T_SearchQuery) {
                 less_than_equal: searchParams.priceRangeTo,
               },
             },
-          ],
-        }
-      : {}),
+          ]
+        : []),
+      ...(searchParams.unitSizeFrom
+        ? [
+            {
+              size: {
+                greater_than_equal: searchParams.unitSizeFrom,
+              },
+            },
+            {
+              size: {
+                less_than_equal: searchParams.unitSizeTo,
+              },
+            },
+          ]
+        : []),
+    ],
   };
   const stringifiedQuery = qs.stringify(
     {
@@ -124,7 +122,7 @@ function usePropertySearch() {
     location,
     unitSize,
     unitSizeFrom: unitSize ? Number(unitSize.split(" ")[0]) : 0,
-    unitSizeTo: unitSize ? Number(unitSize.split(" ")[1]) : 0,
+    unitSizeTo: unitSize ? Number(unitSize.split(" ")[2]) : 0,
     priceRangeFrom: priceRange[0],
     priceRangeTo: priceRange[1],
     priceRange,
