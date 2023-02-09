@@ -15,6 +15,11 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import {
+  DreamsBuiltGreenIconText,
+  DreamsBuiltGreenTitleText,
+  DreamsBuiltGreenMediaSection,
+} from "../blocks/DreamsBuiltGreen";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -59,6 +64,9 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        DreamsBuiltGreenIconText,
+        DreamsBuiltGreenTitleText,
+        DreamsBuiltGreenMediaSection,
       ],
     },
     {
