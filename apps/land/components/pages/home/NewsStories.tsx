@@ -8,7 +8,6 @@ const NewsStories = ({ content }: any) => {
   const flattenNews = content
     ? content.content[6].newsStories.map((newsStory: any) => newsStory.news)
     : [];
-  console.log("asdasd", flattenNews);
   return (
     <section className="pt-36 xl:pt-44">
       <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
