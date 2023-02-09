@@ -75,6 +75,12 @@ export const News: CollectionConfig = {
       required: true,
     },
     {
+      name: "tags",
+      type: "relationship",
+      relationTo: "property-categories",
+      required: true,
+    },
+    {
       name: "site",
       type: "relationship",
       relationTo: "sites",
