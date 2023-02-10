@@ -3,8 +3,8 @@ import React from "react";
 
 const Content = () => {
   return (
-    <section className="-mt-36 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72">
-      <div className="flex gap-12">
+    <section className="short:-mt-32 mx-9 -mt-12 gap-9 lg:-mt-36 xl:mx-16 2xl:mx-44 2xl:-mt-72">
+      <div className="flex flex-col gap-12 md:flex-row">
         <div className="flex flex-1 flex-col gap-6">
           <Image
             src={`/award-3-news.png`}
@@ -46,7 +46,7 @@ const Content = () => {
           </p>
         </div>
       </div>
-      <div className="mt-16 mb-32 flex gap-12">
+      <div className="mt-16 mb-32 flex  flex-col gap-12 md:flex-row">
         <div className="flex flex-1 flex-col gap-6">
           <Image
             src={`/futura-awards.png`}

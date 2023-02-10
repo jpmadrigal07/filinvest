@@ -1,13 +1,13 @@
-import AboutUs from "../menu/AboutUs";
-import OurBusinesses from "../menu/OurBusinesses";
-import Residences from "../menu/Residences";
-import InvestorRelations from "../menu/InvestorRelations";
 import ROUTES from "@/helpers/routes";
+
+// STATIC VERSION OF MAIN NAVIGATION MENUS
+// NOT ALL THESE ARE BEING USED
+// OLD VERSION, CONVERTED TO CMS
 
 export const menus = [
   {
     text: ROUTES.ABOUT_US.name,
-    fullComponent: <AboutUs />,
+    fullComponent: null,
     subMenus: [
       {
         title: ROUTES.ABOUT_US.COMPANY_BACKGROUND.name,
@@ -48,7 +48,7 @@ export const menus = [
   },
   {
     text: ROUTES.OUR_BUSINESSES.name,
-    fullComponent: <OurBusinesses />,
+    fullComponent: null,
     subMenus: [
       {
         title: ROUTES.OUR_BUSINESSES.RESIDENTIAL.name,
@@ -89,7 +89,7 @@ export const menus = [
   },
   {
     text: ROUTES.RESIDENCES.name,
-    fullComponent: <Residences />,
+    fullComponent: null,
     subMenus: [],
   },
   {
@@ -144,7 +144,7 @@ export const menus = [
   },
   {
     text: ROUTES.INVESTOR_RELATIONS.name,
-    fullComponent: <InvestorRelations />,
+    fullComponent: null,
     subMenus: [
       {
         title: ROUTES.INVESTOR_RELATIONS.OUR_COMPANY.name,

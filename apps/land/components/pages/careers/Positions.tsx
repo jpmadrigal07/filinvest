@@ -6,79 +6,80 @@ import { combineClass } from "@/helpers/combineClass";
 import Link from "next/link";
 import React, { useState } from "react";
 import Accordion from "./Accordion";
-import Requirements from "./Requirements";
-import useSWR from "swr";
-import qs from "qs";
-
-const query = {
-  "site.title": {
-    equals: "Land",
-  },
-};
-
-const stringifiedQuery = qs.stringify(
-  {
-    where: query, // ensure that `qs` adds the `where` property, too!
-  },
-  { addQueryPrefix: true }
-);
-
-// eslint-disable-next-line no-unused-vars
-const fetcher = (data: any) =>
-  fetch(`http://localhost:9000/api/careers${stringifiedQuery}`).then((res) =>
-    res.json()
-  );
+import CareerContent from "./CareerContent";
+import useGetCareers from "./hooks/useGetCareers";
+import { Career } from "shared-types";
 
 const Positions = () => {
-  const careers: any = useSWR("test", fetcher);
+  const {
+    data: careersRes,
+    isLoading,
+    category,
+    setCategory,
+  } = useGetCareers();
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const tabs = [
-    { name: "All", href: "#", current: true },
-    { name: "Business", href: "#", current: false },
-    { name: "Finance", href: "#", current: false },
-    { name: "Human Resources", href: "#", current: false },
-    { name: "Information Technology", href: "#", current: false },
-    { name: "Marketing", href: "#", current: false },
-    { name: "Sales", href: "#", current: false },
-    { name: "Technical", href: "#", current: false },
+    "All",
+    "Business",
+    "Finance",
+    "Human Resources",
+    "Information Technology",
+    "Marketing",
+    "Sales",
+    "Technical",
   ];
   return (
     <div className="mt-12">
       <div className="border-alice-blue border-b">
         <nav
-          className="-mb-px flex items-center justify-center space-x-8"
+          className="flex items-center overflow-auto md:justify-center md:-space-x-4 lg:space-x-8"
           aria-label="Tabs"
         >
-          {tabs.map((tab) => (
-            <a
-              key={tab.name}
-              href={tab.href}
+          {tabs.map((tab, i) => (
+            <span
+              key={i}
               className={combineClass(
-                tab.current
+                tab === category
                   ? "border-dark-cornflower-blue text-dark-cornflower-blue"
                   : "text-jet hover:text-dark-cornflower-blue hover:border-dark-cornflower-blue border-transparent",
-                "group inline-flex items-center border-b-2 py-2 px-4 text-xl font-medium"
+                "group inline-flex cursor-pointer items-center border-b-2 py-2 px-4 text-xl font-medium"
               )}
-              aria-current={tab.current ? "page" : undefined}
+              aria-current={tab ? "page" : undefined}
+              onClick={() => setCategory(tab)}
             >
-              <span>{tab.name}</span>
-            </a>
+              <span>{tab}</span>
+            </span>
           ))}
         </nav>
       </div>
       <div className="divide-alice-blue divide-y">
-        <div className="mx-32 mt-9 2xl:mx-56">
+        <div className="mx-0 mt-9 lg:mx-32 2xl:mx-56">
           <div className="flex flex-col gap-5">
-            {careers &&
-              careers.data &&
-              careers.data.docs.map((doc: any) => {
+            {isLoading ? (
+              <p className="text-dim-gray">Loading...</p>
+            ) : careersRes && careersRes.length > 0 ? (
+              careersRes.map((career: Career, index: number) => {
                 return (
-                  <Accordion title={doc.title} description={doc.location}>
-                    <Requirements setModalOpen={setIsFormModalOpen} />
+                  <Accordion
+                    key={index}
+                    title={career.title}
+                    description={career.location}
+                  >
+                    <CareerContent
+                      setModalOpen={setIsFormModalOpen}
+                      responsibilities={career.responsibilities}
+                      requirements={career.requirements}
+                    />
                   </Accordion>
                 );
-              })}
-            <div className="mb-9 flex justify-center gap-4">
+              })
+            ) : (
+              <p className="text-dim-gray">
+                No available position
+                {category !== "All" ? ` for ${category}` : ""}
+              </p>
+            )}
+            {/* <div className="mb-9 flex justify-center gap-4">
               <div className="bg-dark-cornflower-blue px-3 py-[5px] text-white">
                 1
               </div>
@@ -97,14 +98,14 @@ const Positions = () => {
               <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
                 6
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="mt-9 pt-14 pb-24">
           <h2 className="text-dark-cornflower-blue text-4xl font-bold">
             Call our HR department at:
           </h2>
-          <div className="mx-9 mt-14 grid grid-cols-3 gap-4 2xl:mx-14">
+          <div className="mt-14 grid grid-cols-1 gap-4 md:mx-9 md:grid-cols-2 lg:grid-cols-3 2xl:mx-14">
             <div className="bg-cultured flex flex-col gap-3 p-8">
               <div className="flex items-center gap-3">
                 <div className="flex-none">
@@ -192,7 +193,7 @@ const Positions = () => {
               </div>
             </div>
           </div>
-          <p className="text-jet mx-9 mt-6 2xl:mx-14">
+          <p className="text-jet mt-6 md:mx-9 2xl:mx-14">
             Or email us at{" "}
             <Link
               href="mailto:WeRecruitTalent@filinvestland.com"

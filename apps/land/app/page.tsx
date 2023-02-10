@@ -1,3 +1,4 @@
+import ScreenFooter from "@/components/footer/ScreenFooter";
 import AboutUs from "@/components/pages/home/AboutUs";
 import HeroSection from "@/components/pages/home/HeroSection";
 import InvestorRelations from "@/components/pages/home/InvestorRelations";
@@ -7,24 +8,9 @@ import OurBusinesses from "@/components/pages/home/OurBusinesses";
 import OurServices from "@/components/pages/home/OurServices";
 import Projects from "@/components/pages/home/Projects";
 import StockReport from "@/components/pages/home/StockReport";
-import qs from "qs";
 
-const query = {
-  "site.title": {
-    equals: "Land",
-  },
-};
-
-const stringifiedQuery = qs.stringify(
-  {
-    page: 2,
-    where: query, // ensure that `qs` adds the `where` property, too!
-  },
-  { addQueryPrefix: true }
-);
-
-async function getPages() {
-  const res = await fetch(`http://localhost:9000/api/pages${stringifiedQuery}`);
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -32,22 +18,19 @@ async function getPages() {
 }
 
 const HomePage = async () => {
-  const pages = await getPages();
-  const homeContent =
-    pages && pages.docs
-      ? pages.docs.find((doc: any) => doc.title === "Home")
-      : null;
+  const content = await getPageContent("639a5782b60dc36e6fc86c93");
   return (
     <div>
-      <HeroSection homeContent={homeContent} />
-      <Projects />
-      <LookingForProperty />
-      <OurBusinesses />
-      <OurServices />
-      <AboutUs />
-      <NewsStories className="pt-36 xl:pt-44" />
-      <InvestorRelations />
-      <StockReport />
+      <HeroSection content={content} />
+      <Projects content={content} />
+      <LookingForProperty content={content} />
+      <OurBusinesses content={content} />
+      <OurServices content={content} />
+      <AboutUs content={content} />
+      <NewsStories content={content} />
+      <InvestorRelations content={content} />
+      <StockReport content={content} />
+      <ScreenFooter content={content} />
     </div>
   );
 };

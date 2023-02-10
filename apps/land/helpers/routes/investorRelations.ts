@@ -85,11 +85,6 @@ const INVESTOR_RELATIONS_PROGRAM = {
   name: "Investor Relations Program",
   directory: [...INVESTOR_RELATIONS.directory, "Investor Relations Program"],
 };
-const SHARE_INFORMATION = {
-  url: `${INVESTOR_RELATIONS.url}/share-information`,
-  name: "Share Information",
-  directory: [...INVESTOR_RELATIONS.directory, "Share Information"],
-};
 const DIVIDEND_HISTORY = {
   url: `${INVESTOR_RELATIONS.url}/dividend-history`,
   name: "Dividend History",
@@ -132,7 +127,6 @@ const DISCLOSURES = {
 };
 const INVESTOR_RELATIONS_ROUTES = {
   ...INVESTOR_RELATIONS,
-  SHARE_INFORMATION,
   DIVIDEND_HISTORY,
   DIVIDEND_POLICY,
   OUR_COMPANY,

@@ -3,6 +3,19 @@ import { isAdmin } from "../access/isAdmin";
 import { isAdminOrHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
+import {
+  HomeHeroSection,
+  HomeProjectsSection,
+  HomePropertySearchSection,
+  HomeOurBusinessesSection,
+  HomeOurServicesSection,
+  HomeAboutUsSection,
+  HomeNewsStoriesSection,
+  HomeInvestorRelationSection,
+  HomeStockReportSection,
+  HomeFloatingButtons,
+} from "../blocks/Home";
+import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -32,7 +45,21 @@ export const Pages: CollectionConfig = {
     },
     {
       name: "content",
-      type: "richText",
+      type: "blocks",
+      required: true,
+      blocks: [
+        Header,
+        HomeHeroSection,
+        HomeProjectsSection,
+        HomePropertySearchSection,
+        HomeOurBusinessesSection,
+        HomeOurServicesSection,
+        HomeAboutUsSection,
+        HomeNewsStoriesSection,
+        HomeInvestorRelationSection,
+        HomeStockReportSection,
+        HomeFloatingButtons,
+      ],
     },
     {
       name: "site",

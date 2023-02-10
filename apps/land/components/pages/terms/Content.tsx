@@ -57,10 +57,7 @@ const Content = () => {
       <p className="text-dim-gray">
         For more information on why and how we collect your personal data,
         please read our{" "}
-        <Link
-          href="/privacy-policy"
-          className="text-dark-cornflower-blue underline"
-        >
+        <Link href="/privacy" className="text-dark-cornflower-blue underline">
           Privacy Policy.
         </Link>
       </p>

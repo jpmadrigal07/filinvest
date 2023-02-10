@@ -2,7 +2,7 @@ import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
 import Content from "@/components/pages/our-businesses/residential/Content";
 
-const ResidentialPage = () => {
+const ResidentialPage = async () => {
   const { title, breadcrumbs, image } = HEADER_INFO.residential;
   return (
     <>

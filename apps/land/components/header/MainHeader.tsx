@@ -10,6 +10,7 @@ const MainHeader = ({
   bgUrlSmall = "blue-header-bg-small.png",
   isBlueHeader = false,
   isTitleSmall = false,
+  otherUrl,
 }: {
   bgUrl?: string;
   bgUrlSmall?: string;
@@ -18,6 +19,7 @@ const MainHeader = ({
   tabs?: ReactNode;
   isBlueHeader?: boolean;
   isTitleSmall?: boolean;
+  otherUrl?: string;
 }) => {
   return (
     <>
@@ -26,11 +28,11 @@ const MainHeader = ({
           {title && (
             <div className="absolute w-full">
               <div
-                className={`flex flex-col items-center justify-center py-40 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:py-48`}
+                className={`flex flex-col items-center justify-center py-32 md:py-24 lg:mx-9 lg:py-40 xl:mx-16 2xl:mx-44 2xl:py-48`}
               >
                 <h1
                   className={`mb-4 ${
-                    isTitleSmall ? "text-4xl" : "text-6xl"
+                    isTitleSmall ? "text-4xl lg:text-6xl" : "text-6xl"
                   } text-center font-extrabold text-white`}
                 >
                   {title}
@@ -44,10 +46,11 @@ const MainHeader = ({
           )}
           <div className="z-0 hidden md:block">
             <Image
-              src={`/${bgUrl}`}
+              src={otherUrl ? otherUrl : `/${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"
+              priority
             />
           </div>
           <div className="z-0 block md:hidden">
@@ -56,6 +59,7 @@ const MainHeader = ({
               width={1036}
               height={806}
               alt="Picture of the author"
+              priority
             />
           </div>
         </section>
@@ -84,10 +88,11 @@ const MainHeader = ({
           </div>
           <div className="z-0 hidden md:block">
             <Image
-              src={`/${bgUrl}`}
+              src={otherUrl ? otherUrl : `/${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"
+              priority
             />
           </div>
           <div className="z-0 block md:hidden">
@@ -96,6 +101,7 @@ const MainHeader = ({
               width={1036}
               height={806}
               alt="Picture of the author"
+              priority
             />
           </div>
         </section>

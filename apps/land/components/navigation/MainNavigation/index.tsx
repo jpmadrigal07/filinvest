@@ -7,24 +7,48 @@ import { Popover, Transition } from "@headlessui/react";
 import HamburgerMenu from "@/components/svg/HamburgerMenu";
 import Link from "next/link";
 import Accordion from "./Accordion";
-import { menus } from "./menus";
 import { usePathname } from "next/navigation";
 import ROUTES from "@/helpers/routes";
+import useGetNavigation from "./hooks/useGetNavigation";
+import formatNavigations from "./helpers/formatNavigations";
+import { menus as staticMenus } from "./menus";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
-const MainNavigation = () => {
+const MainNavigation = ({ className }: { className?: string }) => {
+  const { data: navigationRes, isLoading } = useGetNavigation();
   const pathname = usePathname();
   const [flyoutMenu, setFlyoutMenu] = useState<T_Flyout_Menu>("");
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number | null>(null);
+  const [scroll, setScroll] = useState(0);
+  const [menus, setMenus] = useState(staticMenus);
 
   useEffect(() => {
     setFlyoutMenu("");
     setCurrentMenuIndex(null);
   }, [pathname]);
 
+  if (typeof window !== "undefined") {
+    window.onscroll = function () {
+      setScroll(window.pageYOffset);
+    };
+  }
+  useEffect(() => {
+    if (navigationRes) {
+      setMenus(formatNavigations(navigationRes));
+    }
+  }, [navigationRes]);
+
   return (
-    <nav className="absolute z-50 w-full">
+    <nav
+      className={`fixed top-0 z-50 w-full ${
+        scroll !== 0 && flyoutMenu !== "full"
+          ? "bg-royal-dark-blue delay-50 bg-opacity-95 transition"
+          : className
+          ? className
+          : "delay-50 bg-transparent bg-opacity-95 transition"
+      }`}
+    >
       <div className="hidden lg:block">
         <div
           className={combineClass(
@@ -58,9 +82,16 @@ const MainNavigation = () => {
               </ul>
             </div>
             <div className="flex-none">
-              <button className="bg-blue focus:bg-dark-cornflower-blue delay-50 py-4 px-9 text-white transition hover:opacity-90">
-                Reserve Now
-              </button>
+              <Link href={navigationRes ? navigationRes.callToActionLink : "/"}>
+                <button
+                  className="bg-blue focus:bg-dark-cornflower-blue delay-50 disabled:bg-royal-dark-blue disabled:text-wild-blue-yonder py-4 px-9 text-white transition hover:opacity-90"
+                  disabled={isLoading}
+                >
+                  {navigationRes
+                    ? navigationRes.callToActionText
+                    : "Loading..."}
+                </button>
+              </Link>
             </div>
           </div>
           <Transition appear show={flyoutMenu === "full"} as={Fragment}>

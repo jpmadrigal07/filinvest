@@ -2,7 +2,15 @@ import Breadcrumbs from "@/components/header/Breadcrumbs";
 import ROUTES from "@/helpers/routes";
 
 const { OUR_BUSINESSES } = ROUTES;
-const { RESIDENTIAL, CORPORATE_CENTERS } = OUR_BUSINESSES;
+const {
+  RESIDENTIAL,
+  CORPORATE_CENTERS,
+  MALLS,
+  TOWNSCAPES,
+  MIXEDUSE_ESTATES,
+  INDUSTRIAL,
+  COLIVING,
+} = OUR_BUSINESSES;
 
 const BREADCRUMBS = [
   {
@@ -29,5 +37,40 @@ export const HEADER_INFO = {
       />
     ),
     image: "company-background-2.png",
+  },
+  malls: {
+    title: MALLS.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: MALLS.name }]} />
+    ),
+    image: "mall-header-bg.png",
+  },
+  townscapes: {
+    title: TOWNSCAPES.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: TOWNSCAPES.name }]} />
+    ),
+    image: "townscapes-header-bg.png",
+  },
+  mixedUseEstates: {
+    title: MIXEDUSE_ESTATES.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: MIXEDUSE_ESTATES.name }]} />
+    ),
+    image: "mixed-use-header-bg.png",
+  },
+  industrial: {
+    title: INDUSTRIAL.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: INDUSTRIAL.name }]} />
+    ),
+    image: "industrial-header-bg.png",
+  },
+  coliving: {
+    title: COLIVING.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: COLIVING.name }]} />
+    ),
+    image: "coliving-header-bg.png",
   },
 };

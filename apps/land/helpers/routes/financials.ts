@@ -13,10 +13,10 @@ const ANNUAL_REPORTS = {
   name: "Annual Reports",
   directory: [...FINANCIALS.directory, "Annual Reports"],
 };
-const BUYERS_ROUTES = {
+const FINANCIAL_ROUTES = {
   ...FINANCIALS,
   FINANCIAL_HIGHLIGHTS,
   ANNUAL_REPORTS,
 };
 export const FINANCIALS_SUB_ROUTES = [FINANCIAL_HIGHLIGHTS, ANNUAL_REPORTS];
-export default BUYERS_ROUTES;
+export default FINANCIAL_ROUTES;

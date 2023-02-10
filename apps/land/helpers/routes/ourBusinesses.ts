@@ -24,15 +24,16 @@ const OFFICE_PARKS = {
   name: "Office Parks",
   directory: [...OUR_BUSINESSES.directory, "Office Parks"],
 };
-const COMBINED_OFFICES = {
-  ...OFFICES,
-  OFFICE_PARKS,
-};
 
 const MALLS = {
   url: `${OUR_BUSINESSES.url}/malls`,
   name: "Malls",
   directory: [...OUR_BUSINESSES.directory, "malls"],
+};
+const TOWNSCAPES = {
+  url: `${OUR_BUSINESSES.url}/townscapes`,
+  name: "Townscapes",
+  directory: [...OUR_BUSINESSES.directory, "Townscapes"],
 };
 const INDUSTRIAL = {
   url: `${OUR_BUSINESSES.url}/industrial`,
@@ -45,16 +46,18 @@ const COLIVING = {
   directory: [...OUR_BUSINESSES.directory, "co-living"],
 };
 const MIXEDUSE_ESTATES = {
-  url: `${OUR_BUSINESSES.url}/mixed-use-estates`,
-  name: "Mixed-use-estates",
-  directory: [...OUR_BUSINESSES.directory, "mixed-use-estates"],
+  url: `${OUR_BUSINESSES.url}/mixeduse-estates`,
+  name: "Mixed-Use & Estates",
+  directory: [...OUR_BUSINESSES.directory, "mixeduse-estates"],
 };
 const OUR_BUSINESSES_ROUTES = {
   ...OUR_BUSINESSES,
   RESIDENTIAL,
   CORPORATE_CENTERS,
-  OFFICES: COMBINED_OFFICES,
+  OFFICES,
+  OFFICE_PARKS,
   MALLS,
+  TOWNSCAPES,
   INDUSTRIAL,
   COLIVING,
   MIXEDUSE_ESTATES,
@@ -62,8 +65,10 @@ const OUR_BUSINESSES_ROUTES = {
 export const OUR_BUSINESSES_SUB_ROUTES = [
   RESIDENTIAL,
   CORPORATE_CENTERS,
-  COMBINED_OFFICES,
+  OFFICES,
+  OFFICE_PARKS,
   MALLS,
+  TOWNSCAPES,
   INDUSTRIAL,
   COLIVING,
   MIXEDUSE_ESTATES,

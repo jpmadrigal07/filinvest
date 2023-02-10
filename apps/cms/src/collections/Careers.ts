@@ -41,6 +41,11 @@ export const Careers: CollectionConfig = {
       required: true,
     },
     {
+      name: "requirements",
+      type: "richText",
+      required: true,
+    },
+    {
       name: "careersCategory",
       type: "relationship",
       relationTo: "career-categories",

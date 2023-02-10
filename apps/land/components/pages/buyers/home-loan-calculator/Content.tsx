@@ -1,12 +1,46 @@
+"use client";
 import RangeSliderMark from "@/components/range-sliders/RangeSliderMark";
 import Diamond from "@/components/svg/Diamond";
 import Reset from "@/components/svg/Reset";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import {
+  getContractPrice,
+  getDownPayment,
+  getMonthlyAmortization,
+  getRate,
+  getRequiredMonthlyIncome,
+  toCurrency,
+} from "@/helpers/homeCalculator";
 
 const Content = () => {
+  const [tcp, setTcp] = useState<number | null>(null);
+  const [reservationFee, setReservationFee] = useState(0);
+  const [downPaymentPercent, setDownPaymentPercent] = useState(0);
+  const [downPaymentTerm, setDownPaymentTerm] = useState(12);
+  const [yearsToPay, setYearsToPay] = useState(0);
+  const [contractPrice, setContractPrice] = useState({
+    contractPrice: 0,
+    miscFees: 0,
+    bankFees: 0,
+    vat: 0,
+  });
+  const [downPayment, setDownPayment] = useState({
+    reservationFee: 0,
+    downPaymentPercent: 0,
+    downPayment: 0,
+    netDownPayment: 0,
+    monthlyDownPayment: 0,
+  });
+  const [rate, setRate] = useState({
+    rate: 0,
+    yearsToPay: 0,
+  });
+  const [loan, setLoan] = useState(0);
+  const [monthlyAmortization, setMonthlyAmortization] = useState(0);
+  const [requiredMonthlyIncome, setRequiredMonthlyIncome] = useState(0);
   const reservationFeeMarks = {
     0: <strong>10,000</strong>,
-    50: <strong>25,000</strong>,
+    50: <strong>20,000</strong>,
     100: <strong>50,000</strong>,
   };
   const downPaymentMarks = {
@@ -19,6 +53,102 @@ const Content = () => {
     50: <strong>10 Years</strong>,
     100: <strong>15 Years</strong>,
   };
+  const downPaymentTerms = [12, 24, 36, 48, 60];
+  useEffect(() => {
+    setContractPrice(getContractPrice(tcp ? tcp : 0));
+  }, [tcp]);
+
+  useEffect(() => {
+    if (tcp) {
+      const updatedReservationFee =
+        reservationFee === 0
+          ? 10000
+          : reservationFee === 50
+          ? 20000
+          : reservationFee === 100
+          ? 50000
+          : 10000;
+      const updatedDownPaymentPercent =
+        downPaymentPercent === 0
+          ? 10
+          : downPaymentPercent === 50
+          ? 20
+          : downPaymentPercent === 100
+          ? 30
+          : 10;
+      setDownPayment(
+        getDownPayment(
+          contractPrice.contractPrice,
+          updatedDownPaymentPercent,
+          downPaymentTerm,
+          updatedReservationFee
+        )
+      );
+    }
+  }, [reservationFee, downPaymentPercent, downPaymentTerm, contractPrice, tcp]);
+
+  useEffect(() => {
+    if (tcp) {
+      const updatedYearsToPay =
+        yearsToPay === 0
+          ? 5
+          : yearsToPay === 50
+          ? 10
+          : yearsToPay === 100
+          ? 15
+          : 5;
+      setRate(getRate(updatedYearsToPay));
+    }
+  }, [yearsToPay, tcp]);
+
+  useEffect(() => {
+    if (contractPrice.contractPrice > 0 && downPayment.downPayment > 0) {
+      setLoan(contractPrice.contractPrice - downPayment.downPayment);
+    }
+  }, [downPayment, contractPrice]);
+
+  useEffect(() => {
+    if (tcp && loan > 0 && rate.rate > 0 && rate.yearsToPay > 0) {
+      setMonthlyAmortization(
+        getMonthlyAmortization(loan, rate.rate, rate.yearsToPay * 12)
+      );
+    }
+  }, [tcp, loan, rate, yearsToPay]);
+
+  useEffect(() => {
+    if (monthlyAmortization > 0) {
+      setRequiredMonthlyIncome(getRequiredMonthlyIncome(monthlyAmortization));
+    }
+  }, [monthlyAmortization]);
+
+  const clearFields = () => {
+    setTcp(null);
+    setReservationFee(0);
+    setDownPaymentPercent(0);
+    setDownPaymentTerm(12);
+    setYearsToPay(0);
+    setContractPrice({
+      contractPrice: 0,
+      miscFees: 0,
+      bankFees: 0,
+      vat: 0,
+    });
+    setDownPayment({
+      reservationFee: 0,
+      downPaymentPercent: 0,
+      downPayment: 0,
+      netDownPayment: 0,
+      monthlyDownPayment: 0,
+    });
+    setRate({
+      rate: 0,
+      yearsToPay: 0,
+    });
+    setLoan(0);
+    setMonthlyAmortization(0);
+    setRequiredMonthlyIncome(0);
+  };
+
   return (
     <section className="mt-24 mb-32 flex gap-16 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div className="flex-1">
@@ -35,15 +165,19 @@ const Content = () => {
               htmlFor="totalContactPrice"
               className="text-jet block text-sm font-medium"
             >
-              Total Contact Price
+              Total Contract Price
             </label>
             <div className="mt-2">
               <input
-                type="text"
+                type="number"
+                min="1"
+                step="any"
                 name="totalContactPrice"
                 id="totalContactPrice"
                 className="border-b-jet focus:ring-none block w-full border-b-[1px] px-2 py-4 sm:text-sm"
                 placeholder="Php"
+                value={tcp ? tcp : ""}
+                onChange={(e) => setTcp(Number(e.target.value))}
               />
             </div>
           </div>
@@ -55,7 +189,12 @@ const Content = () => {
               Reservation Fee
             </label>
             <div className="mx-2 mt-8">
-              <RangeSliderMark marks={reservationFeeMarks} />
+              <RangeSliderMark
+                marks={reservationFeeMarks}
+                step={null}
+                value={reservationFee}
+                onValueChange={setReservationFee}
+              />
             </div>
           </div>
           <div className="mt-14">
@@ -66,7 +205,12 @@ const Content = () => {
               Percent Down Payment
             </label>
             <div className="mx-2 mt-8">
-              <RangeSliderMark marks={downPaymentMarks} />
+              <RangeSliderMark
+                marks={downPaymentMarks}
+                step={null}
+                value={downPaymentPercent}
+                onValueChange={setDownPaymentPercent}
+              />
             </div>
           </div>
           <div className="mt-14">
@@ -77,34 +221,38 @@ const Content = () => {
               Down Payment Term (Months)
             </label>
             <div className="mt-8 flex gap-8">
-              <div className="bg-blue-ryb hover:bg-dark-cornflower-blue flex-1 py-5 px-5 hover:cursor-pointer">
-                <p className="text-center text-2xl font-bold text-white">12</p>
-                <p className="text-center text-sm text-white">Months</p>
-              </div>
-              <div className="bg-gainsboro hover:bg-ghost-white flex-1 py-5 px-5 hover:cursor-pointer">
-                <p className="text-dim-gray text-center text-2xl font-bold">
-                  24
-                </p>
-                <p className="text-dim-gray text-center text-sm">Months</p>
-              </div>
-              <div className="bg-gainsboro hover:bg-ghost-white flex-1 py-5 px-5 hover:cursor-pointer">
-                <p className="text-dim-gray text-center text-2xl font-bold">
-                  36
-                </p>
-                <p className="text-dim-gray text-center text-sm">Months</p>
-              </div>
-              <div className="bg-gainsboro hover:bg-ghost-white flex-1 py-5 px-5 hover:cursor-pointer">
-                <p className="text-dim-gray text-center text-2xl font-bold">
-                  48
-                </p>
-                <p className="text-dim-gray text-center text-sm">Months</p>
-              </div>
-              <div className="bg-gainsboro hover:bg-ghost-white flex-1 py-5 px-5 hover:cursor-pointer">
-                <p className="text-dim-gray text-center text-2xl font-bold">
-                  60
-                </p>
-                <p className="text-dim-gray text-center text-sm">Months</p>
-              </div>
+              {downPaymentTerms.map((term: number, i: number) => {
+                return (
+                  <div
+                    key={i}
+                    onClick={() => setDownPaymentTerm(term)}
+                    className={`${
+                      downPaymentTerm === term
+                        ? "bg-blue-ryb hover:bg-dark-cornflower-blue"
+                        : "bg-gainsboro hover:bg-ghost-white"
+                    } delay-50 flex-1 bg-opacity-95 py-5 px-5 transition hover:cursor-pointer`}
+                  >
+                    <p
+                      className={`text-center text-2xl font-bold ${
+                        downPaymentTerm === term
+                          ? "text-white"
+                          : "text-dim-gray"
+                      } delay-50 bg-opacity-95 transition`}
+                    >
+                      {term}
+                    </p>
+                    <p
+                      className={`text-center text-sm ${
+                        downPaymentTerm === term
+                          ? "text-white"
+                          : "text-dim-gray"
+                      } delay-50 bg-opacity-95 transition`}
+                    >
+                      Months
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="mt-14">
@@ -115,14 +263,23 @@ const Content = () => {
               Number of Years to Pay Loan
             </label>
             <div className="mx-2 mt-8">
-              <RangeSliderMark marks={yearsPayMarks} />
+              <RangeSliderMark
+                marks={yearsPayMarks}
+                step={null}
+                value={yearsToPay}
+                onValueChange={setYearsToPay}
+              />
             </div>
           </div>
           <div className="mt-24 flex items-center gap-8">
-            <button className="bg-blue-ryb hover:bg-dark-cornflower-blue px-16 py-5 text-sm text-white">
+            {/* Disabled button because the ui is auto update when input change */}
+            {/* <button className="bg-blue-ryb hover:bg-dark-cornflower-blue px-16 py-5 text-sm text-white">
               Calculate
-            </button>
-            <div className="hover:bg-alice-blue flex items-center gap-4 hover:cursor-pointer">
+            </button> */}
+            <div
+              className="hover:bg-alice-blue delay-50 flex items-center gap-4 bg-opacity-95 transition hover:cursor-pointer"
+              onClick={() => clearFields()}
+            >
               <Reset />
               <p className="text-jet text-sm">Clear Fields</p>
             </div>
@@ -138,69 +295,123 @@ const Content = () => {
                 <p className="text-jet flex-1 font-bold">
                   Total Contract Price:
                 </p>
-                <p className="text-jet flex-none font-bold">---</p>
+                <p className="text-jet flex-none font-bold">
+                  {tcp ? toCurrency(tcp) : "---"}
+                </p>
               </div>
               <div>
                 <p className="text-jet">Add:</p>
                 <div className="mt-2 ml-4 flex">
                   <p className="text-jet flex-1">VAT:</p>
-                  <p className="text-jet flex-none">---</p>
+                  <p className="text-jet flex-none">
+                    {contractPrice.vat ? toCurrency(contractPrice.vat) : "---"}
+                  </p>
                 </div>
                 <div className="mt-2 ml-4 flex">
                   <p className="text-jet flex-1">Miscellaneous Fees:</p>
-                  <p className="text-jet flex-none">---</p>
+                  <p className="text-jet flex-none">
+                    {contractPrice.miscFees
+                      ? toCurrency(contractPrice.miscFees)
+                      : "---"}
+                  </p>
                 </div>
                 <div className="mt-2 ml-4 flex">
                   <p className="text-jet flex-1">Bank Fees:</p>
-                  <p className="text-jet flex-none">---</p>
+                  <p className="text-jet flex-none">
+                    {contractPrice.bankFees
+                      ? toCurrency(contractPrice.bankFees)
+                      : "---"}
+                  </p>
                 </div>
               </div>
               <div className="flex">
                 <p className="text-jet flex-1 font-bold">
                   Gross Total Contract Price:
                 </p>
-                <p className="text-jet flex-none font-bold">---</p>
+                <p className="text-jet flex-none font-bold">
+                  {contractPrice.contractPrice
+                    ? toCurrency(contractPrice.contractPrice)
+                    : "---"}
+                </p>
               </div>
               <div className="flex">
                 <p className="text-jet flex-1 font-bold">Down Payment:</p>
-                <p className="text-jet flex-none font-bold">---</p>
+                <p className="text-jet flex-none font-bold">
+                  {downPayment.downPayment
+                    ? toCurrency(downPayment.downPayment)
+                    : "---"}
+                </p>
               </div>
               <div>
                 <p className="text-jet">Less:</p>
                 <div className="mt-2 ml-4 flex">
                   <p className="text-jet flex-1">Reservation Fee:</p>
-                  <p className="text-jet flex-none">---</p>
+                  <p className="text-jet flex-none">
+                    {downPayment.reservationFee
+                      ? toCurrency(downPayment.reservationFee)
+                      : "---"}
+                  </p>
                 </div>
               </div>
               <div className="flex">
                 <p className="text-jet flex-1 font-bold">Net Down Payment:</p>
-                <p className="text-jet flex-none font-bold">---</p>
+                <p className="text-jet flex-none font-bold">
+                  {downPayment.netDownPayment
+                    ? toCurrency(downPayment.netDownPayment)
+                    : "---"}
+                </p>
+              </div>
+              <div className="flex">
+                <p className="text-jet flex-1 font-bold">
+                  Monthly Down Payment:
+                </p>
+                <p className="text-jet flex-none font-bold">
+                  {downPayment.monthlyDownPayment
+                    ? toCurrency(downPayment.monthlyDownPayment)
+                    : "---"}
+                </p>
               </div>
               <div>
                 <div className="flex">
                   <p className="text-jet flex-1 font-bold">Loan:</p>
-                  <p className="text-jet flex-none font-bold">---</p>
+                  <p className="text-jet flex-none font-bold">
+                    {loan > 0 ? toCurrency(loan) : "---"}
+                  </p>
                 </div>
                 <div className="mt-2 flex">
                   <p className="text-jet flex-1">Rate:</p>
-                  <p className="text-jet flex-none">---</p>
+                  <p className="text-jet flex-none">
+                    {rate.rate > 0
+                      ? `${(rate.rate * 12 * 100).toFixed(3)}%`
+                      : "---"}
+                  </p>
                 </div>
                 <div className="mt-2 flex">
                   <p className="text-jet flex-1">Period (Months):</p>
-                  <p className="text-jet flex-none">---</p>
+                  <p className="text-jet flex-none">
+                    {rate.yearsToPay > 0 ? rate.yearsToPay * 12 : "---"}
+                  </p>
                 </div>
               </div>
               <div className="flex">
                 <p className="text-jet flex-1 font-bold">
                   Monthly Amortization:
                 </p>
-                <p className="text-jet flex-none font-bold">---</p>
+                <p className="text-jet flex-none font-bold">
+                  {monthlyAmortization > 0
+                    ? toCurrency(monthlyAmortization)
+                    : "---"}
+                </p>
               </div>
               <div className="flex">
                 <p className="text-jet flex-1 font-bold">
                   Required Monthly Income:
                 </p>
-                <p className="text-jet flex-none font-bold">---</p>
+                <p className="text-jet flex-none font-bold">
+                  {requiredMonthlyIncome > 0
+                    ? toCurrency(requiredMonthlyIncome)
+                    : "---"}
+                </p>
               </div>
             </div>
           </div>

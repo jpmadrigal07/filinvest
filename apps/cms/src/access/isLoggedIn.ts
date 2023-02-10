@@ -1,5 +1,5 @@
 import { Access } from "payload/config";
-import { User } from "../payload-types";
+import { User } from "shared-types";
 
 export const isLoggedIn: Access<any, User> = ({ req: { user } }) => {
   // Return true if user is logged in, false if not

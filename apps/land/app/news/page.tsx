@@ -16,11 +16,14 @@ const stringifiedQuery = qs.stringify(
 );
 
 async function getNews() {
-  const res = await fetch(`http://localhost:9000/api/news${stringifiedQuery}`);
+  const res = await fetch(
+    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}`
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  return res.json();
+  const jsonData = await res.json();
+  return jsonData.docs ? jsonData.docs : null;
 }
 
 const NewsPage = async () => {
@@ -31,6 +34,7 @@ const NewsPage = async () => {
         title="Latest on Filinvest Land"
         isBlueHeader
         bgUrl="blue-header-bg.png"
+        isTitleSmall
       />
       <Content news={news} />
     </>

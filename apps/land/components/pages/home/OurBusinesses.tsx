@@ -1,120 +1,168 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
+import ChevronLeft from "@/components/svg/ChevronLeft";
+import ChevronRight from "@/components/svg/ChevronRight";
 
-const OurBusinesses = () => {
+const OurBusinesses = ({ content }: any) => {
+  const swiperRefMobile = useRef();
   return (
     <section className="pt-28">
       <h4 className="text-dark-cornflower-blue mx-6 text-center font-bold md:mx-0">
-        OUR BUSINESSES
+        {content.content[3].title}
       </h4>
       <h2 className="text-jet mx-6 mt-2 text-center text-4xl font-extrabold md:mx-0">
-        Our Business Units
+        {content.content[3].subTitle}
       </h2>
       <h4 className="text-dim-gray mx-6 mt-4 text-center md:mx-0">
-        We build properties for different market segments and needs.
+        {content.content[3].description}
       </h4>
       <div className="hidden md:block">
         <div className="mx-6 mt-16 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
           <div className="relative flex-1">
             <Image
-              src="/residential-business.png"
+              src={`${
+                !content.content[3].propertyTypes[0].image.url ? "/" : ""
+              }${content.content[3].propertyTypes[0].image.url}`}
               width={536}
               height={906}
-              alt="Picture of the author"
+              alt={content.content[3].propertyTypes[0].image.alt}
             />
             <div className="absolute -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">Residential</h3>
+              <h3 className="text-2xl font-bold text-white">
+                {content.content[3].propertyTypes[0].title}
+              </h3>
             </div>
           </div>
           <div className="relative mt-12 flex-1">
             <Image
-              src="/offices-business.png"
+              src={`${
+                !content.content[3].propertyTypes[1].image.url ? "/" : ""
+              }${content.content[3].propertyTypes[1].image.url}`}
               width={536}
               height={906}
-              alt="Picture of the author"
+              alt={content.content[3].propertyTypes[1].image.alt}
             />
             <div className="absolute -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">Offices</h3>
+              <h3 className="text-2xl font-bold text-white">
+                {content.content[3].propertyTypes[1].title}
+              </h3>
             </div>
           </div>
           <div className="relative mt-24 flex-1">
             <Image
-              src="/malls-business.png"
+              src={`${
+                !content.content[3].propertyTypes[2].image.url ? "/" : ""
+              }${content.content[3].propertyTypes[2].image.url}`}
               width={536}
               height={906}
-              alt="Picture of the author"
+              alt={content.content[3].propertyTypes[2].image.alt}
             />
             <div className="absolute -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">Malls</h3>
+              <h3 className="text-2xl font-bold text-white">
+                {content.content[3].propertyTypes[2].title}
+              </h3>
             </div>
           </div>
         </div>
         <div className="mx-6 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
           <div className="relative flex-1">
             <Image
-              src="/industrial-business.png"
+              src={`${
+                !content.content[3].propertyTypes[3].image.url ? "/" : ""
+              }${content.content[3].propertyTypes[3].image.url}`}
               width={536}
               height={906}
-              alt="Picture of the author"
+              alt={content.content[3].propertyTypes[3].image.alt}
             />
             <div className="absolute -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">Industrial</h3>
+              <h3 className="text-2xl font-bold text-white">
+                {content.content[3].propertyTypes[3].title}
+              </h3>
             </div>
           </div>
           <div className="relative mt-12 flex-1">
             <Image
-              src="/coliving-business.png"
+              src={`${
+                !content.content[3].propertyTypes[4].image.url ? "/" : ""
+              }${content.content[3].propertyTypes[4].image.url}`}
               width={536}
               height={906}
-              alt="Picture of the author"
+              alt={content.content[3].propertyTypes[4].image.alt}
             />
             <div className="absolute -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">Co-Living</h3>
+              <h3 className="text-2xl font-bold text-white">
+                {content.content[3].propertyTypes[4].title}
+              </h3>
             </div>
           </div>
           <div className="relative mt-24 flex-1">
             <Image
-              src="/mixuse-business.png"
+              src={`${
+                !content.content[3].propertyTypes[5].image.url ? "/" : ""
+              }${content.content[3].propertyTypes[5].image.url}`}
               width={536}
               height={906}
-              alt="Picture of the author"
+              alt={content.content[3].propertyTypes[5].image.alt}
             />
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
-                Mixed-Use and Estates
+                {content.content[3].propertyTypes[5].title}
               </h3>
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-12 block md:hidden">
+      <div className="relative mt-12 flex items-center justify-center md:hidden">
+        <div className="absolute z-40">
+          <div className="flex gap-64 md:gap-[43rem]">
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRefMobile.current?.slidePrev()}
+            >
+              <ChevronLeft color="#000000" />
+            </div>
+            <div
+              className="rounded-full bg-white px-4 py-3 shadow-md"
+              // @ts-expect-error
+              onClick={() => swiperRefMobile.current?.slideNext()}
+            >
+              <ChevronRight color="#000000" />
+            </div>
+          </div>
+        </div>
         <Swiper
           slidesPerView={2}
           spaceBetween={10}
           centeredSlides={true}
           freeMode={true}
           loop={true}
-          navigation={true}
+          onBeforeInit={(swiper) => {
+            // @ts-expect-error
+            swiperRefMobile.current = swiper;
+          }}
           modules={[Navigation, FreeMode]}
           className="mySwiper"
         >
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/residential-business.png"
+                src={`${
+                  !content.content[3].propertyTypes[0].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[0].image.url}`}
                 width={536}
                 height={906}
-                alt="Picture of the author"
+                alt={content.content[3].propertyTypes[0].image.alt}
               />
               <div className="absolute -mt-16 w-full">
                 <h3 className="text-center text-2xl font-bold text-white">
-                  Residential
+                  {content.content[3].propertyTypes[0].title}
                 </h3>
               </div>
             </div>
@@ -122,14 +170,16 @@ const OurBusinesses = () => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/offices-business.png"
+                src={`${
+                  !content.content[3].propertyTypes[1].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[1].image.url}`}
                 width={536}
                 height={906}
-                alt="Picture of the author"
+                alt={content.content[3].propertyTypes[1].image.alt}
               />
               <div className="absolute -mt-16 w-full">
                 <h3 className="text-center text-2xl font-bold text-white">
-                  Offices
+                  {content.content[3].propertyTypes[1].title}
                 </h3>
               </div>
             </div>
@@ -137,14 +187,16 @@ const OurBusinesses = () => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/malls-business.png"
+                src={`${
+                  !content.content[3].propertyTypes[2].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[2].image.url}`}
                 width={536}
                 height={906}
-                alt="Picture of the author"
+                alt={content.content[3].propertyTypes[2].image.alt}
               />
               <div className="absolute -mt-16 w-full">
                 <h3 className="text-center text-2xl font-bold text-white">
-                  Malls
+                  {content.content[3].propertyTypes[2].title}
                 </h3>
               </div>
             </div>
@@ -152,14 +204,16 @@ const OurBusinesses = () => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/industrial-business.png"
+                src={`${
+                  !content.content[3].propertyTypes[3].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[3].image.url}`}
                 width={536}
                 height={906}
-                alt="Picture of the author"
+                alt={content.content[3].propertyTypes[3].image.alt}
               />
               <div className="absolute -mt-16 w-full">
                 <h3 className="text-center text-2xl font-bold text-white">
-                  Industrial
+                  {content.content[3].propertyTypes[3].title}
                 </h3>
               </div>
             </div>
@@ -167,14 +221,16 @@ const OurBusinesses = () => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/coliving-business.png"
+                src={`${
+                  !content.content[3].propertyTypes[4].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[4].image.url}`}
                 width={536}
                 height={906}
-                alt="Picture of the author"
+                alt={content.content[3].propertyTypes[4].image.alt}
               />
               <div className="absolute -mt-16 w-full">
                 <h3 className="text-center text-2xl font-bold text-white">
-                  Co-Living
+                  {content.content[3].propertyTypes[4].title}
                 </h3>
               </div>
             </div>
@@ -182,14 +238,16 @@ const OurBusinesses = () => {
           <SwiperSlide>
             <div className="relative">
               <Image
-                src="/mixuse-business.png"
+                src={`${
+                  !content.content[3].propertyTypes[5].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[5].image.url}`}
                 width={536}
                 height={906}
-                alt="Picture of the author"
+                alt={content.content[3].propertyTypes[5].image.alt}
               />
               <div className="absolute -mt-16 w-full">
                 <h3 className="text-center text-2xl font-bold text-white">
-                  Mixed-Use and Estates
+                  {content.content[3].propertyTypes[5].title}
                 </h3>
               </div>
             </div>

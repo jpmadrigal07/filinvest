@@ -31,7 +31,29 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "slug",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "price",
+      type: "number",
+      required: true,
+    },
+    {
+      name: "numberOfBedrooms",
+      type: "number",
+    },
+    {
+      name: "headerImage",
+      label: "Header Image (Size: 1922x656)",
+      type: "upload",
+      relationTo: "files",
+      required: true,
+    },
+    {
       name: "logo",
+      label: "Logo (Height: 100px)",
       type: "upload",
       relationTo: "files",
       required: true,
@@ -43,19 +65,38 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "propertyType",
+      type: "relationship",
+      relationTo: "property-categories",
+      required: false,
+    },
+    {
       name: "location",
-      type: "text",
+      type: "relationship",
+      relationTo: "location-categories",
       required: true,
     },
     {
+      name: "subLocation",
+      type: "relationship",
+      relationTo: "sub-location-categories",
+    },
+    {
       name: "size",
-      type: "text",
+      label: "Size (sqm)",
+      type: "number",
       required: true,
     },
     {
       name: "coverImage",
+      label: "Cover Image (Size: 1920x833)",
       type: "upload",
       relationTo: "files",
+      required: true,
+    },
+    {
+      name: "shortDescription",
+      type: "text",
       required: true,
     },
     {

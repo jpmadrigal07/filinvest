@@ -1,30 +1,28 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-// import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
-// import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
 import BorderButton from "@/components/button/BorderButton";
+import Link from "next/link";
 
-const InvestorRelations = () => {
+const InvestorRelations = ({ content }: any) => {
   return (
     <section className="mx-6 flex flex-col gap-16 pt-36 lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
       <div className="flex-1 lg:w-1/4">
         <h4 className="text-dark-cornflower-blue font-bold">
-          INVESTOR RELATIONS
+          {content.content[7].title}
         </h4>
         <h2 className="text-jet mt-2 text-4xl font-extrabold">
-          Investment Highlights
+          {content.content[7].subTitle}
         </h2>
-        <h4 className="text-dim-gray mt-4">
-          Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Ut
-          consequat semper viverra nam libero justo laoreet sit.
-        </h4>
+        <h4 className="text-dim-gray mt-4">{content.content[7].description}</h4>
         <button type="button" className="mt-16">
-          <BorderButton
-            buttonText="Learn More"
-            textColor="dark-cornflower-blue"
-            borderColor="dark-cornflower-blue"
-          />
+          <Link href={content.content[7].learnMoreLink}>
+            <BorderButton
+              buttonText="Learn More"
+              textColor="dark-cornflower-blue"
+              borderColor="dark-cornflower-blue"
+            />
+          </Link>
         </button>
       </div>
       <div className="flex flex-col gap-12 xl:gap-20">

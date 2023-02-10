@@ -2,17 +2,12 @@ import Breadcrumbs from "@/components/header/Breadcrumbs";
 import ROUTES from "@/helpers/routes";
 
 const { OUR_BUSINESSES } = ROUTES;
-const { OFFICES } = OUR_BUSINESSES;
-const { OFFICE_PARKS } = OFFICES;
+const { OFFICE_PARKS, OFFICES } = OUR_BUSINESSES;
 
 const BREADCRUMBS = [
   {
     title: OUR_BUSINESSES.name,
     link: OUR_BUSINESSES.url,
-  },
-  {
-    title: OFFICES.name,
-    link: OFFICES.url,
   },
 ];
 
@@ -25,5 +20,12 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: OFFICE_PARKS.name }]} />
     ),
     image: headerImage,
+  },
+  offices: {
+    title: OFFICES.name,
+    breadcrumbs: (
+      <Breadcrumbs items={[...BREADCRUMBS, { title: OFFICES.name }]} />
+    ),
+    image: "office-header-bg.png",
   },
 };

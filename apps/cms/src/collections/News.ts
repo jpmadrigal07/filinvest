@@ -1,6 +1,5 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
-import { isAdminOrHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
 
@@ -31,7 +30,14 @@ export const News: CollectionConfig = {
       required: true,
     },
     {
+      name: "slug",
+      type: "text",
+      required: true,
+      unique: true,
+    },
+    {
       name: "coverImage", // required
+      label: "Cover Image (Size: 1364x663)",
       type: "upload", // required
       relationTo: "files", // required
       required: true,
@@ -66,6 +72,12 @@ export const News: CollectionConfig = {
       name: "newsCategory",
       type: "relationship",
       relationTo: "news-categories",
+      required: true,
+    },
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "property-categories",
       required: true,
     },
     {

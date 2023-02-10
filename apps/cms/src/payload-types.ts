@@ -8,19 +8,238 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact-requests".
+ * via the `definition` "navigation".
  */
-export interface ContactRequest {
+export interface Navigation {
   id: string;
-  message: string;
+  mainMenu: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    firstFeaturedSlug?:
+      | {
+          value: string | News;
+          relationTo: "news";
+        }
+      | {
+          value: string | Project;
+          relationTo: "projects";
+        }
+      | {
+          value: string | Award;
+          relationTo: "awards";
+        };
+    secondFeaturedSlug?:
+      | {
+          value: string | News;
+          relationTo: "news";
+        }
+      | {
+          value: string | Project;
+          relationTo: "projects";
+        }
+      | {
+          value: string | Award;
+          relationTo: "awards";
+        };
+    subMenu: {
+      link: {
+        type?: "reference" | "custom";
+        newTab?: boolean;
+        reference: {
+          value: string | Page;
+          relationTo: "pages";
+        };
+        url: string;
+        label: string;
+        description?: string;
+      };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+  callToActionText: string;
+  callToActionLink: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  title: string;
+  content: (
+    | {
+        coverImage: string | File;
+        smallCoverImage?: string | File;
+        title: string;
+        breadcrumbs: {
+          link: {
+            type?: "reference" | "custom";
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: "pages";
+            };
+            url: string;
+            label: string;
+            description?: string;
+          };
+          id?: string;
+        }[];
+        tabs: {
+          link: {
+            type?: "reference" | "custom";
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: "pages";
+            };
+            url: string;
+            label: string;
+            description?: string;
+          };
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "header";
+      }
+    | {
+        backgroundType?: "image" | "video" | "youtube";
+        mediaBackground: string | File;
+        videoBackground?: string | File;
+        youtubeBackground?: string;
+        title: string;
+        description: string;
+        prestigeImage: string | File;
+        prestigeLogo: string | File;
+        futuraImage: string | File;
+        futuraLogo: string | File;
+        aspireImage: string | File;
+        aspireLogo: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "homeHeroSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        imageSlides: {
+          slideBackgroundImage: string | File;
+          hasBlock?: boolean;
+          blockTitle: string;
+          blockDescription: string;
+          blockLogo: string | File;
+          blockLearnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeProjectsSection";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homePropertySearchSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        propertyTypes: {
+          image: string | File;
+          title: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeOurBusinessesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        serviceTypes: {
+          image: string | File;
+          title: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeOurServicesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        coverImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "homeAboutUsSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        newsStories: {
+          news: string | News;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeNewsStoriesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeInvestorRelationSection";
+      }
+    | {
+        stockInfoTitle: string;
+        annualReportTitle: string;
+        downloadReportLink: string;
+        viewReportLink: string;
+        annualReportImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "homeStockReportSection";
+      }
+    | {
+        filPayLink: string;
+        messageLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeFloatingButtons";
+      }
+  )[];
+  site: string | Site;
+  _status?: "draft" | "published";
   createdAt: string;
   updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "files".
  */
-export interface Media {
+export interface File {
   id: string;
   alt: string;
   site: string | Site;
@@ -45,14 +264,18 @@ export interface Site {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "news".
  */
-export interface Page {
+export interface News {
   id: string;
   title: string;
+  slug: string;
+  coverImage: string | File;
   content?: {
     [k: string]: unknown;
   }[];
+  author: string | User;
+  newsCategory: string | NewsCategory;
   site: string | Site;
   _status?: "draft" | "published";
   createdAt: string;
@@ -73,6 +296,258 @@ export interface User {
   resetPasswordExpiration?: string;
   loginAttempts?: number;
   lockUntil?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news-categories".
+ */
+export interface NewsCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  slug: string;
+  price: number;
+  numberOfBedrooms?: number;
+  headerImage: string | File;
+  logo: string | File;
+  projectType: string | ProjectCategory;
+  propertyType?: string | PropertyCategory;
+  location: string | LocationCategory;
+  subLocation?: string[] | SubLocationCategory[];
+  size: number;
+  coverImage: string | File;
+  shortDescription: string;
+  overview: {
+    [k: string]: unknown;
+  }[];
+  locationTab: {
+    [k: string]: unknown;
+  }[];
+  mapImage: string | File;
+  site: string | Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories".
+ */
+export interface ProjectCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "property-categories".
+ */
+export interface PropertyCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "location-categories".
+ */
+export interface LocationCategory {
+  id: string;
+  title: string;
+  locationGroup: string | LocationGroupCategory;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "location-group-categories".
+ */
+export interface LocationGroupCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sub-location-categories".
+ */
+export interface SubLocationCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "awards".
+ */
+export interface Award {
+  id: string;
+  title: string;
+  description: string;
+  coverImage: string | File;
+  site: string | Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  filinvestLogo: string | File;
+  emailDescription: string;
+  quickLinks: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    id?: string;
+  }[];
+  filinvestLand: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    id?: string;
+  }[];
+  firstPhone: string;
+  secondPhone: string;
+  emailAddress: string;
+  address: string;
+  copyrightText: string;
+  bottomRightLinks: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    id?: string;
+  }[];
+  facebookLink?: string;
+  linkedInLink?: string;
+  twitterLink?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "property-search".
+ */
+export interface PropertySearch {
+  id: string;
+  pricePoints: {
+    point: number;
+    id?: string;
+  }[];
+  unitSizes: {
+    sizeFrom: number;
+    sizeTo: number;
+    id?: string;
+  }[];
+  locations: {
+    locationGroup: {
+      reference: {
+        value: string | LocationGroupCategory;
+        relationTo: "location-group-categories";
+      };
+    };
+    location: {
+      location: {
+        reference: {
+          value: string | LocationCategory;
+          relationTo: "location-categories";
+        };
+      };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+  propertyTypes: {
+    propertyType: {
+      reference: {
+        value: string | PropertyCategory;
+        relationTo: "property-categories";
+      };
+    };
+    id?: string;
+  }[];
+  subLocations: {
+    subLocation: {
+      reference: {
+        value: string | SubLocationCategory;
+        relationTo: "sub-location-categories";
+      };
+    };
+    id?: string;
+  }[];
+  bedroomRange: {
+    bedroomFrom: number;
+    bedroomTo: number;
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "careers".
+ */
+export interface Career {
+  id: string;
+  title: string;
+  location: string;
+  responsibilities: {
+    [k: string]: unknown;
+  }[];
+  requirements: {
+    [k: string]: unknown;
+  }[];
+  careersCategory: string | CareerCategory;
+  site: string | Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "career-categories".
+ */
+export interface CareerCategory {
+  id: string;
+  title: string;
   createdAt: string;
   updatedAt: string;
 }

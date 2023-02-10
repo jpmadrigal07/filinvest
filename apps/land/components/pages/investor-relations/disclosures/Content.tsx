@@ -1,5 +1,6 @@
 import ChevronDown from "@/components/svg/ChevronDown";
 import Download from "@/components/svg/Download";
+import Pdf from "@/components/svg/Pdf";
 import Search from "@/components/svg/Search";
 import React from "react";
 import Table from "./Table";
@@ -44,7 +45,10 @@ const Content = () => {
           rows={[
             [
               "May 25,2022",
-              "General Information Sheet 2022",
+              <span className="flex items-center gap-2">
+                <Pdf />
+                <span>General Information Sheet 2022</span>
+              </span>,
               "Other Disclosures",
               <span className="flex justify-center">
                 <Download />
@@ -52,7 +56,13 @@ const Content = () => {
             ],
             [
               "May 18,2022",
-              "Notice of Analysts’ Briefing-FLI Participation in the PSE STAR Investor Day",
+              <span className="flex items-center gap-2">
+                <Pdf />
+                <span>
+                  Notice of Analysts’ Briefing-FLI Participation in the PSE STAR
+                  Investor Day
+                </span>
+              </span>,
               "17C Current Reports",
               <span className="flex justify-center">
                 <Download />

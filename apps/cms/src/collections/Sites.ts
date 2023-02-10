@@ -1,6 +1,5 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
-import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 
 export const Sites: CollectionConfig = {
   slug: "sites",

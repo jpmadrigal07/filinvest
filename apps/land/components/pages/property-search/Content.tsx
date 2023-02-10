@@ -1,333 +1,81 @@
-import ChevronDown from "@/components/svg/ChevronDown";
-import Diamond from "@/components/svg/Diamond";
-import MapPin from "@/components/svg/MapPin";
-import Search from "@/components/svg/Search";
-import Image from "next/image";
-import React from "react";
-import RangeSlider from "../home/RangeSlider";
+"use client";
+import PropertySearch from "@/components/search/PropertySearch";
+import React, { useEffect, useState } from "react";
+import TileProjects from "@/components/list/TileProjects";
+import { Project } from "shared-types";
+import Link from "next/link";
+import BorderButton from "@/components/button/BorderButton";
+import FeaturedArticles from "@/components/list/FeaturedArticles";
+import { useSearchParams } from "next/navigation";
+import useGetNews from "../../../hooks/useGetNews";
 
 const Content = () => {
+  const searchParams = useSearchParams();
+  const propertyType = searchParams.get("propertyType");
+  const { data } = useGetNews({
+    searchParams: propertyType ? propertyType : "",
+  });
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [isPropertyLoading, setIsPropertyLoading] = useState<boolean>(false);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+  useEffect(() => {
+    console.log("qweqwe", data);
+  }, [data]);
+
   return (
-    <section className="-mt-24 flex flex-col gap-9 2xl:-mt-32">
-      <div className="bg-dark-cornflower-blue mx-16 flex items-center gap-8 px-10 py-6 lg:mx-9 xl:mx-16 2xl:mx-44">
-        <div className="w-full flex-1">
-          <h3 className="text-white">Property Type</h3>
-          <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-            <input
-              type="text"
-              placeholder="Condominium"
-              className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-            />
-            <ChevronDown />
-          </div>
-        </div>
-        <div className="w-full flex-1">
-          <h3 className="text-white">Location</h3>
-          <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-            <input
-              type="text"
-              placeholder="Cebu"
-              className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-            />
-            <ChevronDown />
-          </div>
-        </div>
-        <div className="w-full flex-1">
-          <h3 className="text-white">Unit Size</h3>
-          <div className="border-silver-chalice flex items-center gap-3 border-b-[1px] py-2 hover:cursor-pointer">
-            <input
-              type="text"
-              placeholder="Any"
-              className="ring-none w-full border-none bg-transparent text-white hover:cursor-pointer"
-            />
-            <ChevronDown />
-          </div>
-        </div>
-        <div className="w-full flex-1">
-          <h3 className="mb-1 text-white">Price Range</h3>
-          <RangeSlider />
-          <h4 className="mt-1 text-sm text-white">
-            Php 1,000,000 - Php 50,000,000
-          </h4>
-        </div>
-        <div className="flex-none">
-          <button className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-5 px-8 transition">
-            <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
-              <Search /> Search
-            </div>
-          </button>
-        </div>
-      </div>
-      <div className="mt-16 lg:mx-9 xl:mx-16 2xl:mx-44">
-        <p>4 properties found</p>
-        <div className="mt-7 grid grid-cols-3 gap-8">
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-vivid-sky-blue text-2xl font-bold">P</p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#1AC5E8" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#1AC5E8" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">
+      <PropertySearch
+        className="mx-9 lg:mx-0"
+        onPropertyResultChange={setProjects}
+        showSearch={false}
+        onLoading={setIsPropertyLoading}
+      />
+      <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
+        {!isPropertyLoading ? (
+          <>
+            <p>
+              {projects.length}{" "}
+              {projects.length > 1 ? "properties" : "property"} found
+            </p>
+            <TileProjects projects={projects} />
+          </>
+        ) : (
+          <p>Searching...</p>
+        )}
       </div>
       <div className="bg-ghost-white mt-24 flex flex-col items-center py-24">
-        <div className="w-1/3">
-          <h2 className="text-jet text-center text-4xl font-bold">
-            Recommendation
-          </h2>
-          <div className="mt-8 flex justify-center">
-            <Image
-              src="/futura-red.png"
-              width={206}
-              height={104}
-              alt="Picture of the author"
+        <section>
+          <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
+            <div className="flex flex-col justify-center md:flex-row md:items-center">
+              <div className="flex-1">
+                <h2 className="text-jet mt-2 text-4xl font-extrabold">
+                  Featured Articles
+                </h2>
+                <h4 className="text-dim-gray mt-4">
+                  Get updated to Filinvest Land{"'"}s latest happenings.
+                </h4>
+              </div>
+              <div className="mt-12 flex-none">
+                <Link href="/">
+                  <button type="button">
+                    <BorderButton
+                      buttonText="See More"
+                      textColor="dark-cornflower-blue"
+                      borderColor="dark-cornflower-blue"
+                    />
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <FeaturedArticles
+              className="mt-16"
+              sliderOnMobile
+              articles={data ? data : []}
             />
           </div>
-          <p className="text-dim-gray mt-4 text-center">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident.
-          </p>
-        </div>
-        <div className="mt-16 grid grid-cols-3 gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-permanent-geranium-lake text-2xl font-bold">
-                    P
-                  </p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#E02826" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#E02826" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-permanent-geranium-lake text-2xl font-bold">
-                    P
-                  </p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#E02826" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#E02826" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white shadow-xl">
-            <div>
-              <Image
-                src="/quest-cenia.png"
-                width={1042}
-                height={748}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className="divide-gainsboro divide-y p-6">
-              <div className="pb-4">
-                <h2 className="text-jet text-2xl font-bold">
-                  Grand Cenia Residences
-                </h2>
-                <p className="text-jet">
-                  Excepteur sint occaecat cupidatat non proident
-                </p>
-              </div>
-              <div className="flex gap-2 pt-4 2xl:gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <p className="text-permanent-geranium-lake text-2xl font-bold">
-                    P
-                  </p>
-                  <p className="font-bold">7.5 M - 16 M</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin color="#E02826" />
-                  <p className="font-bold">Cebu</p>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Diamond color="#E02826" />
-                  <p className="font-bold">730 - 2500 sqm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
     </section>
   );

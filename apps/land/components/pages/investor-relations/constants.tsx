@@ -3,13 +3,18 @@ import Tabs from "../../header/Tabs";
 import ROUTES from "@/helpers/routes";
 
 const { INVESTOR_RELATIONS, HOME } = ROUTES;
-const { SHARE_INFORMATION, DIVIDEND_HISTORY, DIVIDEND_POLICY, DISCLOSURES } =
-  INVESTOR_RELATIONS;
+const {
+  STOCK_INFORMATION,
+  DIVIDEND_HISTORY,
+  DIVIDEND_POLICY,
+  DISCLOSURES,
+  INVESTOR_RELATIONS_PROGRAM,
+} = INVESTOR_RELATIONS;
 
 const TAB_ITEMS = [
   {
-    title: SHARE_INFORMATION.name,
-    link: SHARE_INFORMATION.url,
+    title: STOCK_INFORMATION.name,
+    link: STOCK_INFORMATION.url,
   },
   {
     title: DIVIDEND_HISTORY.name,
@@ -34,6 +39,8 @@ const BREADCRUMBS = [
 
 const dividendHistoryImage = "dividend-history.png";
 const investorRelationsImage = "investor-relations.png";
+const investorRelationsProgramImage = "investor-relations-program.png";
+const disclosuresImage = "disclosures.png";
 
 export const HEADER_INFO = {
   investorRelations: {
@@ -61,11 +68,11 @@ export const HEADER_INFO = {
     image: dividendHistoryImage,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
-  shareInformation: {
-    title: SHARE_INFORMATION.name,
+  stockInformation: {
+    title: STOCK_INFORMATION.name,
     breadcrumbs: (
       <Breadcrumbs
-        items={[...BREADCRUMBS, { title: SHARE_INFORMATION.name }]}
+        items={[...BREADCRUMBS, { title: STOCK_INFORMATION.name }]}
       />
     ),
     image: dividendHistoryImage,
@@ -76,7 +83,16 @@ export const HEADER_INFO = {
     breadcrumbs: (
       <Breadcrumbs items={[...BREADCRUMBS, { title: DISCLOSURES.name }]} />
     ),
-    image: "disclosures.png",
+    image: disclosuresImage,
+  },
+  investorRelationsProgram: {
+    title: INVESTOR_RELATIONS_PROGRAM.name,
+    breadcrumbs: (
+      <Breadcrumbs
+        items={[...BREADCRUMBS, { title: INVESTOR_RELATIONS_PROGRAM.name }]}
+      />
+    ),
+    image: investorRelationsProgramImage,
   },
 };
 
