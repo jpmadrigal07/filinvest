@@ -1,12 +1,11 @@
 name: auto-deploy
 
 on:
-  pull_request:
-    types: ["closed"]
+  push:
+    branches: ["master"]
 
 jobs:
   deployment:
-    if: github.event.pull_request.merged == 'true'
     runs-on: main
     steps:
       - uses: actions/checkout@v3
