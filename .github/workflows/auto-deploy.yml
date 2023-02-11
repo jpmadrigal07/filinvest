@@ -7,13 +7,14 @@ on:
 jobs:
   deployment:
     runs-on: main
-
+    defaults:
+      run:
+        working-directory: ./apps/cms
     steps:
       - uses: actions/checkout@v3
       - run: pm2 delete cms
         continue-on-error: true
       - run: yarn install
-        working-directory: ./apps/cms
       - run: yarn build
       - run: pm2 start npm --name cms -- run serve
       - run: pm2 describe cms
