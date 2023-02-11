@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const PusongFilinvestOurStory: Block = {
-  slug: "pusongFilinvestOurStory",
+  slug: "pusong-filinvest-our-story",
   fields: [
     {
       name: "title",
