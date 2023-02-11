@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const CompanyBackgroundImageText: Block = {
-  slug: "companyBackgroundImageText",
+  slug: "company-background-image-text",
   fields: [
     {
       type: "array",

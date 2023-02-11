@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const CompanyBackgroundIconText: Block = {
-  slug: "companyBackgroundIconText",
+  slug: "company-background-icon-text",
   fields: [
     {
       type: "array",
