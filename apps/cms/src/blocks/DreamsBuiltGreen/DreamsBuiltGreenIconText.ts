@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const DreamsBuiltGreenIconText: Block = {
-  slug: "dreamsBuiltGreenIconText",
+  slug: "dreams-built-green-icon-text",
   fields: [
     {
       type: "array",

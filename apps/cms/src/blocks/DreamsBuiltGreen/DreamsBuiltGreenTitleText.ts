@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const DreamsBuiltGreenTitleText: Block = {
-  slug: "dreamsBuiltGreenTitleText",
+  slug: "dreams-built-green-title-text",
   fields: [
     {
       name: "title",
