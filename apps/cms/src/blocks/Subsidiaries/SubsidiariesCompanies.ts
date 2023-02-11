@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const SubsidiariesCompanies: Block = {
-  slug: "subsidiariesCompanies",
+  slug: "subsidiaries-companies",
   fields: [
     {
       type: "array",
