@@ -1,20 +1,25 @@
 name: auto-deploy
 
 on:
-  push:
-    branches: ["main"]
+  pull_request:
+    types: ["closed"]
 
 jobs:
   deployment:
+    if: github.event.pull_request.merged == 'true'
     runs-on: main
-
     steps:
       - uses: actions/checkout@v3
-      - run: pm2 delete cms
+      - name: Deleting CMS on PM2
+        run: pm2 delete cms
         continue-on-error: true
-      - run: yarn install
+      - name: Install Packages
+        run: yarn install
+      - name: Build CMS
         working-directory: ./apps/cms
-      - run: yarn build
-      - run: pm2 start npm --name cms -- run serve
+        run: yarn build
+      - name: Setup CMS to PM2
+        working-directory: ./apps/cms
+        run: pm2 start npm --name cms -- run serve
       - run: pm2 describe cms
       - run: pm2 logs --nostream
