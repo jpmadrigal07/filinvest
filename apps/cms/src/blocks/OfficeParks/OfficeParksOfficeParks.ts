@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const OfficesOfficeParks: Block = {
-  slug: "offices-office-parks",
+  slug: "offices-parks-office-parks",
   fields: [
     {
       type: "array",
