@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const VisionMissionCoreValuesCoreValues: Block = {
-  slug: "visionMissionCoreValuesCoreValues",
+  slug: "vision-mission-core-values-core-values",
   fields: [
     {
       type: "upload",
