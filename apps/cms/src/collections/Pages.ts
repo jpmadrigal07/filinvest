@@ -16,6 +16,10 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
+import {
+  FilPayHeaderImage,
+  FilPayOnlinePaymentsSection,
+} from "../blocks/FilPay";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -61,6 +65,8 @@ export const Pages: CollectionConfig = {
         HomeStockReportSection,
         HomeFloatingButtons,
         OurLeadershipBoardOfDirectors,
+        FilPayHeaderImage,
+        FilPayOnlinePaymentsSection,
       ],
     },
     {
