@@ -18,28 +18,28 @@ const CorporateCenters: Block = {
     },
     {
       type: "array",
-      name: "office",
-      label: "Office",
+      name: "center",
+      label: "Center",
       required: true,
       fields: [
         {
           type: "upload",
-          name: "officeImage",
+          name: "centerImage",
           relationTo: "files",
           required: true,
         },
         {
-          name: "officeName",
+          name: "centerName",
           type: "text",
           required: true,
         },
         {
-          name: "officeLink",
+          name: "centerLink",
           type: "text",
           required: true,
         },
         {
-          name: "officeLocation",
+          name: "centerLocation",
           type: "text",
           required: true,
         },
