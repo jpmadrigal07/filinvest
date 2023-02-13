@@ -5,19 +5,6 @@ const CorporateCenters: Block = {
   fields: [
     {
       type: "array",
-      name: "locations",
-      label: "Locations",
-      required: true,
-      fields: [
-        {
-          name: "Location",
-          type: "text",
-          required: true,
-        },
-      ],
-    },
-    {
-      type: "array",
       name: "center",
       label: "Center",
       required: true,
