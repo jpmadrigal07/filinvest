@@ -31,11 +31,6 @@ const PusongFilinvestGallery: Block = {
           relationTo: "files",
           required: true,
         },
-        {
-          name: "title",
-          type: "text",
-          required: true,
-        },
       ],
     },
   ],
