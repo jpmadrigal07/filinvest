@@ -20,6 +20,7 @@ import {
   DreamsBuiltGreenTitleText,
   DreamsBuiltGreenMediaSection,
 } from "../blocks/DreamsBuiltGreen";
+import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -67,6 +68,7 @@ export const Pages: CollectionConfig = {
         DreamsBuiltGreenIconText,
         DreamsBuiltGreenTitleText,
         DreamsBuiltGreenMediaSection,
+        OurLeadershipBoardOfDirectors,
       ],
     },
     {
