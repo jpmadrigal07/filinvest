@@ -4,7 +4,13 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
-      "env": ["CMS_API_URL"]
+      "env": [
+        "CMS_API_URL",
+        "NODE_ENV",
+        "CMS_SECRET",
+        "MONGODB_URL",
+        "PAYLOAD_SEED"
+      ]
     },
     "lint": {
       "outputs": []

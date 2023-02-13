@@ -19,6 +19,7 @@ import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
 } from "../blocks/CompanyBackground";
+import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -65,6 +66,7 @@ export const Pages: CollectionConfig = {
         HomeFloatingButtons,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
+        OurLeadershipBoardOfDirectors,
       ],
     },
     {
