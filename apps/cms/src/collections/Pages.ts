@@ -20,6 +20,7 @@ import {
   VisionMissionCoreValuesMission,
   VisionMissionCoreValuesCoreValues,
 } from "../blocks/VisionMissionCoreValues";
+import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -67,6 +68,7 @@ export const Pages: CollectionConfig = {
         VisionMissionCoreValuesVision,
         VisionMissionCoreValuesMission,
         VisionMissionCoreValuesCoreValues,
+        OurLeadershipBoardOfDirectors,
       ],
     },
     {
