@@ -22,8 +22,6 @@ const PusongFilinvestGallery: Block = {
       type: "array",
       name: "image",
       required: true,
-      minRows: 6,
-      maxRows: 6,
       fields: [
         {
           type: "upload",
