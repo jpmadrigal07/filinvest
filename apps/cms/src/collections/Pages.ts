@@ -20,6 +20,7 @@ import {
   PusongFilinvestCorporateSocialResponsibility,
   PusongFilinvestGallery,
 } from "../blocks/PusongFilinvest";
+import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -67,6 +68,7 @@ export const Pages: CollectionConfig = {
         PusongFilinvestOurStory,
         PusongFilinvestCorporateSocialResponsibility,
         PusongFilinvestGallery,
+        OurLeadershipBoardOfDirectors,
       ],
     },
     {
