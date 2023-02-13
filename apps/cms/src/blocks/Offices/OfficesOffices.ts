@@ -4,14 +4,46 @@ const OfficesOffices: Block = {
   slug: "offices-offices",
   fields: [
     {
-      name: "title",
-      type: "text",
+      type: "array",
+      name: "locations",
+      label: "Locations",
       required: true,
+      fields: [
+        {
+          name: "Location",
+          type: "text",
+          required: true,
+        },
+      ],
     },
     {
-      name: "description",
-      type: "textarea",
+      type: "array",
+      name: "office",
+      label: "Office",
       required: true,
+      fields: [
+        {
+          type: "upload",
+          name: "officeImage",
+          relationTo: "files",
+          required: true,
+        },
+        {
+          name: "officeName",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "officeLink",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "officeLocation",
+          type: "text",
+          required: true,
+        },
+      ],
     },
   ],
 };

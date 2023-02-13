@@ -1,4 +1,5 @@
-import OfficesOffices from "./OfficesOffices";
+import OfficesTitleText from "./OfficesTitleText";
 import OfficesOfficeParks from "./OfficesOfficeParks";
+import OfficesOffices from "./OfficesOffices";
 
-export { OfficesOffices, OfficesOfficeParks };
+export { OfficesTitleText, OfficesOfficeParks, OfficesOffices };
