@@ -16,6 +16,7 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import { OfficesOffices, OfficesOfficeParks } from "../blocks/Offices";
+import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -62,6 +63,7 @@ export const Pages: CollectionConfig = {
         HomeFloatingButtons,
         OfficesOffices,
         OfficesOfficeParks,
+        OurLeadershipBoardOfDirectors,
       ],
     },
     {
