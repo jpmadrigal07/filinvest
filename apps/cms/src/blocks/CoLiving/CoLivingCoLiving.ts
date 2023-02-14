@@ -5,19 +5,6 @@ const CoLivingCoLiving: Block = {
   fields: [
     {
       type: "array",
-      name: "locations",
-      label: "Locations",
-      required: true,
-      fields: [
-        {
-          name: "Location",
-          type: "text",
-          required: true,
-        },
-      ],
-    },
-    {
-      type: "array",
       name: "co-living",
       label: "Co-Living",
       required: true,

@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const CoLivingTitleText: Block = {
-  slug: "co-living-title-text",
+  slug: "co-living-title-and-text",
   fields: [
     {
       name: "title",
