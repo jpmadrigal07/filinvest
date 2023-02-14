@@ -15,6 +15,7 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import { Presentations } from "../blocks/Presentations";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
@@ -61,6 +62,7 @@ export const Pages: CollectionConfig = {
         HomeStockReportSection,
         HomeFloatingButtons,
         OurLeadershipBoardOfDirectors,
+        Presentations,
       ],
     },
     {
