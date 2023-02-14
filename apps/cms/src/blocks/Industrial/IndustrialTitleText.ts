@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const IndustrialTitleText: Block = {
-  slug: "industrial-title-text",
+  slug: "industrial-title-and-text",
   fields: [
     {
       name: "title",
