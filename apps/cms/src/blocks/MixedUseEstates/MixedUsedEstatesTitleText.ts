@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const MixedUsedEstatesTitleText: Block = {
-  slug: "mixed-used-and-estates-title-text",
+  slug: "mixed-used-and-estates-title-and-text",
   fields: [
     {
       name: "title",
