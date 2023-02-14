@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, ReactNode } from "react";
+import React, { Dispatch, Fragment, ReactNode, useRef } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
 import { combineClass } from "@/helpers/combineClass";
@@ -35,8 +35,13 @@ const LinkWrapper = ({
   menuIndex,
   fullComponent,
 }: I_Props) => {
+  const popoverRef = useRef(null);
   const setMenuType = (type: T_Flyout_Menu) => {
     setFlyoutMenu(type);
+  };
+  const clickPopover = () => {
+    // @ts-expect-error
+    popoverRef.current?.click();
   };
   return (
     <>
@@ -61,12 +66,15 @@ const LinkWrapper = ({
               <>
                 <Popover.Button
                   className={combineClass(
-                    "group inline-flex text-white hover:underline"
+                    "group inline-flex border-none text-white ring-0"
                   )}
-                  onClick={() => {
+                  ref={popoverRef}
+                  onMouseEnter={() => {
                     setMenuType("single");
                     setCurrentMenuIndex(menuIndex);
+                    clickPopover();
                   }}
+                  onMouseLeave={() => clickPopover()}
                 >
                   <span className="flex items-center gap-2">
                     {text}
@@ -83,7 +91,11 @@ const LinkWrapper = ({
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="absolute z-10 mt-3">
+                  <Popover.Panel
+                    className="absolute z-10 mt-1"
+                    onMouseLeave={() => clickPopover()}
+                    onMouseEnter={() => clickPopover()}
+                  >
                     <div className="overflow-hidden shadow-lg">
                       <div className="bg-royal-dark-blue gap-6 sm:gap-8">
                         {subMenus.map((item, index) => (
@@ -116,8 +128,17 @@ const LinkWrapper = ({
       {!isLink && !link && fullComponent && (
         <>
           <span
-            className="flex cursor-pointer items-center gap-2 hover:underline"
-            onClick={() => {
+            className="flex cursor-pointer items-center gap-2"
+            // onClick={() => {
+            //   if (menuIndex === currentMenuIndex) {
+            //     setMenuType("");
+            //     setCurrentMenuIndex(null);
+            //   } else {
+            //     setMenuType("full");
+            //     setCurrentMenuIndex(menuIndex);
+            //   }
+            // }}
+            onMouseEnter={() => {
               if (menuIndex === currentMenuIndex) {
                 setMenuType("");
                 setCurrentMenuIndex(null);
