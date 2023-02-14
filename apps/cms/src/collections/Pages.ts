@@ -16,6 +16,7 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import { MallsTitleText, MallsMalls } from "../blocks/Malls";
+import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
 
 export const Pages: CollectionConfig = {
@@ -62,6 +63,7 @@ export const Pages: CollectionConfig = {
         HomeFloatingButtons,
         MallsTitleText,
         MallsMalls,
+        OurLeadershipBoardOfDirectors,
       ],
     },
     {
