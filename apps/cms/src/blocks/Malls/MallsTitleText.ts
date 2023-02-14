@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 const MallsTitleText: Block = {
-  slug: "malls-title-text",
+  slug: "malls-title-and-text",
   fields: [
     {
       name: "title",
