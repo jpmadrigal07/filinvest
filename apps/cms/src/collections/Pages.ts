@@ -22,7 +22,12 @@ import {
   CorporateSocialResponsibilityTitleText,
   CorporateSocialResponsibilityEnvironmentalPreservation,
   CorporateSocialResponsibilityPrograms,
-  CompanyPolicies,
+  CompanyPoliciesPolicy,
+  CompanyPoliciesTitle,
+  BoardCommitteesTabs,
+  BoardCommitteesTitleYear,
+  BoardCommitteesTable,
+  EnterpriseRiskManagementTable,
 } from "../blocks/CorporateGovernance";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
@@ -76,7 +81,12 @@ export const Pages: CollectionConfig = {
         CorporateSocialResponsibilityTitleText,
         CorporateSocialResponsibilityEnvironmentalPreservation,
         CorporateSocialResponsibilityPrograms,
-        CompanyPolicies,
+        CompanyPoliciesPolicy,
+        CompanyPoliciesTitle,
+        BoardCommitteesTabs,
+        BoardCommitteesTitleYear,
+        BoardCommitteesTable,
+        EnterpriseRiskManagementTable,
       ],
     },
     {

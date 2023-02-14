@@ -1,8 +1,12 @@
 import { Block } from "payload/types";
 
-const EnterpriseRiskManagementTable: Block = {
-  slug: "enterprise-risk-management-table",
+const BoardCommitteesTable: Block = {
+  slug: "board-committees-table",
   fields: [
+    {
+      type: "text",
+      name: "tableTitle",
+    },
     {
       type: "array",
       name: "tableHeader",
@@ -20,7 +24,7 @@ const EnterpriseRiskManagementTable: Block = {
           required: true,
           fields: [
             {
-              type: "textarea",
+              type: "text",
               name: "data",
               required: true,
             },
@@ -31,4 +35,4 @@ const EnterpriseRiskManagementTable: Block = {
   ],
 };
 
-export default EnterpriseRiskManagementTable;
+export default BoardCommitteesTable;

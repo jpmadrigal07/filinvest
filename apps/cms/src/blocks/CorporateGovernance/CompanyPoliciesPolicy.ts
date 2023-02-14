@@ -1,16 +1,8 @@
 import { Block } from "payload/types";
 
-const CompanyPolicies: Block = {
-  slug: "company-policies",
+const CompanyPoliciesPolicy: Block = {
+  slug: "company-policies-policy",
   fields: [
-    {
-      type: "text",
-      name: "title",
-    },
-    {
-      type: "text",
-      name: "subtitle",
-    },
     {
       type: "array",
       name: "policies",
@@ -38,4 +30,4 @@ const CompanyPolicies: Block = {
   ],
 };
 
-export default CompanyPolicies;
+export default CompanyPoliciesPolicy;
