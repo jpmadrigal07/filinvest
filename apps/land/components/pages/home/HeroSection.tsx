@@ -54,10 +54,10 @@ const HeroSection = ({ content }: any) => {
     <>
       <section className={`flex h-screen w-full`}>
         <div className="xs:mt-72 z-40 mx-auto mt-40 w-3/4 text-center lg:mt-64 2xl:w-2/4">
-          <h1 className="mb-4 text-6xl font-extrabold text-white md:text-8xl">
+          <h1 className="mb-4 text-5xl font-extrabold text-white md:text-7xl lg:text-4xl xl:text-6xl 2xl:text-8xl">
             {content.content[0].title}
           </h1>
-          <h4 className="text-lg text-white">
+          <h4 className="text-base text-white md:text-lg">
             {content.content[0].description}
           </h4>
         </div>

@@ -17,7 +17,9 @@ export async function getProperties(searchParams: T_SearchQuery) {
     ...(searchParams.brand
       ? {
           "site.title": {
-            equals: searchParams.brand,
+            ...(searchParams.brand === "All"
+              ? { exist: true }
+              : { equals: searchParams.brand }),
           },
         }
       : {}),
@@ -25,6 +27,20 @@ export async function getProperties(searchParams: T_SearchQuery) {
       ? {
           "propertyType.title": {
             equals: searchParams.propertyType,
+          },
+        }
+      : {}),
+    ...(searchParams.locationGroup
+      ? {
+          "location.locationGroup.title": {
+            equals: searchParams.locationGroup,
+          },
+        }
+      : {}),
+    ...(searchParams.projectType
+      ? {
+          "projectType.title": {
+            equals: searchParams.projectType,
           },
         }
       : {}),
@@ -123,15 +139,19 @@ function usePropertySearch() {
   const [propertyName, setPropertyName] = useState("");
   const [bedrooms, setBedrooms] = useState("");
   const [subLocation, setSubLocation] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const [locationGroup, setLocationGroup] = useState("");
   useEffect(() => {
     const propertyType = searchParams.get("propertyType");
     const location = searchParams.get("location");
     const brand = searchParams.get("brand");
     const unitSize = searchParams.get("unitSize");
     const priceRangeFrom = searchParams.get("priceRangeFrom");
+    const projectType = searchParams.get("projectType");
     const priceRangeTo = searchParams.get("priceRangeTo");
     const propertyName = searchParams.get("propertyName");
     const bedrooms = searchParams.get("bedrooms");
+    const locationGroup = searchParams.get("locationGroup");
     const subLocation = searchParams.get("subLocation");
     const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
     const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
@@ -143,6 +163,8 @@ function usePropertySearch() {
     setPropertyName(propertyName ? propertyName : "");
     setBedrooms(bedrooms ? bedrooms : "");
     setSubLocation(subLocation ? subLocation : "");
+    setProjectType(projectType ? projectType : "");
+    setLocationGroup(locationGroup ? locationGroup : "");
   }, [searchParams]);
   useEffect(() => {
     if (inputSettings && inputSettings.pricePoints) {
@@ -171,6 +193,8 @@ function usePropertySearch() {
     propertyName,
     subLocation,
     bedrooms,
+    projectType,
+    locationGroup,
   };
   const query = useQuery(
     ["property", formattedSearchParams],
