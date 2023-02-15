@@ -16,6 +16,10 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import {
+  IndustrialTitleText,
+  IndustrialIndustrial,
+} from "../blocks/Industrial";
+import {
   TownscapesTitleText,
   TownscapesTownscapes,
 } from "../blocks/Townscapes";
@@ -115,6 +119,8 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        IndustrialTitleText,
+        IndustrialIndustrial,
         TownscapesTitleText,
         TownscapesTownscapes,
         PreviousLink,
