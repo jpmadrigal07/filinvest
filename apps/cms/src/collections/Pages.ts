@@ -16,6 +16,11 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import {
+  PusongFilinvestOurStory,
+  PusongFilinvestCorporateSocialResponsibility,
+  PusongFilinvestGallery,
+} from "../blocks/PusongFilinvest";
+import {
   DreamsBuiltGreenIconText,
   DreamsBuiltGreenTitleText,
   DreamsBuiltGreenMediaSection,
@@ -76,6 +81,9 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        PusongFilinvestOurStory,
+        PusongFilinvestCorporateSocialResponsibility,
+        PusongFilinvestGallery,
         DreamsBuiltGreenIconText,
         DreamsBuiltGreenTitleText,
         DreamsBuiltGreenMediaSection,
