@@ -36,6 +36,11 @@ const HomeOurServicesSection: Block = {
           type: "text",
           required: true,
         },
+        {
+          name: "link",
+          type: "text",
+          required: true,
+        },
       ],
     },
   ],

@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
+import Link from "next/link";
 
 const HeroSection = ({ content }: any) => {
   const swiperRef = useRef();
@@ -64,9 +65,12 @@ const HeroSection = ({ content }: any) => {
         {background()}
       </section>
       <div
-        className={`2xl:-pt-80 short:pt-32 absolute -mt-64 hidden w-full items-center justify-center gap-6 lg:flex 2xl:gap-12`}
+        className={`2xl:-pt-80 short:pt-32 absolute z-40 -mt-64 hidden w-full items-center justify-center gap-6 lg:flex 2xl:gap-12`}
       >
-        <div className="relative">
+        <Link
+          href={content.content[0].prestigeLink}
+          className="relative opacity-100 transition duration-150 hover:opacity-70"
+        >
           <Image
             src={`${!content.content[0].prestigeImage.url ? "/" : ""}${
               content.content[0].prestigeImage.url
@@ -74,6 +78,7 @@ const HeroSection = ({ content }: any) => {
             width={434}
             height={500}
             alt={content.content[0].prestigeImage.alt}
+            className="cursor-pointer"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
             <Image
@@ -85,8 +90,11 @@ const HeroSection = ({ content }: any) => {
               alt={content.content[0].prestigeLogo.alt}
             />
           </div>
-        </div>
-        <div className="relative">
+        </Link>
+        <Link
+          href={content.content[0].aspireLink}
+          className="relative opacity-100 transition duration-150 hover:opacity-70"
+        >
           <Image
             src={`${!content.content[0].aspireImage.url ? "/" : ""}${
               content.content[0].aspireImage.url
@@ -105,8 +113,11 @@ const HeroSection = ({ content }: any) => {
               alt={content.content[0].aspireLogo.alt}
             />
           </div>
-        </div>
-        <div className="relative">
+        </Link>
+        <Link
+          href={content.content[0].futuraLink}
+          className="relative opacity-100 transition duration-150 hover:opacity-70"
+        >
           <Image
             src={`${!content.content[0].futuraImage.url ? "/" : ""}${
               content.content[0].futuraImage.url
@@ -125,7 +136,7 @@ const HeroSection = ({ content }: any) => {
               alt={content.content[0].futuraLogo.alt}
             />
           </div>
-        </div>
+        </Link>
       </div>
       <div className="absolute -mt-24 flex w-full items-center justify-center gap-12 md:-mt-64 lg:hidden 2xl:-mt-80">
         <div className="absolute z-40">

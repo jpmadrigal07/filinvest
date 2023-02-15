@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
 import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
+import Link from "next/link";
 
 const OurBusinesses = ({ content }: any) => {
   const swiperRefMobile = useRef();
@@ -24,7 +25,10 @@ const OurBusinesses = ({ content }: any) => {
       </h4>
       <div className="hidden md:block">
         <div className="mx-6 mt-16 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
-          <div className="relative flex-1">
+          <Link
+            href={content.content[3].propertyTypes[0].link}
+            className="relative flex-1 transition duration-150 hover:opacity-70"
+          >
             <Image
               src={`${
                 !content.content[3].propertyTypes[0].image.url ? "/" : ""
@@ -38,8 +42,11 @@ const OurBusinesses = ({ content }: any) => {
                 {content.content[3].propertyTypes[0].title}
               </h3>
             </div>
-          </div>
-          <div className="relative mt-12 flex-1">
+          </Link>
+          <Link
+            href={content.content[3].propertyTypes[1].link}
+            className="relative mt-12 flex-1 transition duration-150 hover:opacity-70"
+          >
             <Image
               src={`${
                 !content.content[3].propertyTypes[1].image.url ? "/" : ""
@@ -53,8 +60,11 @@ const OurBusinesses = ({ content }: any) => {
                 {content.content[3].propertyTypes[1].title}
               </h3>
             </div>
-          </div>
-          <div className="relative mt-24 flex-1">
+          </Link>
+          <Link
+            href={content.content[3].propertyTypes[2].link}
+            className="relative mt-24 flex-1 transition duration-150 hover:opacity-70"
+          >
             <Image
               src={`${
                 !content.content[3].propertyTypes[2].image.url ? "/" : ""
@@ -68,10 +78,13 @@ const OurBusinesses = ({ content }: any) => {
                 {content.content[3].propertyTypes[2].title}
               </h3>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="mx-6 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
-          <div className="relative flex-1">
+          <Link
+            href={content.content[3].propertyTypes[3].link}
+            className="relative flex-1 transition duration-150 hover:opacity-70"
+          >
             <Image
               src={`${
                 !content.content[3].propertyTypes[3].image.url ? "/" : ""
@@ -85,8 +98,11 @@ const OurBusinesses = ({ content }: any) => {
                 {content.content[3].propertyTypes[3].title}
               </h3>
             </div>
-          </div>
-          <div className="relative mt-12 flex-1">
+          </Link>
+          <Link
+            href={content.content[3].propertyTypes[4].link}
+            className="relative mt-12 flex-1 transition duration-150 hover:opacity-70"
+          >
             <Image
               src={`${
                 !content.content[3].propertyTypes[4].image.url ? "/" : ""
@@ -100,8 +116,11 @@ const OurBusinesses = ({ content }: any) => {
                 {content.content[3].propertyTypes[4].title}
               </h3>
             </div>
-          </div>
-          <div className="relative mt-24 flex-1">
+          </Link>
+          <Link
+            href={content.content[3].propertyTypes[5].link}
+            className="relative mt-24 flex-1 transition duration-150 hover:opacity-70"
+          >
             <Image
               src={`${
                 !content.content[3].propertyTypes[5].image.url ? "/" : ""
@@ -115,7 +134,7 @@ const OurBusinesses = ({ content }: any) => {
                 {content.content[3].propertyTypes[5].title}
               </h3>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="relative mt-12 flex items-center justify-center md:hidden">
@@ -151,7 +170,10 @@ const OurBusinesses = ({ content }: any) => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="relative">
+            <Link
+              href={content.content[3].propertyTypes[0].link}
+              className="relative"
+            >
               <Image
                 src={`${
                   !content.content[3].propertyTypes[0].image.url ? "/" : ""
@@ -165,10 +187,13 @@ const OurBusinesses = ({ content }: any) => {
                   {content.content[3].propertyTypes[0].title}
                 </h3>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative">
+            <Link
+              href={content.content[3].propertyTypes[1].link}
+              className="relative"
+            >
               <Image
                 src={`${
                   !content.content[3].propertyTypes[1].image.url ? "/" : ""
@@ -182,10 +207,13 @@ const OurBusinesses = ({ content }: any) => {
                   {content.content[3].propertyTypes[1].title}
                 </h3>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative">
+            <Link
+              href={content.content[3].propertyTypes[2].link}
+              className="relative"
+            >
               <Image
                 src={`${
                   !content.content[3].propertyTypes[2].image.url ? "/" : ""
@@ -199,10 +227,13 @@ const OurBusinesses = ({ content }: any) => {
                   {content.content[3].propertyTypes[2].title}
                 </h3>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative">
+            <Link
+              href={content.content[3].propertyTypes[3].link}
+              className="relative"
+            >
               <Image
                 src={`${
                   !content.content[3].propertyTypes[3].image.url ? "/" : ""
@@ -216,10 +247,13 @@ const OurBusinesses = ({ content }: any) => {
                   {content.content[3].propertyTypes[3].title}
                 </h3>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative">
+            <Link
+              href={content.content[3].propertyTypes[4].link}
+              className="relative"
+            >
               <Image
                 src={`${
                   !content.content[3].propertyTypes[4].image.url ? "/" : ""
@@ -233,10 +267,13 @@ const OurBusinesses = ({ content }: any) => {
                   {content.content[3].propertyTypes[4].title}
                 </h3>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative">
+            <Link
+              href={content.content[3].propertyTypes[5].link}
+              className="relative"
+            >
               <Image
                 src={`${
                   !content.content[3].propertyTypes[5].image.url ? "/" : ""
@@ -250,7 +287,7 @@ const OurBusinesses = ({ content }: any) => {
                   {content.content[3].propertyTypes[5].title}
                 </h3>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         </Swiper>
       </div>
