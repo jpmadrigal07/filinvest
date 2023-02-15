@@ -4,7 +4,7 @@ const StructuresDownloadButton: Block = {
   slug: "structures-download-button",
   fields: [
     {
-      name: "downloadButton",
+      name: "downloadLink",
       type: "text",
       required: true,
     },
