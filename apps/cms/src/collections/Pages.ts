@@ -15,6 +15,7 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import { CorporateCenters } from "../blocks/CorporateCenters";
 import { SubsidiariesCompanies } from "../blocks/Subsidiaries";
 import {
   PusongFilinvestOurStory,
@@ -82,6 +83,7 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        CorporateCenters,
         SubsidiariesCompanies,
         PusongFilinvestOurStory,
         PusongFilinvestCorporateSocialResponsibility,
