@@ -20,9 +20,6 @@ const Content = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
-  useEffect(() => {
-    console.log("qweqwe", data);
-  }, [data]);
 
   return (
     <section className="-mt-24 flex flex-col gap-9 2xl:-mt-44">

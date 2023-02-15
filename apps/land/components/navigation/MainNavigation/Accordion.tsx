@@ -19,7 +19,7 @@ const Accordion = ({
             }`}
           >
             <span>{title}</span>
-            <ChevronDown />
+            <ChevronDown classes="w-[10px] h-[10px]" />
           </Disclosure.Button>
           <Transition
             enter="transition duration-100 ease-out"

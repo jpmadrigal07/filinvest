@@ -21,8 +21,82 @@ import {
   StructuresTitleText,
   StructuresDownloadButton,
 } from "../blocks/Structures";
+import { DisclosuresTable } from "../blocks/Disclosures";
+import { PressReleasesAwards } from "../blocks/PressReleases";
+import {
+  InvestorRelationsProgramsPrograms,
+  InvestorRelationsProgramsImage,
+} from "../blocks/InvestorRelationsPrograms";
+import {
+  FinancialHighlightsTable,
+  FinancialHighlightsLegends,
+  FinancialHighlightsFinancialStatements,
+  FinancialHighlightsAnnualReports,
+} from "../blocks/FinancialHighlights";
+import { Presentations } from "../blocks/Presentations";
+import {
+  ManualCorporateGovernance,
+  CodeOfBusinessConductAndEthics,
+  AnnualCorporateGovernanceAndReport,
+  CorporateSocialResponsibilityTitleText,
+  CorporateSocialResponsibilityEnvironmentalPreservation,
+  CorporateSocialResponsibilityPrograms,
+  CompanyPoliciesPolicy,
+  CompanyPoliciesTitle,
+  BoardCommitteesTabs,
+  BoardCommitteesTitleYear,
+  BoardCommitteesTable,
+  EnterpriseRiskManagementTable,
+} from "../blocks/CorporateGovernance";
+import { CoLivingTitleText, CoLivingCoLiving } from "../blocks/CoLiving";
+import {
+  IndustrialTitleText,
+  IndustrialIndustrial,
+} from "../blocks/Industrial";
+import {
+  TownscapesTitleText,
+  TownscapesTownscapes,
+} from "../blocks/Townscapes";
+import { MallsTitleText, MallsMalls } from "../blocks/Malls";
+import { OfficeParksOfficeParks } from "../blocks/OfficeParks";
+import {
+  OfficesTitleText,
+  OfficesOfficeParks,
+  OfficesOffices,
+} from "../blocks/Offices";
+import { CorporateCenters } from "../blocks/CorporateCenters";
+import { SubsidiariesCompanies } from "../blocks/Subsidiaries";
+import {
+  PusongFilinvestOurStory,
+  PusongFilinvestCorporateSocialResponsibility,
+  PusongFilinvestGallery,
+} from "../blocks/PusongFilinvest";
+import {
+  DreamsBuiltGreenIconText,
+  DreamsBuiltGreenTitleText,
+  DreamsBuiltGreenMediaSection,
+} from "../blocks/DreamsBuiltGreen";
+import {
+  VisionMissionCoreValuesVision,
+  VisionMissionCoreValuesMission,
+  VisionMissionCoreValuesCoreValues,
+} from "../blocks/VisionMissionCoreValues";
+import {
+  CompanyBackgroundIconText,
+  CompanyBackgroundImageText,
+} from "../blocks/CompanyBackground";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
+import {
+  FilPayHeaderImage,
+  FilPayOnlinePaymentsSection,
+} from "../blocks/FilPay";
+import {
+  MixedUsedEstatesTitleText,
+  MixedUsedEstatesMixedUsedEstates,
+} from "../blocks/MixedUseEstates";
 import Header from "../blocks/Header";
+import NextLink from "../blocks/NextLink";
+import PreviousLink from "../blocks/PreviousLink";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -66,11 +140,64 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        MallsTitleText,
+        MallsMalls,
+        OfficeParksOfficeParks,
+        OfficesTitleText,
+        OfficesOfficeParks,
+        OurLeadershipBoardOfDirectors,
+        OfficesOffices,
+        CorporateCenters,
+        SubsidiariesCompanies,
+        PusongFilinvestOurStory,
+        PusongFilinvestCorporateSocialResponsibility,
+        PusongFilinvestGallery,
+        DreamsBuiltGreenIconText,
+        DreamsBuiltGreenTitleText,
+        DreamsBuiltGreenMediaSection,
+        VisionMissionCoreValuesVision,
+        VisionMissionCoreValuesMission,
+        VisionMissionCoreValuesCoreValues,
+        CompanyBackgroundIconText,
+        CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
         StructuresChartImage,
         StructuresChartTable,
         StructuresTitleText,
         StructuresDownloadButton,
+        DisclosuresTable,
+        PressReleasesAwards,
+        InvestorRelationsProgramsPrograms,
+        InvestorRelationsProgramsImage,
+        FinancialHighlightsTable,
+        FinancialHighlightsLegends,
+        FinancialHighlightsFinancialStatements,
+        FinancialHighlightsAnnualReports,
+        Presentations,
+        ManualCorporateGovernance,
+        CodeOfBusinessConductAndEthics,
+        AnnualCorporateGovernanceAndReport,
+        CorporateSocialResponsibilityTitleText,
+        CorporateSocialResponsibilityEnvironmentalPreservation,
+        CorporateSocialResponsibilityPrograms,
+        CompanyPoliciesPolicy,
+        CompanyPoliciesTitle,
+        BoardCommitteesTabs,
+        BoardCommitteesTitleYear,
+        BoardCommitteesTable,
+        EnterpriseRiskManagementTable,
+        FilPayHeaderImage,
+        FilPayOnlinePaymentsSection,
+        MixedUsedEstatesTitleText,
+        MixedUsedEstatesMixedUsedEstates,
+        CoLivingTitleText,
+        CoLivingCoLiving,
+        IndustrialTitleText,
+        IndustrialIndustrial,
+        TownscapesTitleText,
+        TownscapesTownscapes,
+        PreviousLink,
+        NextLink,
       ],
     },
     {
