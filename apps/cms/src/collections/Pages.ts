@@ -15,8 +15,14 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import {
+  CompanyBackgroundIconText,
+  CompanyBackgroundImageText,
+} from "../blocks/CompanyBackground";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
+import NextLink from "../blocks/NextLink";
+import PreviousLink from "../blocks/PreviousLink";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -60,7 +66,11 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        CompanyBackgroundIconText,
+        CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        PreviousLink,
+        NextLink,
       ],
     },
     {
