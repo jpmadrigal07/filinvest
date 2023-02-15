@@ -7,8 +7,9 @@ import React from "react";
 import moment from "moment";
 import { News } from "shared-types";
 // import serializeUpload from "@/helpers/serializeUpload";
-import serializeChildren from "@/helpers/serializeChildren";
+// import serializeChildren from "@/helpers/serializeChildren";
 import RelatedArticles from "./RelatedArticles";
+import { testSerialize } from "@/helpers/testSerialize";
 
 const Content = (props: News) => {
   return (
@@ -68,93 +69,7 @@ const Content = (props: News) => {
               </div>
             </div>
             <div className="flex flex-1 flex-col gap-6">
-              {/* start content */}
-              {/* { props.content?.map((item: any) => {
-                if(item.type === "upload") {
-                  return <>{serializeUpload(item)}</>;
-                } else if(item.type !== "upload" && item.children) {
-                  return <>{serializeChildren(item.children)}</>;
-                }
-              }) } */}
-              <>{serializeChildren(props.content)}</>
-              {/* <h2 className="text-jet text-4xl font-bold">
-                Pharetra diam sit amet nisl suscipit adipiscing. Amet nulla
-                facilisi morbi tempus iaculis urna id.
-              </h2>
-              <p className="text-dim-gray">
-                Pharetra sit amet aliquam id diam maecenas ultricies mi eget.
-                Bibendum arcu vitae elementum curabitur. Ac tincidunt vitae
-                semper quis lectus nulla at. Neque aliquam vestibulum morbi
-                blandit cursus. Massa tincidunt dui ut ornare. Enim sit amet
-                venenatis urna. Morbi enim nunc faucibus a pellentesque sit amet
-                porttitor. Sit amet nisl suscipit adipiscing bibendum est. Et
-                odio pellentesque diam volutpat commodo. Quisque egestas diam in
-                arcu cursus euismod quis. Egestas erat imperdiet sed euismod
-                nisi porta lorem mollis aliquam. Cras sed felis eget velit
-                aliquet sagittis id. Tempus urna et pharetra pharetra massa
-                massa ultricies. Tellus elementum sagittis vitae et.
-              </p>
-              <p className="text-dim-gray">
-                Tincidunt dui ut ornare lectus sit amet. Est pellentesque elit
-                ullamcorper dignissim cras. Elit at imperdiet dui accumsan sit
-                amet. Diam phasellus vestibulum lorem sed risus ultricies
-                tristique nulla aliquet. Natoque penatibus et magnis dis
-                parturient montes. Quis ipsum suspendisse ultrices gravida
-                dictum fusce ut placerat. Nisi quis eleifend quam adipiscing
-                vitae proin sagittis nisl rhoncus. At lectus urna duis
-                convallis. Imperdiet nulla malesuada pellentesque elit eget.
-                Ultrices eros in cursus turpis massa. Vitae tempus quam
-                pellentesque nec nam aliquam sem.
-              </p>
-              <Image
-                src={`/article.png`}
-                width={1036}
-                height={806}
-                alt="Picture of the author"
-              />
-              <h2 className="text-jet text-4xl font-bold">
-                Massa tincidunt dui ut ornare
-              </h2>
-              <p className="text-dim-gray">
-                Pharetra sit amet aliquam id diam maecenas ultricies mi eget.
-                Bibendum arcu vitae elementum curabitur. Ac tincidunt vitae
-                semper quis lectus nulla at. Neque aliquam vestibulum morbi
-                blandit cursus. Massa tincidunt dui ut ornare. Enim sit amet
-                venenatis urna. Morbi enim nunc faucibus a pellentesque sit amet
-                porttitor. Sit amet nisl suscipit adipiscing bibendum est. Et
-                odio pellentesque diam volutpat commodo. Quisque egestas diam in
-                arcu cursus euismod quis. Egestas erat imperdiet sed euismod
-                nisi porta lorem mollis aliquam. Cras sed felis eget velit
-                aliquet sagittis id. Tempus urna et pharetra pharetra massa
-                massa ultricies. Tellus elementum sagittis vitae et.
-              </p>
-              <div className="flex gap-4">
-                <div className="flex-1">
-                  <Image
-                    src={`/article.png`}
-                    width={1036}
-                    height={806}
-                    alt="Picture of the author"
-                  />
-                </div>
-                <div className="flex-1">
-                  <Image
-                    src={`/article.png`}
-                    width={1036}
-                    height={806}
-                    alt="Picture of the author"
-                  />
-                </div>
-              </div>
-              <h5 className="border-blue-ryb text-sonic-silver border-l-4 pl-6 text-xl italic">
-                Pharetra sit amet aliquam id diam maecenas ultricies mi eget.
-                Bibendum arcu vitae elementum curabitur. Ac tincidunt vitae
-                semper quis lectus nulla at. Neque aliquam vestibulum morbi
-                blandit cursus. Massa tincidunt dui ut ornare. Enim sit amet
-                venenatis urna. Morbi enim nunc faucibus a pellentesque sit amet
-                porttitor.
-              </h5> */}
-              {/* end content */}
+              <>{testSerialize(props.content)}</>
               <h3 className="text-bold mt-6 text-xl">
                 Tags: <span className="text-vivid-sky-blue">HOUSING</span>
               </h3>

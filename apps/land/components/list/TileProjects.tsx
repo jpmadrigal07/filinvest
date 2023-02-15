@@ -27,7 +27,10 @@ const TileProjects = ({ className, projects }: T_TileProjects) => {
             ? project.site.title.toLocaleLowerCase()
             : null;
         return (
-          <Link href={`/projects/${project.slug}`}>
+          <Link
+            href={`/projects/${project.slug}`}
+            className="opacity-100 transition duration-150 hover:opacity-70"
+          >
             <div className="bg-white shadow-xl">
               <div className="relative">
                 <Image
