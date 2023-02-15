@@ -1,6 +1,5 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
-import { isAdminOrHasSiteAccessOrPublished } from "../access/isAdminHasSiteAccessOrPublished";
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
 
@@ -20,7 +19,7 @@ export const Projects: CollectionConfig = {
     update: isAdminOrHasSiteAccess(),
     // Admins or editors with site access can read,
     // otherwise users not logged in can only read published
-    read: isAdminOrHasSiteAccessOrPublished,
+    read: () => true,
     // Only admins can delete
     delete: isAdmin,
   },

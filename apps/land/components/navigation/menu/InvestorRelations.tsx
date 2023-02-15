@@ -28,7 +28,7 @@ const InvestorRelations = ({
                   <div key={index}>
                     <Link
                       href={routes.link}
-                      className="text-white hover:underline"
+                      className="text-white transition delay-150 hover:opacity-70"
                     >
                       <h3 className="text-xl text-white">{routes.title}</h3>
                       <h4 className="text-white opacity-50">
@@ -54,15 +54,12 @@ const InvestorRelations = ({
             alt="news"
           />
         </div>
-        <h3 className="mt-3 text-xl font-bold text-white">
+        <h3 className="mt-3 truncate text-xl font-bold text-white">
           {news.value.title}
         </h3>
-        <h4 className="mt-4 mb-12 text-white opacity-50">
-          Lorem ipsum volpar makeri totga ginuis
+        <h4 className="mt-2 mb-8 text-white opacity-50">
+          {news.value.shortDescription}
         </h4>
-        {/* <div className="mt-4">
-          {serializeChildren(news.value.content)}
-        </div> */}
         <Link
           href={`/article/${news.value.slug}`}
           className="text-white hover:underline"
