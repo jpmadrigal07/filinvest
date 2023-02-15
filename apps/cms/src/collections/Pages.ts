@@ -15,6 +15,10 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import {
+  TownscapesTitleText,
+  TownscapesTownscapes,
+} from "../blocks/Townscapes";
 import { MallsTitleText, MallsMalls } from "../blocks/Malls";
 import { OfficeParksOfficeParks } from "../blocks/OfficeParks";
 import {
@@ -111,6 +115,8 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        TownscapesTitleText,
+        TownscapesTownscapes,
         PreviousLink,
         NextLink,
       ],
