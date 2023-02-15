@@ -15,6 +15,7 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import { CoLivingTitleText, CoLivingCoLiving } from "../blocks/CoLiving";
 import {
   IndustrialTitleText,
   IndustrialIndustrial,
@@ -119,6 +120,8 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        CoLivingTitleText,
+        CoLivingCoLiving,
         IndustrialTitleText,
         IndustrialIndustrial,
         TownscapesTitleText,
