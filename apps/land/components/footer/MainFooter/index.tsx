@@ -127,11 +127,11 @@ const MainFooter = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-oxford-blue flex flex-col gap-9 px-6 py-12 lg:flex-row lg:items-center lg:px-16 lg:py-8">
+      <div className="bg-oxford-blue grid grid-cols-1 gap-9 px-6 py-12 lg:grid-cols-3 lg:flex-row lg:items-center lg:px-16 lg:py-8">
         <div className="flex-1">
           <h3 className="text-white">{`© Copyright ${new Date().getFullYear()}. ${WEB_TITLE} All Rights Reserved.`}</h3>
         </div>
-        <div className="flex flex-1 gap-9">
+        <div className="flex gap-7 lg:justify-center">
           {!isLoading && footerRes.facebookLink ? (
             <Link href={footerRes.facebookLink} target="_blank">
               <Facebook />
@@ -148,7 +148,7 @@ const MainFooter = () => {
             </Link>
           ) : null}
         </div>
-        <div className="flex flex-none gap-7">
+        <div className="flex gap-7 lg:justify-end">
           {!isLoading && footerRes.bottomRightLinks
             ? footerRes.bottomRightLinks.map((link: any) => {
                 return (

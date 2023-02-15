@@ -31,7 +31,6 @@ const propertyType: PropertyType = ({ overrides = {} } = {}) => {
             type: "relationship",
             relationTo: ["property-categories"],
             required: true,
-            maxDepth: 1,
           },
         ],
       },

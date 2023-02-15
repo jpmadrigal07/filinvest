@@ -6,7 +6,10 @@ const ScreenFooter = ({ content }: any) => {
   return (
     <div className="fixed bottom-5 right-7 z-50">
       <div className="flex items-center justify-center gap-3">
-        <Link href={content.content[9].filPayLink}>
+        <Link
+          href={content.content[9].filPayLink}
+          className="opacity-100 transition duration-150 hover:opacity-70"
+        >
           <Image
             src={`/filpay-floating-icon.png`}
             width={99}
@@ -15,7 +18,10 @@ const ScreenFooter = ({ content }: any) => {
             className="h-[89px] w-[99px] flex-none"
           />
         </Link>
-        <Link href={content.content[9].messageLink}>
+        <Link
+          href={content.content[9].messageLink}
+          className="opacity-100 transition duration-150 hover:opacity-70"
+        >
           <Image
             src={`/message-floating-icon.png`}
             width={74}
