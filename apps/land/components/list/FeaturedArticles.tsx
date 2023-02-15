@@ -35,23 +35,27 @@ const FeaturedArticles = ({
       >
         {articles.map((article, index) => {
           return (
-            <Link href={`/article/${article.slug}`} key={index}>
+            <Link
+              href={`/article/${article.slug}`}
+              key={index}
+              className="opacity-100 transition duration-150 hover:opacity-70"
+            >
               <Image
                 src={article.coverImage.url}
                 width={1364}
                 height={663}
                 alt={article.coverImage.alt}
               />
-              <h2 className="text-jet mt-6 text-2xl font-bold">
+              <h2 className="text-jet mt-6 truncate text-2xl font-bold">
                 {article.title}
               </h2>
-              <h4 className="text-dim-gray mt-4 text-sm opacity-70">
+              <h4 className="text-dim-gray text-sm opacity-70">
                 Posted on {moment(article.createdAt).format("MMM DD, YYYY")}
               </h4>
               <h4 className="text-dim-gray mt-4 truncate">
                 {article.content[0].children[0].text}
               </h4>
-              <div className="mt-12">
+              <div className="mt-8">
                 <BorderButton
                   buttonText="Read More"
                   textColor="dark-cornflower-blue"
