@@ -54,6 +54,10 @@ import {
 } from "../blocks/CompanyBackground";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import {
+  FilPayHeaderImage,
+  FilPayOnlinePaymentsSection,
+} from "../blocks/FilPay";
+import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
 } from "../blocks/MixedUseEstates";
@@ -124,6 +128,8 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        FilPayHeaderImage,
+        FilPayOnlinePaymentsSection,
         MixedUsedEstatesTitleText,
         MixedUsedEstatesMixedUsedEstates,
         CoLivingTitleText,
