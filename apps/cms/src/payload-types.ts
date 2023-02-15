@@ -62,6 +62,19 @@ export interface Navigation {
         label: string;
         description?: string;
       };
+      featured?:
+        | {
+            value: string | News;
+            relationTo: "news";
+          }
+        | {
+            value: string | Project;
+            relationTo: "projects";
+          }
+        | {
+            value: string | Award;
+            relationTo: "awards";
+          };
       id?: string;
     }[];
     id?: string;
@@ -229,6 +242,22 @@ export interface Page {
         blockName?: string;
         blockType: "homeFloatingButtons";
       }
+    | {
+        title: string;
+        description: string;
+        director: {
+          directorImage: string | File;
+          directorFullName: string;
+          directorTitle: string;
+          facebook?: string;
+          twitter?: string;
+          linkedIn?: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "our-leadership-board-of-directors";
+      }
   )[];
   site: string | Site;
   _status?: "draft" | "published";
@@ -276,6 +305,7 @@ export interface News {
   }[];
   author: string | User;
   newsCategory: string | NewsCategory;
+  tags: string | PropertyCategory;
   site: string | Site;
   _status?: "draft" | "published";
   createdAt: string;
@@ -311,6 +341,16 @@ export interface NewsCategory {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "property-categories".
+ */
+export interface PropertyCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
@@ -324,7 +364,7 @@ export interface Project {
   projectType: string | ProjectCategory;
   propertyType?: string | PropertyCategory;
   location: string | LocationCategory;
-  subLocation?: string[] | SubLocationCategory[];
+  subLocation?: string | SubLocationCategory;
   size: number;
   coverImage: string | File;
   shortDescription: string;
@@ -345,16 +385,6 @@ export interface Project {
  * via the `definition` "project-categories".
  */
 export interface ProjectCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "property-categories".
- */
-export interface PropertyCategory {
   id: string;
   title: string;
   createdAt: string;
