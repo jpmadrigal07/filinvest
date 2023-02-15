@@ -15,6 +15,12 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import {
+  FinancialHighlightsTable,
+  FinancialHighlightsLegends,
+  FinancialHighlightsFinancialStatements,
+  FinancialHighlightsAnnualReports,
+} from "../blocks/FinancialHighlights";
 import { Presentations } from "../blocks/Presentations";
 import {
   ManualCorporateGovernance,
@@ -143,6 +149,10 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        FinancialHighlightsTable,
+        FinancialHighlightsLegends,
+        FinancialHighlightsFinancialStatements,
+        FinancialHighlightsAnnualReports,
         Presentations,
         ManualCorporateGovernance,
         CodeOfBusinessConductAndEthics,
