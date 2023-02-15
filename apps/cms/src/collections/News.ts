@@ -36,6 +36,11 @@ export const News: CollectionConfig = {
       unique: true,
     },
     {
+      name: "shortDescription",
+      type: "text",
+      required: true,
+    },
+    {
       name: "coverImage", // required
       label: "Cover Image (Size: 1364x663)",
       type: "upload", // required

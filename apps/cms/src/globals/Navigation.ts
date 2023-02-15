@@ -33,6 +33,11 @@ export const Navigation: GlobalConfig = {
             link({
               appearances: false,
             }),
+            {
+              name: "featured",
+              type: "relationship",
+              relationTo: ["news", "projects", "awards"],
+            },
           ],
         },
       ],
