@@ -51,6 +51,8 @@ const PropertySearch = ({
     bedrooms,
     subLocation,
     propertyName,
+    projectType,
+    locationGroup,
   } = searchParams;
   const searchInit = () => {
     const params = [
@@ -60,6 +62,8 @@ const PropertySearch = ({
       `priceRangeFrom=${priceRangeFrom}`,
       `priceRangeTo=${priceRangeTo}`,
       `propertyName=${propertyName}`,
+      `projectType=${projectType}`,
+      `locationGroup=${locationGroup}`,
       `bedrooms=${bedrooms}`,
       `subLocation=${subLocation}`,
     ];
