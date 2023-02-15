@@ -15,6 +15,11 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import {
+  OfficesTitleText,
+  OfficesOfficeParks,
+  OfficesOffices,
+} from "../blocks/Offices";
 import { CorporateCenters } from "../blocks/CorporateCenters";
 import { SubsidiariesCompanies } from "../blocks/Subsidiaries";
 import {
@@ -83,6 +88,10 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        OfficesTitleText,
+        OfficesOfficeParks,
+        OurLeadershipBoardOfDirectors,
+        OfficesOffices,
         CorporateCenters,
         SubsidiariesCompanies,
         PusongFilinvestOurStory,
