@@ -15,6 +15,12 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import {
+  StructuresChartImage,
+  StructuresChartTable,
+  StructuresTitleText,
+  StructuresDownloadButton,
+} from "../blocks/Structures";
 import { DisclosuresTable } from "../blocks/Disclosures";
 import { PressReleasesAwards } from "../blocks/PressReleases";
 import {
@@ -155,6 +161,10 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        StructuresChartImage,
+        StructuresChartTable,
+        StructuresTitleText,
+        StructuresDownloadButton,
         DisclosuresTable,
         PressReleasesAwards,
         InvestorRelationsProgramsPrograms,
