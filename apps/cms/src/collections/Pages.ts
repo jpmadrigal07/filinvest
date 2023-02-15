@@ -16,6 +16,11 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import {
+  DreamsBuiltGreenIconText,
+  DreamsBuiltGreenTitleText,
+  DreamsBuiltGreenMediaSection,
+} from "../blocks/DreamsBuiltGreen";
+import {
   VisionMissionCoreValuesVision,
   VisionMissionCoreValuesMission,
   VisionMissionCoreValuesCoreValues,
@@ -71,6 +76,9 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        DreamsBuiltGreenIconText,
+        DreamsBuiltGreenTitleText,
+        DreamsBuiltGreenMediaSection,
         VisionMissionCoreValuesVision,
         VisionMissionCoreValuesMission,
         VisionMissionCoreValuesCoreValues,
