@@ -165,7 +165,6 @@ export const Pages: CollectionConfig = {
         VisionMissionCoreValuesCoreValues,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
-        OurLeadershipBoardOfDirectors,
         StockInformationTitle,
         StockInformationOutstandingNumberOfShares,
         StockInformationStockHolderTable,
