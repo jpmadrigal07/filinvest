@@ -17,7 +17,6 @@ interface I_Props {
   isLink?: boolean;
   link?: string;
   subMenus?: T_Sub_Menus[];
-  currentMenuIndex?: number | null;
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   menuIndex: number;
@@ -30,7 +29,6 @@ const LinkWrapper = ({
   isLink,
   subMenus,
   setCurrentMenuIndex,
-  currentMenuIndex,
   setFlyoutMenu,
   menuIndex,
   fullComponent,
@@ -49,7 +47,7 @@ const LinkWrapper = ({
         <>
           <Link
             href={link}
-            className="cursor-pointer hover:underline"
+            className="cursor-pointer"
             onClick={() => {
               setMenuType("link");
               setCurrentMenuIndex(menuIndex);
@@ -66,7 +64,7 @@ const LinkWrapper = ({
               <>
                 <Popover.Button
                   className={combineClass(
-                    "group inline-flex border-none text-white ring-0"
+                    "group inline-flex h-3 border-none text-white ring-0"
                   )}
                   ref={popoverRef}
                   onMouseEnter={() => {
@@ -78,7 +76,7 @@ const LinkWrapper = ({
                 >
                   <span className="flex items-center gap-2">
                     {text}
-                    <ChevronDown />
+                    <ChevronDown classes="w-[10px] h-[10px]" />
                   </span>
                 </Popover.Button>
 
@@ -129,27 +127,13 @@ const LinkWrapper = ({
         <>
           <span
             className="flex cursor-pointer items-center gap-2"
-            // onClick={() => {
-            //   if (menuIndex === currentMenuIndex) {
-            //     setMenuType("");
-            //     setCurrentMenuIndex(null);
-            //   } else {
-            //     setMenuType("full");
-            //     setCurrentMenuIndex(menuIndex);
-            //   }
-            // }}
             onMouseEnter={() => {
-              if (menuIndex === currentMenuIndex) {
-                setMenuType("");
-                setCurrentMenuIndex(null);
-              } else {
-                setMenuType("full");
-                setCurrentMenuIndex(menuIndex);
-              }
+              setMenuType("full");
+              setCurrentMenuIndex(menuIndex);
             }}
           >
             {text}
-            <ChevronDown />
+            <ChevronDown classes="w-[10px] h-[10px]" />
           </span>
         </>
       )}

@@ -64,7 +64,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
             : className
             ? className
             : "bg-transparent bg-opacity-95"
-        }`}
+        } max-h-screen`}
       >
         <div className="hidden lg:block">
           <div
@@ -89,7 +89,6 @@ const MainNavigation = ({ className }: { className?: string }) => {
                     const wrapperProps = {
                       ...menu,
                       setCurrentMenuIndex: setCurrentMenuIndex,
-                      currentMenuIndex: currentMenuIndex,
                       setFlyoutMenu: setFlyoutMenu,
                       flyoutMenu: flyoutMenu,
                       menuIndex: index,
@@ -117,11 +116,13 @@ const MainNavigation = ({ className }: { className?: string }) => {
                 </Link>
               </div>
             </div>
-            <Transition appear show={flyoutMenu === "full"} as={Fragment}>
-              <div className="px-9 pb-10">
-                {menus[currentMenuIndex as number]?.fullComponent}
-              </div>
-            </Transition>
+            <div
+              className={`px-9 pb-10 ${
+                flyoutMenu === "full" ? "block" : "hidden"
+              }`}
+            >
+              {menus[currentMenuIndex as number]?.fullComponent}
+            </div>
           </div>
           {flyoutMenu === "full" && (
             <div
@@ -212,7 +213,11 @@ const MainNavigation = ({ className }: { className?: string }) => {
 
   return (
     <>
-      <div className={!showFixedNavigation && !wasScroll ? "block" : "hidden"}>
+      <div
+        className={
+          !showFixedNavigation && !wasScroll ? "block max-h-screen" : "hidden"
+        }
+      >
         {renderNavigation()}
       </div>
       <Transition
