@@ -16,6 +16,10 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import {
+  InvestorRelationsProgramsPrograms,
+  InvestorRelationsProgramsImage,
+} from "../blocks/InvestorRelationsPrograms";
+import {
   FinancialHighlightsTable,
   FinancialHighlightsLegends,
   FinancialHighlightsFinancialStatements,
@@ -149,6 +153,8 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        InvestorRelationsProgramsPrograms,
+        InvestorRelationsProgramsImage,
         FinancialHighlightsTable,
         FinancialHighlightsLegends,
         FinancialHighlightsFinancialStatements,
