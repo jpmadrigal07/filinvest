@@ -15,6 +15,7 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import { OfficeParksOfficeParks } from "../blocks/OfficeParks";
 import {
   OfficesTitleText,
   OfficesOfficeParks,
@@ -88,6 +89,7 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        OfficeParksOfficeParks,
         OfficesTitleText,
         OfficesOfficeParks,
         OurLeadershipBoardOfDirectors,
