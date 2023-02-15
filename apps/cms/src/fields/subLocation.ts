@@ -31,7 +31,6 @@ const subLocation: SubLocationType = ({ overrides = {} } = {}) => {
             type: "relationship",
             relationTo: ["sub-location-categories"],
             required: true,
-            maxDepth: 1,
           },
         ],
       },

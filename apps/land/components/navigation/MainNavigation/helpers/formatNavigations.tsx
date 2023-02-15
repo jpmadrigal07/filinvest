@@ -13,6 +13,7 @@ const formatNavigations = (navigations: Navigation) => {
               title: sub.link.label,
               subTitle: sub.link.description,
               link: sub.link.url,
+              featured: sub.featured,
             };
           })
         : undefined;
@@ -26,12 +27,7 @@ const formatNavigations = (navigations: Navigation) => {
         />
       );
     } else if (menu.link.label === "Our Businesses") {
-      wideMenuComponent = (
-        <OurBusinesses
-          ourBusinessesMenu={subMenus}
-          property={menu.firstFeaturedSlug}
-        />
-      );
+      wideMenuComponent = <OurBusinesses ourBusinessesMenu={subMenus} />;
     } else if (menu.link.label === "Residences") {
       wideMenuComponent = <Residences property={menu.firstFeaturedSlug} />;
     } else if (menu.link.label === "Investor Relations") {
