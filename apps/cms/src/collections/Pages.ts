@@ -16,6 +16,11 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import {
+  VisionMissionCoreValuesVision,
+  VisionMissionCoreValuesMission,
+  VisionMissionCoreValuesCoreValues,
+} from "../blocks/VisionMissionCoreValues";
+import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
 } from "../blocks/CompanyBackground";
@@ -66,6 +71,9 @@ export const Pages: CollectionConfig = {
         HomeInvestorRelationSection,
         HomeStockReportSection,
         HomeFloatingButtons,
+        VisionMissionCoreValuesVision,
+        VisionMissionCoreValuesMission,
+        VisionMissionCoreValuesCoreValues,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
