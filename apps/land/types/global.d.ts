@@ -17,6 +17,8 @@ export type T_SearchQuery = {
   bedroomsTo: string | number;
   propertyName: string;
   subLocation: string;
+  projectType?: string;
+  locationGroup?: string;
 };
 
 export type T_Brands = "Land" | "Prestige" | "Futura" | "Aspire";
