@@ -15,6 +15,7 @@ import {
   HomeStockReportSection,
   HomeFloatingButtons,
 } from "../blocks/Home";
+import { Presentations } from "../blocks/Presentations";
 import {
   ManualCorporateGovernance,
   CodeOfBusinessConductAndEthics,
@@ -142,6 +143,7 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        Presentations,
         ManualCorporateGovernance,
         CodeOfBusinessConductAndEthics,
         AnnualCorporateGovernanceAndReport,
