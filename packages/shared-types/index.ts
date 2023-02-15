@@ -227,6 +227,17 @@ export interface Menu {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Award {
+  id: string;
+  title: string;
+  description: string;
+  coverImage: File;
+  site: Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "navigation".
@@ -243,6 +254,19 @@ export interface NavigationSubMenu {
     label: string;
     description?: string;
   };
+  featured?:
+    | {
+        value: News;
+        relationTo: "news";
+      }
+    | {
+        value: Project;
+        relationTo: "projects";
+      }
+    | {
+        value: Award;
+        relationTo: "awards";
+      };
   id?: string;
 }
 export interface NavigationMenu {

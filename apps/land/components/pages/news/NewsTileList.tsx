@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const NewsTileList = ({
   news,
@@ -14,6 +15,7 @@ const NewsTileList = ({
   position?: string;
   className?: string;
 }) => {
+  const router = useRouter();
   return (
     <>
       {news && news.length > 0 ? (
@@ -26,14 +28,13 @@ const NewsTileList = ({
         >
           {news.map((item: any) => {
             return (
-              <Link
-                href={`/article/${item.slug}`}
-                key={item.id}
+              <span
+                onClick={() => router.push(`/article/${item.slug}`)}
                 className={`flex ${
                   position === "grid"
                     ? "flex-col gap-4"
                     : "flex-row items-center gap-16"
-                }`}
+                } cursor-pointer`}
               >
                 <div className="bg-ghost-white">
                   <Image
@@ -43,15 +44,15 @@ const NewsTileList = ({
                     alt={item.coverImage.alt}
                   />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="mt-4">
                   <h3 className="text-jet text-2xl font-bold">{item.title}</h3>
-                  <p className="text-dim-gray text-sm">
-                    Posted by Admin on {moment(item.createdAt).format("ll")}
+                  <p className="text-dim-gray text-sm opacity-70">
+                    Posted on {moment(item.createdAt).format("ll")}
                   </p>
-                  <p className="text-dim-gray truncate">
+                  <p className="text-dim-gray mt-4 truncate">
                     {item.content[0].children[0].text}
                   </p>
-                  <div className="mt-4">
+                  <div className="mt-8">
                     <Link href={`/article/${item.slug}`}>
                       <BorderButton
                         buttonText="Read More"
@@ -61,7 +62,7 @@ const NewsTileList = ({
                     </Link>
                   </div>
                 </div>
-              </Link>
+              </span>
             );
           })}
         </div>
