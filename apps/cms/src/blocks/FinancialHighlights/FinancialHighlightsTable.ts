@@ -22,7 +22,6 @@ const FinancialHighlightsTable: Block = {
       type: "array",
       name: "tableColumn",
       required: true,
-      maxRows: 1,
       fields: [
         {
           type: "text",
@@ -31,7 +30,7 @@ const FinancialHighlightsTable: Block = {
         },
         {
           type: "array",
-          name: "tableData",
+          name: "columnData",
           required: true,
           fields: [
             {
