@@ -9,7 +9,6 @@ export const Users: CollectionConfig = {
     // relationship docs are that are stored in the req.user.
     // It should be kept to as low as possible, which
     // keeps performance fast.
-    depth: 0,
   },
   admin: {
     useAsTitle: "email",
