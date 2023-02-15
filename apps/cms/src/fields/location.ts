@@ -36,7 +36,6 @@ const location: LocationType = ({
             type: "relationship",
             relationTo: [relationTo],
             required: true,
-            maxDepth: 1,
           },
         ],
       },
