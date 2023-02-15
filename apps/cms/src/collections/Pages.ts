@@ -16,6 +16,11 @@ import {
   HomeFloatingButtons,
 } from "../blocks/Home";
 import {
+  StockInformationTitle,
+  StockInformationStockHolderTable,
+  StockInformationOutstandingNumberOfShares,
+} from "../blocks/StockInformation";
+import {
   StructuresChartImage,
   StructuresChartTable,
   StructuresTitleText,
@@ -161,6 +166,9 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        StockInformationTitle,
+        StockInformationOutstandingNumberOfShares,
+        StockInformationStockHolderTable,
         StructuresChartImage,
         StructuresChartTable,
         StructuresTitleText,
