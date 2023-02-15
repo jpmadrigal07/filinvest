@@ -7,7 +7,6 @@ const DisclosuresTable: Block = {
       type: "array",
       name: "rowData",
       required: true,
-      maxRows: 1,
       fields: [
         {
           type: "date",
