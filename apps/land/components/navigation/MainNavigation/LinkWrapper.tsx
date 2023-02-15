@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, ReactNode } from "react";
+import React, { Dispatch, Fragment, ReactNode, useRef } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
 import { combineClass } from "@/helpers/combineClass";
@@ -17,7 +17,6 @@ interface I_Props {
   isLink?: boolean;
   link?: string;
   subMenus?: T_Sub_Menus[];
-  currentMenuIndex?: number | null;
   setCurrentMenuIndex: Dispatch<number | null>;
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   menuIndex: number;
@@ -30,13 +29,17 @@ const LinkWrapper = ({
   isLink,
   subMenus,
   setCurrentMenuIndex,
-  currentMenuIndex,
   setFlyoutMenu,
   menuIndex,
   fullComponent,
 }: I_Props) => {
+  const popoverRef = useRef(null);
   const setMenuType = (type: T_Flyout_Menu) => {
     setFlyoutMenu(type);
+  };
+  const clickPopover = () => {
+    // @ts-expect-error
+    popoverRef.current?.click();
   };
   return (
     <>
@@ -44,7 +47,7 @@ const LinkWrapper = ({
         <>
           <Link
             href={link}
-            className="cursor-pointer hover:underline"
+            className="cursor-pointer"
             onClick={() => {
               setMenuType("link");
               setCurrentMenuIndex(menuIndex);
@@ -61,16 +64,19 @@ const LinkWrapper = ({
               <>
                 <Popover.Button
                   className={combineClass(
-                    "group inline-flex text-white hover:underline"
+                    "group inline-flex h-3 border-none text-white ring-0"
                   )}
-                  onClick={() => {
+                  ref={popoverRef}
+                  onMouseEnter={() => {
                     setMenuType("single");
                     setCurrentMenuIndex(menuIndex);
+                    clickPopover();
                   }}
+                  onMouseLeave={() => clickPopover()}
                 >
                   <span className="flex items-center gap-2">
                     {text}
-                    <ChevronDown />
+                    <ChevronDown classes="w-[10px] h-[10px]" />
                   </span>
                 </Popover.Button>
 
@@ -83,7 +89,11 @@ const LinkWrapper = ({
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="absolute z-10 mt-3">
+                  <Popover.Panel
+                    className="absolute z-10 mt-1"
+                    onMouseLeave={() => clickPopover()}
+                    onMouseEnter={() => clickPopover()}
+                  >
                     <div className="overflow-hidden shadow-lg">
                       <div className="bg-royal-dark-blue gap-6 sm:gap-8">
                         {subMenus.map((item, index) => (
@@ -116,19 +126,14 @@ const LinkWrapper = ({
       {!isLink && !link && fullComponent && (
         <>
           <span
-            className="flex cursor-pointer items-center gap-2 hover:underline"
-            onClick={() => {
-              if (menuIndex === currentMenuIndex) {
-                setMenuType("");
-                setCurrentMenuIndex(null);
-              } else {
-                setMenuType("full");
-                setCurrentMenuIndex(menuIndex);
-              }
+            className="flex cursor-pointer items-center gap-2"
+            onMouseEnter={() => {
+              setMenuType("full");
+              setCurrentMenuIndex(menuIndex);
             }}
           >
             {text}
-            <ChevronDown />
+            <ChevronDown classes="w-[10px] h-[10px]" />
           </span>
         </>
       )}
