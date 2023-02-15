@@ -20,8 +20,24 @@ import {
   PusongFilinvestCorporateSocialResponsibility,
   PusongFilinvestGallery,
 } from "../blocks/PusongFilinvest";
+import {
+  DreamsBuiltGreenIconText,
+  DreamsBuiltGreenTitleText,
+  DreamsBuiltGreenMediaSection,
+} from "../blocks/DreamsBuiltGreen";
+import {
+  VisionMissionCoreValuesVision,
+  VisionMissionCoreValuesMission,
+  VisionMissionCoreValuesCoreValues,
+} from "../blocks/VisionMissionCoreValues";
+import {
+  CompanyBackgroundIconText,
+  CompanyBackgroundImageText,
+} from "../blocks/CompanyBackground";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import Header from "../blocks/Header";
+import NextLink from "../blocks/NextLink";
+import PreviousLink from "../blocks/PreviousLink";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -68,7 +84,17 @@ export const Pages: CollectionConfig = {
         PusongFilinvestOurStory,
         PusongFilinvestCorporateSocialResponsibility,
         PusongFilinvestGallery,
+        DreamsBuiltGreenIconText,
+        DreamsBuiltGreenTitleText,
+        DreamsBuiltGreenMediaSection,
+        VisionMissionCoreValuesVision,
+        VisionMissionCoreValuesMission,
+        VisionMissionCoreValuesCoreValues,
+        CompanyBackgroundIconText,
+        CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        PreviousLink,
+        NextLink,
       ],
     },
     {
