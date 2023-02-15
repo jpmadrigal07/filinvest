@@ -20,7 +20,7 @@ const FinancialHighlightsTable: Block = {
     },
     {
       type: "array",
-      name: "tableHeader",
+      name: "tableColumn",
       required: true,
       maxRows: 1,
       fields: [
