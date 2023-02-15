@@ -53,6 +53,10 @@ import {
   CompanyBackgroundImageText,
 } from "../blocks/CompanyBackground";
 import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
+import {
+  MixedUsedEstatesTitleText,
+  MixedUsedEstatesMixedUsedEstates,
+} from "../blocks/MixedUseEstates";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
@@ -120,6 +124,8 @@ export const Pages: CollectionConfig = {
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         OurLeadershipBoardOfDirectors,
+        MixedUsedEstatesTitleText,
+        MixedUsedEstatesMixedUsedEstates,
         CoLivingTitleText,
         CoLivingCoLiving,
         IndustrialTitleText,
