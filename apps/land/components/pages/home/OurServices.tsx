@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
+import Link from "next/link";
 
 const OurServices = ({ content }: any) => {
   return (
@@ -26,7 +27,10 @@ const OurServices = ({ content }: any) => {
         {content
           ? content.content[4].serviceTypes.map((serviceType: any) => {
               return (
-                <div className="flex-1">
+                <Link
+                  href={serviceType.link}
+                  className="flex-1 transition duration-150 hover:opacity-70"
+                >
                   <div className="relative flex items-center justify-center">
                     <button
                       type="button"
@@ -46,7 +50,7 @@ const OurServices = ({ content }: any) => {
                   <h3 className="text-jet mt-6 text-center text-2xl font-bold">
                     {serviceType.title}
                   </h3>
-                </div>
+                </Link>
               );
             })
           : null}
@@ -66,7 +70,10 @@ const OurServices = ({ content }: any) => {
             ? content.content[4].serviceTypes.map((serviceType: any) => {
                 return (
                   <SwiperSlide>
-                    <div>
+                    <Link
+                      href={serviceType.link}
+                      className="flex-1 transition duration-150 hover:opacity-70"
+                    >
                       <div className="relative flex items-center justify-center">
                         <Image
                           src={`${!serviceType.image.url ? "/" : ""}${
@@ -80,7 +87,7 @@ const OurServices = ({ content }: any) => {
                       <h3 className="text-jet mt-6 text-center text-2xl font-bold">
                         {serviceType.title}
                       </h3>
-                    </div>
+                    </Link>
                   </SwiperSlide>
                 );
               })

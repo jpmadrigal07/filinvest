@@ -19,14 +19,14 @@ const FullPropertySlider = ({ sliders }: any) => {
         <div className="absolute right-6 bottom-6 z-40">
           <div className="flex gap-7">
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
@@ -113,14 +113,14 @@ const FullPropertySlider = ({ sliders }: any) => {
         <div className="absolute bottom-0 z-40">
           <div className="flex gap-6 md:gap-[43rem]">
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRefMobile.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRefMobile.current?.slideNext()}
             >

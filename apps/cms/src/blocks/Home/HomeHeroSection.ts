@@ -89,6 +89,11 @@ const HomeHeroSection: Block = {
             read: () => true,
           },
         },
+        {
+          name: "prestigeLink",
+          type: "text",
+          required: true,
+        },
       ],
     },
     {
@@ -113,6 +118,11 @@ const HomeHeroSection: Block = {
             read: () => true,
           },
         },
+        {
+          name: "futuraLink",
+          type: "text",
+          required: true,
+        },
       ],
     },
     {
@@ -136,6 +146,11 @@ const HomeHeroSection: Block = {
           access: {
             read: () => true,
           },
+        },
+        {
+          name: "aspireLink",
+          type: "text",
+          required: true,
         },
       ],
     },

@@ -1,9 +1,8 @@
 "use client";
+import ChevronRight from "@/components/svg/ChevronRight";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-// import { INVESTOR_RELATIONS_SUB_ROUTES } from "@/helpers/routes/investorRelations";
-// import serializeChildren from "@/helpers/serializeChildren";
 
 type T_InvestorRelationsMenu = {
   title: string;
@@ -20,7 +19,7 @@ const InvestorRelations = ({
   return (
     <div className="divide-wild-blue-yonder flex divide-x py-8">
       <div className="flex flex-1 flex-col gap-20 pr-12">
-        <div className="grid grid-cols-3 gap-x-6 gap-y-16">
+        <div className="grid grid-cols-3 gap-x-6 gap-y-9">
           {investorRelationsMenu &&
             investorRelationsMenu.map(
               (routes: T_InvestorRelationsMenu, index: number) => {
@@ -63,7 +62,12 @@ const InvestorRelations = ({
         <Link
           href={`/article/${news.value.slug}`}
           className="text-white hover:underline"
-        >{`Read more >`}</Link>
+        >
+          <span className="flex items-center gap-3">
+            Read more
+            <ChevronRight classes="h-[10px] w-[10px]" />
+          </span>
+        </Link>
       </div>
     </div>
   );
