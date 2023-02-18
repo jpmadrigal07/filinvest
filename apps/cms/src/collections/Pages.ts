@@ -81,11 +81,7 @@ import {
   DreamsBuiltGreenTitleText,
   DreamsBuiltGreenMediaSection,
 } from "../blocks/DreamsBuiltGreen";
-import {
-  VisionMissionCoreValuesVision,
-  VisionMissionCoreValuesMission,
-  VisionMissionCoreValuesCoreValues,
-} from "../blocks/VisionMissionCoreValues";
+import { VisionMissionCoreValues } from "../blocks/VisionMissionCoreValues";
 import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
@@ -160,9 +156,7 @@ export const Pages: CollectionConfig = {
         DreamsBuiltGreenIconText,
         DreamsBuiltGreenTitleText,
         DreamsBuiltGreenMediaSection,
-        VisionMissionCoreValuesVision,
-        VisionMissionCoreValuesMission,
-        VisionMissionCoreValuesCoreValues,
+        VisionMissionCoreValues,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         StockInformationTitle,
