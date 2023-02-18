@@ -6,7 +6,7 @@ const Content = () => {
     <section className="mt-16">
       <div className="mx-12 flex flex-col justify-center gap-16 md:flex-row lg:mx-0">
         <div className="flex flex-col items-center gap-9">
-          <div className="flex items-center justify-center rounded-full bg-white py-12 px-12 shadow-2xl">
+          <div className="flex items-center justify-center rounded-full bg-white px-12 py-12 shadow-2xl">
             <Image
               src="/green-icon.png"
               width={150}
@@ -17,7 +17,7 @@ const Content = () => {
           <h3 className="text-sea-green text-2xl font-bold">Green</h3>
         </div>
         <div className="flex flex-col items-center gap-9">
-          <div className="flex items-center justify-center rounded-full bg-white py-12 px-12 shadow-2xl">
+          <div className="flex items-center justify-center rounded-full bg-white px-12 py-12 shadow-2xl">
             <Image
               src="/health-icon.png"
               width={150}
@@ -28,7 +28,7 @@ const Content = () => {
           <h3 className="text-sea-green text-2xl font-bold">Health</h3>
         </div>
         <div className="flex flex-col items-center gap-9">
-          <div className="flex items-center justify-center rounded-full bg-white py-12 px-12 shadow-2xl">
+          <div className="flex items-center justify-center rounded-full bg-white px-12 py-12 shadow-2xl">
             <Image
               src="/life-icon.png"
               width={150}
