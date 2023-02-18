@@ -80,7 +80,7 @@ const Content = ({ news }: any) => {
         </div>
       </div>
       <div className="mt-20 flex flex-col items-center gap-12 lg:flex-row lg:gap-0">
-        <div className="hidden flex-1 pl-36 pr-24 lg:block">
+        <div className="hidden flex-1 pr-24 pl-36 lg:block">
           <h2 className="text-jet text-4xl font-bold">Pharetra Convallis</h2>
           <p className="text-dim-gray mt-4">
             Urna et pharetra pharetra massa massa. Commodo elit at imperdiet dui
@@ -104,17 +104,17 @@ const Content = ({ news }: any) => {
             alt="Picture of the author"
           />
         </div>
-        <div className="block flex-1 px-8 md:px-24 lg:hidden">
-          <h2 className="text-jet text-3xl font-bold">
+        {/* <div className="flex-1 block px-8 md:px-24 lg:hidden">
+          <h2 className="text-3xl font-bold text-jet">
             With Over 50 Years Of Experience
           </h2>
-          <p className="text-dim-gray mt-4">
+          <p className="mt-4 text-dim-gray">
             Filinvest Land, Inc. (FLI) is one of the leading full-range property
             developers in the Philippines with a diverse project portfolio
             spanning the archipelago. The company has developed over 3,000
             hectares of land into homes for over 160,000 families.
           </p>
-          <p className="text-dim-gray mt-4">
+          <p className="mt-4 text-dim-gray">
             From residential communities, FLI has diversified into building
             townships, mid-rise and high-rise condominiums, BPO hubs, office
             buildings, shopping centers and leisure developments. With over 250
@@ -122,9 +122,9 @@ const Content = ({ news }: any) => {
             continues to expand and innovate, propelled by its commitment to
             build the Filipino dream.
           </p>
-        </div>
+        </div> */}
       </div>
-      <div className="my-24 mx-6 flex justify-end lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mx-6 my-24 flex justify-end lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex-none">
           <PageNextPrevButton
             imgName="investor-relations-program-next-prev.png"
