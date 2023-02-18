@@ -23,7 +23,6 @@ const MainHeader = ({
   isTitleSmall?: boolean;
   otherUrl?: string;
 }) => {
-  console.log(content.content[0].breadcrumbs);
   return (
     <>
       {isBlueHeader ? (
