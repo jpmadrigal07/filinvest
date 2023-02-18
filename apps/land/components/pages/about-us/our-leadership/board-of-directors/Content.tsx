@@ -14,13 +14,13 @@ const Content = ({ content }: any) => {
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
         <h2 className="text-jet text-5xl font-bold">
-          {content.content[0].title}
+          {content.content[1].title}
         </h2>
-        <p className="text-dim-gray mt-6">{content.content[0].description}</p>
+        <p className="text-dim-gray mt-6">{content.content[1].description}</p>
         <div
-          className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-${content.content[0].numberOfColumns}`}
+          className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-${content.content[1].numberOfColumns}`}
         >
-          {content.content[0].director.map((director: any) => (
+          {content.content[1].director.map((director: any) => (
             <div className="group relative">
               <Image
                 src={`${director.directorImage.url}`}

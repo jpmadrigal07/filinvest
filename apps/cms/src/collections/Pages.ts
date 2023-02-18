@@ -153,7 +153,6 @@ export const Pages: CollectionConfig = {
         OfficeParksOfficeParks,
         OfficesTitleText,
         OfficesOfficeParks,
-        OurLeadershipBoardOfDirectors,
         OfficesOffices,
         CorporateCenters,
         SubsidiariesCompanies,
