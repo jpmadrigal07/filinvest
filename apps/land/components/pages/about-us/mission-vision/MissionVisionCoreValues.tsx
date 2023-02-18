@@ -9,7 +9,6 @@ import Diamond from "@/components/svg/Diamond";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 
 const MissionVisionCoreValues = ({ news, content }: any) => {
-  console.log(content.content[0]);
   return (
     <section className="-mt-6 2xl:-mt-36">
       <div className="mx-6 flex flex-col gap-2 md:flex-row lg:mx-9 lg:gap-8 xl:mx-16 2xl:mx-44">
