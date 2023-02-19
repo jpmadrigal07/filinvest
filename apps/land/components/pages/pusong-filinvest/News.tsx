@@ -1,10 +1,7 @@
 "use client";
-import Image from "next/image";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
 import NEWS_ROUTES from "@/helpers/routes/news";
 import Link from "next/link";
 import BorderButton from "@/components/button/BorderButton";

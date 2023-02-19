@@ -7,7 +7,6 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 
 const Gallery = ({ content }: any) => {
-  console.log(content.content[2]);
   return (
     <div className="mt-24">
       <h3 className="text-dark-cornflower-blue text-center font-bold">
