@@ -39,7 +39,7 @@ const FilPayOnlinePaymentsSection: Block = {
     },
     {
       type: "array",
-      name: "filpayIternationalPaymentMethodsIcons",
+      name: "filpayCards",
       required: true,
       fields: [
         {
@@ -52,7 +52,7 @@ const FilPayOnlinePaymentsSection: Block = {
     },
     {
       type: "array",
-      name: "filpayLocalPaymentMethodsIcons",
+      name: "filpayBanks",
       required: true,
       fields: [
         {
