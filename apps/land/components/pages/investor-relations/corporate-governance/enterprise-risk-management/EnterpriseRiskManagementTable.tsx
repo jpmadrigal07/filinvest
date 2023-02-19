@@ -1,28 +1,14 @@
 import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import React from "react";
 
-const Content = () => {
-  const RISK_DATA = [
-    {
-      riskExposure: "Liquidity Risk",
-      riskPolicy:
-        "To cover its financing requirements, the Company uses internally-generated funds and available long-term and short-term credit facilities. The company and its group regularly evaluate their projected and actual cash flows. They also continuously assess conditions in the financial markets for opportunities to pursue fundraising activities in case any requirements arise.",
-      objective:
-        "The Group seeks to manage its liquidity profile to be able to finance capital expenditures and service maturing debts.",
-    },
-    {
-      riskExposure: "Credit Risk",
-      riskPolicy:
-        "Credit risk is managed since the titles of the properties sold are retained by the Company/Group until installment receivables are sufficient to cover the installment contract receivable. It is the Company/Group’s policy that buyers who wish to avail the in-house financing scheme be subjected to credit verification procedures. Receivable balances are being monitored on a regular basis and subjected to appropriate actions to manage credit risk.",
-      objective: "To avoid financial loss.",
-    },
-    {
-      riskExposure: "Interest Rate Risk",
-      riskPolicy:
-        "The Company/Group renegotiates the interest rates for certain long-term debts to convert them from fixed-rate debt to floating-rate debt as the Company/Group believes that the current interest rate environment makes it more favorable to carry floating-rate debt.",
-      objective: "To provide a certain degree of certainty about costs.",
-    },
-  ];
+const EnterpriseRiskManagementTable = ({ content }: any) => {
+  const RISK_DATA = content.content[0].riskManagementTable.map((item: any) => {
+    return {
+      riskExposure: item.riskExposure,
+      riskPolicy: item.riskPolicy,
+      objective: item.riskObjective,
+    };
+  });
   return (
     <section className="mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div className="flex flex-col">
@@ -53,7 +39,7 @@ const Content = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {RISK_DATA.map((item, index) => (
+                  {RISK_DATA.map((item: any, index: any) => (
                     <tr key={index} className="divide-x divide-gray-200">
                       <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                         {item.riskExposure}
@@ -93,4 +79,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default EnterpriseRiskManagementTable;
