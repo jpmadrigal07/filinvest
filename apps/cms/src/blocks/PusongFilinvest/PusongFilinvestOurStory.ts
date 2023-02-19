@@ -18,12 +18,6 @@ const PusongFilinvestOurStory: Block = {
       type: "textarea",
       required: true,
     },
-    {
-      type: "upload",
-      name: "image",
-      relationTo: "files",
-      required: true,
-    },
   ],
 };
 

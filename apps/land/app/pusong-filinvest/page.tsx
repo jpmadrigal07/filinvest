@@ -1,6 +1,10 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/pusong-filinvest/constants";
 import Content from "@/components/pages/pusong-filinvest/Content";
+import CorporateSocialResponsibility from "@/components/pages/pusong-filinvest/CorporateSocialResponsibility";
+import Gallery from "@/components/pages/pusong-filinvest/Gallery";
+import News from "@/components/pages/pusong-filinvest/News";
+import OurStory from "@/components/pages/pusong-filinvest/OurStory";
 import qs from "qs";
 
 const query = {
@@ -27,8 +31,17 @@ async function getNews() {
   return jsonData.docs ? jsonData.docs : null;
 }
 
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
 const PusongFilinvestPage = async () => {
   const news = await getNews();
+  const content = await getPageContent("639a57cab60dc36e6fc86cc7");
   const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.pusongFilinvest;
   return (
     <>
@@ -38,7 +51,11 @@ const PusongFilinvestPage = async () => {
         bgUrl={image}
         bgUrlSmall={imageSmall}
       />
-      <Content news={news} />
+      {/* <Content news={news} /> */}
+      <OurStory content={content} />
+      <CorporateSocialResponsibility content={content} />
+      <Gallery content={content} />
+      <News news={news} />
     </>
   );
 };
