@@ -4,6 +4,12 @@ const FilPayOnlinePaymentsSection: Block = {
   slug: "filpay-online-payments-section",
   fields: [
     {
+      type: "upload",
+      name: "headerImage",
+      relationTo: "files",
+      required: true,
+    },
+    {
       name: "title",
       type: "text",
       required: true,

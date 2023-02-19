@@ -1,6 +1,4 @@
 import MainHeader from "@/components/header/MainHeader";
-import Content from "@/components/pages/buyers/filpay/Content";
-import HeaderImage from "@/components/pages/buyers/filpay/HeaderImage";
 import OnlinePaymentSection from "@/components/pages/buyers/filpay/OnlinePaymentSection";
 
 async function getPageContent(id: string) {
@@ -12,12 +10,10 @@ async function getPageContent(id: string) {
 }
 
 const AnnualReportsPage = async () => {
-  const content = await getPageContent("639a581bb60dc36e6fc86d4a");
-  console.log(content.content[1]);
+  const content = await getPageContent("63f1f5e08b9b7c24ea00c59c");
   return (
     <>
       <MainHeader isBlueHeader />
-      <HeaderImage content={content} />
       <OnlinePaymentSection content={content} />
     </>
   );
