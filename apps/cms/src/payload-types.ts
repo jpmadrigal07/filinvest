@@ -127,18 +127,22 @@ export interface Page {
         blockType: "header";
       }
     | {
-        backgroundType?: "image" | "video" | "youtube";
+        backgroundType?: "image" | "video" | "youtube" | "vimeo";
         mediaBackground: string | File;
         videoBackground?: string | File;
         youtubeBackground?: string;
+        vimeoBackground?: string;
         title: string;
         description: string;
         prestigeImage: string | File;
         prestigeLogo: string | File;
+        prestigeLink: string;
         futuraImage: string | File;
         futuraLogo: string | File;
+        futuraLink: string;
         aspireImage: string | File;
         aspireLogo: string | File;
+        aspireLink: string;
         id?: string;
         blockName?: string;
         blockType: "homeHeroSection";
@@ -174,6 +178,7 @@ export interface Page {
         propertyTypes: {
           image: string | File;
           title: string;
+          link: string;
           id?: string;
         }[];
         id?: string;
@@ -187,6 +192,7 @@ export interface Page {
         serviceTypes: {
           image: string | File;
           title: string;
+          link: string;
           id?: string;
         }[];
         id?: string;
@@ -245,6 +251,54 @@ export interface Page {
     | {
         title: string;
         description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "malls-title-and-text";
+      }
+    | {
+        malls: {
+          mallImage: string | File;
+          mallName: string;
+          mallLink: string;
+          mallLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "malls-malls";
+      }
+    | {
+        officeParks: {
+          image: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "offices-parks-office-parks";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "offices-title-and-text";
+      }
+    | {
+        officeParks: {
+          image: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "offices-office-parks";
+      }
+    | {
+        title: string;
+        description: string;
         director: {
           directorImage: string | File;
           directorFullName: string;
@@ -257,6 +311,553 @@ export interface Page {
         id?: string;
         blockName?: string;
         blockType: "our-leadership-board-of-directors";
+      }
+    | {
+        office: {
+          officeImage: string | File;
+          officeName: string;
+          officeLink: string;
+          officeLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "offices-offices";
+      }
+    | {
+        center: {
+          centerImage: string | File;
+          centerName: string;
+          centerLink: string;
+          centerLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-centers";
+      }
+    | {
+        subsidiariesCompanies: {
+          companyLogo: string | File;
+          companyName: string;
+          companyDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "subsidiaries-companies";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "pusong-filinvest-our-story";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "pusong-filinvest-corporate-social-responsibility";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        image: {
+          image: string | File;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "pusong-filinvest-gallery";
+      }
+    | {
+        iconText: {
+          iconImage: string | File;
+          text: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "dreams-built-green-icon-text";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "dreams-built-green-title-text";
+      }
+    | {
+        backgroundMedia: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "dreams-built-green-media-section";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "vision-mission-core-values-vision";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        description: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "vision-mission-core-values-mission";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "vision-mission-core-values-core-values";
+      }
+    | {
+        iconText: {
+          iconImage: string | File;
+          text: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "company-background-icon-text";
+      }
+    | {
+        imageText: {
+          image: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "company-background-image-text";
+      }
+    | {
+        title: string;
+        id?: string;
+        blockName?: string;
+        blockType: "stock-information-title";
+      }
+    | {
+        rowData: {
+          outstandingNumberOfShares: string;
+          epsAttributableToParentEquityHolders: string;
+          dividendDeclared: string;
+          id?: string;
+        }[];
+        description?: string;
+        id?: string;
+        blockName?: string;
+        blockType: "stock-information-outstanding-number-of-shares-table";
+      }
+    | {
+        tableTitle?: string;
+        tableSubTitle?: string;
+        tableDescription?: string;
+        rowData: {
+          shareholder: string;
+          numberOfSharesHeld: string;
+          "%ToTotalOutstanding": string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "stock-information-stock-holder-table";
+      }
+    | {
+        title: string;
+        chartImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "structures-chart-image";
+      }
+    | {
+        tableTitle?: string;
+        tableColumn: {
+          header: string;
+          tableData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "structures-chart-table";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "structures-title-and-text";
+      }
+    | {
+        downloadLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "structures-download-button";
+      }
+    | {
+        rowData: {
+          date: string;
+          name: string;
+          category: string;
+          downloadLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "disclosures-table";
+      }
+    | {
+        title: string;
+        awards: {
+          awardImage: string | File;
+          date: string;
+          awardTitle: {
+            [k: string]: unknown;
+          }[];
+          awardDescription: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "press-releases-awards";
+      }
+    | {
+        description: string;
+        programs: {
+          icon: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-programs-programs";
+      }
+    | {
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-programs-image";
+      }
+    | {
+        typeOfData: string;
+        title: string;
+        description: string;
+        tableColumn: {
+          header: string;
+          columnData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-table";
+      }
+    | {
+        legends: {
+          character: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-legends";
+      }
+    | {
+        title: string;
+        financialStatements: {
+          icon: string | File;
+          financialStatementTitle: string;
+          downloadLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-financial-statements";
+      }
+    | {
+        title: string;
+        annualFinancialReports: {
+          year: string;
+          annualFinancialReport: {
+            icon: string | File;
+            annualFinancialReportTitle: string;
+            downloadLink: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-annual-reports";
+      }
+    | {
+        presentation: {
+          image: string | File;
+          title: string;
+          presentationLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "presentations";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        viewLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "manual-corporate-governance";
+      }
+    | {
+        icon: string | File;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "code-of-business-conduct-and-ethics";
+      }
+    | {
+        reportList: {
+          icon: string | File;
+          year: string;
+          report: {
+            [k: string]: unknown;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "annual-corporate-governance-and-report";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-social-responsibility-title-text";
+      }
+    | {
+        title: string;
+        description: string;
+        readMoreLink: string;
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-social-responsibility-environmental-preservation";
+      }
+    | {
+        title: string;
+        subtitle: string;
+        description: string;
+        images: {
+          image: string | File;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-social-responsibility-programs";
+      }
+    | {
+        policies: {
+          icon: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "company-policies-policy";
+      }
+    | {
+        title?: string;
+        subtitle?: string;
+        id?: string;
+        blockName?: string;
+        blockType: "company-policies-title";
+      }
+    | {
+        tabs: {
+          tab: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-tabs";
+      }
+    | {
+        title?: string;
+        year?: string;
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-title-and-year";
+      }
+    | {
+        tableTitle?: string;
+        tableHeader: {
+          header: string;
+          tableData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-table";
+      }
+    | {
+        tableHeader: {
+          header: string;
+          tableData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "enterprise-risk-management-table";
+      }
+    | {
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "filpay-header-image";
+      }
+    | {
+        title: string;
+        filpayAdvantages: {
+          icon: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        text: string;
+        filpayIternationalPaymentMethodsIcons: {
+          icon: string | File;
+          id?: string;
+        }[];
+        filpayLocalPaymentMethodsIcons: {
+          icon: string | File;
+          id?: string;
+        }[];
+        learnMoreLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "filpay-online-payments-section";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "mixed-used-and-estates-title-and-text";
+      }
+    | {
+        mixedUsedAndEstates: {
+          mixedUsedAndEstatesImage: string | File;
+          mixedUsedAndEstatesName: string;
+          mixedUsedAndEstatesLink: string;
+          mixedUsedAndEstatesLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "mixed-used-and-estates-mixed-used-and-estates";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "co-living-title-and-text";
+      }
+    | {
+        "co-living": {
+          "co-LivingImage": string | File;
+          "co-livingName": string;
+          "co-livingLink": string;
+          "co-livingLocation": string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "co-living-co-living";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "industrial-title-and-text";
+      }
+    | {
+        industrial: {
+          industrialImage: string | File;
+          industrialName: string;
+          industrialLink: string;
+          industrialLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "industrial-industrial";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "townscapes-title-and-text";
+      }
+    | {
+        townscapes: {
+          townscapeImage: string | File;
+          townscapeName: string;
+          townscapeLink: string;
+          townscapeLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "townscapes-townscapes";
+      }
+    | {
+        previousPageTitle: string;
+        previousLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "previous-link";
+      }
+    | {
+        nextPageTitle: string;
+        nextLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "next-link";
       }
   )[];
   site: string | Site;
@@ -299,6 +900,7 @@ export interface News {
   id: string;
   title: string;
   slug: string;
+  shortDescription: string;
   coverImage: string | File;
   content?: {
     [k: string]: unknown;

@@ -1,23 +1,54 @@
 "use client";
+import React, { useState } from "react";
 import SelectLocation from "@/components/select/SelectLocation";
-import React from "react";
 import Projects from "@/components/list/Projects";
-import { SAMPLE_PROJECTS } from "@/helpers/constants";
+import { LocationCategory, Project } from "shared-types";
+import useGetProjectsByLocation from "@/components/list/hooks/useGetProjectsByLocation";
 
-const Content = () => {
+const Content = ({
+  projects,
+  locations,
+}: {
+  projects: Project[];
+  locations: LocationCategory[];
+}) => {
+  const [currentLocation, setCurrentLocation] = useState("");
+  const { data, isFetching } = useGetProjectsByLocation({
+    location: currentLocation,
+    projectType: "Corporate Centers",
+  });
+  const locationString =
+    locations.length > 0
+      ? locations.map((location) => {
+          return location.title;
+        })
+      : [];
   return (
     <section className="mt-12 mb-32 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:mt-16">
       <div>
-        <div className="flex items-center gap-7">
-          <div className="flex-1">
-            <h3 className="text-jet text-2xl">6 Corporate Centers found</h3>
+        <div className="mt-16 mb-24">
+          <div className="flex flex-col items-center gap-7 md:flex-row">
+            <div className="flex-1">
+              {!isFetching ? (
+                <h3 className="text-jet text-2xl">
+                  {data ? data.length : projects.length} corporate businesses
+                  found
+                </h3>
+              ) : (
+                <h3 className="text-jet text-2xl">Loading...</h3>
+              )}
+            </div>
+            <div className="flex flex-none items-center gap-9">
+              <h3 className="text-jet text-xl">Filter by</h3>
+              <SelectLocation
+                locations={locationString}
+                setCurrentLocation={setCurrentLocation}
+                currentLocation={currentLocation}
+              />
+            </div>
           </div>
-          <div className="flex flex-none items-center gap-9">
-            <h3 className="text-jet text-xl">Filter by</h3>
-            <SelectLocation />
-          </div>
+          <Projects projects={data ? data : projects} isLoading={isFetching} />
         </div>
-        <Projects projects={SAMPLE_PROJECTS} />
       </div>
     </section>
   );
