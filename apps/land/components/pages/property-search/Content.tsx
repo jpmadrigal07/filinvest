@@ -32,40 +32,22 @@ const Content = () => {
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         {!isPropertyLoading ? (
           <>
-            <p>
+            <p className="text-xl">
               {projects.length}{" "}
               {projects.length > 1 ? "properties" : "property"} found
             </p>
             <TileProjects projects={projects} />
           </>
         ) : (
-          <p>Searching...</p>
+          <p className="text-xl">Searching...</p>
         )}
       </div>
       <div className="bg-ghost-white mt-24 flex flex-col items-center py-24">
         <section>
           <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
-            <div className="flex flex-col justify-center md:flex-row md:items-center">
-              <div className="flex-1">
-                <h2 className="text-jet mt-2 text-4xl font-extrabold">
-                  Featured Articles
-                </h2>
-                <h4 className="text-dim-gray mt-4">
-                  Get updated to Filinvest Land{"'"}s latest happenings.
-                </h4>
-              </div>
-              <div className="mt-12 flex-none">
-                <Link href="/">
-                  <button type="button">
-                    <BorderButton
-                      buttonText="See More"
-                      textColor="dark-cornflower-blue"
-                      borderColor="dark-cornflower-blue"
-                    />
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <h3 className="text-jet flex-none text-4xl font-bold">
+              Related Articles
+            </h3>
             <FeaturedArticles
               className="mt-16"
               sliderOnMobile

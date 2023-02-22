@@ -1,3 +1,4 @@
+import MainHeader from "@/components/header/MainHeader";
 import Projects from "@/components/list/Projects";
 import Bath from "@/components/svg/Bath";
 import Bed from "@/components/svg/Bed";
@@ -11,38 +12,47 @@ import PersonOutline from "@/components/svg/PersonOutline";
 import PhoneHandset from "@/components/svg/PhoneHandset";
 import RulerPencil from "@/components/svg/RulerPencil";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Project } from "shared-types";
 
-const Content = ({ projects }: { projects: Project[] }) => {
+const Content = ({ project }: { project: Project }) => {
   return (
     <section>
+      <MainHeader
+        otherUrl={`${process.env.CMS_API_URL}${encodeURI(
+          // @ts-expect-error
+          project.headerImage.url
+        )}`}
+      />
       <div className="border-gainsboro border-b-[1px]">
         <div className="my-4 mx-9 flex flex-col gap-9 lg:flex-row xl:mx-16 2xl:mx-44">
           <div className="flex flex-1 items-center gap-4">
             <Image
-              src="/activa-logo.png"
+              src={project.logo.url ? project.logo.url : ""}
               width={128}
               height={25}
-              alt="Picture of the author"
+              alt={project.logo.alt}
             />
-            <h3 className="text-jet text-2xl font-bold">Activa Cubao</h3>
+            <h3 className="text-jet text-2xl font-bold">{project.title}</h3>
           </div>
           <div className="divide-gainsboro flex flex-1 flex-col items-center md:flex-row md:divide-x">
             <div className="flex items-center gap-6 px-5 py-4">
               <RulerPencil />
-              <h3 className="text-jet whitespace-nowrap text-xl">1600 sq ft</h3>
+              <h3 className="text-jet whitespace-nowrap text-xl">
+                {project.size} sq ft
+              </h3>
             </div>
             <div className="flex items-center gap-6 px-5 py-4">
               <Bed />
               <h3 className="text-jet whitespace-nowrap text-xl">
-                5 Staff Rooms
+                {project.numberOfStaffRoom} Staff Rooms
               </h3>
             </div>
             <div className="flex items-center gap-6 px-5 py-4">
               <Bath />
               <h3 className="text-jet whitespace-nowrap text-xl">
-                2 Bathrooms
+                {project.numberOfBathrooms} Bathrooms
               </h3>
             </div>
           </div>
@@ -60,11 +70,9 @@ const Content = ({ projects }: { projects: Project[] }) => {
               <div className="flex flex-1 flex-col gap-3">
                 <Flag classes="w-5 h-5" />
                 <h3 className="text-jet mt-2 text-2xl font-bold">
-                  100 Sen. Gil Puyat Ave.
+                  {project.address1}
                 </h3>
-                <p className="text-jet text-sm">
-                  Corner Washington St., Brgy. Pio del Pilar, Makati City.
-                </p>
+                <p className="text-jet text-sm">{project.address2}</p>
               </div>
               <div className="flex-none">
                 <button className="bg-blue focus:bg-blue-ryb delay-50 py-3 px-3 text-white transition hover:opacity-90">
@@ -85,9 +93,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                       </p>
                     </div>
                     <div className="flex-1">
-                      <p className="text-jet text-lg">
-                        Bare concrete, depressed by 100mm
-                      </p>
+                      <p className="text-jet text-lg">{project.floor}</p>
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row">
@@ -97,7 +103,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                       </p>
                     </div>
                     <div className="flex-1">
-                      <p className="text-jet text-lg">Plastered finish</p>
+                      <p className="text-jet text-lg">{project.wall}</p>
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row">
@@ -107,9 +113,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                       </p>
                     </div>
                     <div className="flex-1">
-                      <p className="text-jet text-lg">
-                        Exposed concrete soffit, fire sprinkler system, FCU
-                      </p>
+                      <p className="text-jet text-lg">{project.ceiling}</p>
                     </div>
                   </div>
                   <div className="flex flex-col md:flex-row">
@@ -120,7 +124,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                     </div>
                     <div className="flex-1">
                       <p className="text-jet text-lg">
-                        Exposed concrete soffit, fire sprinkler system, FCU
+                        {project.heightClearance}
                       </p>
                     </div>
                   </div>
@@ -131,7 +135,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                       </p>
                     </div>
                     <div className="flex-1">
-                      <p className="text-jet text-lg">AC System</p>
+                      <p className="text-jet text-lg">{project.VRF}</p>
                     </div>
                   </div>
                 </div>
@@ -149,9 +153,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                         <Elevator />
                       </div>
                       <div className="flex-none">
-                        <p className="text-jet text-lg">
-                          Provided with 4 elevators (1,600 kg. each)
-                        </p>
+                        <p className="text-jet text-lg">{project.elevator}</p>
                       </div>
                     </div>
                     <div className="flex flex-col gap-6 md:flex-row">
@@ -159,10 +161,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                         <PhoneHandset />
                       </div>
                       <div className="flex-none">
-                        <p className="text-jet text-lg">
-                          Telecommunication provision for three (3) Telco
-                          service providers
-                        </p>
+                        <p className="text-jet text-lg">{project.telephone}</p>
                       </div>
                     </div>
                     <div className="flex flex-col gap-6 md:flex-row">
@@ -170,10 +169,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                         <InputPower />
                       </div>
                       <div className="flex-none">
-                        <p className="text-jet text-lg">
-                          N+1 redundancy set-up (Three (3) generators 1,000 KVA
-                          each)
-                        </p>
+                        <p className="text-jet text-lg">{project.powerInput}</p>
                       </div>
                     </div>
                     <div className="flex flex-col gap-6 md:flex-row">
@@ -182,8 +178,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                       </div>
                       <div className="flex-none">
                         <p className="text-jet text-lg">
-                          Maximum of 200 VA/sqm for lighting, outlet and small
-                          power requirements
+                          {project.powerOutput}
                         </p>
                       </div>
                     </div>
@@ -192,9 +187,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                         <PersonOutline />
                       </div>
                       <div className="flex-none">
-                        <p className="text-jet text-lg">
-                          Density of 5 sqm/person of Net Usable Area
-                        </p>
+                        <p className="text-jet text-lg">{project.people}</p>
                       </div>
                     </div>
                   </div>
@@ -243,24 +236,7 @@ const Content = ({ projects }: { projects: Project[] }) => {
                   <h3 className="text-jet text-xl font-bold">Description</h3>
                 </div>
                 <div className="flex flex-1 flex-col gap-8">
-                  <p className="text-dim-gray text-lg">
-                    Velit egestas dui id ornare arcu odio ut sem nulla. Cursus
-                    eget nunc scelerisque viverra. Aliquam purus sit amet luctus
-                    venenatis lectus magna. Faucibus in ornare quam viverra orci
-                    sagittis eu volutpat. Mattis rhoncus urna neque viverra.
-                    Vulputate dignissim suspendisse in est. Sed sed risus
-                    pretium quam. Arcu cursus euismod quis viverra nibh cras
-                    pulvinar mattis. Morbi tristique senectus et netus et.
-                  </p>
-                  <p className="text-dim-gray text-lg">
-                    Urna et pharetra pharetra massa massa. Commodo elit at
-                    imperdiet dui accumsan sit amet. Laoreet suspendisse
-                    interdum consectetur libero id faucibus nisl tincidunt.
-                    Laoreet sit amet cursus sit amet dictum sit amet justo.
-                    Purus sit amet luctus venenatis lectus magna fringilla.
-                    Pharetra convallis posuere morbi leo urna molestie at
-                    elementum eu. Arcu cursus euismod quis viverra nibh cras.
-                  </p>
+                  <p className="text-dim-gray text-lg">{project.description}</p>
                 </div>
               </div>
             </div>
@@ -270,14 +246,13 @@ const Content = ({ projects }: { projects: Project[] }) => {
               </div>
               <div className="flex flex-1 flex-col gap-8">
                 <p className="text-jet text-sm">
-                  100 Sen. Gil Puyat Ave. Corner Washington St., Brgy. Pio del
-                  Pilar, Makati City.
+                  {project.address1} {project.address2}
                 </p>
                 <Image
-                  src="/map-single-property.png"
+                  src={project.mapImage.url ? project.mapImage.url : ""}
                   width={599}
                   height={340}
-                  alt="Picture of the author"
+                  alt={project.mapImage.alt}
                 />
               </div>
             </div>
@@ -286,33 +261,39 @@ const Content = ({ projects }: { projects: Project[] }) => {
             <div className="bg-white px-9 pt-9 pb-16 shadow-xl">
               <div className="flex items-center gap-6">
                 <Image
-                  src="/constructionshared.png"
+                  src={project.managerPhoto.url ? project.managerPhoto.url : ""}
                   width={74}
                   height={74}
-                  alt="Picture of the author"
+                  alt={project.managerPhoto.alt}
                 />
                 <div>
-                  <h3 className="text-jet text-2xl font-bold">Emily Lorena</h3>
+                  <h3 className="text-jet text-2xl font-bold">
+                    {project.managerName}
+                  </h3>
                   <p className="text-jet font-bold">Manager</p>
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-6">
                 <p>Phone:</p>
                 <p className="text-blue-ryb text-xl font-bold">
-                  +63 912 2345 1122
+                  {project.managerPhone}
                 </p>
               </div>
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
                 <p>Email:</p>
                 <p className="break-words text-xl font-bold">
-                  lorenaemily@filinvest.com
+                  {project.managerEmail}
                 </p>
               </div>
               <div className="mt-4 flex flex-col gap-4">
                 <p className="text-xl font-bold">Connect with us:</p>
                 <div className="flex gap-4">
-                  <Facebook color="#DBDBDB" />
-                  <LinkedIn color="#DBDBDB" />
+                  <Link href={project.managerFacebookLink}>
+                    <Facebook color="#DBDBDB" />
+                  </Link>
+                  <Link href={project.managerLinkedinLink}>
+                    <LinkedIn color="#DBDBDB" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -323,7 +304,13 @@ const Content = ({ projects }: { projects: Project[] }) => {
         <h3 className="text-jet text-center text-4xl font-bold">
           Other Offices
         </h3>
-        <Projects projects={projects} />
+        <Projects
+          projects={[
+            project.relatedOffice1,
+            project.relatedOffice2,
+            project.relatedOffice3,
+          ]}
+        />
       </div>
     </section>
   );
