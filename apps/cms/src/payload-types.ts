@@ -899,15 +899,18 @@ export interface Site {
 export interface News {
   id: string;
   title: string;
-  slug: string;
   shortDescription: string;
   coverImage: string | File;
   content?: {
     [k: string]: unknown;
   }[];
   author: string | User;
-  newsCategory: string | NewsCategory;
-  tags: string | PropertyCategory;
+  slug?: string;
+  projectTypeTag?: string | ProjectCategory;
+  propertyTypeTag?: string | PropertyCategory;
+  locationTag?: string | LocationCategory;
+  locationGroupTag?: string | LocationGroupCategory;
+  subLocationTag?: string | SubLocationCategory;
   site: string | Site;
   _status?: "draft" | "published";
   createdAt: string;
@@ -933,9 +936,9 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "news-categories".
+ * via the `definition` "project-categories".
  */
-export interface NewsCategory {
+export interface ProjectCategory {
   id: string;
   title: string;
   createdAt: string;
@@ -946,47 +949,6 @@ export interface NewsCategory {
  * via the `definition` "property-categories".
  */
 export interface PropertyCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: string;
-  title: string;
-  slug: string;
-  price: number;
-  numberOfBedrooms?: number;
-  headerImage: string | File;
-  logo: string | File;
-  projectType: string | ProjectCategory;
-  propertyType?: string | PropertyCategory;
-  location: string | LocationCategory;
-  subLocation?: string | SubLocationCategory;
-  size: number;
-  coverImage: string | File;
-  shortDescription: string;
-  overview: {
-    [k: string]: unknown;
-  }[];
-  locationTab: {
-    [k: string]: unknown;
-  }[];
-  mapImage: string | File;
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "project-categories".
- */
-export interface ProjectCategory {
   id: string;
   title: string;
   createdAt: string;
@@ -1020,6 +982,63 @@ export interface LocationGroupCategory {
 export interface SubLocationCategory {
   id: string;
   title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  dataType?: "regular" | "office";
+  title: string;
+  slug?: string;
+  headerImage: string | File;
+  logo: string | File;
+  price: number;
+  numberOfStaffRoom: number;
+  numberOfBathrooms: number;
+  numberOfBedrooms?: number;
+  address1: string;
+  address2: string;
+  floor: string;
+  wall: string;
+  ceiling: string;
+  heightClearance: string;
+  VRF: string;
+  elevator: string;
+  telephone: string;
+  powerInput: string;
+  powerOutput: string;
+  people: string;
+  description: string;
+  projectType: string | ProjectCategory;
+  propertyType?: string | PropertyCategory;
+  size: number;
+  coverImage: string | File;
+  shortDescription: string;
+  overview: {
+    [k: string]: unknown;
+  }[];
+  locationTab: {
+    [k: string]: unknown;
+  }[];
+  location: string | LocationCategory;
+  locationGroup: string | LocationGroupCategory;
+  subLocation?: string | SubLocationCategory;
+  mapImage: string | File;
+  managerName: string;
+  managerPhoto: string | File;
+  managerPhone: string;
+  managerEmail: string;
+  managerFacebookLink: string;
+  managerLinkedinLink: string;
+  relatedOffice1: string | Project;
+  relatedOffice2: string | Project;
+  relatedOffice3: string | Project;
+  site: string | Site;
+  _status?: "draft" | "published";
   createdAt: string;
   updatedAt: string;
 }

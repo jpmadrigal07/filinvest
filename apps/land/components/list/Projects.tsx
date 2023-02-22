@@ -21,7 +21,7 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
       {projects.map((project) => {
         return (
           <Link
-            href={`/${project.slug}`}
+            href={`/projects/${project.slug}`}
             className="opacity-100 transition duration-150 hover:opacity-70"
           >
             <div className="flex flex-1 flex-col gap-4">
