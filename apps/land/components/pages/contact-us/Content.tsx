@@ -1,12 +1,37 @@
+"use client";
 import BorderButton from "@/components/button/BorderButton";
 import ROUTES from "@/helpers/routes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "100%",
+  height: "800px",
+};
+
+const center = {
+  lat: 14.5752826,
+  lng: 121.0490635,
+};
 
 const Content = () => {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyB-Og1uzNQZVJ6Onne-56491DlQ1IMlovY",
+  });
   const { PRIVACY_POLICY, TERMS_OF_USE } = ROUTES;
 
+  const renderMap = () => {
+    return isLoaded ? (
+      <GoogleMap mapContainerStyle={containerStyle} zoom={18} center={center}>
+        <Marker position={center} />
+      </GoogleMap>
+    ) : (
+      <></>
+    );
+  };
   return (
     <section className="mt-24">
       <div className="mx-9 flex flex-col gap-24 md:flex-row xl:mx-16 2xl:mx-44">
@@ -210,13 +235,14 @@ const Content = () => {
         </div>
       </div>
       <div className="mt-32">
-        <Image
+        {/* <Image
           src="/filinvest-gmaps.png"
           width={1434}
           height={375}
           alt="Picture of the author"
           className="w-full"
-        />
+        /> */}
+        {renderMap()}
       </div>
     </section>
   );

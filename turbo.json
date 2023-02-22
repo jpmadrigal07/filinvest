@@ -9,7 +9,8 @@
         "NODE_ENV",
         "CMS_SECRET",
         "MONGODB_URL",
-        "PAYLOAD_SEED"
+        "PAYLOAD_SEED",
+        "WEB_URL"
       ]
     },
     "lint": {

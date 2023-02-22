@@ -27,5 +27,6 @@ module.exports = {
   },
   env: {
     CMS_API_URL: process.env.CMS_API_URL,
+    WEB_URL: process.env.WEB_URL,
   },
 };

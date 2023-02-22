@@ -38,13 +38,18 @@ export interface Site {
 export interface News {
   id: string;
   title: string;
-  slug: string;
+  shortDescription: string;
   coverImage: File;
   content?: {
     [k: string]: unknown;
   }[];
   author: User;
-  newsCategory: NewsCategory;
+  slug?: string;
+  projectTypeTag?: ProjectCategory;
+  propertyTypeTag?: PropertyCategory;
+  locationTag?: LocationCategory;
+  locationGroupTag?: LocationGroupCategory;
+  subLocationTag?: SubLocationCategory;
   site: Site;
   _status?: "draft" | "published";
   createdAt: string;
@@ -101,15 +106,36 @@ export interface NewsCategory {
  */
 export interface Project {
   id: string;
+  dataType?: "regular" | "office";
   title: string;
-  slug: string;
+  slug?: string;
+  headerImage: File;
   logo: File;
   price: number;
-  headerImage: File;
+  numberOfStaffRoom: number;
+  numberOfBathrooms: number;
+  numberOfBedrooms?: number;
+  address1: string;
+  address2: string;
+  floor: string;
+  wall: string;
+  ceiling: string;
+  heightClearance: string;
+  VRF: string;
+  elevator: string;
+  telephone: string;
+  powerInput: string;
+  powerOutput: string;
+  people: string;
+  description: string;
   projectType: ProjectCategory;
+  propertyType?: PropertyCategory;
   location: LocationCategory;
-  size: string;
+  locationGroup: LocationGroupCategory;
+  subLocation?: SubLocationCategory;
+  size: number;
   coverImage: File;
+  shortDescription: string;
   overview: {
     [k: string]: unknown;
   }[];
@@ -117,6 +143,15 @@ export interface Project {
     [k: string]: unknown;
   }[];
   mapImage: File;
+  managerName: string;
+  managerPhoto: File;
+  managerPhone: string;
+  managerEmail: string;
+  managerFacebookLink: string;
+  managerLinkedinLink: string;
+  relatedOffice1: Project;
+  relatedOffice2: Project;
+  relatedOffice3: Project;
   site: Site;
   _status?: "draft" | "published";
   createdAt: string;
