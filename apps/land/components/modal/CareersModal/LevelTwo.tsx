@@ -1,6 +1,17 @@
+"use client";
 import React, { Dispatch } from "react";
 
-const LevelTwo = ({ setLevel }: { setLevel: Dispatch<number> }) => {
+const LevelTwo = ({
+  setLevel,
+  register,
+  getValues,
+  onSubmit,
+}: {
+  setLevel: Dispatch<number>;
+  register: any;
+  getValues: any;
+  onSubmit: any;
+}) => {
   return (
     <div className="flex flex-col gap-4">
       <h3 className="text-dark-cornflower-blue text-xl font-bold">{`Applicant Privacy Statement`}</h3>
@@ -179,9 +190,9 @@ const LevelTwo = ({ setLevel }: { setLevel: Dispatch<number> }) => {
             <input
               id="privacy"
               aria-describedby="privacy"
-              name="privacy"
               type="checkbox"
               className="text-dark-cornflower-blue focus:ring-none h-4 w-4 rounded border-gray-300"
+              {...register("privacy", { required: true })}
             />
           </div>
           <div className="ml-3">
@@ -201,8 +212,18 @@ const LevelTwo = ({ setLevel }: { setLevel: Dispatch<number> }) => {
             Back
           </button>
         </div>
-        <button className="bg-blue-ryb w-44 flex-none rounded-full p-3 text-white">
-          Next
+        <button
+          className="bg-blue-ryb w-44 flex-none rounded-full p-3 text-white"
+          onClick={() => {
+            const values = getValues();
+            if (values.privacy) {
+              onSubmit();
+            } else {
+              alert("Please accept the privacy terms");
+            }
+          }}
+        >
+          Submit
         </button>
       </div>
     </div>
