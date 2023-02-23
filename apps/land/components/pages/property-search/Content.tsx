@@ -3,17 +3,14 @@ import PropertySearch from "@/components/search/PropertySearch";
 import React, { useEffect, useState } from "react";
 import TileProjects from "@/components/list/TileProjects";
 import { Project } from "shared-types";
-import Link from "next/link";
-import BorderButton from "@/components/button/BorderButton";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
-import { useSearchParams } from "next/navigation";
 import useGetNews from "../../../hooks/useGetNews";
+import { T_SearchQuery } from "@/types/global";
 
 const Content = () => {
-  const searchParams = useSearchParams();
-  const propertyType = searchParams.get("propertyType");
+  const [searchParams, setSearchParams] = useState<T_SearchQuery | null>(null);
   const { data } = useGetNews({
-    searchParams: propertyType ? propertyType : "",
+    searchParams,
   });
   const [projects, setProjects] = useState<Project[]>([]);
   const [isPropertyLoading, setIsPropertyLoading] = useState<boolean>(false);
@@ -28,6 +25,7 @@ const Content = () => {
         onPropertyResultChange={setProjects}
         showSearch={false}
         onLoading={setIsPropertyLoading}
+        setSearchParams={setSearchParams}
       />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         {!isPropertyLoading ? (
@@ -43,7 +41,7 @@ const Content = () => {
         )}
       </div>
       <div className="bg-ghost-white mt-24 flex flex-col items-center py-24">
-        <section>
+        <section className="w-full">
           <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
             <h3 className="text-jet flex-none text-4xl font-bold">
               Related Articles
