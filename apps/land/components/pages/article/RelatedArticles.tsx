@@ -1,17 +1,38 @@
+"use client";
+import FeaturedArticles from "@/components/list/FeaturedArticles";
 import React from "react";
-import NewsTileList from "../news/NewsTileList";
+import useGetNews from "../../../hooks/useGetNews";
 
-async function getRelatedNews() {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/news`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const jsonData = await res.json();
-  return jsonData.docs ? jsonData.docs : null;
-}
-
-const RelatedArticles = async () => {
-  const news = await getRelatedNews();
+const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
+  const query = {
+    propertyType: selectedNews?.propertyType.title
+      ? selectedNews.propertyType.title
+      : "",
+    location: selectedNews?.location.title ? selectedNews.location.title : "",
+    unitSize: "",
+    unitSizeFrom: 0,
+    unitSizeTo: 0,
+    bedroomsFrom: 0,
+    bedroomsTo: 0,
+    priceRangeFrom: 0,
+    priceRangeTo: 0,
+    priceRange: [0, 0],
+    brand: selectedNews?.brand.title ? selectedNews.brand.title : "",
+    subLocation: selectedNews?.subLocation.title
+      ? selectedNews.subLocation.title
+      : "",
+    projectType: selectedNews?.projectType.title
+      ? selectedNews.projectType.title
+      : "",
+    locationGroup: selectedNews?.locationGroup.title
+      ? selectedNews.locationGroup.title
+      : "",
+    propertyName: "",
+    bedrooms: "",
+  };
+  const { data } = useGetNews({
+    searchParams: query,
+  });
   return (
     <>
       <div className="mt-24 flex w-full items-center gap-8">
@@ -20,7 +41,11 @@ const RelatedArticles = async () => {
         </h3>
         <hr className="w-full flex-1" />
       </div>
-      <NewsTileList news={news} className="mb-24" />
+      <FeaturedArticles
+        className="mt-16 mb-24"
+        sliderOnMobile
+        articles={data ? data : []}
+      />
     </>
   );
 };
