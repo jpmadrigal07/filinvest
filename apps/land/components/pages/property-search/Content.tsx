@@ -3,8 +3,6 @@ import PropertySearch from "@/components/search/PropertySearch";
 import React, { useEffect, useState } from "react";
 import TileProjects from "@/components/list/TileProjects";
 import { Project } from "shared-types";
-import Link from "next/link";
-import BorderButton from "@/components/button/BorderButton";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 import { useSearchParams } from "next/navigation";
 import useGetNews from "../../../hooks/useGetNews";

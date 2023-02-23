@@ -10,7 +10,9 @@
         "CMS_SECRET",
         "MONGODB_URL",
         "PAYLOAD_SEED",
-        "WEB_URL"
+        "WEB_URL",
+        "MANATAL_TOKEN",
+        "GMAPS_TOKEN"
       ]
     },
     "lint": {

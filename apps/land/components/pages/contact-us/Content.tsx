@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 const containerStyle = {
   width: "100%",
@@ -17,9 +19,11 @@ const center = {
 };
 
 const Content = () => {
+  const { register, handleSubmit } = useForm();
+  const router = useRouter();
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyB-Og1uzNQZVJ6Onne-56491DlQ1IMlovY",
+    googleMapsApiKey: process.env.GMAPS_TOKEN as string,
   });
   const { PRIVACY_POLICY, TERMS_OF_USE } = ROUTES;
 
@@ -32,6 +36,13 @@ const Content = () => {
       <></>
     );
   };
+  const onSubmit = (data: any) => {
+    if (data.privacy) {
+      router.push(`/contact-us/submit?data=${JSON.stringify(data)}`);
+    } else {
+      alert("Please agree with our privacy and terms");
+    }
+  };
   return (
     <section className="mt-24">
       <div className="mx-9 flex flex-col gap-24 md:flex-row xl:mx-16 2xl:mx-44">
@@ -40,21 +51,39 @@ const Content = () => {
             Send us a message
           </h2>
           <div className="mt-8">
-            <form>
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Full Name<span className="text-red">*</span>
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
-                  />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    First Name<span className="text-red">*</span>
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      id="firstName"
+                      className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
+                      {...register("firstName", { required: true })}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Last Name<span className="text-red">*</span>
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      id="lastName"
+                      className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
+                      {...register("lastName", { required: true })}
+                    />
+                  </div>
                 </div>
               </div>
               <div className="mt-4">
@@ -67,9 +96,9 @@ const Content = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="contact"
                     id="contact"
                     className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
+                    {...register("contact", { required: true })}
                   />
                 </div>
               </div>
@@ -82,10 +111,9 @@ const Content = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                    type="text"
-                    name="email"
                     id="email"
                     className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
+                    {...register("email", { required: true })}
                   />
                 </div>
               </div>
@@ -99,10 +127,10 @@ const Content = () => {
                 <div className="mt-2">
                   <textarea
                     rows={4}
-                    name="message"
                     id="message"
                     className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
                     defaultValue={""}
+                    {...register("notes", { required: true })}
                   />
                 </div>
               </div>
@@ -111,9 +139,9 @@ const Content = () => {
                   <input
                     id="privacy"
                     aria-describedby="privacy"
-                    name="candidates"
                     type="checkbox"
                     className="text-dark-cornflower-blue focus:ring-none h-4 w-4 rounded border-gray-300"
+                    {...register("privacy")}
                   />
                 </div>
                 <div className="ml-3 text-sm">
@@ -142,11 +170,13 @@ const Content = () => {
                 </div>
               </div>
               <div className="mt-12 flex justify-end">
-                <BorderButton
-                  buttonText="Submit"
-                  textColor="dark-cornflower-blue"
-                  borderColor="dark-cornflower-blue"
-                />
+                <button type="submit">
+                  <BorderButton
+                    buttonText="Submit"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </button>
               </div>
             </form>
           </div>
@@ -234,16 +264,7 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <div className="mt-32">
-        {/* <Image
-          src="/filinvest-gmaps.png"
-          width={1434}
-          height={375}
-          alt="Picture of the author"
-          className="w-full"
-        /> */}
-        {renderMap()}
-      </div>
+      <div className="mt-32">{renderMap()}</div>
     </section>
   );
 };
