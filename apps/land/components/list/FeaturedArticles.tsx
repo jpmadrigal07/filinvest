@@ -26,7 +26,11 @@ const FeaturedArticles = ({
 }: T_ArticlesList) => {
   const swiperRef = useRef();
   if (articles.length === 0)
-    return <div className="text-gainsboro mt-12 text-xl italic">No result</div>;
+    return (
+      <div className="text-gainsboro mt-12 mb-24 w-full text-xl italic">
+        No result
+      </div>
+    );
   return (
     <div className={className}>
       <div

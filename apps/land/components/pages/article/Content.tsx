@@ -132,8 +132,7 @@ const Content = (props: News) => {
               </div>
             </div>
           </div>
-          {/* @ts-expect-error Server Component */}
-          <RelatedArticles />
+          <RelatedArticles selectedNews={props} />
         </div>
       </section>
     </>

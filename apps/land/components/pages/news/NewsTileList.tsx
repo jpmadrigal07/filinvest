@@ -30,17 +30,17 @@ const NewsTileList = ({
             return (
               <span
                 onClick={() => router.push(`/article/${item.slug}`)}
-                className={`flex ${
+                className={`grid ${
                   position === "grid"
-                    ? "flex-col gap-4"
-                    : "flex-row items-center gap-16"
-                } cursor-pointer`}
+                    ? "grid-cols-1 gap-4"
+                    : "grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-16"
+                } cursor-pointer transition delay-150 hover:opacity-70`}
               >
                 <div className="bg-ghost-white">
                   <Image
                     src={`${item.coverImage.url}`}
-                    width={position === "grid" ? 1364 : 663}
-                    height={position === "grid" ? 663 : 663}
+                    width={1364}
+                    height={663}
                     alt={item.coverImage.alt}
                   />
                 </div>
@@ -67,7 +67,7 @@ const NewsTileList = ({
           })}
         </div>
       ) : (
-        <h3 className="text-silver-chalice text-xl italic">No news found.</h3>
+        <h3 className="text-silver-chalice text-xl italic">No result</h3>
       )}
     </>
   );

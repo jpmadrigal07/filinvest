@@ -32,6 +32,7 @@ async function getNewsContent(slug: string) {
 
 export default async function Head({ params: { newsId } }: PageProps) {
   const content = await getNewsContent(newsId);
+  console.log("asdasd", content);
   if (!content) {
     return (
       <>
