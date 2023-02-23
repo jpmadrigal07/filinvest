@@ -1,11 +1,7 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/careers/constants";
-type PageProps = {
-  searchParams: {
-    data: any;
-  };
-};
-export async function submitCareers(careerData: any) {
+
+async function submitCareers(careerData: any) {
   if (careerData) {
     const data = {
       full_name: `${careerData.firstName} ${careerData.lastName}`,
@@ -31,9 +27,11 @@ export async function submitCareers(careerData: any) {
     return null;
   }
 }
-const CareersSubmitPage = async ({ searchParams: { data } }: PageProps) => {
+const CareersSubmitPage = async ({ searchParams }: any) => {
   const { title, breadcrumbs, image } = HEADER_INFO.careers;
-  const submit = await submitCareers(data ? JSON.parse(data) : null);
+  const submit = await submitCareers(
+    searchParams && searchParams.data ? JSON.parse(searchParams.data) : null
+  );
   return (
     <>
       <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />

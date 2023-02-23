@@ -1,13 +1,7 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/contact-us/constants";
 
-type PageProps = {
-  searchParams: {
-    data: any;
-  };
-};
-
-export async function getToken() {
+async function getToken() {
   const headers = new Headers();
   headers.append("Content-Type", "application/x-www-form-urlencoded");
   const urlencoded = new URLSearchParams();
@@ -33,7 +27,7 @@ export async function getToken() {
   return jsonData;
 }
 
-export async function submitContact(token: any, contactData: any) {
+async function submitContact(token: any, contactData: any) {
   if (token && contactData) {
     const data = {
       data: [
@@ -64,10 +58,13 @@ export async function submitContact(token: any, contactData: any) {
   }
 }
 
-const ContactUsSubmitPage = async ({ searchParams: { data } }: PageProps) => {
+const ContactUsSubmitPage = async ({ searchParams }: any) => {
   const { title, breadcrumbs, image } = HEADER_INFO.contactUs;
   const token = await getToken();
-  const submit = await submitContact(token, data ? JSON.parse(data) : null);
+  const submit = await submitContact(
+    token,
+    searchParams && searchParams.data ? JSON.parse(searchParams.data) : null
+  );
   return (
     <>
       <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
