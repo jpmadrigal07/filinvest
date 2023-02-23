@@ -5,10 +5,10 @@ import useGetNews from "../../../hooks/useGetNews";
 
 const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
   const query = {
-    propertyType: selectedNews?.propertyType.title
+    propertyType: selectedNews?.propertyType?.title
       ? selectedNews.propertyType.title
       : "",
-    location: selectedNews?.location.title ? selectedNews.location.title : "",
+    location: selectedNews?.location?.title ? selectedNews.location.title : "",
     unitSize: "",
     unitSizeFrom: 0,
     unitSizeTo: 0,
@@ -17,14 +17,14 @@ const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
     priceRangeFrom: 0,
     priceRangeTo: 0,
     priceRange: [0, 0],
-    brand: selectedNews?.brand.title ? selectedNews.brand.title : "",
-    subLocation: selectedNews?.subLocation.title
+    brand: selectedNews?.brand?.title ? selectedNews.brand.title : "",
+    subLocation: selectedNews?.subLocation?.title
       ? selectedNews.subLocation.title
       : "",
-    projectType: selectedNews?.projectType.title
+    projectType: selectedNews?.projectType?.title
       ? selectedNews.projectType.title
       : "",
-    locationGroup: selectedNews?.locationGroup.title
+    locationGroup: selectedNews?.locationGroup?.title
       ? selectedNews.locationGroup.title
       : "",
     propertyName: "",

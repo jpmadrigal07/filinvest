@@ -11,6 +11,7 @@ import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
 import BorderButton from "../button/BorderButton";
 import moment from "moment";
+import useGetNews from "../../hooks/useGetNews";
 
 type T_ArticlesList = {
   sliderOnMobile?: boolean;
@@ -24,8 +25,31 @@ const FeaturedArticles = ({
   className,
   articles = [],
 }: T_ArticlesList) => {
+  const query = {
+    propertyType: "",
+    location: "",
+    unitSize: "",
+    unitSizeFrom: 0,
+    unitSizeTo: 0,
+    bedroomsFrom: 0,
+    bedroomsTo: 0,
+    priceRangeFrom: 0,
+    priceRangeTo: 0,
+    priceRange: [0, 0],
+    brand: "All",
+    subLocation: "",
+    projectType: "",
+    locationGroup: "",
+    propertyName: "",
+    bedrooms: "",
+  };
+  const { data } = useGetNews({
+    searchParams: query,
+  });
   const swiperRef = useRef();
-  if (articles.length === 0)
+  const updatedArticle =
+    articles.length > 0 ? articles : data && data.length > 0 ? data : [];
+  if (updatedArticle.length === 0)
     return (
       <div className="text-gainsboro mt-12 mb-24 w-full text-xl italic">
         No result
@@ -38,7 +62,7 @@ const FeaturedArticles = ({
           sliderOnMobile ? "hidden md:grid" : ""
         } grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3`}
       >
-        {articles.map((article, index) => {
+        {updatedArticle.map((article: any, index: any) => {
           return (
             <Link
               href={`/article/${article.slug}`}
@@ -106,7 +130,7 @@ const FeaturedArticles = ({
           modules={[Navigation]}
           className="mySwiper"
         >
-          {articles.map((article, index) => {
+          {updatedArticle.map((article: any, index: any) => {
             return (
               <SwiperSlide key={index}>
                 <Link href={`/article/${article.slug}`}>

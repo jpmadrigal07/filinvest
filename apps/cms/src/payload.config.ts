@@ -61,7 +61,7 @@ export default buildConfig({
   ],
   plugins: [
     seo({
-      collections: ["news", "projects"],
+      collections: ["news", "projects", "pages"],
       uploadsCollection: "files",
     }),
   ],
