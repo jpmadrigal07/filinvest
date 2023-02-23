@@ -2,12 +2,12 @@ import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import React from "react";
 import LinkedIn from "@/components/svg/LinkedIn";
 
-const Content = () => {
+const CompanyPolicies = ({ content }: any) => {
   return (
     <section className="mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div className="divide-gainsboro mx-3 flex flex-col justify-center divide-y">
         <div className="flex items-start gap-12 pb-8">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -22,7 +22,7 @@ const Content = () => {
           </div>
         </div>
         <div className="flex items-start gap-12 py-12">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -39,7 +39,7 @@ const Content = () => {
           </div>
         </div>
         <div className="flex items-start gap-12 pt-12 pb-24">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -81,7 +81,7 @@ const Content = () => {
           </div>
         </div>
         <div className="flex items-start gap-12 py-12">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -110,7 +110,7 @@ const Content = () => {
       </div>
       <div className="divide-gainsboro mx-3 mt-12 flex flex-col justify-center divide-y">
         <div className="flex items-start gap-12 pb-8">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -136,7 +136,7 @@ const Content = () => {
           </div>
         </div>
         <div className="flex items-start gap-12 py-12">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -153,7 +153,7 @@ const Content = () => {
           </div>
         </div>
         <div className="flex items-start gap-12 pt-12 pb-24">
-          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full px-4 py-4 shadow-2xl">
+          <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-4 px-4 shadow-2xl">
             <LinkedIn />
           </div>
           <div className="flex-1">
@@ -200,4 +200,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default CompanyPolicies;

@@ -11,6 +11,7 @@ import StockReport from "@/components/pages/home/StockReport";
 
 async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  console.log(res);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
