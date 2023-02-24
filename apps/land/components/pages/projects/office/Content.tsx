@@ -20,7 +20,7 @@ const Content = ({ project }: { project: Project }) => {
   return (
     <section>
       <MainHeader
-        otherUrl={`${process.env.CMS_API_URL}${encodeURI(
+        otherUrl={`${process.env.CMS_URL}${encodeURI(
           // @ts-expect-error
           project.headerImage.url
         )}`}

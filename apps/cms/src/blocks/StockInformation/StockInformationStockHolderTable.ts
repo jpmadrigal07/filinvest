@@ -32,7 +32,7 @@ const StockInformationStockHolderTable: Block = {
         },
         {
           type: "text",
-          name: "%ToTotalOutstanding",
+          name: "toTotalOutstanding",
           required: true,
         },
       ],

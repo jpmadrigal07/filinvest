@@ -2,7 +2,7 @@ import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/news/Content";
 
 async function getNews() {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/news`);
+  const res = await fetch(`${process.env.CMS_URL}/api/news`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

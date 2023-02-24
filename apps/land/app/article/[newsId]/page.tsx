@@ -21,7 +21,7 @@ async function getNewsContent(slug: string) {
     { addQueryPrefix: true }
   );
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}`,
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}`,
     { cache: "force-cache" }
   );
   if (!res.ok) {
