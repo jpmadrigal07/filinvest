@@ -5,87 +5,29 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
-export interface Config {}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "navigation".
- */
-export interface Navigation {
-  id: string;
-  mainMenu: {
-    link: {
-      type?: "reference" | "custom";
-      newTab?: boolean;
-      reference: {
-        value: string | Page;
-        relationTo: "pages";
-      };
-      url: string;
-      label: string;
-      description?: string;
-    };
-    firstFeaturedSlug?:
-      | {
-          value: string | News;
-          relationTo: "news";
-        }
-      | {
-          value: string | Project;
-          relationTo: "projects";
-        }
-      | {
-          value: string | Award;
-          relationTo: "awards";
-        };
-    secondFeaturedSlug?:
-      | {
-          value: string | News;
-          relationTo: "news";
-        }
-      | {
-          value: string | Project;
-          relationTo: "projects";
-        }
-      | {
-          value: string | Award;
-          relationTo: "awards";
-        };
-    subMenu: {
-      link: {
-        type?: "reference" | "custom";
-        newTab?: boolean;
-        reference: {
-          value: string | Page;
-          relationTo: "pages";
-        };
-        url: string;
-        label: string;
-        description?: string;
-      };
-      featured?:
-        | {
-            value: string | News;
-            relationTo: "news";
-          }
-        | {
-            value: string | Project;
-            relationTo: "projects";
-          }
-        | {
-            value: string | Award;
-            relationTo: "awards";
-          };
-      id?: string;
-    }[];
-    id?: string;
-  }[];
-  callToActionText: string;
-  callToActionLink: string;
+export interface Config {
+  collections: {
+    pages: Page;
+    news: News;
+    projects: Project;
+    awards: Award;
+    careers: Career;
+    users: User;
+    sites: Site;
+    "career-categories": CareerCategory;
+    "project-categories": ProjectCategory;
+    "property-categories": PropertyCategory;
+    "location-group-categories": LocationGroupCategory;
+    "location-categories": LocationCategory;
+    "sub-location-categories": SubLocationCategory;
+    files: File;
+  };
+  globals: {
+    navigation: Navigation;
+    footer: Footer;
+    "property-search": PropertySearch;
+  };
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
 export interface Page {
   id: string;
   title: string;
@@ -473,7 +415,7 @@ export interface Page {
         rowData: {
           shareholder: string;
           numberOfSharesHeld: string;
-          "%ToTotalOutstanding": string;
+          toTotalOutstanding: string;
           id?: string;
         }[];
         id?: string;
@@ -796,11 +738,11 @@ export interface Page {
         blockType: "co-living-title-and-text";
       }
     | {
-        "co-living": {
-          "co-LivingImage": string | File;
-          "co-livingName": string;
-          "co-livingLink": string;
-          "co-livingLocation": string;
+        coLiving: {
+          coLivingImage: string | File;
+          coLivingName: string;
+          coLivingLink: string;
+          coLivingLocation: string;
           id?: string;
         }[];
         id?: string;
@@ -859,16 +801,84 @@ export interface Page {
         blockName?: string;
         blockType: "next-link";
       }
+    | {
+        news: {
+          image: string | File;
+          title: string;
+          header: string;
+          readMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "news-news";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "residential-title-and-text";
+      }
+    | {
+        prestigeImage: string | File;
+        title: string;
+        description: string;
+        readMoreLink: string;
+        prestigeHomes: {
+          homeImage: string | File;
+          homeName: string;
+          homeDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-prestige";
+      }
+    | {
+        aspireImage: string | File;
+        title: string;
+        description: string;
+        readMoreLink: string;
+        aspireHomes: {
+          homeImage: string | File;
+          homeName: string;
+          homeDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-aspire";
+      }
+    | {
+        futuraImage: string | File;
+        title: string;
+        description: string;
+        readMoreLink: string;
+        futuraHomes: {
+          homeImage: string | File;
+          homeName: string;
+          homeDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-futura";
+      }
   )[];
   site: string | Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | File;
+  };
   _status?: "draft" | "published";
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "files".
- */
 export interface File {
   id: string;
   alt: string;
@@ -882,20 +892,12 @@ export interface File {
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sites".
- */
 export interface Site {
   id: string;
   title: string;
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "news".
- */
 export interface News {
   id: string;
   title: string;
@@ -912,14 +914,15 @@ export interface News {
   locationGroupTag?: string | LocationGroupCategory;
   subLocationTag?: string | SubLocationCategory;
   site: string | Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | File;
+  };
   _status?: "draft" | "published";
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
 export interface User {
   id: string;
   firstName: string;
@@ -933,31 +936,20 @@ export interface User {
   lockUntil?: string;
   createdAt: string;
   updatedAt: string;
+  password?: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "project-categories".
- */
 export interface ProjectCategory {
   id: string;
   title: string;
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "property-categories".
- */
 export interface PropertyCategory {
   id: string;
   title: string;
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "location-categories".
- */
 export interface LocationCategory {
   id: string;
   title: string;
@@ -965,30 +957,18 @@ export interface LocationCategory {
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "location-group-categories".
- */
 export interface LocationGroupCategory {
   id: string;
   title: string;
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sub-location-categories".
- */
 export interface SubLocationCategory {
   id: string;
   title: string;
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
 export interface Project {
   id: string;
   dataType?: "regular" | "office";
@@ -1038,14 +1018,15 @@ export interface Project {
   relatedOffice2: string | Project;
   relatedOffice3: string | Project;
   site: string | Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | File;
+  };
   _status?: "draft" | "published";
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "awards".
- */
 export interface Award {
   id: string;
   title: string;
@@ -1056,10 +1037,100 @@ export interface Award {
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "footer".
- */
+export interface Career {
+  id: string;
+  title: string;
+  location: string;
+  responsibilities: {
+    [k: string]: unknown;
+  }[];
+  requirements: {
+    [k: string]: unknown;
+  }[];
+  careersCategory: string | CareerCategory;
+  site: string | Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface CareerCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Navigation {
+  id: string;
+  mainMenu: {
+    link: {
+      type?: "reference" | "custom";
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: "pages";
+      };
+      url: string;
+      label: string;
+      description?: string;
+    };
+    firstFeaturedSlug?:
+      | {
+          value: string | News;
+          relationTo: "news";
+        }
+      | {
+          value: string | Project;
+          relationTo: "projects";
+        }
+      | {
+          value: string | Award;
+          relationTo: "awards";
+        };
+    secondFeaturedSlug?:
+      | {
+          value: string | News;
+          relationTo: "news";
+        }
+      | {
+          value: string | Project;
+          relationTo: "projects";
+        }
+      | {
+          value: string | Award;
+          relationTo: "awards";
+        };
+    subMenu: {
+      link: {
+        type?: "reference" | "custom";
+        newTab?: boolean;
+        reference: {
+          value: string | Page;
+          relationTo: "pages";
+        };
+        url: string;
+        label: string;
+        description?: string;
+      };
+      featured?:
+        | {
+            value: string | News;
+            relationTo: "news";
+          }
+        | {
+            value: string | Project;
+            relationTo: "projects";
+          }
+        | {
+            value: string | Award;
+            relationTo: "awards";
+          };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+  callToActionText: string;
+  callToActionLink: string;
+}
 export interface Footer {
   id: string;
   filinvestLogo: string | File;
@@ -1115,10 +1186,6 @@ export interface Footer {
   linkedInLink?: string;
   twitterLink?: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "property-search".
- */
 export interface PropertySearch {
   id: string;
   pricePoints: {
@@ -1171,34 +1238,4 @@ export interface PropertySearch {
     bedroomTo: number;
     id?: string;
   }[];
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "careers".
- */
-export interface Career {
-  id: string;
-  title: string;
-  location: string;
-  responsibilities: {
-    [k: string]: unknown;
-  }[];
-  requirements: {
-    [k: string]: unknown;
-  }[];
-  careersCategory: string | CareerCategory;
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "career-categories".
- */
-export interface CareerCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
 }

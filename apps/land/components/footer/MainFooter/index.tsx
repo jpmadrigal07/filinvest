@@ -40,9 +40,9 @@ const MainFooter = () => {
           <h3 className="text-md font-bold text-white">Quick Links</h3>
           <ul className="flex list-none flex-col gap-3 text-white">
             {!isLoading && footerRes.quickLinks
-              ? footerRes.quickLinks.map((link: any) => {
+              ? footerRes.quickLinks.map((link: any, index: number) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <Link href={link.link.url} className="hover:underline">
                         {link.link.label}
                       </Link>
@@ -56,9 +56,9 @@ const MainFooter = () => {
           <h3 className="text-md font-bold text-white">Filinvest Land</h3>
           <ul className="flex list-none flex-col gap-3 text-white">
             {!isLoading && footerRes.filinvestLand
-              ? footerRes.filinvestLand.map((link: any) => {
+              ? footerRes.filinvestLand.map((link: any, index: number) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <Link href={link.link.url} className="hover:underline">
                         {link.link.label}
                       </Link>
@@ -150,11 +150,12 @@ const MainFooter = () => {
         </div>
         <div className="flex gap-7 lg:justify-end">
           {!isLoading && footerRes.bottomRightLinks
-            ? footerRes.bottomRightLinks.map((link: any) => {
+            ? footerRes.bottomRightLinks.map((link: any, index: number) => {
                 return (
                   <Link
                     href={link.link.url}
                     className="text-white hover:underline"
+                    key={index}
                   >
                     {link.link.label}
                   </Link>

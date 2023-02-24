@@ -77,7 +77,6 @@ const HomeHeroSection: Block = {
       required: true,
     },
     {
-      label: "Prestige",
       type: "row",
       fields: [
         {
@@ -106,7 +105,6 @@ const HomeHeroSection: Block = {
       ],
     },
     {
-      label: "Futura",
       type: "row",
       fields: [
         {
@@ -135,7 +133,6 @@ const HomeHeroSection: Block = {
       ],
     },
     {
-      label: "Aspire",
       type: "row",
       fields: [
         {

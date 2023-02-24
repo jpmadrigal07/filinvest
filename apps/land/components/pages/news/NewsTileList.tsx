@@ -26,7 +26,7 @@ const NewsTileList = ({
               : "grid-cols-1"
           } mt-12 gap-x-9 gap-y-20 ${className}`}
         >
-          {news.map((item: any) => {
+          {news.map((item: any, index: number) => {
             return (
               <span
                 onClick={() => router.push(`/article/${item.slug}`)}
@@ -35,6 +35,7 @@ const NewsTileList = ({
                     ? "grid-cols-1 gap-4"
                     : "grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-16"
                 } cursor-pointer transition delay-150 hover:opacity-70`}
+                key={index}
               >
                 <div className="bg-ghost-white">
                   <Image

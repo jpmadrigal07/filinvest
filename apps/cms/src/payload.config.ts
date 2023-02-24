@@ -21,7 +21,6 @@ import { SubLocationCategories } from "./collections/SubLocationCategories";
 import { Navigation } from "./globals/Navigation";
 import { Footer } from "./globals/Footer";
 
-import { seed } from "./seed";
 import Logo from "./graphics/Logo";
 import Icon from "./graphics/Icon";
 import { PropertySearch } from "./globals/PropertySearch";
@@ -69,10 +68,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
-  onInit: async (payload) => {
-    // If the `env` var `PAYLOAD_SEED` is set, seed the db
-    if (process.env.PAYLOAD_SEED) {
-      await seed(payload);
-    }
+  graphQL: {
+    schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
 });

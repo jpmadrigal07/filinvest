@@ -20,7 +20,7 @@ async function getProjectContent(slug: string) {
     { addQueryPrefix: true }
   );
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/projects${stringifiedQuery}`,
+    `${process.env.CMS_URL}/api/projects${stringifiedQuery}`,
     { cache: "force-cache" }
   );
   if (!res.ok) {
@@ -60,13 +60,13 @@ export default async function Head({ params: { projectSlug } }: PageProps) {
       />
       <meta
         property="og:url"
-        content={`${process.env.WEB_URL}/project/${content.slug}`}
+        content={`${process.env.LAND_URL}/project/${content.slug}`}
       />
       <meta
         property="og:image"
         content={
           content.meta && content.meta.image
-            ? `${process.env.WEB_URL}${content.meta.image.url}`
+            ? `${process.env.LAND_URL}${content.meta.image.url}`
             : ""
         }
       />
@@ -83,7 +83,7 @@ export default async function Head({ params: { projectSlug } }: PageProps) {
         name="twitter:image"
         content={
           content.meta && content.meta.image
-            ? `${process.env.WEB_URL}${content.meta.image.url}`
+            ? `${process.env.LAND_URL}${content.meta.image.url}`
             : ""
         }
       />

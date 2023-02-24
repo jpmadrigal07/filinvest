@@ -20,7 +20,7 @@ async function getNewsContent(slug: string) {
     { addQueryPrefix: true }
   );
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}`,
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}`,
     { cache: "force-cache" }
   );
   if (!res.ok) {
@@ -60,13 +60,13 @@ export default async function Head({ params: { newsId } }: PageProps) {
       />
       <meta
         property="og:url"
-        content={`${process.env.WEB_URL}/article/${content.slug}`}
+        content={`${process.env.LAND_URL}/article/${content.slug}`}
       />
       <meta
         property="og:image"
         content={
           content.meta && content.meta.image
-            ? `${process.env.WEB_URL}${content.meta.image.url}`
+            ? `${process.env.LAND_URL}${content.meta.image.url}`
             : ""
         }
       />
@@ -83,7 +83,7 @@ export default async function Head({ params: { newsId } }: PageProps) {
         name="twitter:image"
         content={
           content.meta && content.meta.image
-            ? `${process.env.WEB_URL}${content.meta.image.url}`
+            ? `${process.env.LAND_URL}${content.meta.image.url}`
             : ""
         }
       />
