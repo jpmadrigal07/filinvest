@@ -46,7 +46,7 @@ const MainHeader = ({
           )}
           <div className="z-0 hidden md:block">
             <Image
-              src={otherUrl ? otherUrl : `/${bgUrl}`}
+              src={otherUrl ? otherUrl : `${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"
@@ -55,7 +55,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 block md:hidden">
             <Image
-              src={`/${bgUrlSmall}`}
+              src={`${bgUrlSmall}`}
               width={1036}
               height={806}
               alt="Picture of the author"
@@ -88,7 +88,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 hidden md:block">
             <Image
-              src={otherUrl ? otherUrl : `/${bgUrl}`}
+              src={otherUrl ? otherUrl : `${bgUrl}`}
               width={3844}
               height={1312}
               alt="Picture of the author"
@@ -97,7 +97,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 block md:hidden">
             <Image
-              src={`/${bgUrlSmall}`}
+              src={`${bgUrlSmall}`}
               width={1036}
               height={806}
               alt="Picture of the author"
