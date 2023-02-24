@@ -13,7 +13,7 @@ const YearsOfExperience = ({ content }: any) => {
           src={`${content.content[1].image.url}`}
           width={1834}
           height={1414}
-          alt="Picture of the author"
+          alt={content.content[1].image.alt}
         />
       </div>
       <div className="flex-1 px-8 md:px-24 lg:pl-24">

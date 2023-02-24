@@ -55,7 +55,7 @@ const CompanyBackgroundPage = async () => {
       />
       <IconText content={content} />
       <YearsOfExperience content={content} />
-      <ImageRightTextLeft content={content} />
+      <ImageRightTextLeft content={content} news={news} />
     </div>
   );
 };
