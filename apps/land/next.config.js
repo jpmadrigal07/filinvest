@@ -9,23 +9,31 @@ module.exports = {
     appDir: true,
   },
   images: {
-    domains: ["localhost", process.env.CMS_API_URL],
+    domains: ["localhost", process.env.CMS_URL],
   },
   async rewrites() {
     return [
       {
         source: `/api/:path*`,
-        destination: `${process.env.CMS_API_URL}/api/:path*`,
+        destination: `${process.env.CMS_URL}/api/:path*`,
         basePath: false,
       },
       {
         source: `/files/:path*`,
-        destination: `${process.env.CMS_API_URL}/files/:path*`,
+        destination: `${process.env.CMS_URL}/files/:path*`,
         basePath: false,
       },
     ];
   },
   env: {
-    CMS_API_URL: process.env.CMS_API_URL,
+    CMS_URL: process.env.CMS_URL,
+    LAND_URL: process.env.LAND_URL,
+    MANATAL_TOKEN: process.env.MANATAL_TOKEN,
+    GMAPS_TOKEN: process.env.GMAPS_TOKEN,
+    ZOHO_REFRESH_TOKEN: process.env.ZOHO_REFRESH_TOKEN,
+    ZOHO_CLIENT_ID: process.env.ZOHO_CLIENT_ID,
+    ZOHO_CLIENT_SECRET: process.env.ZOHO_CLIENT_SECRET,
+    ZOHO_REFRESH_TOKEN_URL: process.env.ZOHO_REFRESH_TOKEN_URL,
+    ZOHO_LEADS_URL: process.env.ZOHO_LEADS_URL,
   },
 };

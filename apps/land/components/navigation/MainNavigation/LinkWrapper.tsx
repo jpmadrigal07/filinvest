@@ -47,7 +47,7 @@ const LinkWrapper = ({
         <>
           <Link
             href={link}
-            className="cursor-pointer"
+            className="cursor-pointer whitespace-nowrap"
             onClick={() => {
               setMenuType("link");
               setCurrentMenuIndex(menuIndex);
@@ -64,7 +64,7 @@ const LinkWrapper = ({
               <>
                 <Popover.Button
                   className={combineClass(
-                    "group inline-flex h-3 border-none text-white ring-0"
+                    "group inline-flex h-3 whitespace-nowrap border-none text-white ring-0"
                   )}
                   ref={popoverRef}
                   onMouseEnter={() => {
@@ -126,7 +126,7 @@ const LinkWrapper = ({
       {!isLink && !link && fullComponent && (
         <>
           <span
-            className="flex cursor-pointer items-center gap-2"
+            className="flex cursor-pointer items-center gap-2 whitespace-nowrap"
             onMouseEnter={() => {
               setMenuType("full");
               setCurrentMenuIndex(menuIndex);

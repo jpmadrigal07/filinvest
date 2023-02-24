@@ -17,7 +17,7 @@ import MainHeader from "@/components/header/MainHeader";
 
 // async function geProjects() {
 //   const res = await fetch(
-//     `${process.env.CMS_API_URL}/api/projects${stringifiedQuery}`
+//     `${process.env.CMS_URL}/api/projects${stringifiedQuery}`
 //   );
 //   if (!res.ok) {
 //     throw new Error("Failed to fetch data");
