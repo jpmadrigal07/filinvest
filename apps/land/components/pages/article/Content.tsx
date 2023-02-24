@@ -13,7 +13,7 @@ import { testSerialize } from "@/helpers/testSerialize";
 import Link from "next/link";
 
 const Content = (props: News) => {
-  const articleUrl = `${process.env.WEB_URL}/article/${props.slug}`;
+  const articleUrl = `${process.env.LAND_URL}/article/${props.slug}`;
   const linkedInSharer = `https://www.linkedin.com/sharing/share-offsite/?url=${articleUrl}`;
   const facebookSharer = `https://www.facebook.com/sharer/sharer.php?u=${articleUrl}`;
   const twitterSharer = `https://twitter.com/intent/tweet?text=${articleUrl}`;
