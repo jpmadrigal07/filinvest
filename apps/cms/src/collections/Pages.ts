@@ -214,6 +214,7 @@ export const Pages: CollectionConfig = {
         TownscapesTownscapes,
         PreviousLink,
         NextLink,
+        OurLeadershipBoardOfDirectors,
         OurLeadershipSeniorManagementTeam,
         NewsNews,
         ResidentialTitleText,

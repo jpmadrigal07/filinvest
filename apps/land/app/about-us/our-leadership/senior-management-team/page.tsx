@@ -1,9 +1,9 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/about-us/our-leadership/constants";
-import Content from "@/components/pages/about-us/our-leadership/senior-management-team/Content";
+import SeniorManagementTeam from "@/components/pages/about-us/our-leadership/senior-management-team/SeniorManagementTeam";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -20,7 +20,7 @@ const SeniorManagementTeamPage = async () => {
         bgUrl={image}
         tabs={tabs}
       />
-      <Content content={content} />
+      <SeniorManagementTeam content={content} />
     </>
   );
 };

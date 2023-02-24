@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { ReactNode } from "react";
 
 const MainHeader = ({
-  content,
   title,
   breadcrumbs,
   tabs,
@@ -13,7 +12,6 @@ const MainHeader = ({
   isTitleSmall = false,
   otherUrl,
 }: {
-  content?: any;
   bgUrl?: string;
   bgUrlSmall?: string;
   title?: string;

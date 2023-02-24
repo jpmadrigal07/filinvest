@@ -1,10 +1,9 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/about-us/our-leadership/constants";
-import Content from "@/components/pages/about-us/our-leadership/board-of-directors/Content";
-import { Breadcrumb } from "react-bootstrap";
+import BoardOfDirectors from "@/components/pages/about-us/our-leadership/board-of-directors/BoardOfDirectors";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -12,23 +11,16 @@ async function getPageContent(id: string) {
 }
 const BoardOfDirectorsPage = async () => {
   const { title, breadcrumbs, image, tabs } = HEADER_INFO.boardOfDirectors;
-  const content = await getPageContent("639a5874b60dc36e6fc86dde");
-  const flattenBreadcrumbs = content.content[0].breadcrumbs.map(
-    (breadcrumb: any) => {
-      return { title: breadcrumb.link.label, link: breadcrumb.link };
-    }
-  );
-  console.log(content.content[0].breadcrumbs.link);
+  const content = await getPageContent("63f8749ef85c32e4e1eefb59");
   return (
     <>
       <MainHeader
-        content={content}
-        title={content.content[0].title}
-        breadcrumbs={flattenBreadcrumbs}
+        title={title}
+        breadcrumbs={breadcrumbs}
         bgUrl={image}
         tabs={tabs}
       />
-      <Content content={content} />
+      <BoardOfDirectors content={content} />
     </>
   );
 };

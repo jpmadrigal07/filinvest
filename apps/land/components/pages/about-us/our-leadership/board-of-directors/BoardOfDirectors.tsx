@@ -7,9 +7,10 @@ import Twitter from "@/components/svg/Twitter";
 import LinkedIn from "@/components/svg/LinkedIn";
 import BioInfo from "@/components/drawer/BioInfo";
 
-const Content = ({ content }: any) => {
+const BoardOfDirectors = ({ content }: any) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [directorInformation, setDirectorInformation] = useState({});
+  console.log(content.content[0]);
   return (
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
@@ -119,4 +120,4 @@ const Content = ({ content }: any) => {
   );
 };
 
-export default Content;
+export default BoardOfDirectors;
