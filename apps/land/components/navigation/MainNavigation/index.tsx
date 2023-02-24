@@ -24,6 +24,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
   const [showFixedNavigation, setShowFixedNavigation] = useState(false);
   const [wasScroll, setWasScroll] = useState(false);
   const [menus, setMenus] = useState(staticMenus);
+  const [isHovering, setisHovering] = useState(false);
 
   useEffect(() => {
     setFlyoutMenu("");
@@ -92,6 +93,9 @@ const MainNavigation = ({ className }: { className?: string }) => {
                       setFlyoutMenu: setFlyoutMenu,
                       flyoutMenu: flyoutMenu,
                       menuIndex: index,
+                      currentMenuIndex: currentMenuIndex,
+                      isHovering: isHovering,
+                      setisHovering: setisHovering,
                     };
                     return (
                       <li key={index}>

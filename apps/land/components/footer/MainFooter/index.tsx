@@ -43,7 +43,10 @@ const MainFooter = () => {
               ? footerRes.quickLinks.map((link: any, index: number) => {
                   return (
                     <li key={index}>
-                      <Link href={link.link.url} className="hover:underline">
+                      <Link
+                        href={link.link.url}
+                        className="transition hover:text-[#1AC0E8]"
+                      >
                         {link.link.label}
                       </Link>
                     </li>
@@ -59,7 +62,10 @@ const MainFooter = () => {
               ? footerRes.filinvestLand.map((link: any, index: number) => {
                   return (
                     <li key={index}>
-                      <Link href={link.link.url} className="hover:underline">
+                      <Link
+                        href={link.link.url}
+                        className="transition hover:text-[#1AC0E8]"
+                      >
                         {link.link.label}
                       </Link>
                     </li>
@@ -79,7 +85,7 @@ const MainFooter = () => {
                     ? footerRes?.firstPhone
                     : ""
                 }`}
-                className="hover:underline"
+                className="transition hover:text-[#1AC0E8]"
               >
                 {!isLoading && footerRes.firstPhone
                   ? footerRes.firstPhone
@@ -94,7 +100,7 @@ const MainFooter = () => {
                     ? footerRes.secondPhone
                     : ""
                 }`}
-                className="hover:underline"
+                className="transition hover:text-[#1AC0E8]"
               >
                 {!isLoading && footerRes.secondPhone
                   ? footerRes.secondPhone
@@ -109,7 +115,7 @@ const MainFooter = () => {
                     ? footerRes.emailAddress
                     : ""
                 }`}
-                className="hover:underline"
+                className="transition hover:text-[#1AC0E8]"
               >
                 {!isLoading && footerRes.emailAddress
                   ? footerRes.emailAddress
