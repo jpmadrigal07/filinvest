@@ -1,5 +1,7 @@
 import { buildConfig } from "payload/config";
 import path from "path";
+import seo from "@payloadcms/plugin-seo";
+
 import { Users } from "./collections/Users";
 import { Sites } from "./collections/Sites";
 import { Awards } from "./collections/Awards";
@@ -10,7 +12,6 @@ import { Projects } from "./collections/Projects";
 import { Careers } from "./collections/Careers";
 
 import { CareerCategories } from "./collections/CareerCategories";
-import { NewsCategories } from "./collections/NewsCategories";
 import { ProjectCategories } from "./collections/ProjectCategories";
 import { PropertyCategories } from "./collections/PropertyCategories";
 import { LocationGroupCategories } from "./collections/LocationGroupCategories";
@@ -51,13 +52,18 @@ export default buildConfig({
     Users,
     Sites,
     CareerCategories,
-    NewsCategories,
     ProjectCategories,
     PropertyCategories,
     LocationGroupCategories,
     LocationCategories,
     SubLocationCategories,
     Files,
+  ],
+  plugins: [
+    seo({
+      collections: ["news", "projects", "pages"],
+      uploadsCollection: "files",
+    }),
   ],
   globals: [Navigation, Footer, PropertySearch],
   typescript: {

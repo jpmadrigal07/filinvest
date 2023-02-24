@@ -31,14 +31,8 @@ export const Awards: CollectionConfig = {
       required: true,
     },
     {
-      name: "slug",
-      type: "text",
-      required: true,
-      unique: true,
-    },
-    {
       name: "description",
-      type: "text",
+      type: "textarea",
       required: true,
     },
     {
