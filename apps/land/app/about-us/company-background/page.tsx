@@ -4,6 +4,7 @@ import Content from "@/components/pages/about-us/company-background/Content";
 import qs from "qs";
 import YearsOfExperience from "@/components/pages/about-us/company-background/YearsOfExperience";
 import ImageRightTextLeft from "@/components/pages/about-us/company-background/ImageRightTextLeft";
+import IconText from "@/components/pages/about-us/company-background/IconText";
 
 const query = {
   "site.title": {
@@ -52,6 +53,7 @@ const CompanyBackgroundPage = async () => {
         bgUrlSmall={imageSmall}
         tabs={tabs}
       />
+      <IconText content={content} />
       <YearsOfExperience content={content} />
       <ImageRightTextLeft content={content} />
     </div>
