@@ -21,6 +21,10 @@ const HomeHeroSection: Block = {
           label: "YouTube",
           value: "youtube",
         },
+        {
+          label: "Vimeo",
+          value: "vimeo",
+        },
       ],
       defaultValue: "image", // The first value in options.
       admin: {
@@ -55,6 +59,11 @@ const HomeHeroSection: Block = {
       name: "youtubeBackground",
       label:
         "YouTube Video Background (i.e. https://www.youtube.com/watch?v=lQ6Yrf_5EOw)",
+      type: "text",
+    },
+    {
+      name: "vimeoBackground",
+      label: "Vimeo Video Background (i.e. https://vimeo.com/266448492)",
       type: "text",
     },
     {

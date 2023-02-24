@@ -1,22 +1,27 @@
 "use client";
 import ChevronDown from "@/components/svg/ChevronDown";
-import React, { ReactNode, useState } from "react";
+import React, { Dispatch, ReactNode, useState } from "react";
 
 const Accordion = ({
   title,
   description,
   children,
+  setCareer,
 }: {
   title: string;
   description: string;
   children: ReactNode;
+  setCareer: Dispatch<string>;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <div
         className="bg-cultured border-dark-cornflower-blue flex items-center border-l-4 px-6 py-5 hover:cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          setCareer(title);
+        }}
       >
         <div className="flex-1">
           <h3 className="text-dark-cornflower-blue text-xl font-bold">
