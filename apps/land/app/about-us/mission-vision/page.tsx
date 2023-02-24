@@ -1,7 +1,7 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/about-us/constants";
-import Content from "@/components/pages/about-us/mission-vision/Content";
 import MissionVisionCoreValues from "@/components/pages/about-us/mission-vision/MissionVisionCoreValues";
+import News from "@/components/pages/about-us/mission-vision/News";
 import qs from "qs";
 
 const query = {
@@ -30,7 +30,7 @@ async function getNews() {
 }
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -52,7 +52,7 @@ const MissionVisionPage = async () => {
         tabs={tabs}
       />
       <MissionVisionCoreValues content={content} />
-      {/* <Content news={news} /> */}
+      <News news={news} />
     </>
   );
 };
