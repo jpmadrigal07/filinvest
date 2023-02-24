@@ -26,7 +26,7 @@ async function geProject(slug: string) {
     },
   };
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/projects${stringifiedQuery(query)}`
+    `${process.env.CMS_URL}/api/projects${stringifiedQuery(query)}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");

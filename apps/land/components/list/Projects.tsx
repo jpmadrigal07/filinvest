@@ -18,11 +18,12 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
     <div
       className={`mt-16 grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:grid-cols-3 ${className}`}
     >
-      {projects.map((project) => {
+      {projects.map((project, index) => {
         return (
           <Link
             href={`/projects/${project.slug}`}
             className="opacity-100 transition duration-150 hover:opacity-70"
+            key={index}
           >
             <div className="flex flex-1 flex-col gap-4">
               <Image

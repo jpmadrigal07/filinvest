@@ -5,17 +5,11 @@ async function getToken() {
   const headers = new Headers();
   headers.append("Content-Type", "application/x-www-form-urlencoded");
   const urlencoded = new URLSearchParams();
-  urlencoded.append(
-    "refresh_token",
-    "1000.c58cea62202fbeb02672ff1f3c229538.972b9b3484861b135dd97e8e0706a5bc"
-  );
-  urlencoded.append("client_id", "1000.EN76KMQ00988HHFNDEMGT0O45M8PHE");
-  urlencoded.append(
-    "client_secret",
-    "951233bea8b1b717479956d235434235c1f7e44718"
-  );
+  urlencoded.append("refresh_token", `${process.env.ZOHO_REFRESH_TOKEN}`);
+  urlencoded.append("client_id", `${process.env.ZOHO_CLIENT_ID}`);
+  urlencoded.append("client_secret", `${process.env.ZOHO_CLIENT_SECRET}`);
   urlencoded.append("grant_type", "refresh_token");
-  const res = await fetch("https://accounts.zoho.com/oauth/v2/token", {
+  const res = await fetch(`${process.env.ZOHO_REFRESH_TOKEN_URL}`, {
     method: "POST",
     body: urlencoded,
     headers: headers,
@@ -41,7 +35,7 @@ async function submitContact(token: any, contactData: any) {
       ],
       trigger: ["approval", "workflow", "blueprint"],
     };
-    const res = await fetch("https://www.zohoapis.com/crm/v2/Leads", {
+    const res = await fetch(`${process.env.ZOHO_LEADS_URL}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
