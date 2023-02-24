@@ -19,7 +19,7 @@ const TileProjects = ({ className, projects }: T_TileProjects) => {
     <div
       className={`mt-16 grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:grid-cols-3 ${className}`}
     >
-      {projects.map((project) => {
+      {projects.map((project, index) => {
         const formatter = Intl.NumberFormat("en", { notation: "compact" });
         const formattedPrice = formatter.format(project.price);
         const lowercaseBrand =
@@ -28,6 +28,7 @@ const TileProjects = ({ className, projects }: T_TileProjects) => {
             : null;
         return (
           <Link
+            key={index}
             href={`/projects/${project.slug}`}
             className="opacity-100 transition duration-150 hover:opacity-70"
           >

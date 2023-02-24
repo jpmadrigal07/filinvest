@@ -20,7 +20,7 @@ async function getNewsContent(slug: string) {
     { addQueryPrefix: true }
   );
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}`,
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}`,
     { cache: "force-cache" }
   );
   if (!res.ok) {
@@ -36,6 +36,7 @@ export default async function Head({ params: { newsId } }: PageProps) {
     return (
       <>
         <title>Page not found</title>
+        <meta charSet="UTF-8" />
         <meta name="description" content="Filinvest" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href={`/${FAVICON_NAME}`} />
@@ -44,10 +45,48 @@ export default async function Head({ params: { newsId } }: PageProps) {
   }
   return (
     <>
-      <title>{content.title}</title>
-      <meta name="description" content="Filinvest" />
+      <title>{content.meta ? content.meta.title : content.title}</title>
+      <meta charSet="UTF-8" />
+      <meta
+        name="description"
+        content={content.meta ? content.meta.description : ""}
+      />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/x-icon" href={`/${FAVICON_NAME}`} />
+      {/* Facebook */}
+      <meta
+        property="og:title"
+        content={content.meta ? content.meta.title : content.title}
+      />
+      <meta
+        property="og:url"
+        content={`${process.env.LAND_URL}/article/${content.slug}`}
+      />
+      <meta
+        property="og:image"
+        content={
+          content.meta && content.meta.image
+            ? `${process.env.LAND_URL}${content.meta.image.url}`
+            : ""
+        }
+      />
+      {/* Twitter */}
+      <meta
+        name="twitter:title"
+        content={content.meta ? content.meta.title : content.title}
+      />
+      <meta
+        name="twitter:description"
+        content={content.meta ? content.meta.description : ""}
+      />
+      <meta
+        name="twitter:image"
+        content={
+          content.meta && content.meta.image
+            ? `${process.env.LAND_URL}${content.meta.image.url}`
+            : ""
+        }
+      />
     </>
   );
 }

@@ -1,9 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import SelectLocation from "@/components/select/SelectLocation";
-import Projects from "@/components/list/Projects";
-import { SAMPLE_PROJECTS } from "@/helpers/constants";
 
 const OfficeParks = ({ content }: any) => {
   return (

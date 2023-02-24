@@ -1,13 +1,20 @@
+import Projects from "@/components/list/Projects";
 import Bath from "@/components/svg/Bath";
 import Bed from "@/components/svg/Bed";
+import Elevator from "@/components/svg/Elevator";
 import Facebook from "@/components/svg/Facebook";
 import Flag from "@/components/svg/Flag";
+import InputPower from "@/components/svg/InputPower";
+import Lightning from "@/components/svg/Lightning";
 import LinkedIn from "@/components/svg/LinkedIn";
+import PersonOutline from "@/components/svg/PersonOutline";
+import PhoneHandset from "@/components/svg/PhoneHandset";
 import RulerPencil from "@/components/svg/RulerPencil";
 import Image from "next/image";
 import React from "react";
+import { Project } from "shared-types";
 
-const Content = () => {
+const Content = ({ projects }: { projects: Project[] }) => {
   return (
     <section>
       <div className="border-gainsboro border-b-[1px]">
@@ -133,68 +140,58 @@ const Content = () => {
             <div>
               <div className="flex flex-col gap-24 py-9 md:flex-row">
                 <div className="flex-none">
-                  <h3 className="text-jet text-xl font-bold">Leasable Area</h3>
+                  <h3 className="text-jet text-xl font-bold">Base Building</h3>
                 </div>
                 <div className="flex flex-1 gap-12">
                   <div className="flex flex-col gap-4">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="w-52 flex-none">
-                        <p className="text-dim-gray whitespace-nowrap text-lg">
-                          Floor:
-                        </p>
+                    <div className="flex flex-col gap-6 md:flex-row">
+                      <div className="flex-none">
+                        <Elevator />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-none">
                         <p className="text-jet text-lg">
                           Provided with 4 elevators (1,600 kg. each)
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col md:flex-row">
-                      <div className="w-52 flex-none">
-                        <p className="text-dim-gray whitespace-nowrap text-lg">
-                          Wall:
-                        </p>
+                    <div className="flex flex-col gap-6 md:flex-row">
+                      <div className="flex-none">
+                        <PhoneHandset />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-none">
                         <p className="text-jet text-lg">
                           Telecommunication provision for three (3) Telco
                           service providers
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col md:flex-row">
-                      <div className="w-52 flex-none">
-                        <p className="text-dim-gray whitespace-nowrap text-lg">
-                          Ceiling:
-                        </p>
+                    <div className="flex flex-col gap-6 md:flex-row">
+                      <div className="flex-none">
+                        <InputPower />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-none">
                         <p className="text-jet text-lg">
                           N+1 redundancy set-up (Three (3) generators 1,000 KVA
                           each)
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col md:flex-row">
-                      <div className="w-52 flex-none">
-                        <p className="text-dim-gray whitespace-nowrap text-lg">
-                          Height Clearance:
-                        </p>
+                    <div className="flex flex-col gap-6 md:flex-row">
+                      <div className="flex-none">
+                        <Lightning />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-none">
                         <p className="text-jet text-lg">
                           Maximum of 200 VA/sqm for lighting, outlet and small
                           power requirements
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col md:flex-row">
-                      <div className="w-52 flex-none">
-                        <p className="text-dim-gray whitespace-nowrap text-lg">
-                          VRF:
-                        </p>
+                    <div className="flex flex-col gap-6 md:flex-row">
+                      <div className="flex-none">
+                        <PersonOutline />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-none">
                         <p className="text-jet text-lg">
                           Density of 5 sqm/person of Net Usable Area
                         </p>
@@ -326,95 +323,7 @@ const Content = () => {
         <h3 className="text-jet text-center text-4xl font-bold">
           Other Offices
         </h3>
-        <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <div className="flex flex-1 flex-col gap-4">
-            <Image
-              src="/100-west-cyberzone.png"
-              width={507}
-              height={407}
-              alt="Picture of the author"
-            />
-            <h3 className="text-jet text-2xl font-bold">100 West Cyberzone</h3>
-            <div className="flex gap-4">
-              <button
-                type="button"
-                className="border-blue-ryb flex items-center gap-3 rounded-full border-[1px] px-6 py-2"
-              >
-                <div className="flex-none">
-                  <Flag color="#303030" classes="w-5 h-5" />
-                </div>
-                <p className="text-md text-jet">Offices</p>
-              </button>
-              <button
-                type="button"
-                className="bg-blue-ryb flex items-center gap-3 rounded-full px-6 py-2"
-              >
-                <div className="flex-none">
-                  <Flag color="#ffffff" classes="w-5 h-5" />
-                </div>
-                <p className="text-md text-white">Makati</p>
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-1 flex-col gap-4">
-            <Image
-              src="/100-west-cyberzone.png"
-              width={507}
-              height={407}
-              alt="Picture of the author"
-            />
-            <h3 className="text-jet text-2xl font-bold">100 West Cyberzone</h3>
-            <div className="flex gap-4">
-              <button
-                type="button"
-                className="border-blue-ryb flex items-center gap-3 rounded-full border-[1px] px-6 py-2"
-              >
-                <div className="flex-none">
-                  <Flag color="#303030" classes="w-5 h-5" />
-                </div>
-                <p className="text-md text-jet">Offices</p>
-              </button>
-              <button
-                type="button"
-                className="bg-blue-ryb flex items-center gap-3 rounded-full px-6 py-2"
-              >
-                <div className="flex-none">
-                  <Flag color="#ffffff" classes="w-5 h-5" />
-                </div>
-                <p className="text-md text-white">Makati</p>
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-1 flex-col gap-4">
-            <Image
-              src="/100-west-cyberzone.png"
-              width={507}
-              height={407}
-              alt="Picture of the author"
-            />
-            <h3 className="text-jet text-2xl font-bold">100 West Cyberzone</h3>
-            <div className="flex gap-4">
-              <button
-                type="button"
-                className="border-blue-ryb flex items-center gap-3 rounded-full border-[1px] px-6 py-2"
-              >
-                <div className="flex-none">
-                  <Flag color="#303030" classes="w-5 h-5" />
-                </div>
-                <p className="text-md text-jet">Offices</p>
-              </button>
-              <button
-                type="button"
-                className="bg-blue-ryb flex items-center gap-3 rounded-full px-6 py-2"
-              >
-                <div className="flex-none">
-                  <Flag color="#ffffff" classes="w-5 h-5" />
-                </div>
-                <p className="text-md text-white">Makati</p>
-              </button>
-            </div>
-          </div>
-        </div>
+        <Projects projects={projects} />
       </div>
     </section>
   );
