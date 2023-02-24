@@ -32,7 +32,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
       : {}),
     ...(searchParams.locationGroup
       ? {
-          "location.locationGroup.title": {
+          "locationGroup.title": {
             equals: searchParams.locationGroup,
           },
         }
@@ -142,17 +142,17 @@ function usePropertySearch() {
   const [projectType, setProjectType] = useState("");
   const [locationGroup, setLocationGroup] = useState("");
   useEffect(() => {
-    const propertyType = searchParams.get("propertyType");
-    const location = searchParams.get("location");
-    const brand = searchParams.get("brand");
-    const unitSize = searchParams.get("unitSize");
-    const priceRangeFrom = searchParams.get("priceRangeFrom");
-    const projectType = searchParams.get("projectType");
-    const priceRangeTo = searchParams.get("priceRangeTo");
-    const propertyName = searchParams.get("propertyName");
-    const bedrooms = searchParams.get("bedrooms");
-    const locationGroup = searchParams.get("locationGroup");
-    const subLocation = searchParams.get("subLocation");
+    const propertyType = searchParams?.get("propertyType");
+    const location = searchParams?.get("location");
+    const brand = searchParams?.get("brand");
+    const unitSize = searchParams?.get("unitSize");
+    const priceRangeFrom = searchParams?.get("priceRangeFrom");
+    const projectType = searchParams?.get("projectType");
+    const priceRangeTo = searchParams?.get("priceRangeTo");
+    const propertyName = searchParams?.get("propertyName");
+    const bedrooms = searchParams?.get("bedrooms");
+    const locationGroup = searchParams?.get("locationGroup");
+    const subLocation = searchParams?.get("subLocation");
     const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
     const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
     setPropertyType(propertyType ? decodeURIComponent(propertyType) : "");

@@ -21,6 +21,10 @@ const HomeHeroSection: Block = {
           label: "YouTube",
           value: "youtube",
         },
+        {
+          label: "Vimeo",
+          value: "vimeo",
+        },
       ],
       defaultValue: "image", // The first value in options.
       admin: {
@@ -58,6 +62,11 @@ const HomeHeroSection: Block = {
       type: "text",
     },
     {
+      name: "vimeoBackground",
+      label: "Vimeo Video Background (i.e. https://vimeo.com/266448492)",
+      type: "text",
+    },
+    {
       name: "title",
       type: "text",
       required: true,
@@ -68,7 +77,6 @@ const HomeHeroSection: Block = {
       required: true,
     },
     {
-      label: "Prestige",
       type: "row",
       fields: [
         {
@@ -97,7 +105,6 @@ const HomeHeroSection: Block = {
       ],
     },
     {
-      label: "Futura",
       type: "row",
       fields: [
         {
@@ -126,7 +133,6 @@ const HomeHeroSection: Block = {
       ],
     },
     {
-      label: "Aspire",
       type: "row",
       fields: [
         {

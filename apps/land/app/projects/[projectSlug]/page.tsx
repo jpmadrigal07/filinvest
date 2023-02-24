@@ -1,4 +1,5 @@
-import Content from "@/components/pages/projects/Content";
+import RegularContent from "@/components/pages/projects/regular/Content";
+import OfficeContent from "@/components/pages/projects/office/Content";
 import { notFound } from "next/navigation";
 import qs from "qs";
 import { Project } from "shared-types";
@@ -25,7 +26,7 @@ async function geProject(slug: string) {
     },
   };
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/projects${stringifiedQuery(query)}`
+    `${process.env.CMS_URL}/api/projects${stringifiedQuery(query)}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -41,7 +42,11 @@ const ProjectsPage = async ({ params: { projectSlug } }: PageProps) => {
   }
   return (
     <div>
-      <Content project={content} />
+      {content.dataType === "regular" ? (
+        <RegularContent project={content} />
+      ) : (
+        <OfficeContent project={content} />
+      )}
     </div>
   );
 };

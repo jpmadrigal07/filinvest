@@ -1,13 +1,13 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/our-businesses/offices/office/Content";
 
-const OfficeParksPage = () => {
+const OfficePage = () => {
   return (
     <>
       <MainHeader bgUrl="office.png" bgUrlSmall="office.png" />
-      <Content />
+      <Content projects={[]} />
     </>
   );
 };
 
-export default OfficeParksPage;
+export default OfficePage;

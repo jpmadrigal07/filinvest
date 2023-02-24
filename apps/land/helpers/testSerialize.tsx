@@ -12,6 +12,7 @@ export const testSerialize = (children: any) =>
           dangerouslySetInnerHTML={{
             __html: escapeHTML(node.text).replace(/\n/g, "<br>"),
           }}
+          key={i}
         />
       );
       // @ts-ignore

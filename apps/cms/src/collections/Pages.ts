@@ -99,6 +99,7 @@ import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
 } from "../blocks/MixedUseEstates";
+import { NewsNews } from "../blocks/News";
 import {
   ResidentialTitleText,
   ResidentialPrestige,
@@ -211,6 +212,7 @@ export const Pages: CollectionConfig = {
         TownscapesTownscapes,
         PreviousLink,
         NextLink,
+        NewsNews,
         ResidentialTitleText,
         ResidentialPrestige,
         ResidentialAspire,
