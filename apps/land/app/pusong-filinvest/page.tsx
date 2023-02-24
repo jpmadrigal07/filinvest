@@ -1,6 +1,5 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/pusong-filinvest/constants";
-import Content from "@/components/pages/pusong-filinvest/Content";
 import CorporateSocialResponsibility from "@/components/pages/pusong-filinvest/CorporateSocialResponsibility";
 import Gallery from "@/components/pages/pusong-filinvest/Gallery";
 import News from "@/components/pages/pusong-filinvest/News";
@@ -32,7 +31,7 @@ async function getNews() {
 }
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -51,7 +50,6 @@ const PusongFilinvestPage = async () => {
         bgUrl={image}
         bgUrlSmall={imageSmall}
       />
-      {/* <Content news={news} /> */}
       <OurStory content={content} />
       <CorporateSocialResponsibility content={content} />
       <Gallery content={content} />
