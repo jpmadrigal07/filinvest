@@ -4,7 +4,7 @@ import { HEADER_INFO } from "@/components/pages/about-us/constants";
 import SubsidiariesSection from "@/components/pages/about-us/subsidiaries/SubsidiariesSection";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
