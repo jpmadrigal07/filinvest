@@ -5,28 +5,28 @@ const CoLivingCoLiving: Block = {
   fields: [
     {
       type: "array",
-      name: "co-living",
+      name: "coLiving",
       label: "Co-Living",
       required: true,
       fields: [
         {
           type: "upload",
-          name: "co-LivingImage",
+          name: "coLivingImage",
           relationTo: "files",
           required: true,
         },
         {
-          name: "co-livingName",
+          name: "coLivingName",
           type: "text",
           required: true,
         },
         {
-          name: "co-livingLink",
+          name: "coLivingLink",
           type: "text",
           required: true,
         },
         {
-          name: "co-livingLocation",
+          name: "coLivingLocation",
           type: "text",
           required: true,
         },

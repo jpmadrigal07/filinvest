@@ -70,7 +70,6 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      label: "Count",
       type: "row",
       fields: [
         {
@@ -275,7 +274,6 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      label: "Manager",
       type: "row",
       fields: [
         {
@@ -298,7 +296,6 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      label: "Manager",
       type: "row",
       fields: [
         {
@@ -320,7 +317,6 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      label: "Manager",
       type: "row",
       fields: [
         {
@@ -342,7 +338,6 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      label: "Related Offices",
       type: "row",
       fields: [
         {

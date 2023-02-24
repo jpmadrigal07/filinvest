@@ -49,9 +49,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
                         <div className="hidden lg:block">
@@ -140,9 +140,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
