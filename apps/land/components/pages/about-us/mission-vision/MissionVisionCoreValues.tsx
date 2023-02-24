@@ -58,9 +58,7 @@ const MissionVisionCoreValues = ({ news, content }: any) => {
             Core Values
           </h3>
           <p className="text-jet text-center text-lg">
-            The core values of integrity, customer service, professionalism,
-            teamwork, innovation and cost-effectiveness are highly valued. The
-            highest standards of business and moral ethics shall be exercised.
+            {content.content[0].coreValuesDescription}
           </p>
         </div>
       </div>
