@@ -77,9 +77,9 @@ const MainNavigation = ({ className }: { className?: string }) => {
               setCurrentMenuIndex(null);
             }}
           >
-            <div className="flex items-center gap-14 px-9 py-10 font-bold text-white">
+            <div className="flex items-center gap-6 px-9 py-10 font-bold text-white 2xl:gap-14">
               <div className="flex-none">
-                <Link href={ROUTES.HOME.url}>
+                <Link href="/contact-us">
                   <MainLogo />
                 </Link>
               </div>

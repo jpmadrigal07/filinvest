@@ -36,6 +36,11 @@ const HomeOurBusinessesSection: Block = {
           type: "text",
           required: true,
         },
+        {
+          name: "link",
+          type: "text",
+          required: true,
+        },
       ],
     },
   ],

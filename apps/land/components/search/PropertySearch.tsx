@@ -9,17 +9,20 @@ import { Project } from "shared-types";
 import SecondaryDropdown from "../dropdown/SecondaryDropdown";
 import RangeSliderStep from "../range-sliders/RangeSliderStep";
 import MainInput from "../input/MainInput";
+import { T_SearchQuery } from "@/types/global";
 
 const PropertySearch = ({
   showSearch = true,
   className,
   onPropertyResultChange,
   onLoading,
+  setSearchParams,
 }: {
   showSearch?: boolean;
   className?: string;
   onPropertyResultChange?: Dispatch<Project[]>;
   onLoading?: Dispatch<boolean>;
+  setSearchParams?: Dispatch<T_SearchQuery>;
 }) => {
   const router = useRouter();
   const {
@@ -110,6 +113,12 @@ const PropertySearch = ({
       setIsAdvanceSearchOpen(true);
     }
   }, [propertyName, bedrooms, subLocation]);
+
+  useEffect(() => {
+    if (setSearchParams) {
+      setSearchParams(searchParams);
+    }
+  }, [searchParams, setSearchParams]);
 
   return (
     <>

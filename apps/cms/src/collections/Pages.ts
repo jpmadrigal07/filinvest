@@ -102,6 +102,13 @@ import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
 } from "../blocks/MixedUseEstates";
+import { NewsNews } from "../blocks/News";
+import {
+  ResidentialTitleText,
+  ResidentialPrestige,
+  ResidentialAspire,
+  ResidentialFutura,
+} from "../blocks/Residential";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
@@ -167,7 +174,6 @@ export const Pages: CollectionConfig = {
         VisionMissionCoreValuesCoreValues,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
-        OurLeadershipBoardOfDirectors,
         StockInformationTitle,
         StockInformationOutstandingNumberOfShares,
         StockInformationStockHolderTable,
@@ -209,6 +215,11 @@ export const Pages: CollectionConfig = {
         PreviousLink,
         NextLink,
         OurLeadershipSeniorManagementTeam,
+        NewsNews,
+        ResidentialTitleText,
+        ResidentialPrestige,
+        ResidentialAspire,
+        ResidentialFutura,
       ],
     },
     {

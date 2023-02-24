@@ -3,7 +3,8 @@ import React from "react";
 import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
 import PropertySearch from "@/components/search/PropertySearch";
-import FullPropertySlider from "@/components/Slider/FullPropertySlider";
+import Link from "next/link";
+// import FullPropertySlider from "@/components/Slider/FullPropertySlider";
 
 const Content = () => {
   return (
@@ -37,17 +38,17 @@ const Content = () => {
             cupidatat non proident.
           </p>
           <div className="mt-9">
-            <BorderButton
-              buttonText="Read More"
-              textColor="dark-cornflower-blue"
-              borderColor="dark-cornflower-blue"
-            />
+            <Link href={`/property-search?brand=Prestige`}>
+              <BorderButton
+                buttonText="Read More"
+                textColor="dark-cornflower-blue"
+                borderColor="dark-cornflower-blue"
+              />
+            </Link>
           </div>
         </div>
       </div>
-      <div className="mt-22 relative">
-        <FullPropertySlider />
-      </div>
+      <div className="mt-22 relative">{/* <FullPropertySlider /> */}</div>
       <div className="mx-9 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
         <div className="bg-white shadow-xl">
           <Image
@@ -63,55 +64,67 @@ const Content = () => {
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Prestige&propertyType=House%20%26%20Lot`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/mid-rise.png"
             width={916}
             height={712}
             alt="Picture of the author"
           />
           <div className="p-6">
-            <h3 className="text-jet text-2xl font-bold">Homes</h3>
+            <h3 className="text-jet text-2xl font-bold">Mid-Rise Condos</h3>
             <p className="text-dim-gray mt-3">
               Massa placerat duis ultricies lacus sed. Neque volutpat ac
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Prestige&projectType=Mid-Rise%20Condominium`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/high-rise.png"
             width={916}
             height={712}
             alt="Picture of the author"
           />
           <div className="p-6">
-            <h3 className="text-jet text-2xl font-bold">Homes</h3>
+            <h3 className="text-jet text-2xl font-bold">High-Rise Condos</h3>
             <p className="text-dim-gray mt-3">
               Massa placerat duis ultricies lacus sed. Neque volutpat ac
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Prestige&projectType=High-Rise%20Condominium`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -133,21 +146,21 @@ const Content = () => {
             cupidatat non proident.
           </p>
           <div className="mt-9">
-            <BorderButton
-              buttonText="Read More"
-              textColor="dark-cornflower-blue"
-              borderColor="dark-cornflower-blue"
-            />
+            <Link href={`/property-search?brand=Aspire`}>
+              <BorderButton
+                buttonText="Read More"
+                textColor="dark-cornflower-blue"
+                borderColor="dark-cornflower-blue"
+              />
+            </Link>
           </div>
         </div>
       </div>
-      <div className="mt-22 relative">
-        <FullPropertySlider />
-      </div>
+      <div className="mt-22 relative">{/* <FullPropertySlider /> */}</div>
       <div className="mx-9 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/homes-2.png"
             width={916}
             height={712}
             alt="Picture of the author"
@@ -159,55 +172,67 @@ const Content = () => {
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Aspire&projectType=House%20%26%20Lot`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/mid-rise-2.png"
             width={916}
             height={712}
             alt="Picture of the author"
           />
           <div className="p-6">
-            <h3 className="text-jet text-2xl font-bold">Homes</h3>
+            <h3 className="text-jet text-2xl font-bold">Mid-rise Condos</h3>
             <p className="text-dim-gray mt-3">
               Massa placerat duis ultricies lacus sed. Neque volutpat ac
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Aspire&projectType=Mid-Rise%20Condominium`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/high-rise-2.png"
             width={916}
             height={712}
             alt="Picture of the author"
           />
           <div className="p-6">
-            <h3 className="text-jet text-2xl font-bold">Homes</h3>
+            <h3 className="text-jet text-2xl font-bold">High-rise Condos</h3>
             <p className="text-dim-gray mt-3">
               Massa placerat duis ultricies lacus sed. Neque volutpat ac
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Aspire&projectType=High-Rise%20Condominium`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -229,21 +254,21 @@ const Content = () => {
             cupidatat non proident.
           </p>
           <div className="mt-9">
-            <BorderButton
-              buttonText="Read More"
-              textColor="dark-cornflower-blue"
-              borderColor="dark-cornflower-blue"
-            />
+            <Link href={`/property-search?brand=Futura`}>
+              <BorderButton
+                buttonText="Read More"
+                textColor="dark-cornflower-blue"
+                borderColor="dark-cornflower-blue"
+              />
+            </Link>
           </div>
         </div>
       </div>
-      <div className="mt-22">
-        <FullPropertySlider />
-      </div>
+      <div className="mt-22">{/* <FullPropertySlider /> */}</div>
       <div className="mx-9 mt-16 mb-24 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/homes-3.png"
             width={916}
             height={712}
             alt="Picture of the author"
@@ -255,55 +280,41 @@ const Content = () => {
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Futura&projectType=House%20%26%20Lot`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>
         <div className="bg-white shadow-xl">
           <Image
-            src="/homes.png"
+            src="/mid-rise-3.png"
             width={916}
             height={712}
             alt="Picture of the author"
           />
           <div className="p-6">
-            <h3 className="text-jet text-2xl font-bold">Homes</h3>
+            <h3 className="text-jet text-2xl font-bold">Mid-rise Condos</h3>
             <p className="text-dim-gray mt-3">
               Massa placerat duis ultricies lacus sed. Neque volutpat ac
               tincidunt vitae semper quis lectus nulla.
             </p>
             <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="bg-white shadow-xl">
-          <Image
-            src="/homes.png"
-            width={916}
-            height={712}
-            alt="Picture of the author"
-          />
-          <div className="p-6">
-            <h3 className="text-jet text-2xl font-bold">Homes</h3>
-            <p className="text-dim-gray mt-3">
-              Massa placerat duis ultricies lacus sed. Neque volutpat ac
-              tincidunt vitae semper quis lectus nulla.
-            </p>
-            <div className="mt-9 mb-6">
-              <BorderButton
-                buttonText="Learn More"
-                textColor="dark-cornflower-blue"
-                borderColor="dark-cornflower-blue"
-              />
+              <Link
+                href={`/property-search?brand=Futura&projectType=Mid-Rise%20Condominium`}
+              >
+                <BorderButton
+                  buttonText="Learn More"
+                  textColor="dark-cornflower-blue"
+                  borderColor="dark-cornflower-blue"
+                />
+              </Link>
             </div>
           </div>
         </div>

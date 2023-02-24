@@ -19,14 +19,14 @@ const FullPropertySlider = ({ sliders }: any) => {
         <div className="absolute right-6 bottom-6 z-40">
           <div className="flex gap-7">
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
@@ -49,9 +49,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
                         <div className="hidden lg:block">
@@ -113,14 +113,14 @@ const FullPropertySlider = ({ sliders }: any) => {
         <div className="absolute bottom-0 z-40">
           <div className="flex gap-6 md:gap-[43rem]">
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRefMobile.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
+              className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRefMobile.current?.slideNext()}
             >
@@ -140,9 +140,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${

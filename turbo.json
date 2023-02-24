@@ -5,11 +5,19 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
       "env": [
-        "CMS_API_URL",
+        "CMS_URL",
         "NODE_ENV",
         "CMS_SECRET",
         "MONGODB_URL",
-        "PAYLOAD_SEED"
+        "PAYLOAD_SEED",
+        "LAND_URL",
+        "MANATAL_TOKEN",
+        "GMAPS_TOKEN",
+        "ZOHO_REFRESH_TOKEN",
+        "ZOHO_CLIENT_ID",
+        "ZOHO_CLIENT_SECRET",
+        "ZOHO_REFRESH_TOKEN_URL",
+        "ZOHO_LEADS_URL"
       ]
     },
     "lint": {
