@@ -38,7 +38,7 @@ const AboutUs = ({
       </div>
       <div className="grid max-h-[700px] grid-cols-2 gap-6 overflow-hidden px-24 hover:overflow-auto">
         <Link
-          href={`/awards/${firstAwards?.value.slug}`}
+          href={`/awards`}
           className="cursor-pointer transition delay-150 hover:opacity-70"
         >
           <h3 className="truncate text-xl text-white">Awards</h3>
@@ -53,14 +53,14 @@ const AboutUs = ({
               src={`${!firstAwards.value.coverImage.url ? "/" : ""}${
                 firstAwards.value.coverImage.url
               }`}
-              width={firstAwards.value.coverImage.width}
-              height={firstAwards.value.coverImage.height}
+              width={512}
+              height={512}
               alt="awards"
             />
           </div>
         </Link>
         <Link
-          href={`/awards/${secondAwards?.value.slug}`}
+          href={`/awards`}
           className="cursor-pointer transition delay-150 hover:opacity-70"
         >
           <h3 className="text-xl text-white">Awards</h3>
@@ -75,8 +75,8 @@ const AboutUs = ({
               src={`${!secondAwards.value.coverImage.url ? "/" : ""}${
                 secondAwards.value.coverImage.url
               }`}
-              width={secondAwards.value.coverImage.width}
-              height={secondAwards.value.coverImage.height}
+              width={512}
+              height={512}
               alt="awards"
             />
           </div>

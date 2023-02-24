@@ -32,7 +32,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
       : {}),
     ...(searchParams.locationGroup
       ? {
-          "location.locationGroup.title": {
+          "locationGroup.title": {
             equals: searchParams.locationGroup,
           },
         }

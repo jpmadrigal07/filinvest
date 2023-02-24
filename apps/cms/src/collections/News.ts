@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
 import { isAdminOrHasSiteAccess } from "../access/isAdminOrHasSiteAccess";
 import { isLoggedIn } from "../access/isLoggedIn";
+import { slugField } from "../fields/slug";
 
 export const News: CollectionConfig = {
   slug: "news",
@@ -28,12 +29,6 @@ export const News: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
-    },
-    {
-      name: "slug",
-      type: "text",
-      required: true,
-      unique: true,
     },
     {
       name: "shortDescription",
@@ -73,17 +68,36 @@ export const News: CollectionConfig = {
         return user.id;
       },
     },
+    slugField(),
     {
-      name: "newsCategory",
+      name: "projectTypeTag",
       type: "relationship",
-      relationTo: "news-categories",
-      required: true,
+      relationTo: "project-categories",
+      required: false,
     },
     {
-      name: "tags",
+      name: "propertyTypeTag",
       type: "relationship",
       relationTo: "property-categories",
-      required: true,
+      required: false,
+    },
+    {
+      name: "locationTag",
+      type: "relationship",
+      relationTo: "location-categories",
+      required: false,
+    },
+    {
+      name: "locationGroupTag",
+      type: "relationship",
+      relationTo: "location-group-categories",
+      required: false,
+    },
+    {
+      name: "subLocationTag",
+      type: "relationship",
+      relationTo: "sub-location-categories",
+      required: false,
     },
     {
       name: "site",
