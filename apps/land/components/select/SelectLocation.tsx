@@ -1,10 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Dispatch, Fragment } from "react";
 import { Transition, Popover } from "@headlessui/react";
 import { combineClass } from "@/helpers/combineClass";
 import ChevronDown from "../svg/ChevronDown";
 import Funnel from "../svg/Funnel";
 
-const SelectLocation = () => {
+const SelectLocation = ({
+  locations,
+  currentLocation,
+  setCurrentLocation,
+}: {
+  locations: string[];
+  currentLocation: string;
+  setCurrentLocation: Dispatch<string>;
+}) => {
   return (
     <Popover className="relative">
       {({ close }) => (
@@ -14,7 +22,9 @@ const SelectLocation = () => {
           >
             <div className="flex w-52 items-center bg-white py-3 px-2 shadow-xl">
               <Funnel color="#030303" className="mx-2 flex-none" />
-              <p className="flex-1 text-left">By Location</p>
+              <p className="flex-1 text-left">
+                {currentLocation === "" ? "By Location" : currentLocation}
+              </p>
               <div className="flex flex-none flex-col gap-1 p-4">
                 <ChevronDown color="#303030" />
               </div>
@@ -31,38 +41,25 @@ const SelectLocation = () => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute z-10 mt-3">
-              <div className="w-52 overflow-hidden shadow-lg">
+              <div className="max-h-60 w-52 overflow-auto shadow-lg">
                 <div className="gap-6 bg-white sm:gap-8">
-                  <span
-                    onClick={() => close()}
-                    className="hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer"
-                  >
-                    <div className="w-full py-4 px-5">
-                      <p className="text-md text-jet whitespace-nowrap text-left font-medium">
-                        Manila
-                      </p>
-                    </div>
-                  </span>
-                  <span
-                    onClick={() => close()}
-                    className="hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer"
-                  >
-                    <div className="w-full py-4 px-5">
-                      <p className="text-md text-jet whitespace-nowrap text-left font-medium">
-                        Cebu
-                      </p>
-                    </div>
-                  </span>
-                  <span
-                    onClick={() => close()}
-                    className="hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer"
-                  >
-                    <div className="w-full py-4 px-5">
-                      <p className="text-md text-jet whitespace-nowrap text-left font-medium">
-                        Davao
-                      </p>
-                    </div>
-                  </span>
+                  {locations.map((location) => (
+                    <span
+                      onClick={() => {
+                        setCurrentLocation(location);
+                        close();
+                      }}
+                      className={`hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer ${
+                        currentLocation === location && "bg-ghost-white"
+                      }`}
+                    >
+                      <div className="w-full py-4 px-5">
+                        <p className="text-md text-jet whitespace-nowrap text-left font-medium">
+                          {location}
+                        </p>
+                      </div>
+                    </span>
+                  ))}
                 </div>
               </div>
             </Popover.Panel>

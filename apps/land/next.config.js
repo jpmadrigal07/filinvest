@@ -27,5 +27,8 @@ module.exports = {
   },
   env: {
     CMS_API_URL: process.env.CMS_API_URL,
+    WEB_URL: process.env.WEB_URL,
+    MANATAL_TOKEN: process.env.MANATAL_TOKEN,
+    GMAPS_TOKEN: process.env.GMAPS_TOKEN,
   },
 };
