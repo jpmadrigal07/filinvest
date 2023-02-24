@@ -1,10 +1,5 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/constants";
 import Content from "@/components/pages/about-us/company-background/Content";
 import qs from "qs";
-import YearsOfExperience from "@/components/pages/about-us/company-background/YearsOfExperience";
-import ImageRightTextLeft from "@/components/pages/about-us/company-background/ImageRightTextLeft";
-import IconText from "@/components/pages/about-us/company-background/IconText";
 
 const query = {
   "site.title": {
@@ -42,22 +37,7 @@ async function getPageContent(id: string) {
 const CompanyBackgroundPage = async () => {
   const news = await getNews();
   const content = await getPageContent("639a584bb60dc36e6fc86d90");
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.companyBackground;
-  return (
-    <div>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-        tabs={tabs}
-      />
-      <IconText content={content} />
-      <YearsOfExperience content={content} />
-      <ImageRightTextLeft content={content} news={news} />
-    </div>
-  );
+  return <Content content={content} news={news} />;
 };
 
 export default CompanyBackgroundPage;

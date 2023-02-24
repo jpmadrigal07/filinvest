@@ -6,10 +6,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const IconText = ({ content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "company-background-icon-text"
+  );
   return (
     <section className="mt-16">
       <div className="mx-3 flex flex-col gap-12 md:flex-row lg:mx-9 lg:gap-36 xl:mx-16 2xl:mx-80">
-        {content.content[0].iconText.map((item: any) => (
+        {data?.iconText.map((item: any) => (
           <div className="flex flex-1 flex-col items-center gap-4">
             <Image
               src={`${item.iconImage.url}`}
