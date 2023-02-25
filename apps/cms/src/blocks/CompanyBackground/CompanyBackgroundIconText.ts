@@ -7,6 +7,8 @@ const CompanyBackgroundIconText: Block = {
       type: "array",
       name: "iconText",
       label: "Icon and Text",
+      minRows: 4,
+      maxRows: 4,
       required: true,
       fields: [
         {
@@ -16,9 +18,16 @@ const CompanyBackgroundIconText: Block = {
           required: true,
         },
         {
-          name: "text",
-          type: "text",
+          type: "array",
+          name: "description",
           required: true,
+          fields: [
+            {
+              name: "textLine",
+              type: "text",
+              required: true,
+            },
+          ],
         },
       ],
     },
