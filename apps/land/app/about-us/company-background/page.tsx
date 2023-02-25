@@ -1,4 +1,5 @@
 import Content from "@/components/pages/about-us/company-background/Content";
+import { metaBuilder } from "@/helpers/metaBuiler";
 import qs from "qs";
 
 const query = {
@@ -32,6 +33,11 @@ async function getPageContent(id: string) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("639a584bb60dc36e6fc86d90");
+  return metaBuilder(content);
 }
 
 const CompanyBackgroundPage = async () => {
