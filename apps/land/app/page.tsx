@@ -8,6 +8,7 @@ import OurBusinesses from "@/components/pages/home/OurBusinesses";
 import OurServices from "@/components/pages/home/OurServices";
 import Projects from "@/components/pages/home/Projects";
 import StockReport from "@/components/pages/home/StockReport";
+import { WEB_TITLE } from "@/helpers/constants";
 
 async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
@@ -15,6 +16,29 @@ async function getPageContent(id: string) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("639a5782b60dc36e6fc86c93");
+  return {
+    title: content.meta.title,
+    description: content.meta.description,
+    openGraph: {
+      title: content.meta.title,
+      description: content.meta.description,
+      url: `${process.env.LAND_URL}`,
+      siteName: WEB_TITLE,
+      images: [
+        {
+          url: content.meta.image.url,
+          width: content.meta.image.width,
+          height: content.meta.image.height,
+        },
+      ],
+      locale: "en-US",
+      type: "website",
+    },
+  };
 }
 
 const HomePage = async () => {
