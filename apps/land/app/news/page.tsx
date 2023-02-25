@@ -10,6 +10,11 @@ async function getNews() {
   return jsonData.docs ? jsonData.docs : null;
 }
 
+export const metadata = {
+  title: "News",
+  description: "News",
+};
+
 const NewsPage = async () => {
   const news = await getNews();
   return (
