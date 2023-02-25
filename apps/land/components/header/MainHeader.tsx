@@ -21,6 +21,10 @@ const MainHeader = ({
   isTitleSmall?: boolean;
   otherUrl?: string;
 }) => {
+  const bgUrlUpdated = bgUrl.includes("/files") ? `${bgUrl}` : `/${bgUrl}`;
+  const bgUrlSmallUpdated = bgUrlSmall.includes("/files")
+    ? `${bgUrlSmall}`
+    : `/${bgUrlSmall}`;
   return (
     <>
       {isBlueHeader ? (
@@ -46,7 +50,7 @@ const MainHeader = ({
           )}
           <div className="z-0 hidden md:block">
             <Image
-              src={otherUrl ? otherUrl : `${bgUrl}`}
+              src={otherUrl ? otherUrl : bgUrlUpdated}
               width={3844}
               height={1312}
               alt="Picture of the author"
@@ -55,7 +59,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 block md:hidden">
             <Image
-              src={`${bgUrlSmall}`}
+              src={bgUrlSmallUpdated}
               width={1036}
               height={806}
               alt="Picture of the author"
@@ -88,7 +92,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 hidden md:block">
             <Image
-              src={otherUrl ? otherUrl : `${bgUrl}`}
+              src={otherUrl ? otherUrl : bgUrlUpdated}
               width={3844}
               height={1312}
               alt="Picture of the author"
@@ -97,7 +101,7 @@ const MainHeader = ({
           </div>
           <div className="z-0 block md:hidden">
             <Image
-              src={`${bgUrlSmall}`}
+              src={bgUrlSmallUpdated}
               width={1036}
               height={806}
               alt="Picture of the author"

@@ -28,6 +28,13 @@ async function getNews() {
   return jsonData.docs ? jsonData.docs : null;
 }
 
+export async function generateMetadata() {
+  return {
+    title: "Mission, Vision",
+    description: "Mission, Vision",
+  };
+}
+
 const MissionVisionPage = async () => {
   const news = await getNews();
   const { title, breadcrumbs, image, tabs, imageSmall } =

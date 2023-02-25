@@ -1,6 +1,13 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/presentations/Content";
 
+export async function generateMetadata() {
+  return {
+    title: "Presentations",
+    description: "Presentations",
+  };
+}
+
 const PresentationPage = () => {
   return (
     <>

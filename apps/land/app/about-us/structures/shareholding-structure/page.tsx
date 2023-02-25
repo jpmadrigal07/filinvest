@@ -2,7 +2,14 @@ import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/about-us/structures/constants";
 import Content from "@/components/pages/about-us/structures/shareholding-structure/Content";
 
-const shareholdingStructurePage = () => {
+export async function generateMetadata() {
+  return {
+    title: "Shareholding Structure",
+    description: "Shareholding Structure",
+  };
+}
+
+const ShareholdingStructurePage = () => {
   const { title, breadcrumbs, image, tabs, imageSmall } =
     HEADER_INFO.shareholdingStructure;
   return (
@@ -19,4 +26,4 @@ const shareholdingStructurePage = () => {
   );
 };
 
-export default shareholdingStructurePage;
+export default ShareholdingStructurePage;
