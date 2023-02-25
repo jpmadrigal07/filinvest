@@ -79,7 +79,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
           >
             <div className="flex items-center gap-6 px-9 py-10 font-bold text-white 2xl:gap-14">
               <div className="flex-none">
-                <Link href="/contact-us">
+                <Link href="/">
                   <MainLogo />
                 </Link>
               </div>
