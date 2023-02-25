@@ -48,8 +48,6 @@ const LinkWrapper = ({
     popoverRef.current?.click();
   };
 
-  console.log("currentMenuIndex", currentMenuIndex);
-  console.log("menuIndex", menuIndex);
   return (
     <>
       {isLink && link && !subMenus && (
