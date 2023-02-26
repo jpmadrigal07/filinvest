@@ -22,7 +22,7 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
         return (
           <Link
             href={`/projects/${project.slug}`}
-            className="opacity-100 transition duration-150 hover:opacity-70"
+            className="group"
             key={index}
           >
             <div className="flex flex-1 flex-col gap-4">
@@ -35,6 +35,7 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
                   project.coverImage.height ? project.coverImage.height : 407
                 }
                 alt={project.coverImage.alt ? project.coverImage.alt : ""}
+                className="opacity-100 transition duration-150 group-hover:opacity-70"
               />
               <h3 className="text-jet truncate text-2xl font-bold">
                 {project.title}
