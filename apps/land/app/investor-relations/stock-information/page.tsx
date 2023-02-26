@@ -1,27 +1,17 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/share-information/Content";
-import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
+import { metaBuilder } from "@/helpers/metaBuiler";
+import { getPageContent } from "../../page";
+const STOCK_PAGE_ID = "63faed278a325ad49bd54642";
 
 export async function generateMetadata() {
-  return {
-    title: "Share Information",
-    description: "Share Information",
-  };
+  const content = await getPageContent(STOCK_PAGE_ID);
+  return metaBuilder(content);
 }
 
-const ShareInformationPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.stockInformation;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+const ShareInformationPage = async () => {
+  const content = await getPageContent(STOCK_PAGE_ID);
+
+  return <Content content={content} />;
 };
 
 export default ShareInformationPage;

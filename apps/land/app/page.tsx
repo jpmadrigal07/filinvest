@@ -10,8 +10,10 @@ import Projects from "@/components/pages/home/Projects";
 import StockReport from "@/components/pages/home/StockReport";
 import { metaBuilder } from "@/helpers/metaBuiler";
 
-async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+export async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
