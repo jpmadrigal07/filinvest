@@ -3,6 +3,7 @@ import OfficeContent from "@/components/pages/projects/office/Content";
 import { notFound } from "next/navigation";
 import qs from "qs";
 import { Project } from "shared-types";
+import { metaBuilder } from "@/helpers/metaBuiler";
 
 type PageProps = {
   params: {
@@ -33,6 +34,11 @@ async function geProject(slug: string) {
   }
   const jsonData = await res.json();
   return jsonData.docs ? (jsonData.docs[0] as Project) : null;
+}
+
+export async function generateMetadata({ params: { projectSlug } }: PageProps) {
+  const content = await geProject(projectSlug);
+  return metaBuilder(content);
 }
 
 const ProjectsPage = async ({ params: { projectSlug } }: PageProps) => {

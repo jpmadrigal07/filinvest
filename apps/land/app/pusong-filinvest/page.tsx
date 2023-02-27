@@ -27,6 +27,13 @@ async function getNews() {
   return jsonData.docs ? jsonData.docs : null;
 }
 
+export async function generateMetadata() {
+  return {
+    title: "#PusongFilinvest",
+    description: "#PusongFilinvest",
+  };
+}
+
 const PusongFilinvestPage = async () => {
   const news = await getNews();
   const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.pusongFilinvest;

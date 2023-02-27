@@ -37,6 +37,13 @@ async function getPageContent(id: string) {
   return res.json();
 }
 
+export async function generateMetadata() {
+  return {
+    title: "Mission, Vision",
+    description: "Mission, Vision",
+  };
+}
+
 const MissionVisionPage = async () => {
   const news = await getNews();
   const content = await getPageContent("639a586ab60dc36e6fc86dc4");

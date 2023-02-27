@@ -230,6 +230,19 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      type: "array",
+      name: "imageGallery",
+      label: "Image Gallery",
+      fields: [
+        {
+          name: "image",
+          label: "Image (Size: 1920x833)",
+          type: "upload",
+          relationTo: "files",
+        },
+      ],
+    },
+    {
       name: "shortDescription",
       type: "text",
       required: true,

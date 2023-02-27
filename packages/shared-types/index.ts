@@ -135,6 +135,10 @@ export interface Project {
   subLocation?: SubLocationCategory;
   size: number;
   coverImage: File;
+  imageGallery: {
+    image?: File;
+    id?: string;
+  }[];
   shortDescription: string;
   overview: {
     [k: string]: unknown;
