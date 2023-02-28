@@ -86,7 +86,10 @@ import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
 } from "../blocks/CompanyBackground";
-import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
+import {
+  OurLeadershipBoardOfDirectors,
+  OurLeadershipSeniorManagementTeam,
+} from "../blocks/OurLeadership";
 import {
   FilPayHeaderImage,
   FilPayOnlinePaymentsSection,
@@ -153,7 +156,6 @@ export const Pages: CollectionConfig = {
         OfficeParksOfficeParks,
         OfficesTitleText,
         OfficesOfficeParks,
-        OurLeadershipBoardOfDirectors,
         OfficesOffices,
         CorporateCenters,
         SubsidiariesCompanies,
@@ -206,6 +208,8 @@ export const Pages: CollectionConfig = {
         TownscapesTownscapes,
         PreviousLink,
         NextLink,
+        OurLeadershipBoardOfDirectors,
+        OurLeadershipSeniorManagementTeam,
         NewsNews,
         ResidentialTitleText,
         ResidentialPrestige,

@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
-const OurLeadershipBoardOfDirectors: Block = {
-  slug: "our-leadership-board-of-directors",
+const OurLeadershipSeniorManagementTeam: Block = {
+  slug: "our-leadership-senior-management-team",
   fields: [
     {
       name: "title",
@@ -94,4 +94,4 @@ const OurLeadershipBoardOfDirectors: Block = {
   ],
 };
 
-export default OurLeadershipBoardOfDirectors;
+export default OurLeadershipSeniorManagementTeam;
