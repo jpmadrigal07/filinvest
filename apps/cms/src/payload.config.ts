@@ -1,5 +1,7 @@
 import { buildConfig } from "payload/config";
 import path from "path";
+import seo from "@payloadcms/plugin-seo";
+
 import { Users } from "./collections/Users";
 import { Sites } from "./collections/Sites";
 import { Awards } from "./collections/Awards";
@@ -10,7 +12,6 @@ import { Projects } from "./collections/Projects";
 import { Careers } from "./collections/Careers";
 
 import { CareerCategories } from "./collections/CareerCategories";
-import { NewsCategories } from "./collections/NewsCategories";
 import { ProjectCategories } from "./collections/ProjectCategories";
 import { PropertyCategories } from "./collections/PropertyCategories";
 import { LocationGroupCategories } from "./collections/LocationGroupCategories";
@@ -20,7 +21,6 @@ import { SubLocationCategories } from "./collections/SubLocationCategories";
 import { Navigation } from "./globals/Navigation";
 import { Footer } from "./globals/Footer";
 
-import { seed } from "./seed";
 import Logo from "./graphics/Logo";
 import Icon from "./graphics/Icon";
 import { PropertySearch } from "./globals/PropertySearch";
@@ -51,7 +51,6 @@ export default buildConfig({
     Users,
     Sites,
     CareerCategories,
-    NewsCategories,
     ProjectCategories,
     PropertyCategories,
     LocationGroupCategories,
@@ -59,14 +58,17 @@ export default buildConfig({
     SubLocationCategories,
     Files,
   ],
+  plugins: [
+    seo({
+      collections: ["news", "projects", "pages"],
+      uploadsCollection: "files",
+    }),
+  ],
   globals: [Navigation, Footer, PropertySearch],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
-  onInit: async (payload) => {
-    // If the `env` var `PAYLOAD_SEED` is set, seed the db
-    if (process.env.PAYLOAD_SEED) {
-      await seed(payload);
-    }
+  graphQL: {
+    schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
 });

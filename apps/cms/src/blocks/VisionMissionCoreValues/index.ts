@@ -1,9 +1,3 @@
-import VisionMissionCoreValuesVision from "./VisionMissionCoreValuesVision";
-import VisionMissionCoreValuesMission from "./VisionMissionCoreValuesMission";
-import VisionMissionCoreValuesCoreValues from "./VisionMissionCoreValuesCoreValues";
+import VisionMissionCoreValues from "./VisionMissionCoreValues";
 
-export {
-  VisionMissionCoreValuesVision,
-  VisionMissionCoreValuesMission,
-  VisionMissionCoreValuesCoreValues,
-};
+export { VisionMissionCoreValues };

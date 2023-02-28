@@ -6,7 +6,7 @@ const Content = () => {
   return (
     <section className="mx-3 mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div>
-        <h2 className="text-jet text-center text-4xl font-bold">
+        <h2 className="text-jet text-center text-3xl font-bold">
           Stock Information
         </h2>
       </div>

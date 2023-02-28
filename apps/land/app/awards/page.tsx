@@ -1,7 +1,16 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/awards/Content";
+import { getRequest } from "@/helpers/getRequest";
 
-const AwardsPage = () => {
+export async function generateMetadata() {
+  return {
+    title: "Awards",
+    description: "Awards",
+  };
+}
+
+const AwardsPage = async () => {
+  const awards = await getRequest(`/api/awards`);
   return (
     <>
       <MainHeader
@@ -10,7 +19,7 @@ const AwardsPage = () => {
         bgUrl="blue-header-bg-2.png"
         isTitleSmall
       />
-      <Content />
+      <Content awards={awards} />
     </>
   );
 };
