@@ -1,6 +1,13 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/terms/Content";
 
+export async function generateMetadata() {
+  return {
+    title: "Terms",
+    description: "Terms",
+  };
+}
+
 const TermsPage = () => {
   return (
     <>

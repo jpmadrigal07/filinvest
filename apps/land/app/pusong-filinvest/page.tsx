@@ -38,6 +38,13 @@ async function getPageContent(id: string) {
   return res.json();
 }
 
+export async function generateMetadata() {
+  return {
+    title: "#PusongFilinvest",
+    description: "#PusongFilinvest",
+  };
+}
+
 const PusongFilinvestPage = async () => {
   const news = await getNews();
   const content = await getPageContent("639a57cab60dc36e6fc86cc7");

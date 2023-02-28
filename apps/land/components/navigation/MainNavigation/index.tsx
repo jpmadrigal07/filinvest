@@ -24,6 +24,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
   const [showFixedNavigation, setShowFixedNavigation] = useState(false);
   const [wasScroll, setWasScroll] = useState(false);
   const [menus, setMenus] = useState(staticMenus);
+  const [isHovering, setisHovering] = useState(false);
 
   useEffect(() => {
     setFlyoutMenu("");
@@ -79,7 +80,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
           >
             <div className="flex items-center gap-6 px-9 py-10 font-bold text-white 2xl:gap-14">
               <div className="flex-none">
-                <Link href="/contact-us">
+                <Link href="/">
                   <MainLogo />
                 </Link>
               </div>
@@ -92,6 +93,9 @@ const MainNavigation = ({ className }: { className?: string }) => {
                       setFlyoutMenu: setFlyoutMenu,
                       flyoutMenu: flyoutMenu,
                       menuIndex: index,
+                      currentMenuIndex: currentMenuIndex,
+                      isHovering: isHovering,
+                      setisHovering: setisHovering,
                     };
                     return (
                       <li key={index}>
