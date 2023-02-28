@@ -104,6 +104,7 @@ import {
   ResidentialPrestige,
   ResidentialAspire,
   ResidentialFutura,
+  ResidentialSlider,
 } from "../blocks/Residential";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
@@ -215,6 +216,7 @@ export const Pages: CollectionConfig = {
         ResidentialPrestige,
         ResidentialAspire,
         ResidentialFutura,
+        ResidentialSlider,
       ],
     },
     {
