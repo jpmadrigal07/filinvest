@@ -28,7 +28,7 @@ const ResidentialFutura: Block = {
     {
       type: "array",
       name: "futuraHomes",
-      minRows: 3,
+      minRows: 1,
       required: true,
       fields: [
         {

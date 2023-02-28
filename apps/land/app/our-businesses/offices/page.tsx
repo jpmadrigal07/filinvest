@@ -26,6 +26,13 @@ const stringifiedQuery = qs.stringify(
   { addQueryPrefix: true }
 );
 
+export async function generateMetadata() {
+  return {
+    title: "Office",
+    description: "Office",
+  };
+}
+
 const OfficePage = async () => {
   const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);

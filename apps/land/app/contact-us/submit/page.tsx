@@ -1,6 +1,13 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/contact-us/constants";
 
+export async function generateMetadata() {
+  return {
+    title: "Contact Us",
+    description: "Contact Us",
+  };
+}
+
 async function getToken() {
   const headers = new Headers();
   headers.append("Content-Type", "application/x-www-form-urlencoded");
