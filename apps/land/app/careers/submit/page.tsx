@@ -1,6 +1,13 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/careers/constants";
 
+export async function generateMetadata() {
+  return {
+    title: "Careers",
+    description: "Careers",
+  };
+}
+
 async function submitCareers(careerData: any) {
   if (careerData) {
     const data = {

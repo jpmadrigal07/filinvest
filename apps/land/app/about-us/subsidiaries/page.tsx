@@ -10,7 +10,15 @@ async function getPageContent(id: string) {
   }
   return res.json();
 }
-const Subsidiaries = async () => {
+
+export async function generateMetadata() {
+  return {
+    title: "Subsidiaries",
+    description: "Subsidiaries",
+  };
+}
+
+const Subsidiaries = () => {
   const content = await getPageContent("639a5888b60dc36e6fc86e12");
   const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.subsidiaries;
   return (
