@@ -12,14 +12,14 @@ import Link from "next/link";
 const OurServices = ({ content }: any) => {
   return (
     <section className="pt-28">
-      <div className="w-full px-6 lg:mx-auto lg:w-1/3">
+      <div className="flex w-full flex-col items-center px-6 lg:mx-auto lg:w-[43%]">
         <h4 className="text-dark-cornflower-blue text-center font-bold">
           {content.content[4].title}
         </h4>
-        <h2 className="text-jet mt-2 text-center text-4xl font-extrabold">
+        <h2 className="text-jet mt-2 max-w-[670px] text-center text-4xl  font-extrabold">
           {content.content[4].subTitle}
         </h2>
-        <h4 className="text-dim-gray mt-4 text-center">
+        <h4 className="text-dim-gray mt-4 max-w-[630px] text-center">
           {content.content[4].description}
         </h4>
       </div>

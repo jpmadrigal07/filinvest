@@ -21,6 +21,9 @@ interface I_Props {
   setFlyoutMenu: Dispatch<T_Flyout_Menu>;
   menuIndex: number;
   fullComponent?: ReactNode;
+  currentMenuIndex: number | null;
+  isHovering: boolean;
+  setisHovering: Dispatch<boolean>;
 }
 
 const LinkWrapper = ({
@@ -32,6 +35,9 @@ const LinkWrapper = ({
   setFlyoutMenu,
   menuIndex,
   fullComponent,
+  currentMenuIndex,
+  isHovering,
+  setisHovering,
 }: I_Props) => {
   const popoverRef = useRef(null);
   const setMenuType = (type: T_Flyout_Menu) => {
@@ -41,13 +47,22 @@ const LinkWrapper = ({
     // @ts-expect-error
     popoverRef.current?.click();
   };
+
   return (
     <>
       {isLink && link && !subMenus && (
         <>
           <Link
             href={link}
-            className="cursor-pointer whitespace-nowrap"
+            style={{
+              opacity:
+                isHovering && currentMenuIndex == menuIndex
+                  ? "1"
+                  : isHovering
+                  ? "0.7"
+                  : "1",
+            }}
+            className="cursor-pointer whitespace-nowrap transition duration-500"
             onClick={() => {
               setMenuType("link");
               setCurrentMenuIndex(menuIndex);
@@ -64,7 +79,7 @@ const LinkWrapper = ({
               <>
                 <Popover.Button
                   className={combineClass(
-                    "group inline-flex h-3 whitespace-nowrap border-none text-white ring-0"
+                    "group inline-flex h-3 whitespace-nowrap border-none text-white ring-0 transition duration-500"
                   )}
                   ref={popoverRef}
                   onMouseEnter={() => {
@@ -72,7 +87,18 @@ const LinkWrapper = ({
                     setCurrentMenuIndex(menuIndex);
                     clickPopover();
                   }}
-                  onMouseLeave={() => clickPopover()}
+                  style={{
+                    opacity:
+                      isHovering && currentMenuIndex == menuIndex
+                        ? "1"
+                        : isHovering
+                        ? "0.7"
+                        : "1",
+                  }}
+                  onMouseLeave={() => {
+                    setisHovering(false);
+                    clickPopover();
+                  }}
                 >
                   <span className="flex items-center gap-2">
                     {text}
@@ -126,10 +152,22 @@ const LinkWrapper = ({
       {!isLink && !link && fullComponent && (
         <>
           <span
-            className="flex cursor-pointer items-center gap-2 whitespace-nowrap"
+            className="flex cursor-pointer items-center gap-2 whitespace-nowrap transition duration-500"
+            style={{
+              opacity:
+                isHovering && currentMenuIndex == menuIndex
+                  ? "1"
+                  : isHovering
+                  ? "0.7"
+                  : "1",
+            }}
             onMouseEnter={() => {
               setMenuType("full");
               setCurrentMenuIndex(menuIndex);
+              setisHovering(true);
+            }}
+            onMouseLeave={() => {
+              setisHovering(false);
             }}
           >
             {text}

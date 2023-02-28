@@ -13,6 +13,13 @@ async function getPageContent(id: string) {
   return res.json();
 }
 
+export async function generateMetadata() {
+  return {
+    title: "Dreams Built Green",
+    description: "Dreams Built Green",
+  };
+}
+
 const DreamsBuiltGreen = async () => {
   const content = await getPageContent("639a5859b60dc36e6fc86daa");
   const { title, breadcrumbs, image, imageSmall } =
