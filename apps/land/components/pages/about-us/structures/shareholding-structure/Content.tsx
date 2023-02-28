@@ -1,3 +1,4 @@
+"use client";
 import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import Download from "@/components/svg/Download";
 import React from "react";
@@ -5,6 +6,7 @@ import Table from "./Table";
 import MainHeader from "@/components/header/MainHeader";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
+import Link from "next/link";
 
 const Content = ({ content }: any) => {
   const header = content?.content.find(
@@ -43,11 +45,11 @@ const Content = ({ content }: any) => {
 
   /* const tableRows = shareholdingStructureTable.tableColumn.map(
     (col: any) => col?.tableData
-  );
+  ); */
 
   const downloadLink = content?.content.find(
     (item: any) => item.blockType === "structures-download-button"
-  )?.downloadLink; */
+  )?.downloadLink;
 
   return (
     <>
@@ -107,10 +109,14 @@ const Content = ({ content }: any) => {
           voting shares of FDC is owned by foreigners.
         </p>
         <div className="mt-4 flex justify-center">
-          <button className="bg-royal-dark-blue border-sonic-silver hover:bg-oxford-blue flex gap-4 border px-12 py-6 text-white focus:shadow-lg">
+          <Link
+            href={downloadLink}
+            target="_blank"
+            className="bg-royal-dark-blue border-sonic-silver hover:bg-oxford-blue flex gap-4 border px-12 py-6 text-white focus:shadow-lg"
+          >
             <Download color="#ffffff" />
             <span>FDC Shareholding Structure </span>
-          </button>
+          </Link>
         </div>
         <div className="mx-6 mt-24 flex lg:mx-0">
           <div className="flex-none">

@@ -13,8 +13,8 @@ export default function ChartImage({ content }: any) {
       <div className="mx-auto mt-6 w-4/5 md:mt-12 lg:w-full">
         <Image
           src={chartImageBlock?.chartImage?.url}
-          width={chartImageBlock?.chartImage?.width}
-          height={chartImageBlock?.chartImage?.height}
+          width={3458}
+          height={2642}
           alt={chartImageBlock?.chartImage?.alt}
         />
       </div>

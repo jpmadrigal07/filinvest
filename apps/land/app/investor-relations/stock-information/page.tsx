@@ -10,7 +10,6 @@ export async function generateMetadata() {
 
 const ShareInformationPage = async () => {
   const content = await getPageContent(STOCK_PAGE_ID);
-
   return <Content content={content} />;
 };
 
