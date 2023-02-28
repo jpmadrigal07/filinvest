@@ -1,4 +1,5 @@
 import Content from "@/components/pages/about-us/mission-vision/Content";
+import { metaBuilder } from "@/helpers/metaBuiler";
 import qs from "qs";
 
 const query = {
@@ -35,10 +36,8 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  return {
-    title: "Mission, Vision",
-    description: "Mission, Vision",
-  };
+  const content = await getPageContent("639a586ab60dc36e6fc86dc4");
+  return metaBuilder(content);
 }
 
 const MissionVisionPage = async () => {
