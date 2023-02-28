@@ -9,7 +9,7 @@ import FeaturedArticles from "@/components/list/FeaturedArticles";
 
 const News = ({ news }: any) => {
   return (
-    <div className="mx-6 mb-24 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <div className="mx-6 mb-24 mt-12 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div className="flex flex-col justify-center md:flex-row md:items-center">
         <div className="flex-1">
           <h2 className="text-jet mt-2 text-4xl font-extrabold">

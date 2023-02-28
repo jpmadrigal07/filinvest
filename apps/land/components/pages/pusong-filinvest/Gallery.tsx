@@ -7,17 +7,18 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 
 const Gallery = ({ content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "pusong-filinvest-gallery"
+  );
   return (
     <div className="mt-24">
       <h3 className="text-dark-cornflower-blue text-center font-bold">
-        {content.content[2].title}
+        {data.title}
       </h3>
       <h2 className="mx-6 mt-4 text-center text-4xl font-bold">
-        {content.content[2].subTitle}
+        {data.subTitle}
       </h2>
-      <p className="text-dim-gray mt-4 text-center">
-        {content.content[2].descriptions}
-      </p>
+      <p className="text-dim-gray mt-4 text-center">{data.descriptions}</p>
       <Swiper
         slidesPerView={5}
         centeredSlides={true}
@@ -27,7 +28,7 @@ const Gallery = ({ content }: any) => {
         modules={[Pagination, FreeMode]}
         className="mySwiper mt-12"
       >
-        {content.content[2].image.map((item) => (
+        {data.image.map((item: any) => (
           <SwiperSlide>
             <Image
               src={`${item.image.url}`}
