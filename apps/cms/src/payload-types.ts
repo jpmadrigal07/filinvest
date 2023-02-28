@@ -372,7 +372,10 @@ export interface Page {
     | {
         iconText: {
           iconImage: string | File;
-          text: string;
+          description: {
+            textLine: string;
+            id?: string;
+          }[];
           id?: string;
         }[];
         id?: string;
@@ -380,15 +383,15 @@ export interface Page {
         blockType: "company-background-icon-text";
       }
     | {
-        imageText: {
-          image: string | File;
-          title: string;
+        image: string | File;
+        title: string;
+        description: {
           description: string;
           id?: string;
         }[];
         id?: string;
         blockName?: string;
-        blockType: "company-background-image-text";
+        blockType: "company-background-image-and-text";
       }
     | {
         title: string;
@@ -997,6 +1000,10 @@ export interface Project {
   propertyType?: string | PropertyCategory;
   size: number;
   coverImage: string | File;
+  imageGallery: {
+    image?: string | File;
+    id?: string;
+  }[];
   shortDescription: string;
   overview: {
     [k: string]: unknown;

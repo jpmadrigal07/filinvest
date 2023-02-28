@@ -13,6 +13,13 @@ async function getPageContent(id: string) {
   return res.json();
 }
 
+export async function generateMetadata() {
+  return {
+    title: "Residential",
+    description: "Residential",
+  };
+}
+
 const ResidentialPage = async () => {
   const content = await getPageContent("63f1b2db7965949aabaa9dd9");
   const { title, breadcrumbs, image } = HEADER_INFO.residential;
