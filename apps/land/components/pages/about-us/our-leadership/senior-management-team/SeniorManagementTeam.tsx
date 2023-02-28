@@ -8,19 +8,20 @@ import LinkedIn from "@/components/svg/LinkedIn";
 import BioInfo from "@/components/drawer/BioInfo";
 
 const SeniorManagementTeam = ({ content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "our-leadership-senior-management-team"
+  );
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [directorInformation, setDirectorInformation] = useState({});
   return (
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
-        <h2 className="text-jet text-5xl font-bold">
-          {content.content[0].title}
-        </h2>
-        <p className="text-dim-gray mt-6">{content.content[0].description}</p>
+        <h2 className="text-jet text-5xl font-bold">{data.title}</h2>
+        <p className="text-dim-gray mt-6">{data.description}</p>
         <div
-          className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-${content.content[0].numberOfColumns}`}
+          className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-${data.numberOfColumns}`}
         >
-          {content.content[0].director.map((director: any) => (
+          {data.director.map((director: any) => (
             <div className="group relative">
               <Image
                 src={`${director.directorImage.url}`}

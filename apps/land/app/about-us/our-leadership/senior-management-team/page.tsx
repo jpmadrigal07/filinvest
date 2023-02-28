@@ -1,6 +1,5 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/our-leadership/constants";
-import SeniorManagementTeam from "@/components/pages/about-us/our-leadership/senior-management-team/SeniorManagementTeam";
+import Content from "@/components/pages/about-us/our-leadership/senior-management-team/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
@@ -11,26 +10,13 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  return {
-    title: "Senior Management Team",
-    description: "Senior Management Team",
-  };
+  const content = await getPageContent("63ecc2d7e742304b009f117f");
+  return metaBuilder(content);
 }
 
 const SeniorManagementTeamPage = async () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.seniorManagementTeam;
   const content = await getPageContent("63ecc2d7e742304b009f117f");
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <SeniorManagementTeam content={content} />
-    </>
-  );
+  return <Content content={content} />;
 };
 
 export default SeniorManagementTeamPage;
