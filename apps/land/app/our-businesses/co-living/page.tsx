@@ -17,6 +17,13 @@ const stringifiedQuery = qs.stringify(
   { addQueryPrefix: true }
 );
 
+export async function generateMetadata() {
+  return {
+    title: "Co-Living",
+    description: "Co-Living",
+  };
+}
+
 const CoLivingPage = async () => {
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);

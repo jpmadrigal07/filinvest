@@ -9,6 +9,14 @@ async function getPageContent(id: string) {
   }
   return res.json();
 }
+
+export async function generateMetadata() {
+  return {
+    title: "Board Of Directors",
+    description: "Board Of Directors",
+  };
+}
+
 const BoardOfDirectorsPage = async () => {
   const { title, breadcrumbs, image, tabs } = HEADER_INFO.boardOfDirectors;
   const content = await getPageContent("63f8749ef85c32e4e1eefb59");

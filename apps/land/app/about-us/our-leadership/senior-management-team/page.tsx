@@ -9,6 +9,14 @@ async function getPageContent(id: string) {
   }
   return res.json();
 }
+
+export async function generateMetadata() {
+  return {
+    title: "Senior Management Team",
+    description: "Senior Management Team",
+  };
+}
+
 const SeniorManagementTeamPage = async () => {
   const { title, breadcrumbs, image, tabs } = HEADER_INFO.seniorManagementTeam;
   const content = await getPageContent("63ecc2d7e742304b009f117f");
