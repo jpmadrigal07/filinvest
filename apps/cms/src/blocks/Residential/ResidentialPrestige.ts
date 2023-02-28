@@ -28,7 +28,7 @@ const ResidentialPrestige: Block = {
     {
       type: "array",
       name: "prestigeHomes",
-      minRows: 3,
+      minRows: 1,
       required: true,
       fields: [
         {

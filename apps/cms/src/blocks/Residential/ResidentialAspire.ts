@@ -28,7 +28,7 @@ const ResidentialAspire: Block = {
     {
       type: "array",
       name: "aspireHomes",
-      minRows: 3,
+      minRows: 1,
       required: true,
       fields: [
         {
