@@ -1,5 +1,5 @@
 import Content from "@/components/pages/about-us/dreams-built-green/Content";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);

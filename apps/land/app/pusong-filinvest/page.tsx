@@ -1,4 +1,4 @@
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
 import Content from "@/components/pages/pusong-filinvest/Content";
 
