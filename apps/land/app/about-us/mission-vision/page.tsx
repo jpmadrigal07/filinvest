@@ -1,7 +1,4 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/constants";
-import MissionVisionCoreValues from "@/components/pages/about-us/mission-vision/MissionVisionCoreValues";
-import News from "@/components/pages/about-us/mission-vision/News";
+import Content from "@/components/pages/about-us/mission-vision/Content";
 import qs from "qs";
 
 const query = {
@@ -47,21 +44,7 @@ export async function generateMetadata() {
 const MissionVisionPage = async () => {
   const news = await getNews();
   const content = await getPageContent("639a586ab60dc36e6fc86dc4");
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.missionVision;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-        tabs={tabs}
-      />
-      <MissionVisionCoreValues content={content} />
-      <News news={news} />
-    </>
-  );
+  return <Content content={content} news={news} />;
 };
 
 export default MissionVisionPage;

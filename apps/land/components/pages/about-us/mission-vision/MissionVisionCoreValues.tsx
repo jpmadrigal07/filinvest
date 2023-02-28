@@ -9,56 +9,57 @@ import Diamond from "@/components/svg/Diamond";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 
 const MissionVisionCoreValues = ({ news, content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "vision-mission-and-core-values"
+  );
   return (
     <section className="-mt-6 2xl:-mt-36">
       <div className="mx-6 flex flex-col gap-2 md:flex-row lg:mx-9 lg:gap-8 xl:mx-16 2xl:mx-44">
         <div className="flex flex-1 flex-col items-center gap-6 bg-white px-6 py-16 shadow-xl lg:w-1/4 lg:flex-none lg:px-12">
           <Image
-            src={`${content.content[0].visionIcon.url}`}
+            src={`${data.visionIcon.url}`}
             width={79}
             height={79}
-            alt={`${content.content[0].visionIcon.alt}`}
+            alt={`${data.visionIcon.alt}`}
           />
           <h3 className="text-jet text-4xl font-bold">Vision</h3>
           <p className="text-jet text-center text-lg">
-            {content.content[0].visionDescription}
+            {data.visionDescription}
           </p>
         </div>
         <div className="flex flex-1 flex-col items-center gap-6 bg-white py-16 pl-10 pr-6 shadow-xl lg:pl-12">
           <Image
-            src={`${content.content[0].missionIcon.url}`}
+            src={`${data.missionIcon.url}`}
             width={79}
             height={79}
-            alt={`${content.content[0].missionIcon.alt}`}
+            alt={`${data.missionIcon.alt}`}
           />
           <h3 className="text-jet text-4xl font-bold">Mission</h3>
           <div>
-            {content.content[0].missionBulletDescription.map(
-              (bulletDescription: any) => (
-                <div className="mt-1 flex items-center gap-3">
-                  <div className="mt-1 flex-none">
-                    <Diamond />
-                  </div>
-                  <p className="text-jet flex-1 text-lg">
-                    {bulletDescription.description}
-                  </p>
+            {data.missionBulletDescription.map((bulletDescription: any) => (
+              <div className="mt-1 flex items-center gap-3">
+                <div className="mt-1 flex-none">
+                  <Diamond />
                 </div>
-              )
-            )}
+                <p className="text-jet flex-1 text-lg">
+                  {bulletDescription.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
         <div className="flex flex-1 flex-col items-center gap-6 bg-white px-6 py-16 shadow-xl lg:w-1/4 lg:flex-none lg:px-12">
           <Image
-            src={`${content.content[0].coreValuesIcon.url}`}
+            src={`${data.coreValuesIcon.url}`}
             width={79}
             height={79}
-            alt={`${content.content[0].coreValuesIcon.alt}`}
+            alt={`${data.coreValuesIcon.alt}`}
           />
           <h3 className="text-jet text-center text-4xl font-bold">
             Core Values
           </h3>
           <p className="text-jet text-center text-lg">
-            {content.content[0].coreValuesDescription}
+            {data.coreValuesDescription}
           </p>
         </div>
       </div>
