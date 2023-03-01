@@ -10,7 +10,8 @@ export async function generateMetadata() {
 }
 
 const DividendHistoryPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.dividendHistory;
+  const { title, breadcrumbs, image, tabs, imageSmall } =
+    HEADER_INFO.dividendHistory;
   return (
     <>
       <MainHeader
@@ -18,6 +19,7 @@ const DividendHistoryPage = () => {
         breadcrumbs={breadcrumbs}
         bgUrl={image}
         tabs={tabs}
+        bgUrlSmall={imageSmall}
       />
       <Content />
     </>

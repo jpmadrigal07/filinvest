@@ -35,8 +35,8 @@ const MainHeader = ({
                 className={`flex flex-col items-center justify-center py-32 md:py-24 lg:mx-9 lg:py-40 xl:mx-16 2xl:mx-44 2xl:py-48`}
               >
                 <h1
-                  className={`mb-4 ${
-                    isTitleSmall ? "text-4xl lg:text-6xl" : "text-6xl"
+                  className={`mt-16 mb-4 md:mt-0 ${
+                    isTitleSmall ? "text-2xl lg:text-6xl" : "text-6xl"
                   } text-center font-extrabold text-white`}
                 >
                   {title}
@@ -71,8 +71,8 @@ const MainHeader = ({
         <section className="z-0">
           <div className="absolute w-full">
             <div
-              className={`flex flex-col items-center justify-center ${
-                tabs ? "py-28" : "py-32"
+              className={`flex flex-col items-center justify-center md:mt-0 ${
+                tabs ? "mt-6 py-28" : "mt-16  py-32 "
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1

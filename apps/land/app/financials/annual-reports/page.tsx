@@ -10,13 +10,15 @@ export async function generateMetadata() {
 }
 
 const AnnualReportsPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.annualReports;
+  const { title, breadcrumbs, image, tabs, imageSmall } =
+    HEADER_INFO.annualReports;
   return (
     <>
       <MainHeader
         title={title}
         breadcrumbs={breadcrumbs}
         bgUrl={image}
+        bgUrlSmall={imageSmall}
         tabs={tabs}
       />
       <Content />

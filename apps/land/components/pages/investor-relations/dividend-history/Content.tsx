@@ -4,7 +4,7 @@ import { TABLE_TITLE_DIVIDENDS, TABLE_VALUES_DIVIDENDS } from "../constants";
 
 const Content = () => {
   return (
-    <section className="mx-3 mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-3 mt-16 mb-28 flex flex-col gap-9 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div>
         <p className="text-dark-cornflower-blue m-0 text-center font-bold">
           PHP per share
@@ -15,7 +15,7 @@ const Content = () => {
         2022 Dividends to be paid on June 2, 2022 to shareholders as of record
         May 11, 2022.
       </h3>
-      <div className="mx-32">
+      <div className="mx-0 lg:mx-32">
         <Image
           src={`/graph-share-information.png`}
           width={2998}

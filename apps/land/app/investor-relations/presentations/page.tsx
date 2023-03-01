@@ -15,6 +15,7 @@ const PresentationPage = () => {
         title="Presentations"
         breadcrumbs="Home / Investor Relations / Presentations"
         bgUrl="presentations.png"
+        bgUrlSmall="presentations-small.png"
       />
       <Content />
     </>
