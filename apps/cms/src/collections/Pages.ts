@@ -90,10 +90,7 @@ import {
   OurLeadershipBoardOfDirectors,
   OurLeadershipSeniorManagementTeam,
 } from "../blocks/OurLeadership";
-import {
-  FilPayHeaderImage,
-  FilPayOnlinePaymentsSection,
-} from "../blocks/FilPay";
+import { FilPayOnlinePaymentsSection } from "../blocks/FilPay";
 import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
@@ -197,7 +194,6 @@ export const Pages: CollectionConfig = {
         BoardCommitteesTitleYear,
         BoardCommitteesTable,
         EnterpriseRiskManagementTable,
-        FilPayHeaderImage,
         FilPayOnlinePaymentsSection,
         MixedUsedEstatesTitleText,
         MixedUsedEstatesMixedUsedEstates,
