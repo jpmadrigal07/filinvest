@@ -57,7 +57,7 @@ const Content = () => {
                         return (
                           <td
                             key={index}
-                            className="whitespace-nowrap py-4 pl-4 pr-4 text-2xl font-medium font-bold text-gray-900 sm:pl-6"
+                            className="whitespace-nowrap py-4 pl-4 pr-4 text-2xl font-medium text-gray-900 sm:pl-6"
                           >
                             {dividend}
                           </td>
