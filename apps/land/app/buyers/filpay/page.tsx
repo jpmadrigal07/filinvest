@@ -1,5 +1,5 @@
-import MainHeader from "@/components/header/MainHeader";
-import OnlinePaymentSection from "@/components/pages/buyers/filpay/OnlinePaymentSection";
+import { metaBuilder } from "@/helpers/metaBuilder";
+import Content from "@/components/pages/buyers/filpay/Content";
 
 async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
@@ -10,20 +10,13 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  return {
-    title: "FilPay",
-    description: "FilPay",
-  };
+  const content = await getPageContent("63fe98af7547f6d84570e653");
+  return metaBuilder(content);
 }
 
 const AnnualReportsPage = async () => {
-  const content = await getPageContent("63f1f5e08b9b7c24ea00c59c");
-  return (
-    <>
-      <MainHeader isBlueHeader />
-      <OnlinePaymentSection content={content} />
-    </>
-  );
+  const content = await getPageContent("63fe98af7547f6d84570e653");
+  return <Content content={content} />;
 };
 
 export default AnnualReportsPage;

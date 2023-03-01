@@ -5,6 +5,18 @@ const FilPayOnlinePaymentsSection: Block = {
   fields: [
     {
       type: "upload",
+      name: "mainHeaderImage",
+      relationTo: "files",
+      required: true,
+    },
+    {
+      type: "upload",
+      name: "mainHeaderImageSmall",
+      relationTo: "files",
+      required: true,
+    },
+    {
+      type: "upload",
       name: "headerImage",
       relationTo: "files",
       required: true,
