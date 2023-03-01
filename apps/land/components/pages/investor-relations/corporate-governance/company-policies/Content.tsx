@@ -1,4 +1,4 @@
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import React from "react";
 import LinkedIn from "@/components/svg/LinkedIn";
 

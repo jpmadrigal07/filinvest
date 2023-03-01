@@ -1,5 +1,5 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
