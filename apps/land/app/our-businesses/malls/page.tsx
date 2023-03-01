@@ -1,10 +1,7 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
 import Content from "@/components/pages/our-businesses/malls/Content";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
 import { metaBuilder } from "@/helpers/metaBuilder";
-import TitleText from "@/components/pages/our-businesses/malls/TitleText";
 
 const query = {
   "projectType.title": {
@@ -33,14 +30,12 @@ async function getPageContent(id: string) {
 }
 
 const MallsPage = async () => {
-  const content = await getPageContent("639a584bb60dc36e6fc86d90");
+  const content = await getPageContent("63feca49c071b06a75f42de4");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
-  const { title, breadcrumbs, image } = HEADER_INFO.malls;
   return (
     <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
-      <Content projects={projects} locations={locations} />
+      <Content content={content} projects={projects} locations={locations} />
     </>
   );
 };
