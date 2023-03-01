@@ -1,5 +1,5 @@
 import BorderButton from "@/components/button/BorderButton";
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import LinkedIn from "@/components/svg/LinkedIn";
 import React from "react";
 

@@ -1,5 +1,5 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import React, { useState } from "react";
 import Charters from "./Charters";
 import Members from "./Members";

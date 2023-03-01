@@ -3,7 +3,7 @@ import Image from "next/image";
 import ArrowRight from "@/components/svg/ArrowRight";
 import ArrowLeft from "@/components/svg/ArrowLeft";
 
-const PageNextPrevButton = ({
+const PageNextPrevButtonOld = ({
   imgName,
   pageName,
   isLeft = true,
@@ -37,4 +37,4 @@ const PageNextPrevButton = ({
   );
 };
 
-export default PageNextPrevButton;
+export default PageNextPrevButtonOld;
