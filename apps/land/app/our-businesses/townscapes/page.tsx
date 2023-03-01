@@ -1,5 +1,3 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
 import Content from "@/components/pages/our-businesses/townscapes/Content";
 import { getRequest } from "@/helpers/getRequest";
 import { metaBuilder } from "@/helpers/metaBuilder";
@@ -36,9 +34,7 @@ const TownscapesPage = async () => {
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
   return (
-    <>
-      <Content content={content} projects={projects} locations={locations} />
-    </>
+    <Content content={content} projects={projects} locations={locations} />
   );
 };
 
