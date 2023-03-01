@@ -1,10 +1,5 @@
 "use client";
-import Image from "next/image";
-import React, { useState } from "react";
-import SelectLocation from "@/components/select/SelectLocation";
-import Projects from "@/components/list/Projects";
-import { LocationCategory, Project } from "shared-types";
-import useGetProjectsByLocation from "@/components/list/hooks/useGetProjectsByLocation";
+import React from "react";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import MainHeader from "@/components/header/MainHeader";
 import OfficeParks from "./OfficeParks";
