@@ -48,23 +48,32 @@ const OurBusinesses = ({
             (routes: T_OurBusinessesMenu, index: number) => {
               return (
                 <div key={index} className={`${index > 0 && "mt-9"}`}>
-                  <span
-                    className="cursor-pointer text-white"
+                  <Link
+                    href={routes.link}
+                    className={`cursor-pointer text-white transition delay-150 ${
+                      routes.title === "Residentials" &&
+                      selectedMenu === "Residentials"
+                        ? "opacity-70"
+                        : "hover:opacity-70"
+                    }`}
                     onMouseEnter={() => setSelectedMenu(routes.title)}
                   >
                     <div className="flex items-center gap-3">
                       <h3 className="text-xl text-white">{routes.title}</h3>
-                      {selectedMenu === routes.title && <ChevronRight />}
+                      {selectedMenu === routes.title &&
+                      routes.title === "Residentials" ? (
+                        <ChevronRight />
+                      ) : null}
                     </div>
                     <h4 className="text-white opacity-50">{routes.subTitle}</h4>
-                  </span>
+                  </Link>
                 </div>
               );
             }
           )}
       </div>
       <div className="flex flex-1 gap-6 px-24">
-        {selectedMenu !== "" ? (
+        {selectedMenu === "Residentials" ? (
           <>
             <div className="flex flex-1 flex-col gap-12 overflow-hidden hover:overflow-auto">
               <div className="flex gap-24">
@@ -74,16 +83,19 @@ const OurBusinesses = ({
                 </div>
                 <div className="flex flex-col gap-4">
                   {propertyTypes ? (
-                    propertyTypes.map((type: PropertyCategory) => {
-                      return (
-                        <Link
-                          className="text-white opacity-50 transition delay-150 hover:opacity-100"
-                          href={`/property-search?projectType=${selectedMenu}&propertyType=${type.title}`}
-                        >
-                          {type.title}
-                        </Link>
-                      );
-                    })
+                    propertyTypes.map(
+                      (type: PropertyCategory, index: number) => {
+                        return (
+                          <Link
+                            key={index}
+                            className="text-white opacity-50 transition delay-150 hover:opacity-100"
+                            href={`/property-search?projectType=${selectedMenu}&propertyType=${type.title}`}
+                          >
+                            {type.title}
+                          </Link>
+                        );
+                      }
+                    )
                   ) : (
                     <p className="text-white opacity-50 hover:underline">
                       Loading...
@@ -98,16 +110,19 @@ const OurBusinesses = ({
                 </div>
                 <div className="flex flex-col gap-4">
                   {locationGroup ? (
-                    locationGroup.map((location: LocationGroupCategory) => {
-                      return (
-                        <Link
-                          className="text-white opacity-50 transition delay-150 hover:opacity-100"
-                          href={`/property-search?projectType=${selectedMenu}&locationGroup=${location.title}`}
-                        >
-                          {location.title}
-                        </Link>
-                      );
-                    })
+                    locationGroup.map(
+                      (location: LocationGroupCategory, index: number) => {
+                        return (
+                          <Link
+                            key={index}
+                            className="text-white opacity-50 transition delay-150 hover:opacity-100"
+                            href={`/property-search?projectType=${selectedMenu}&locationGroup=${location.title}`}
+                          >
+                            {location.title}
+                          </Link>
+                        );
+                      }
+                    )
                   ) : (
                     <p className="text-white opacity-50 hover:underline">
                       Loading...
@@ -122,9 +137,10 @@ const OurBusinesses = ({
                 </div>
                 <div className="flex flex-col gap-4">
                   {brands ? (
-                    brands.map((brand: Site) => {
+                    brands.map((brand: Site, index: number) => {
                       return (
                         <Link
+                          key={index}
                           className="text-white opacity-50 transition delay-150 hover:opacity-100"
                           href={`/property-search?projectType=${selectedMenu}&brand=${brand.title}`}
                         >
@@ -140,42 +156,42 @@ const OurBusinesses = ({
                 </div>
               </div>
             </div>
-            <div className="flex-1">
-              <h3 className="text-xl text-white">Our Business Units</h3>
-              <Link
-                href={`/projects/${selectedFeatured?.value.slug}`}
-                className="cursor-pointer transition delay-150 hover:opacity-70"
-              >
-                <h2 className="mt-4 text-4xl text-white">{selectedMenu}</h2>
-                <h4 className="mt-4 text-white opacity-70">
-                  {selectedFeatured?.value.title}
-                </h4>
-                <p className="mt-6 text-white opacity-50">
-                  {selectedFeatured?.value.shortDescription
-                    ? selectedFeatured?.value.shortDescription
-                    : ""}
-                  {selectedFeatured?.value.description
-                    ? selectedFeatured?.value.description
-                    : ""}
-                </p>
-                <div className="mt-9">
-                  <Image
-                    src={`${
-                      !selectedFeatured?.value.coverImage.url ? "/" : ""
-                    }${selectedFeatured?.value.coverImage.url}`}
-                    width={350}
-                    height={
-                      selectedFeatured?.value.coverImage.height
-                        ? selectedFeatured?.value.coverImage.height
-                        : 350
-                    }
-                    alt="property"
-                  />
-                </div>
-              </Link>
-            </div>
           </>
         ) : null}
+        <div className="flex-1">
+          <h3 className="text-xl text-white">Our Business Units</h3>
+          <Link
+            href={`/projects/${selectedFeatured?.value.slug}`}
+            className="cursor-pointer transition delay-150 hover:opacity-70"
+          >
+            <h2 className="mt-4 text-4xl text-white">{selectedMenu}</h2>
+            <h4 className="mt-4 text-white opacity-70">
+              {selectedFeatured?.value.title}
+            </h4>
+            <p className="mt-6 text-white opacity-50">
+              {selectedFeatured?.value.shortDescription
+                ? selectedFeatured?.value.shortDescription
+                : ""}
+              {selectedFeatured?.value.description
+                ? selectedFeatured?.value.description
+                : ""}
+            </p>
+            <div className="mt-9">
+              <Image
+                src={`${!selectedFeatured?.value.coverImage.url ? "/" : ""}${
+                  selectedFeatured?.value.coverImage.url
+                }`}
+                width={350}
+                height={
+                  selectedFeatured?.value.coverImage.height
+                    ? selectedFeatured?.value.coverImage.height
+                    : 350
+                }
+                alt="property"
+              />
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

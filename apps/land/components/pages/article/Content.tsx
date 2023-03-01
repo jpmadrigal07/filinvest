@@ -10,8 +10,42 @@ import { News } from "shared-types";
 // import serializeChildren from "@/helpers/serializeChildren";
 import RelatedArticles from "./RelatedArticles";
 import { testSerialize } from "@/helpers/testSerialize";
+import Link from "next/link";
 
 const Content = (props: News) => {
+  const articleUrl = `${process.env.LAND_URL}/article/${props.slug}`;
+  const linkedInSharer = `https://www.linkedin.com/sharing/share-offsite/?url=${articleUrl}`;
+  const facebookSharer = `https://www.facebook.com/sharer/sharer.php?u=${articleUrl}`;
+  const twitterSharer = `https://twitter.com/intent/tweet?text=${articleUrl}`;
+  const tagWrapper = (text: string) => {
+    return <span className="text-vivid-sky-blue uppercase">{text}</span>;
+  };
+  const renderTags = () => {
+    let tags = [];
+    if (props.locationGroupTag) {
+      tags.push(tagWrapper(props.locationGroupTag?.title));
+    }
+    if (props.locationTag) {
+      tags.push(tagWrapper(props.locationTag?.title));
+    }
+    if (props.projectTypeTag) {
+      tags.push(tagWrapper(props.projectTypeTag?.title));
+    }
+    if (props.propertyTypeTag) {
+      tags.push(tagWrapper(props.propertyTypeTag?.title));
+    }
+    if (props.subLocationTag) {
+      tags.push(tagWrapper(props.subLocationTag?.title));
+    }
+    if (props.site) {
+      tags.push(tagWrapper(props.site?.title));
+    }
+    return tags.length > 0 ? (
+      tags
+    ) : (
+      <span className="text-gainsboro italic">No tags</span>
+    );
+  };
   return (
     <>
       <MainHeader
@@ -58,36 +92,47 @@ const Content = (props: News) => {
               </div>
               <div className="mt-8 flex flex-col gap-3">
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
-                  <Facebook color="#303030" />
+                  <Link href={`${facebookSharer}`} target="_blank">
+                    <Facebook color="#303030" />
+                  </Link>
                 </div>
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
-                  <Twitter color="#303030" />
+                  <Link href={`${twitterSharer}`} target="_blank">
+                    <Twitter color="#303030" />
+                  </Link>
                 </div>
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
-                  <LinkedIn color="#303030" />
+                  <Link href={`${linkedInSharer}`} target="_blank">
+                    <LinkedIn color="#303030" />
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="flex flex-1 flex-col gap-6">
               <>{testSerialize(props.content)}</>
-              <h3 className="text-bold mt-6 text-xl">
-                Tags: <span className="text-vivid-sky-blue">HOUSING</span>
+              <h3 className="text-bold mt-6 flex gap-4 text-xl">
+                Tags: <div className="flex gap-4">{renderTags()}</div>
               </h3>
               <div className="flex gap-3">
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
-                  <Facebook color="#303030" />
+                  <Link href={`${facebookSharer}`} target="_blank">
+                    <Facebook color="#303030" />
+                  </Link>
                 </div>
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
-                  <Twitter color="#303030" />
+                  <Link href={`${twitterSharer}`} target="_blank">
+                    <Twitter color="#303030" />
+                  </Link>
                 </div>
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
-                  <LinkedIn color="#303030" />
+                  <Link href={`${linkedInSharer}`} target="_blank">
+                    <LinkedIn color="#303030" />
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          {/* @ts-expect-error Server Component */}
-          <RelatedArticles />
+          <RelatedArticles selectedNews={props} />
         </div>
       </section>
     </>

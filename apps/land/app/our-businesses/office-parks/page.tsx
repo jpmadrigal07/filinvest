@@ -1,14 +1,20 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/offices/constants";
-import Content from "@/components/pages/our-businesses/office-parks/Content";
 import OfficeParks from "@/components/pages/our-businesses/office-parks/OfficeParks";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
+}
+
+export async function generateMetadata() {
+  return {
+    title: "Office Parks",
+    description: "Office Parks",
+  };
 }
 
 const OfficeParksPage = async () => {
