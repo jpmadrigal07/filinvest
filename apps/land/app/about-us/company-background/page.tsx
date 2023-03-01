@@ -1,5 +1,5 @@
 import Content from "@/components/pages/about-us/company-background/Content";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
 
 const query = {

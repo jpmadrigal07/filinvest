@@ -1,5 +1,5 @@
 import Content from "@/components/pages/article/Content";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import { notFound } from "next/navigation";
 import qs from "qs";
 
