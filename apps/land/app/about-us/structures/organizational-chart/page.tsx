@@ -1,6 +1,6 @@
 import Content from "@/components/pages/about-us/structures/organizational-chart/Content";
 import { getPageContent } from "../../../page";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 const ORGANIZATIONAL_PAGE_ID = "63fb6c287f9f67508c875455";
 export async function generateMetadata() {
