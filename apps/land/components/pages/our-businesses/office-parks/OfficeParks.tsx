@@ -1,13 +1,20 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const OfficeParks = ({ content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "offices-parks-office-parks"
+  );
   return (
-    <section className="mx-9 mb-32 -mt-12 md:-mt-12 lg:-mt-32 xl:mx-16 2xl:mx-44 2xl:-mt-40">
+    <>
       <div className="flex flex-col gap-9 md:flex-row">
-        {content.content[0].officeParks.map((item: any) => (
-          <div className="flex-1">
+        {data.officeParks.map((item: any) => (
+          <Link
+            href="/our-businesses/office-parks/north-gate"
+            className="flex-1 transition delay-150 hover:opacity-70"
+          >
             <div>
               <Image
                 src={`${item.image.url}`}
@@ -18,10 +25,10 @@ const OfficeParks = ({ content }: any) => {
             </div>
             <h3 className="text-jet mt-6 text-2xl font-bold">{item.title}</h3>
             <p className="text-dim-gray mt-3">{item.description}</p>
-          </div>
+          </Link>
         ))}
       </div>
-    </section>
+    </>
   );
 };
 
