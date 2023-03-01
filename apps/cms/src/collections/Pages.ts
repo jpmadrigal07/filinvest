@@ -64,11 +64,7 @@ import {
 } from "../blocks/Townscapes";
 import { MallsTitleText, MallsMalls } from "../blocks/Malls";
 import { OfficeParksOfficeParks } from "../blocks/OfficeParks";
-import {
-  OfficesTitleText,
-  OfficesOfficeParks,
-  OfficesOffices,
-} from "../blocks/Offices";
+import { OfficesOfficeParks, OfficesOffices } from "../blocks/Offices";
 import { CorporateCenters } from "../blocks/CorporateCenters";
 import { SubsidiariesCompanies } from "../blocks/Subsidiaries";
 import {
@@ -90,10 +86,7 @@ import {
   OurLeadershipBoardOfDirectors,
   OurLeadershipSeniorManagementTeam,
 } from "../blocks/OurLeadership";
-import {
-  FilPayHeaderImage,
-  FilPayOnlinePaymentsSection,
-} from "../blocks/FilPay";
+import { FilPayOnlinePaymentsSection } from "../blocks/FilPay";
 import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
@@ -155,7 +148,6 @@ export const Pages: CollectionConfig = {
         MallsTitleText,
         MallsMalls,
         OfficeParksOfficeParks,
-        OfficesTitleText,
         OfficesOfficeParks,
         OfficesOffices,
         CorporateCenters,
@@ -197,7 +189,6 @@ export const Pages: CollectionConfig = {
         BoardCommitteesTitleYear,
         BoardCommitteesTable,
         EnterpriseRiskManagementTable,
-        FilPayHeaderImage,
         FilPayOnlinePaymentsSection,
         MixedUsedEstatesTitleText,
         MixedUsedEstatesMixedUsedEstates,

@@ -94,7 +94,7 @@ const BoardOfDirectors = ({ content }: any) => {
           ))}
         </div>
       </div>
-      <div className="mt-32 hidden md:flex">
+      {/* <div className="mt-32 hidden md:flex">
         <div className="flex-none">
           <PageNextPrevButton
             imgName="investor-relations-program-next-prev.png"
@@ -110,7 +110,8 @@ const BoardOfDirectors = ({ content }: any) => {
             isLeft={false}
           />
         </div>
-      </div>
+      </div> */}
+      <PageNextPrevButton content={content} />
       <BioInfo
         setSidebarOpen={setSidebarOpen}
         sidebarOpen={sidebarOpen}
