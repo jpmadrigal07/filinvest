@@ -49,9 +49,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
                         <div className="hidden lg:block">
@@ -78,21 +78,23 @@ const FullPropertySlider = ({ sliders }: any) => {
                           <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
                             {slider.blockTitle}
                           </h2>
-                          <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
+                          <h4 className="text-dim-gray lg:text-normal text-md text-center">
                             {slider.blockDescription}
                           </h4>
                         </div>
-                        <div className="mt-2 lg:mt-0">
-                          <button type="button">
-                            <Link href={slider.blockLearnMoreLink}>
-                              <BorderButton
-                                buttonText="Learn More"
-                                textColor="dark-cornflower-blue"
-                                borderColor="dark-cornflower-blue"
-                              />
-                            </Link>
-                          </button>
-                        </div>
+                        {slider.blockLearnMoreLink && (
+                          <div className="mt-2 lg:mt-0">
+                            <button type="button">
+                              <Link href={slider.blockLearnMoreLink}>
+                                <BorderButton
+                                  buttonText="Learn More"
+                                  textColor="dark-cornflower-blue"
+                                  borderColor="dark-cornflower-blue"
+                                />
+                              </Link>
+                            </button>
+                          </div>
+                        )}
                       </div>
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
@@ -140,9 +142,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
@@ -177,21 +179,23 @@ const FullPropertySlider = ({ sliders }: any) => {
                           <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
                             {slider.blockTitle}
                           </h2>
-                          <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
+                          <h4 className="text-dim-gray lg:text-normal text-md text-center">
                             {slider.blockDescription}
                           </h4>
                         </div>
-                        <div className="mt-2 lg:mt-0">
-                          <button type="button">
-                            <Link href={slider.blockLearnMoreLink}>
-                              <BorderButton
-                                buttonText="Learn More"
-                                textColor="dark-cornflower-blue"
-                                borderColor="dark-cornflower-blue"
-                              />
-                            </Link>
-                          </button>
-                        </div>
+                        {slider.blockLearnMoreLink && (
+                          <div className="mt-2 lg:mt-0">
+                            <button type="button">
+                              <Link href={slider.blockLearnMoreLink}>
+                                <BorderButton
+                                  buttonText="Learn More"
+                                  textColor="dark-cornflower-blue"
+                                  borderColor="dark-cornflower-blue"
+                                />
+                              </Link>
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </SwiperSlide>
