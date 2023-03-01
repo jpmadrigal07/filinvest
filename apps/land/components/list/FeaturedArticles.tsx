@@ -67,13 +67,14 @@ const FeaturedArticles = ({
             <Link
               href={`/article/${article.slug}`}
               key={index}
-              className="opacity-100 transition duration-150 hover:opacity-70"
+              className="group"
             >
               <Image
                 src={article.coverImage.url}
                 width={1364}
                 height={663}
                 alt={article.coverImage.alt}
+                className="opacity-100 transition duration-150 hover:opacity-70"
               />
               <h2 className="text-jet mt-6 truncate text-2xl font-bold">
                 {article.title}

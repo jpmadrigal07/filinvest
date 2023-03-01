@@ -1,8 +1,5 @@
 "use client";
 import React from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import MainHeader from "@/components/header/MainHeader";
