@@ -1,9 +1,5 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/our-businesses/offices/constants";
-import OfficeParks from "@/components/pages/our-businesses/offices/OfficeParks";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
-import ProjectsContent from "@/components/pages/our-businesses/offices/Projects";
 import Content from "@/components/pages/our-businesses/offices/Content";
 import { metaBuilder } from "@/helpers/metaBuilder";
 
