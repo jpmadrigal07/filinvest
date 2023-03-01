@@ -6,10 +6,8 @@ import Image from "next/image";
 import React from "react";
 import moment from "moment";
 import { News } from "shared-types";
-// import serializeUpload from "@/helpers/serializeUpload";
-// import serializeChildren from "@/helpers/serializeChildren";
 import RelatedArticles from "./RelatedArticles";
-import { testSerialize } from "@/helpers/testSerialize";
+import { serializeRichText } from "@/helpers/serializeRichText";
 import Link from "next/link";
 
 const Content = (props: News) => {
@@ -109,7 +107,7 @@ const Content = (props: News) => {
               </div>
             </div>
             <div className="flex flex-1 flex-col gap-6">
-              <>{testSerialize(props.content)}</>
+              <>{serializeRichText(props.content)}</>
               <h3 className="text-bold mt-6 flex gap-4 text-xl">
                 Tags: <div className="flex gap-4">{renderTags()}</div>
               </h3>

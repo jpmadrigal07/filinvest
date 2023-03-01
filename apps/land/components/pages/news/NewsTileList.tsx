@@ -34,7 +34,7 @@ const NewsTileList = ({
                   position === "grid"
                     ? "grid-cols-1 gap-4"
                     : "grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-16"
-                } cursor-pointer transition delay-150 hover:opacity-70`}
+                } group cursor-pointer`}
                 key={index}
               >
                 <div className="bg-ghost-white">
@@ -43,6 +43,7 @@ const NewsTileList = ({
                     width={1364}
                     height={663}
                     alt={item.coverImage.alt}
+                    className="transition delay-150 group-hover:opacity-70"
                   />
                 </div>
                 <div className="mt-4">
