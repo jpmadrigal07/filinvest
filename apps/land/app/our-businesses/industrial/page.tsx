@@ -1,8 +1,7 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
 import Content from "@/components/pages/our-businesses/industrial/Content";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 const query = {
   "projectType.title": {
@@ -17,21 +16,26 @@ const stringifiedQuery = qs.stringify(
   { addQueryPrefix: true }
 );
 
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
 export async function generateMetadata() {
-  return {
-    title: "Industrial",
-    description: "Industrial",
-  };
+  const content = await getPageContent("63ff1b132f02ad837b91a520");
+  return metaBuilder(content);
 }
 
 const IndustrialPage = async () => {
+  const content = await getPageContent("63ff1b132f02ad837b91a520");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
-  const { title, breadcrumbs, image } = HEADER_INFO.industrial;
   return (
     <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
-      <Content projects={projects} locations={locations} />
+      <Content content={content} projects={projects} locations={locations} />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
-const OfficesTitleText: Block = {
-  slug: "offices-title-and-text",
+const TermsText: Block = {
+  slug: "terms-text",
   fields: [
     {
       name: "title",
@@ -9,11 +9,11 @@ const OfficesTitleText: Block = {
       required: true,
     },
     {
-      name: "description",
-      type: "textarea",
+      type: "richText",
+      name: "Terms",
       required: true,
     },
   ],
 };
 
-export default OfficesTitleText;
+export default TermsText;

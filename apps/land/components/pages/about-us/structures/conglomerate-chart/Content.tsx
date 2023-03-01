@@ -1,3 +1,5 @@
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
+import Image from "next/image";
 import React from "react";
 import ChartImage from "../ChartImage";
 import Breadcrumbs from "@/components/header/Breadcrumbs";

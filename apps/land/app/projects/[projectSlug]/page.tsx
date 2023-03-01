@@ -3,7 +3,7 @@ import OfficeContent from "@/components/pages/projects/office/Content";
 import { notFound } from "next/navigation";
 import qs from "qs";
 import { Project } from "shared-types";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 type PageProps = {
   params: {

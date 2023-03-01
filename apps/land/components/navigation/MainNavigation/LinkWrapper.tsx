@@ -162,7 +162,6 @@ const LinkWrapper = ({
                   : "1",
             }}
             onMouseEnter={() => {
-              console.log("entered");
               setMenuType("full");
               setCurrentMenuIndex(menuIndex);
               setisHovering(true);

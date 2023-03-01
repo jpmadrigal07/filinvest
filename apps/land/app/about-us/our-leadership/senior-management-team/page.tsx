@@ -1,27 +1,22 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/our-leadership/constants";
 import Content from "@/components/pages/about-us/our-leadership/senior-management-team/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-export async function generateMetadata() {
-  return {
-    title: "Senior Management Team",
-    description: "Senior Management Team",
-  };
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 
-const SeniorManagementTeamPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.seniorManagementTeam;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+export async function generateMetadata() {
+  const content = await getPageContent("63ecc2d7e742304b009f117f");
+  return metaBuilder(content);
+}
+
+const SeniorManagementTeamPage = async () => {
+  const content = await getPageContent("63ecc2d7e742304b009f117f");
+  return <Content content={content} />;
 };
 
 export default SeniorManagementTeamPage;

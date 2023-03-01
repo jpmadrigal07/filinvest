@@ -1,5 +1,4 @@
-"use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import Download from "@/components/svg/Download";
 import React from "react";
 import Table from "./Table";
