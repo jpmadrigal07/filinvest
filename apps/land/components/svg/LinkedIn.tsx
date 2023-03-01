@@ -8,6 +8,7 @@ const LinkedIn = ({ color = "white" }: { color?: string }) => {
       viewBox="0 0 18 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="transition hover:opacity-70"
     >
       <g clipPath="url(#clip0_238_27)">
         <path

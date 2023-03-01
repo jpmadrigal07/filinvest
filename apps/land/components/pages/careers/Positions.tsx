@@ -18,6 +18,7 @@ const Positions = () => {
     setCategory,
   } = useGetCareers();
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
+  const [selectedCareer, setSelectedCareer] = useState<string | null>(null);
   const tabs = [
     "All",
     "Business",
@@ -28,6 +29,7 @@ const Positions = () => {
     "Sales",
     "Technical",
   ];
+
   return (
     <div className="mt-12">
       <div className="border-alice-blue border-b">
@@ -64,6 +66,7 @@ const Positions = () => {
                     key={index}
                     title={career.title}
                     description={career.location}
+                    setCareer={setSelectedCareer}
                   >
                     <CareerContent
                       setModalOpen={setIsFormModalOpen}
@@ -204,7 +207,11 @@ const Positions = () => {
           </p>
         </div>
       </div>
-      <CareersModal setOpen={setIsFormModalOpen} open={isFormModalOpen} />
+      <CareersModal
+        setOpen={setIsFormModalOpen}
+        open={isFormModalOpen}
+        selectedCareer={selectedCareer as string}
+      />
     </div>
   );
 };
