@@ -77,20 +77,16 @@ import {
   DreamsBuiltGreenTitleText,
   DreamsBuiltGreenMediaSection,
 } from "../blocks/DreamsBuiltGreen";
-import {
-  VisionMissionCoreValuesVision,
-  VisionMissionCoreValuesMission,
-  VisionMissionCoreValuesCoreValues,
-} from "../blocks/VisionMissionCoreValues";
+import { VisionMissionCoreValues } from "../blocks/VisionMissionCoreValues";
 import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
 } from "../blocks/CompanyBackground";
-import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import {
-  FilPayHeaderImage,
-  FilPayOnlinePaymentsSection,
-} from "../blocks/FilPay";
+  OurLeadershipBoardOfDirectors,
+  OurLeadershipSeniorManagementTeam,
+} from "../blocks/OurLeadership";
+import { FilPayOnlinePaymentsSection } from "../blocks/FilPay";
 import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
@@ -101,6 +97,7 @@ import {
   ResidentialPrestige,
   ResidentialAspire,
   ResidentialFutura,
+  ResidentialSlider,
 } from "../blocks/Residential";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
@@ -152,7 +149,6 @@ export const Pages: CollectionConfig = {
         MallsMalls,
         OfficeParksOfficeParks,
         OfficesOfficeParks,
-        OurLeadershipBoardOfDirectors,
         OfficesOffices,
         CorporateCenters,
         SubsidiariesCompanies,
@@ -162,9 +158,7 @@ export const Pages: CollectionConfig = {
         DreamsBuiltGreenIconText,
         DreamsBuiltGreenTitleText,
         DreamsBuiltGreenMediaSection,
-        VisionMissionCoreValuesVision,
-        VisionMissionCoreValuesMission,
-        VisionMissionCoreValuesCoreValues,
+        VisionMissionCoreValues,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         StockInformationTitle,
@@ -195,7 +189,6 @@ export const Pages: CollectionConfig = {
         BoardCommitteesTitleYear,
         BoardCommitteesTable,
         EnterpriseRiskManagementTable,
-        FilPayHeaderImage,
         FilPayOnlinePaymentsSection,
         MixedUsedEstatesTitleText,
         MixedUsedEstatesMixedUsedEstates,
@@ -207,11 +200,14 @@ export const Pages: CollectionConfig = {
         TownscapesTownscapes,
         PreviousLink,
         NextLink,
+        OurLeadershipBoardOfDirectors,
+        OurLeadershipSeniorManagementTeam,
         NewsNews,
         ResidentialTitleText,
         ResidentialPrestige,
         ResidentialAspire,
         ResidentialFutura,
+        ResidentialSlider,
       ],
     },
     {

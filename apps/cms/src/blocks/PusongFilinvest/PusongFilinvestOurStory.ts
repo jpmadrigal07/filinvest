@@ -20,7 +20,7 @@ const PusongFilinvestOurStory: Block = {
     },
     {
       type: "upload",
-      name: "image",
+      name: "coverImage",
       relationTo: "files",
       required: true,
     },
