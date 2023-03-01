@@ -2,6 +2,7 @@ import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/our-businesses/constants";
 import Content from "@/components/pages/our-businesses/townscapes/Content";
 import { getRequest } from "@/helpers/getRequest";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
 
 const query = {
@@ -26,21 +27,17 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  return {
-    title: "Townscapes",
-    description: "Townscapes",
-  };
+  const content = await getPageContent("63f1dc7cfa79c21ee7bb5ec1");
+  return metaBuilder(content);
 }
 
 const TownscapesPage = async () => {
   const content = await getPageContent("63f1dc7cfa79c21ee7bb5ec1");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
-  const { title, breadcrumbs, image } = HEADER_INFO.townscapes;
   return (
     <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
-      <Content projects={projects} locations={locations} />
+      <Content content={content} projects={projects} locations={locations} />
     </>
   );
 };
