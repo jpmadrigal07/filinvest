@@ -10,7 +10,6 @@ import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
 import BorderButton from "../button/BorderButton";
-import moment from "moment";
 import useGetNews from "../../hooks/useGetNews";
 
 type T_ArticlesList = {
