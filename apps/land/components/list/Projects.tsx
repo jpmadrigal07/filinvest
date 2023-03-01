@@ -20,12 +20,12 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
     >
       {projects.map((project, index) => {
         return (
-          <Link
-            href={`/projects/${project.slug}`}
-            className="group"
-            key={index}
-          >
-            <div className="flex flex-1 flex-col gap-4">
+          <div className="group flex flex-1 flex-col gap-4">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="flex flex-1 flex-col gap-4"
+              key={index}
+            >
               <Image
                 src={project.coverImage.url ? project.coverImage.url : ""}
                 width={
@@ -40,30 +40,24 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
               <h3 className="text-jet truncate text-2xl font-bold">
                 {project.title}
               </h3>
-              <div className="flex gap-4">
-                <button
-                  type="button"
-                  className="border-blue-ryb hover:bg-cultured flex items-center gap-3 rounded-full border-[1px] px-6 py-2 transition delay-75"
-                >
-                  <div className="flex-none">
-                    <Tag className="h-5 w-5 text-green-500" />
-                  </div>
-                  <p className="text-md text-jet">
-                    {project.projectType.title}
-                  </p>
-                </button>
-                <button
-                  type="button"
-                  className="bg-blue-ryb hover:bg-blue flex items-center gap-3 rounded-full px-6 py-2 transition delay-75"
-                >
-                  <div className="flex-none">
-                    <Flag color="#ffffff" classes="w-5 h-5" />
-                  </div>
-                  <p className="text-md text-white">{project.location.title}</p>
-                </button>
-              </div>
+            </Link>
+            <div className="flex gap-4">
+              <Link
+                href={`/property-search?projectType=${project.projectType.title}`}
+                className="border-blue-ryb hover:bg-cultured flex items-center gap-3 rounded-full border-[1px] px-6 py-2 transition delay-75"
+              >
+                <Tag className="h-5 w-5 flex-none text-green-500" />
+                <p className="text-md text-jet">{project.projectType.title}</p>
+              </Link>
+              <Link
+                href={`/property-search?location=${project.location.title}`}
+                className="bg-blue-ryb hover:bg-blue flex items-center gap-3 rounded-full px-6 py-2 transition delay-75"
+              >
+                <Flag color="#ffffff" classes="flex-none w-5 h-5" />
+                <p className="text-md text-white">{project.location.title}</p>
+              </Link>
             </div>
-          </Link>
+          </div>
         );
       })}
     </div>
