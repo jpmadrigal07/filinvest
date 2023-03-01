@@ -102,6 +102,7 @@ import {
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
+import TermsText from "../blocks/TermsText";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -208,6 +209,7 @@ export const Pages: CollectionConfig = {
         ResidentialAspire,
         ResidentialFutura,
         ResidentialSlider,
+        TermsText,
       ],
     },
     {
