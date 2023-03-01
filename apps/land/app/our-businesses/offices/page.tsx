@@ -4,6 +4,8 @@ import OfficeParks from "@/components/pages/our-businesses/offices/OfficeParks";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
 import ProjectsContent from "@/components/pages/our-businesses/offices/Projects";
+import Content from "@/components/pages/our-businesses/offices/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
@@ -27,27 +29,16 @@ const stringifiedQuery = qs.stringify(
 );
 
 export async function generateMetadata() {
-  return {
-    title: "Office",
-    description: "Office",
-  };
+  const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
+  return metaBuilder(content);
 }
 
 const OfficePage = async () => {
   const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
-  const { title, breadcrumbs, image } = HEADER_INFO.offices;
   return (
-    <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
-      <OfficeParks
-        content={content}
-        projects={projects}
-        locations={locations}
-      />
-      <ProjectsContent projects={projects} locations={locations} />
-    </>
+    <Content content={content} projects={projects} locations={locations} />
   );
 };
 

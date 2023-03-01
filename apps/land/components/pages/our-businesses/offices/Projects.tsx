@@ -24,7 +24,7 @@ const ProjectsContent = ({
         })
       : [];
   return (
-    <section className="mx-9 mt-16 mb-32 xl:mx-16 2xl:mx-44">
+    <>
       <div>
         <div className="mt-16 mb-24">
           <div className="flex flex-col items-center gap-7 md:flex-row">
@@ -49,7 +49,7 @@ const ProjectsContent = ({
           <Projects projects={data ? data : projects} isLoading={isFetching} />
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
