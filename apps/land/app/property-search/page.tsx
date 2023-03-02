@@ -11,7 +11,11 @@ export async function generateMetadata() {
 const PropertySearchPage = async () => {
   return (
     <>
-      <MainHeader title="Property Search" bgUrl="office-parks.png" />
+      <MainHeader
+        title="Property Search"
+        bgUrl="office-parks.png"
+        bgUrlSmall="office-parks-small.png"
+      />
       <Content />
     </>
   );

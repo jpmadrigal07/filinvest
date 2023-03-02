@@ -4,7 +4,7 @@ import LinkedIn from "@/components/svg/LinkedIn";
 
 const Content = () => {
   return (
-    <section className="mt-16">
+    <section className="mt-16 px-6">
       <div className="mx-3 lg:mx-9 xl:mx-16 2xl:mx-44">
         <p className="text-dim-gray mt-8">
           The primary responsibility of the Investor Relations unit is to
@@ -19,7 +19,7 @@ const Content = () => {
           <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-8 px-8 shadow-2xl">
             <LinkedIn />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 pt-5">
             <h3 className="text-jet text-4xl font-bold">Website</h3>
             <p className="text-dim-gray mt-8">
               This contains information as required by the Securities and
@@ -32,7 +32,7 @@ const Content = () => {
           <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-8 px-8 shadow-2xl">
             <LinkedIn />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 pt-5">
             <h3 className="text-jet text-4xl font-bold">Press Releases</h3>
             <p className="text-dim-gray mt-8">
               This firm issues press releases on significant developments in the
@@ -44,7 +44,7 @@ const Content = () => {
           <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-8 px-8 shadow-2xl">
             <LinkedIn />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 pt-5">
             <h3 className="text-jet text-4xl font-bold">
               Quarterly analyst briefings
             </h3>
@@ -58,7 +58,7 @@ const Content = () => {
           <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-8 px-8 shadow-2xl">
             <LinkedIn />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 pt-5">
             <h3 className="text-jet text-4xl font-bold">
               One-on-one meetings, conference calls, property tours, etc.
             </h3>

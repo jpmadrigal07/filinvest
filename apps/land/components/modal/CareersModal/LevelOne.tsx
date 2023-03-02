@@ -103,8 +103,8 @@ const LevelOne = ({
           </label>
           <div className="mt-2">
             <input
-              type="Position"
-              id="email"
+              type="email"
+              id="Position"
               value={selectedCareer}
               disabled
               className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm disabled:cursor-not-allowed disabled:opacity-70 sm:text-sm"
@@ -122,7 +122,12 @@ const LevelOne = ({
         </p>
         <div className="bg-alice-blue border-dark-cornflower-blue mt-2 flex justify-center border-2 border-dashed p-4">
           <p className="text-dim-gray">
-            <input type="file" title="browse" />
+            <input
+              type="file"
+              title="browse"
+              accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
+              {...register("cv", { required: true })}
+            />
           </p>
         </div>
       </div>
@@ -131,12 +136,26 @@ const LevelOne = ({
           className="bg-blue-ryb w-44 rounded-full p-3 text-white"
           onClick={() => {
             const values = getValues();
+
             if (
               values.firstName &&
               values.lastName &&
               values.contact &&
-              values.email
+              values.email &&
+              values?.cv.length > 0
             ) {
+              let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(values.email)) {
+                alert("Please input a valid email");
+                return;
+              }
+
+              let phNumber = /^(09|\+639)\d{9}$/;
+              if (!phNumber.test(values.contact)) {
+                alert("Please input a valid contact number");
+                return;
+              }
+
               setLevel(2);
             } else {
               alert("Please complete all required fields");

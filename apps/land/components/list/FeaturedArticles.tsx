@@ -10,7 +10,6 @@ import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
 import BorderButton from "../button/BorderButton";
-import moment from "moment";
 import useGetNews from "../../hooks/useGetNews";
 
 type T_ArticlesList = {
@@ -18,12 +17,14 @@ type T_ArticlesList = {
   className?: string;
   isList?: boolean;
   articles: any[];
+  withExtras?: boolean;
 };
 
 const FeaturedArticles = ({
   sliderOnMobile = false,
   className,
   articles = [],
+  withExtras = true,
 }: T_ArticlesList) => {
   const query = {
     propertyType: "",
@@ -79,19 +80,22 @@ const FeaturedArticles = ({
               <h2 className="text-jet mt-6 truncate text-2xl font-bold">
                 {article.title}
               </h2>
-              <h4 className="text-dim-gray text-sm opacity-70">
-                Posted on {moment(article.createdAt).format("MMM DD, YYYY")}
-              </h4>
+
+              {/* <h4 className="text-dim-gray text-sm opacity-70">
+                  Posted on {moment(article.createdAt).format("MMM DD, YYYY")}
+                </h4> */}
+
               <h4 className="text-dim-gray mt-4 truncate">
                 {article.content[0].children[0].text}
               </h4>
-              <div className="mt-8">
-                <BorderButton
-                  buttonText="Read More"
-                  textColor="dark-cornflower-blue"
-                  borderColor="dark-cornflower-blue"
-                />
-              </div>
+
+              {/*  <div className="mt-8">
+                  <BorderButton
+                    buttonText="Read More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </div> */}
             </Link>
           );
         })}
@@ -144,17 +148,23 @@ const FeaturedArticles = ({
                   <h2 className="text-jet mt-6 text-2xl font-bold">
                     {article.title}
                   </h2>
-                  {/* <h4 className="text-dim-gray mt-4 text-sm">Posted by Admin on April 22, 2022</h4> */}
+                  {withExtras && (
+                    <h4 className="text-dim-gray mt-4 text-sm">
+                      Posted by Admin on April 22, 2022
+                    </h4>
+                  )}
                   <h4 className="text-dim-gray mt-4">
                     {article.content[0].children[0].text}
                   </h4>
-                  {/* <div className="mt-12">
-                                        <BorderButton
-                                            buttonText="Read More"
-                                            textColor="dark-cornflower-blue"
-                                            borderColor="dark-cornflower-blue"
-                                        />
-                                    </div> */}
+                  {withExtras && (
+                    <div className="mt-12">
+                      <BorderButton
+                        buttonText="Read More"
+                        textColor="dark-cornflower-blue"
+                        borderColor="dark-cornflower-blue"
+                      />
+                    </div>
+                  )}
                 </Link>
               </SwiperSlide>
             );
