@@ -33,6 +33,8 @@ const CorporateCentersPage = async () => {
   const content = await getPageContent("63ff09f249eeffea13ebb96d");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
+
+  console.log("content", content);
   return (
     <>
       <Content content={content} projects={projects} locations={locations} />

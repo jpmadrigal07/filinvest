@@ -27,10 +27,15 @@ export async function generateMetadata() {
 const MixeduseEstatesPage = async () => {
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
-  const { title, breadcrumbs, image } = HEADER_INFO.mixedUseEstates;
+  const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.mixedUseEstates;
   return (
     <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
+      <MainHeader
+        title={title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={image}
+        bgUrlSmall={imageSmall}
+      />
       <Content projects={projects} locations={locations} />
     </>
   );

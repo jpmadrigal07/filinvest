@@ -11,6 +11,7 @@ import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
 import BorderButton from "../button/BorderButton";
 import useGetNews from "../../hooks/useGetNews";
+import moment from "moment";
 
 type T_ArticlesList = {
   sliderOnMobile?: boolean;
@@ -81,21 +82,31 @@ const FeaturedArticles = ({
                 {article.title}
               </h2>
 
-              {/* <h4 className="text-dim-gray text-sm opacity-70">
-                  Posted on {moment(article.createdAt).format("MMM DD, YYYY")}
-                </h4> */}
+              {withExtras && (
+                <h4 className="text-dim-gray text-sm opacity-70">
+                  {`Posted by ${article.author.roles[0]
+                    .charAt(0)
+                    .toUpperCase()}${article.author.roles[0].substr(
+                    1
+                  )} on`}{" "}
+                  {` `}
+                  {moment(article.createdAt).format("MMM DD, YYYY")}
+                </h4>
+              )}
 
               <h4 className="text-dim-gray mt-4 truncate">
                 {article.content[0].children[0].text}
               </h4>
 
-              {/*  <div className="mt-8">
+              {withExtras && (
+                <div className="mt-8">
                   <BorderButton
                     buttonText="Read More"
                     textColor="dark-cornflower-blue"
                     borderColor="dark-cornflower-blue"
                   />
-                </div> */}
+                </div>
+              )}
             </Link>
           );
         })}

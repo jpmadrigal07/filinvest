@@ -2,7 +2,6 @@
 import React from "react";
 import MainHeader from "@/components/header/MainHeader";
 import MissionVisionCoreValues from "@/components/pages/about-us/mission-vision/MissionVisionCoreValues";
-import News from "@/components/pages/about-us/mission-vision/News";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 
@@ -35,8 +34,8 @@ const Content = ({ content, news }: any) => {
         bgUrlSmall={header.smallCoverImage.url}
         tabs={tabs}
       />
-      <MissionVisionCoreValues content={content} />
-      <News news={news} />
+      <MissionVisionCoreValues content={content} news={news} />
+      {/* <News news={news} />  */}
     </>
   );
 };

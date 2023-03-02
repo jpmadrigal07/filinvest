@@ -45,6 +45,7 @@ const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
         className="mt-16 mb-24"
         sliderOnMobile
         articles={data ? data : []}
+        withExtras={true}
       />
     </>
   );

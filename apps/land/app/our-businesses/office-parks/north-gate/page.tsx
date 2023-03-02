@@ -11,7 +11,11 @@ export async function generateMetadata() {
 const OfficeParksPage = () => {
   return (
     <>
-      <MainHeader isBlueHeader bgUrl="blue-header-bg-2.png" />
+      <MainHeader
+        isBlueHeader
+        bgUrl="blue-header-bg-2.png"
+        bgUrlSmall="northgate-banner-small.png"
+      />
       <Content />
     </>
   );
