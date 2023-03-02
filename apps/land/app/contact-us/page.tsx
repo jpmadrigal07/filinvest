@@ -10,10 +10,15 @@ export async function generateMetadata() {
 }
 
 const ContactUsPage = async () => {
-  const { title, breadcrumbs, image } = HEADER_INFO.contactUs;
+  const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.contactUs;
   return (
     <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
+      <MainHeader
+        title={title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={image}
+        bgUrlSmall={imageSmall}
+      />
       <Content />
     </>
   );

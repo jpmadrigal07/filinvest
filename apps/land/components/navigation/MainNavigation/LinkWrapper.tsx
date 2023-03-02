@@ -48,8 +48,6 @@ const LinkWrapper = ({
     popoverRef.current?.click();
   };
 
-  console.log("currentMenuIndex", currentMenuIndex);
-  console.log("menuIndex", menuIndex);
   return (
     <>
       {isLink && link && !subMenus && (
@@ -164,7 +162,6 @@ const LinkWrapper = ({
                   : "1",
             }}
             onMouseEnter={() => {
-              console.log("entered");
               setMenuType("full");
               setCurrentMenuIndex(menuIndex);
               setisHovering(true);

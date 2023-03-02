@@ -1,29 +1,16 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/structures/constants";
 import Content from "@/components/pages/about-us/structures/conglomerate-chart/Content";
+import { metaBuilder } from "@/helpers/metaBuiler";
+import { getPageContent } from "../../../page";
 
+const CONGLOMERATE_CHART_PAGE = "63fb6b7f7f9f67508c875330";
 export async function generateMetadata() {
-  return {
-    title: "Conglomerate Chart",
-    description: "Conglomerate Chart",
-  };
+  const content = await getPageContent(CONGLOMERATE_CHART_PAGE);
+  return metaBuilder(content);
 }
 
-const ConglomerateChartPage = () => {
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.conglomerateChart;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+const ConglomerateChartPage = async () => {
+  const content = await getPageContent(CONGLOMERATE_CHART_PAGE);
+  return <Content content={content} />;
 };
 
 export default ConglomerateChartPage;
