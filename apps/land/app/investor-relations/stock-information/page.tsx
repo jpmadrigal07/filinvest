@@ -1,5 +1,5 @@
 import Content from "@/components/pages/investor-relations/share-information/Content";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import { getPageContent } from "../../page";
 const STOCK_PAGE_ID = "63faed278a325ad49bd54642";
 
