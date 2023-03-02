@@ -6,7 +6,7 @@ import LinkedIn from "@/components/svg/LinkedIn";
 
 const Content = () => {
   return (
-    <section className="mx-3 mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-3 mt-16 mb-28 flex flex-col gap-9 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div>
         <h4 className="text-dark-cornflower-blue text-center font-bold">
           Operating Results
@@ -22,40 +22,40 @@ const Content = () => {
         header={["Operating Results", "2021", "2020", "2019", "2018", "2017"]}
         rows={[
           [
-            "Revenues",
-            "17,738,919",
-            "18,626,383*",
-            "25,673,310*",
+            <b>Revenues</b>,
+            <b>17,738,919</b>,
+            "18,626,383 *",
+            "25,673,310 *",
             "22,205,185",
             "20,269,651",
           ],
           [
-            "Net Income**",
-            "4,305,228",
+            <b>Net Income * *</b>,
+            <b> 4,305,228</b>,
             "3,957,750",
             "6,519,800",
             "6,075,873",
             "5,834,181",
           ],
           [
-            "Net Income Attributable to Parent",
-            "3,803,377",
+            <b>Net Income Attributable to Parent</b>,
+            <b>3,803,377</b>,
             "3,733,443",
             "6,283,634",
             "5,894,408",
             "5,685,394",
           ],
           [
-            "Return on Assets (Average)",
-            "2.30%",
+            <b>Return on Assets (Average)</b>,
+            <b>2.30%</b>,
             "2.23%",
             "3.92%",
             "4.00%",
             "9.29%",
           ],
           [
-            "Return on Equity (Average)",
-            "5.24%",
+            <b>Return on Equity (Average)</b>,
+            <b>5.24%</b>,
             "5.40%",
             "9.35%",
             "9.29%",
@@ -78,48 +78,48 @@ const Content = () => {
         header={["Per Share Data", "2021", "2020", "2019", "2018", "2017"]}
         rows={[
           [
-            "Total Assets",
-            "193,233,531",
+            <b>Total Assets</b>,
+            <b>193,233,531</b>,
             "181,005,146",
             "173,696,431",
             "158,860,483",
             "145,121,919",
           ],
           [
-            "Total interest-bearing debt",
-            "68,471,666",
+            <b>Total interest-bearing debt</b>,
+            <b>68,471,666</b>,
             "69,768,551",
             "63,412,920",
             "59,782,739",
             "58,084,201",
           ],
           [
-            "Stockholders Equity",
-            "89,790,225",
+            <b>Stockholders Equity</b>,
+            <b>89,790,225</b>,
             "74,378,943",
             "72,164,293",
             "67,271,622",
             "63,501,043",
           ],
           [
-            "No. of Shares Issued and Outstanding (000's)",
-            "24,249,759",
+            <b>{`No. of Shares Issued and Outstanding (000's)`}</b>,
+            <b> 24,249,759</b>,
             "24,249,759",
             "24,249,759",
             "24,249,759",
             "24,249,759",
           ],
           [
-            "Debt to Equity ***",
-            "76.26%",
+            <b> Debt to Equity * * *</b>,
+            <b>76.26%</b>,
             "93.80%",
             "87.87%",
             "88.87%",
             "91.47%",
           ],
           [
-            "Net Debt to Equity ****",
-            "65.5%",
+            <b>Net Debt to Equity * * * *</b>,
+            <b>65.5%</b>,
             "84.8%",
             "81.26",
             "79.32%",
@@ -142,8 +142,8 @@ const Content = () => {
         header={["Per Share Data", "2021", "2020", "2019", "2018", "2017"]}
         rows={[
           [
-            "Primary/Fully Diluted Earnings",
-            "Php 0.16",
+            <b>Primary/Fully Diluted Earnings</b>,
+            <b>Php 0.16</b>,
             "Php 0.15",
             "Php 0.26",
             "Php 0.24",
@@ -166,22 +166,23 @@ const Content = () => {
         header={["Per Share Data", "2021", "2020", "2019", "2018", "2017"]}
         rows={[
           [
-            "Dividends per share",
-            "0.031",
+            <b>Dividends per share</b>,
+            <b>0.031</b>,
             "0.0648",
             "0.0619",
             "0.0618",
             "0.0613",
           ],
-          ["Dividend payout rate", "20%", "25%", "25%", "26%", "29%"],
+          [<b>Dividend payout rate</b>, <b>20%</b>, "25%", "25%", "26%", "29%"],
         ]}
       />
       <div className="mt-9 flex gap-9">
-        <div className="flex flex-col">
+        <div className="flex min-w-[41px] flex-col">
           <span className="text-dim-gray">*</span>
-          <span className="text-dim-gray">**</span>
-          <span className="text-dim-gray">***</span>
-          <span className="text-dim-gray">****</span>
+          <span className="text-dim-gray">* *</span>
+          <span className="text-dim-gray">* * *</span>
+
+          <span className="text-dim-gray mt-14 sm:mt-4 md:mt-2">* * * *</span>
         </div>
         <div className="flex flex-col">
           <span className="text-dim-gray">figures restated</span>

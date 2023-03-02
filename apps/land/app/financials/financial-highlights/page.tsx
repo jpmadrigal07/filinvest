@@ -10,7 +10,8 @@ export async function generateMetadata() {
 }
 
 const FinancialHighlightsPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.financialHighlights;
+  const { title, breadcrumbs, image, tabs, imageSmall } =
+    HEADER_INFO.financialHighlights;
   return (
     <>
       <MainHeader
@@ -18,6 +19,7 @@ const FinancialHighlightsPage = () => {
         breadcrumbs={breadcrumbs}
         bgUrl={image}
         tabs={tabs}
+        bgUrlSmall={imageSmall}
       />
       <Content />
     </>

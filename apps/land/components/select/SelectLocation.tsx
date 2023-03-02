@@ -49,7 +49,7 @@ const SelectLocation = ({
                         setCurrentLocation(location);
                         close();
                       }}
-                      className={`hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer ${
+                      className={`hover:bg-ghost-white flex items-start border-b border-gray-200 transition duration-150 ease-in-out hover:cursor-pointer ${
                         currentLocation === location && "bg-ghost-white"
                       }`}
                       key={index}
