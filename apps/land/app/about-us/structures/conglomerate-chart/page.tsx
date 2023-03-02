@@ -1,5 +1,5 @@
 import Content from "@/components/pages/about-us/structures/conglomerate-chart/Content";
-import { metaBuilder } from "@/helpers/metaBuiler";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import { getPageContent } from "../../../page";
 
 const CONGLOMERATE_CHART_PAGE = "63fb6b7f7f9f67508c875330";
