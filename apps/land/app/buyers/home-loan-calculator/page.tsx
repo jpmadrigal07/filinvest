@@ -13,7 +13,12 @@ const AnnualReportsPage = () => {
   const { title, breadcrumbs } = HEADER_INFO.contactUs;
   return (
     <>
-      <MainHeader isBlueHeader title={title} breadcrumbs={breadcrumbs} />
+      <MainHeader
+        isBlueHeader
+        title={title}
+        breadcrumbs={breadcrumbs}
+        isTitleSmall={true}
+      />
       <Content />
     </>
   );

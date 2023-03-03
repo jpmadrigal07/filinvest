@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import Diamond from "@/components/svg/Diamond";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 
-const MissionVisionCoreValues = ({ news, content }: any) => {
+const MissionVisionCoreValues = ({ content, news }: any) => {
   const data = content?.content.find(
     (item: any) => item.blockType === "vision-mission-and-core-values"
   );
@@ -38,9 +38,9 @@ const MissionVisionCoreValues = ({ news, content }: any) => {
           <div>
             {data.missionBulletDescription.map(
               (bulletDescription: any, index: number) => (
-                <div className="mt-1 flex items-center gap-3" key={index}>
+                <div key={index} className="mt-1 flex items-center gap-3">
                   <div className="mt-1 flex-none">
-                    <Diamond />
+                    <Diamond color={`#163E82`} />
                   </div>
                   <p className="text-jet flex-1 text-lg">
                     {bulletDescription.description}
@@ -68,7 +68,7 @@ const MissionVisionCoreValues = ({ news, content }: any) => {
       <div className="mx-6 my-24 flex justify-end lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex-none">
           <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
+            imgName="workplus-banner.png"
             pageName="Our Leadership"
             isLeft={false}
           />

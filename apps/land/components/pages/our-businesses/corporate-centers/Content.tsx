@@ -25,7 +25,7 @@ const Content = ({ content, projects, locations }: any) => {
         bgUrl={header.coverImage.url}
         bgUrlSmall={header.smallCoverImage.url}
       />
-      <section className="mt-12 mb-32 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:mt-16">
+      <section className="mt-12 mb-32 gap-9 px-6 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:mt-16">
         <ProjectsContent projects={projects} locations={locations} />
       </section>
     </>

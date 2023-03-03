@@ -10,10 +10,12 @@ import {
   getRate,
   getRequiredMonthlyIncome,
   toCurrency,
+  toCurrencyComma,
 } from "@/helpers/homeCalculator";
 
 const Content = () => {
   const [tcp, setTcp] = useState<number | null>(null);
+  const [formattedTcp, setFormattedTcp] = useState("");
   const [reservationFee, setReservationFee] = useState(0);
   const [downPaymentPercent, setDownPaymentPercent] = useState(0);
   const [downPaymentTerm, setDownPaymentTerm] = useState(12);
@@ -170,21 +172,29 @@ const Content = () => {
             <div className="mt-2">
               <input
                 max="100000000000000"
-                type="number"
+                type="text"
                 min="0"
                 step="any"
                 name="totalContactPrice"
                 id="totalContactPrice"
                 className="border-b-jet focus:ring-none block w-full border-b-[1px] px-2 py-4 sm:text-sm"
                 placeholder="Php"
-                value={tcp ? tcp : ""}
+                value={formattedTcp ? formattedTcp : ""}
                 onChange={(e) => {
                   let { value, min, max } = e.target;
+
+                  //convert to number first without comma
+                  value = value.replace(/[$,]/g, "");
+
+                  //set a max value
                   value = String(
                     Math.max(Number(min), Math.min(Number(max), Number(value)))
                   );
 
                   setTcp(Number(value));
+                  setFormattedTcp(
+                    toCurrencyComma(value.replace(/[^0-9.]/g, ""))
+                  );
                 }}
               />
             </div>
