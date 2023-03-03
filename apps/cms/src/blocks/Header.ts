@@ -23,8 +23,6 @@ const Header: Block = {
     {
       type: "array",
       name: "breadcrumbs",
-      required: true,
-      minRows: 2,
       fields: [
         link({
           appearances: false,

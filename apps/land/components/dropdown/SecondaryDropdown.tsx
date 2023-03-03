@@ -70,7 +70,7 @@ const SecondaryDropdown = ({
               {selected ? selected : "Select"}
             </span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <ChevronDown classes="w-[10px] h-[10px]" />
+              <ChevronDown classes="w-[8px] h-[8px]" />
             </span>
           </Listbox.Button>
           <Transition
