@@ -23,8 +23,10 @@ const CorporateSocialResponsibility = ({ content }: any) => {
         <div className="flex-1">
           <h3 className="text-dark-cornflower-blue font-bold">{data.title}</h3>
           <h2 className="mt-4 text-4xl font-bold">{data.subTitle}</h2>
-          {data.descriptionParagraphs.map((item: any) => (
-            <p className="text-dim-gray mt-2">{item.paragraph}</p>
+          {data.descriptionParagraphs.map((item: any, index: number) => (
+            <p className="text-dim-gray mt-2" key={index}>
+              {item.paragraph}
+            </p>
           ))}
         </div>
       </div>

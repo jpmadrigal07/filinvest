@@ -9,8 +9,11 @@ const SubsidiariesSection = ({ content }: any) => {
   return (
     <section className="mt-16 mb-28 flex flex-col gap-6">
       <div className="mx-6 grid gap-6 md:grid-cols-2 lg:mx-9 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
-        {data.subsidiariesCompanies.map((item: any) => (
-          <div className="bg-ghost-white flex flex-col gap-10 px-7 pt-6 pb-12">
+        {data.subsidiariesCompanies.map((item: any, index: number) => (
+          <div
+            className="bg-ghost-white flex flex-col gap-10 px-7 pt-6 pb-12"
+            key={index}
+          >
             <Image
               src={`${item.companyLogo.url}`}
               width={74}

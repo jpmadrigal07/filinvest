@@ -21,8 +21,8 @@ const BoardOfDirectors = ({ content }: any) => {
         <div
           className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-${data.numberOfColumns}`}
         >
-          {data.director.map((director: any) => (
-            <div className="group relative">
+          {data.director.map((director: any, index: number) => (
+            <div className="group relative" key={index}>
               <Image
                 src={`${director.directorImage.url}`}
                 width={736}
