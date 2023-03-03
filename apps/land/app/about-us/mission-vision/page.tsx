@@ -1,6 +1,5 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/constants";
 import Content from "@/components/pages/about-us/mission-vision/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
 
 const query = {
@@ -19,7 +18,7 @@ const stringifiedQuery = qs.stringify(
 
 async function getNews() {
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}&limit=3`
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}&limit=3`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -28,22 +27,23 @@ async function getNews() {
   return jsonData.docs ? jsonData.docs : null;
 }
 
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("639a586ab60dc36e6fc86dc4");
+  return metaBuilder(content);
+}
+
 const MissionVisionPage = async () => {
   const news = await getNews();
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.missionVision;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-        tabs={tabs}
-      />
-      <Content news={news} />
-    </>
-  );
+  const content = await getPageContent("639a586ab60dc36e6fc86dc4");
+  return <Content content={content} news={news} />;
 };
 
 export default MissionVisionPage;

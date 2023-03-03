@@ -14,9 +14,17 @@ const PusongFilinvestCorporateSocialResponsibility: Block = {
       required: true,
     },
     {
-      name: "description",
-      type: "textarea",
+      type: "array",
+      name: "descriptionParagraphs",
       required: true,
+      minRows: 1,
+      fields: [
+        {
+          name: "paragraph",
+          type: "textarea",
+          required: true,
+        },
+      ],
     },
     {
       type: "upload",

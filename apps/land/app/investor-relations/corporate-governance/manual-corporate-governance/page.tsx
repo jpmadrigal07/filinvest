@@ -1,14 +1,19 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/manual-corporate-governance/Content";
-import ManualCorporateGovernance from "@/components/pages/investor-relations/corporate-governance/manual-corporate-governance/ManualCorporateGovernance";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("63f211e17ed2c505a81c3b77");
+  return metaBuilder(content);
 }
 
 const ManualCorporateGovernancePage = async () => {
@@ -23,8 +28,7 @@ const ManualCorporateGovernancePage = async () => {
         bgUrl={image}
         tabs={tabs}
       />
-      <ManualCorporateGovernance content={content} />
-      {/* <Content /> */}
+      <Content content={content} />
     </>
   );
 };
