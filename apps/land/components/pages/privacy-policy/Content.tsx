@@ -47,7 +47,7 @@ const contacts = [
 
 const Content = () => {
   return (
-    <section className="mx-3 mt-16 mb-28 flex flex-col gap-6 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-3 mt-16 mb-28 flex flex-col gap-6 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
       <p className="text-dim-gray">
         FILINVEST DEVELOPMENT CORPORATION (“FDC”) FILINVEST LAND, INC. (“FLI”),
         together with{" "}

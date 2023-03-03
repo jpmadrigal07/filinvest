@@ -4,6 +4,24 @@ const FilPayOnlinePaymentsSection: Block = {
   slug: "filpay-online-payments-section",
   fields: [
     {
+      type: "upload",
+      name: "mainHeaderImage",
+      relationTo: "files",
+      required: true,
+    },
+    {
+      type: "upload",
+      name: "mainHeaderImageSmall",
+      relationTo: "files",
+      required: true,
+    },
+    {
+      type: "upload",
+      name: "headerImage",
+      relationTo: "files",
+      required: true,
+    },
+    {
       name: "title",
       type: "text",
       required: true,
@@ -39,7 +57,7 @@ const FilPayOnlinePaymentsSection: Block = {
     },
     {
       type: "array",
-      name: "filpayIternationalPaymentMethodsIcons",
+      name: "filpayCards",
       required: true,
       fields: [
         {
@@ -52,7 +70,7 @@ const FilPayOnlinePaymentsSection: Block = {
     },
     {
       type: "array",
-      name: "filpayLocalPaymentMethodsIcons",
+      name: "filpayBanks",
       required: true,
       fields: [
         {

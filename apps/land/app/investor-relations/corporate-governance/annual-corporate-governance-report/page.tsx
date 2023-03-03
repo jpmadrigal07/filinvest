@@ -1,14 +1,20 @@
 import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/annual-corporate-governance-report/Content";
-import AnnualCorporateGovernance from "@/components/pages/investor-relations/corporate-governance/annual-corporate-governance-report/AnnualCorporateGovernance";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   return res.json();
+}
+
+export async function generateMetadata() {
+  return {
+    title: "Annual Corporate Governance",
+    description: "Annual Corporate Governance",
+  };
 }
 
 const AnnualCorporateGovernanceReportPage = async () => {
@@ -23,7 +29,7 @@ const AnnualCorporateGovernanceReportPage = async () => {
         bgUrl={image}
         tabs={tabs}
       />
-      <AnnualCorporateGovernance content={content} />
+      <Content />
     </>
   );
 };

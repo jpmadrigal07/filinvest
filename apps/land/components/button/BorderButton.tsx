@@ -39,7 +39,7 @@ const BorderButton = ({
       ? "group-hover:border-blue"
       : "group-hover:border-alice-blue"
   } ease`;
-  const text = `relative transition-colors duration-300 delay-200 text-${textColor} font-bold ease`;
+  const text = `relative transition-colors duration-300 delay-200 text-${textColor} font-bold ease text-base`;
   const bgColorAnimate = `${
     borderColor === "white" ? "bg-blue" : "bg-alice-blue"
   } absolute top-0 left-0 h-full w-0 transition-all duration-500 group-hover:w-full ease`;

@@ -11,6 +11,11 @@ const OfficesOfficeParks: Block = {
       maxRows: 2,
       fields: [
         {
+          name: "link",
+          type: "text",
+          required: true,
+        },
+        {
           type: "upload",
           name: "image",
           relationTo: "files",

@@ -2,7 +2,7 @@ import React from "react";
 
 const Content = () => {
   return (
-    <section className="mx-3 mt-16 mb-28 flex flex-col gap-6 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-3 mt-16 mb-28 flex flex-col gap-6 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
       <h2 className="text-jet text-center text-4xl font-bold">
         Dividend Policy
       </h2>
