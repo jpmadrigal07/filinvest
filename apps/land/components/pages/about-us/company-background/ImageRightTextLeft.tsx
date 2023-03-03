@@ -17,7 +17,7 @@ const ImageRightTextLeft = ({ content, news }: any) => {
         <div className="hidden flex-1 pr-24 pl-36 lg:block">
           <h2 className="text-jet text-4xl font-bold">{data.title}</h2>
           {data.description.map((description: any, index: number) => (
-            <p key={index} className="text-dim-gray mt-4">
+            <p className="text-dim-gray mt-4" key={index}>
               {description.description}
             </p>
           ))}

@@ -20,11 +20,10 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
     >
       {projects.map((project, index) => {
         return (
-          <div className="group flex flex-1 flex-col gap-4">
+          <div className="group flex flex-1 flex-col gap-4" key={index}>
             <Link
               href={`/projects/${project.slug}`}
               className="flex flex-1 flex-col gap-4"
-              key={index}
             >
               <Image
                 src={project.coverImage.url ? project.coverImage.url : ""}

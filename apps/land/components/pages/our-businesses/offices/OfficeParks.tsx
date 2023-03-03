@@ -15,8 +15,8 @@ const OfficeParks = ({ content }: any) => {
         <p className="text-dim-gray mt-4">{data.description}</p>
       </div>
       <div className="mt-10 flex flex-col gap-9 md:flex-row">
-        {data.officeParks.map((item: any) => (
-          <div className="flex-1">
+        {data.officeParks.map((item: any, index: number) => (
+          <div className="flex-1" key={index}>
             <div>
               <Image
                 src={`${item.image.url}`}

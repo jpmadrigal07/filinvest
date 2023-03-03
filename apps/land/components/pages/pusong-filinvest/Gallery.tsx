@@ -28,8 +28,8 @@ const Gallery = ({ content }: any) => {
         modules={[Pagination, FreeMode]}
         className="mySwiper mt-12"
       >
-        {data.image.map((item: any) => (
-          <SwiperSlide>
+        {data.image.map((item: any, index: number) => (
+          <SwiperSlide key={index}>
             <Image
               src={`${item.image.url}`}
               width={329}

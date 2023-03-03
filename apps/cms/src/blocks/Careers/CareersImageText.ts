@@ -1,16 +1,23 @@
 import { Block } from "payload/types";
 
-const ManualCorporateGovernance: Block = {
-  slug: "manual-corporate-governance",
+const CareersImageText: Block = {
+  slug: "careers-image-text",
   fields: [
     {
+      name: "title",
+      type: "text",
+      required: true,
+    },
+    {
       type: "array",
-      name: "codeOfBusinessEthics",
+      name: "item",
+      label: "Items",
+      minRows: 3,
       required: true,
       fields: [
         {
           type: "upload",
-          name: "icon",
+          name: "logo",
           relationTo: "files",
           required: true,
         },
@@ -20,9 +27,9 @@ const ManualCorporateGovernance: Block = {
           required: true,
         },
         {
-          name: "viewLink",
-          label: "View Link (i.e. https://www.google.com)",
-          type: "text",
+          name: "description",
+          label: "Description",
+          type: "textarea",
           required: true,
         },
       ],
@@ -30,4 +37,4 @@ const ManualCorporateGovernance: Block = {
   ],
 };
 
-export default ManualCorporateGovernance;
+export default CareersImageText;
