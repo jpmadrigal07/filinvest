@@ -1,5 +1,5 @@
 export async function getRequest(url: string, isSingle?: boolean) {
-  const res = await fetch(`${process.env.CMS_API_URL}${url}`);
+  const res = await fetch(`${process.env.CMS_URL}${url}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

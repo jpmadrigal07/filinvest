@@ -1,39 +1,43 @@
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
-import Image from "next/image";
 import React from "react";
+import ChartImage from "../ChartImage";
+import Breadcrumbs from "@/components/header/Breadcrumbs";
+import Tabs from "@/components/header/Tabs";
+import MainHeader from "@/components/header/MainHeader";
 
-const Content = () => {
+const Content = ({ content }: any) => {
+  const header = content?.content.find(
+    (item: any) => item.blockType === "header"
+  );
+  const breadcrumbsItems = header?.breadcrumbs.map(
+    (tab: any, index: number) => {
+      return {
+        title: tab.link.label,
+        ...(index + 1 < header?.breadcrumbs?.length && {
+          link: tab.link.url,
+        }),
+      };
+    }
+  );
+  const breadcrumbs = <Breadcrumbs items={breadcrumbsItems} />;
+  const tabItems = header?.tabs.map((tab: any) => {
+    return {
+      title: tab.link.label,
+      link: tab.link.url,
+    };
+  });
+  const tabs = <Tabs items={tabItems} />;
+
   return (
-    <section className="mb-24 mt-9 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
-      <h2 className="text-jet text-center text-3xl font-bold md:text-4xl">
-        Conglomerate Chart
-      </h2>
-      <div className="mx-auto mt-6 w-4/5 md:mt-12 lg:w-full">
-        <Image
-          src="/conglomerate-chart.png"
-          width={3458}
-          height={2642}
-          alt="Picture of the author"
-        />
-      </div>
-      <div className="mx-6 mt-32 flex flex-col gap-12 md:flex-row md:gap-0 lg:mx-0">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Structures"
-            isLeft={true}
-          />
-        </div>
-        <div className="hidden grow md:block"></div>
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Investor Relations Program"
-            isLeft={false}
-          />
-        </div>
-      </div>
-    </section>
+    <>
+      <MainHeader
+        title={header.title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={header.coverImage.url}
+        bgUrlSmall={header.smallCoverImage.url}
+        tabs={tabs}
+      />
+      <ChartImage content={content} />
+    </>
   );
 };
 

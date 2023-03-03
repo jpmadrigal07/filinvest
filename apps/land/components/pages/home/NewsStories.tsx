@@ -45,6 +45,7 @@ const NewsStories = ({ content }: any) => {
           className="mt-16"
           sliderOnMobile
           articles={flattenNews}
+          withExtras={false}
         />
       </div>
     </section>

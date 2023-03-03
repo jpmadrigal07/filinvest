@@ -1,22 +1,16 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/structures/constants";
 import Content from "@/components/pages/about-us/structures/shareholding-structure/Content";
+import { getPageContent } from "../../../page";
+import { metaBuilder } from "@/helpers/metaBuilder";
+const SHAREHOLDING_STRUCTURE_PAGE_ID = "63fb2a6d12db8fb902e69afa";
 
-const shareholdingStructurePage = () => {
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.shareholdingStructure;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+export async function generateMetadata() {
+  const content = await getPageContent(SHAREHOLDING_STRUCTURE_PAGE_ID);
+  return metaBuilder(content);
+}
+
+const ShareholdingStructurePage = async () => {
+  const content = await getPageContent(SHAREHOLDING_STRUCTURE_PAGE_ID);
+  return <Content content={content} />;
 };
 
-export default shareholdingStructurePage;
+export default ShareholdingStructurePage;

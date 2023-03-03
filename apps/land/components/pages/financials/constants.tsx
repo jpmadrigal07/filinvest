@@ -28,6 +28,7 @@ const BREADCRUMBS = [
 ];
 
 const headerImage = "financial-highlights.png";
+const headerImageSmall = "financial-highlights-small.png";
 
 export const HEADER_INFO = {
   financialHighlights: {
@@ -38,6 +39,7 @@ export const HEADER_INFO = {
       />
     ),
     image: headerImage,
+    imageSmall: headerImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
   annualReports: {
@@ -46,6 +48,7 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: ANNUAL_REPORTS.name }]} />
     ),
     image: headerImage,
+    imageSmall: headerImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
 };

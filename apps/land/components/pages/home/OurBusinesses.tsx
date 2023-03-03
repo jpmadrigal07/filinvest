@@ -27,16 +27,19 @@ const OurBusinesses = ({ content }: any) => {
         <div className="mx-6 mt-16 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
           <Link
             href={content.content[3].propertyTypes[0].link}
-            className="relative flex-1 transition duration-150 hover:opacity-70"
+            className="relative flex-1 transition duration-150"
           >
-            <Image
-              src={`${
-                !content.content[3].propertyTypes[0].image.url ? "/" : ""
-              }${content.content[3].propertyTypes[0].image.url}`}
-              width={536}
-              height={906}
-              alt={content.content[3].propertyTypes[0].image.alt}
-            />
+            <div className="overflow-hidden">
+              <Image
+                src={`${
+                  !content.content[3].propertyTypes[0].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[0].image.url}`}
+                width={536}
+                height={906}
+                alt={content.content[3].propertyTypes[0].image.alt}
+                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+              />
+            </div>
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[0].title}
@@ -45,16 +48,19 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[1].link}
-            className="relative mt-12 flex-1 transition duration-150 hover:opacity-70"
+            className="relative mt-12 flex-1 transition duration-150"
           >
-            <Image
-              src={`${
-                !content.content[3].propertyTypes[1].image.url ? "/" : ""
-              }${content.content[3].propertyTypes[1].image.url}`}
-              width={536}
-              height={906}
-              alt={content.content[3].propertyTypes[1].image.alt}
-            />
+            <div className="overflow-hidden">
+              <Image
+                src={`${
+                  !content.content[3].propertyTypes[1].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[1].image.url}`}
+                width={536}
+                height={906}
+                alt={content.content[3].propertyTypes[1].image.alt}
+                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+              />
+            </div>
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[1].title}
@@ -63,16 +69,19 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[2].link}
-            className="relative mt-24 flex-1 transition duration-150 hover:opacity-70"
+            className="relative mt-24 flex-1 transition duration-150"
           >
-            <Image
-              src={`${
-                !content.content[3].propertyTypes[2].image.url ? "/" : ""
-              }${content.content[3].propertyTypes[2].image.url}`}
-              width={536}
-              height={906}
-              alt={content.content[3].propertyTypes[2].image.alt}
-            />
+            <div className="overflow-hidden">
+              <Image
+                src={`${
+                  !content.content[3].propertyTypes[2].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[2].image.url}`}
+                width={536}
+                height={906}
+                alt={content.content[3].propertyTypes[2].image.alt}
+                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+              />
+            </div>
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[2].title}
@@ -83,16 +92,19 @@ const OurBusinesses = ({ content }: any) => {
         <div className="mx-6 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
           <Link
             href={content.content[3].propertyTypes[3].link}
-            className="relative flex-1 transition duration-150 hover:opacity-70"
+            className="relative flex-1 transition duration-150"
           >
-            <Image
-              src={`${
-                !content.content[3].propertyTypes[3].image.url ? "/" : ""
-              }${content.content[3].propertyTypes[3].image.url}`}
-              width={536}
-              height={906}
-              alt={content.content[3].propertyTypes[3].image.alt}
-            />
+            <div className="overflow-hidden">
+              <Image
+                src={`${
+                  !content.content[3].propertyTypes[3].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[3].image.url}`}
+                width={536}
+                height={906}
+                alt={content.content[3].propertyTypes[3].image.alt}
+                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+              />
+            </div>
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[3].title}
@@ -101,16 +113,19 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[4].link}
-            className="relative mt-12 flex-1 transition duration-150 hover:opacity-70"
+            className="relative mt-12 flex-1 transition duration-150"
           >
-            <Image
-              src={`${
-                !content.content[3].propertyTypes[4].image.url ? "/" : ""
-              }${content.content[3].propertyTypes[4].image.url}`}
-              width={536}
-              height={906}
-              alt={content.content[3].propertyTypes[4].image.alt}
-            />
+            <div className="overflow-hidden">
+              <Image
+                src={`${
+                  !content.content[3].propertyTypes[4].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[4].image.url}`}
+                width={536}
+                height={906}
+                alt={content.content[3].propertyTypes[4].image.alt}
+                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+              />
+            </div>
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[4].title}
@@ -119,16 +134,19 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[5].link}
-            className="relative mt-24 flex-1 transition duration-150 hover:opacity-70"
+            className="relative mt-24 flex-1 transition duration-150"
           >
-            <Image
-              src={`${
-                !content.content[3].propertyTypes[5].image.url ? "/" : ""
-              }${content.content[3].propertyTypes[5].image.url}`}
-              width={536}
-              height={906}
-              alt={content.content[3].propertyTypes[5].image.alt}
-            />
+            <div className="overflow-hidden">
+              <Image
+                src={`${
+                  !content.content[3].propertyTypes[5].image.url ? "/" : ""
+                }${content.content[3].propertyTypes[5].image.url}`}
+                width={536}
+                height={906}
+                alt={content.content[3].propertyTypes[5].image.alt}
+                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+              />
+            </div>
             <div className="absolute -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[5].title}
