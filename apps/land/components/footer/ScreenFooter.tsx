@@ -4,7 +4,7 @@ import React from "react";
 
 const ScreenFooter = ({ content }: any) => {
   return (
-    <div className="fixed bottom-5 right-7 z-50">
+    <div className="fixed bottom-14 right-7 z-50">
       <div className="flex items-center justify-center gap-3">
         <Link
           href={content.content[9].filPayLink}

@@ -11,6 +11,7 @@ const BREADCRUMBS = [
 ];
 
 const headerImage = "contact-us.png";
+const headerImageSmall = "contact-us-small.png";
 
 export const HEADER_INFO = {
   contactUs: {
@@ -19,5 +20,6 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: CONTACT_US.name }]} />
     ),
     image: headerImage,
+    imageSmall: headerImageSmall,
   },
 };

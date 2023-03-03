@@ -1,6 +1,13 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/presentations/Content";
 
+export async function generateMetadata() {
+  return {
+    title: "Presentations",
+    description: "Presentations",
+  };
+}
+
 const PresentationPage = () => {
   return (
     <>
@@ -8,6 +15,7 @@ const PresentationPage = () => {
         title="Presentations"
         breadcrumbs="Home / Investor Relations / Presentations"
         bgUrl="presentations.png"
+        bgUrlSmall="presentations-small.png"
       />
       <Content />
     </>

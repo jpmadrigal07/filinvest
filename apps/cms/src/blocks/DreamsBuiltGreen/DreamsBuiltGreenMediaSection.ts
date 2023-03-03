@@ -4,9 +4,10 @@ const DreamsBuiltGreenMediaSection: Block = {
   slug: "dreams-built-green-media-section",
   fields: [
     {
-      type: "upload",
-      name: "backgroundMedia",
-      relationTo: "files",
+      type: "text",
+      name: "backgroundVideoLink",
+      label:
+        "Background Video Link (i.e. https://www.youtube.com/watch?v=lQ6Yrf_5EOw)",
       required: true,
     },
   ],

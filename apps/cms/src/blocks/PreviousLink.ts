@@ -4,6 +4,12 @@ const PreviousLink: Block = {
   slug: "previous-link",
   fields: [
     {
+      type: "upload",
+      name: "image",
+      relationTo: "files",
+      required: true,
+    },
+    {
       name: "previousPageTitle",
       type: "text",
       required: true,

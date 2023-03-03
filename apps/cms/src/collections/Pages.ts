@@ -64,11 +64,7 @@ import {
 } from "../blocks/Townscapes";
 import { MallsTitleText, MallsMalls } from "../blocks/Malls";
 import { OfficeParksOfficeParks } from "../blocks/OfficeParks";
-import {
-  OfficesTitleText,
-  OfficesOfficeParks,
-  OfficesOffices,
-} from "../blocks/Offices";
+import { OfficesOfficeParks, OfficesOffices } from "../blocks/Offices";
 import { CorporateCenters } from "../blocks/CorporateCenters";
 import { SubsidiariesCompanies } from "../blocks/Subsidiaries";
 import {
@@ -81,27 +77,34 @@ import {
   DreamsBuiltGreenTitleText,
   DreamsBuiltGreenMediaSection,
 } from "../blocks/DreamsBuiltGreen";
-import {
-  VisionMissionCoreValuesVision,
-  VisionMissionCoreValuesMission,
-  VisionMissionCoreValuesCoreValues,
-} from "../blocks/VisionMissionCoreValues";
+import { VisionMissionCoreValues } from "../blocks/VisionMissionCoreValues";
 import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
 } from "../blocks/CompanyBackground";
-import { OurLeadershipBoardOfDirectors } from "../blocks/OurLeadership";
 import {
-  FilPayHeaderImage,
-  FilPayOnlinePaymentsSection,
-} from "../blocks/FilPay";
+  OurLeadershipBoardOfDirectors,
+  OurLeadershipSeniorManagementTeam,
+} from "../blocks/OurLeadership";
+import { FilPayOnlinePaymentsSection } from "../blocks/FilPay";
 import {
   MixedUsedEstatesTitleText,
   MixedUsedEstatesMixedUsedEstates,
 } from "../blocks/MixedUseEstates";
+import { NewsNews } from "../blocks/News";
+import {
+  ResidentialTitleText,
+  ResidentialPrestige,
+  ResidentialAspire,
+  ResidentialFutura,
+  ResidentialSlider,
+} from "../blocks/Residential";
+import { CareersCallHr, CareersImageText } from "../blocks/Careers";
+import { ContactUs } from "../blocks/ContactUs";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
+import TermsText from "../blocks/TermsText";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -148,9 +151,7 @@ export const Pages: CollectionConfig = {
         MallsTitleText,
         MallsMalls,
         OfficeParksOfficeParks,
-        OfficesTitleText,
         OfficesOfficeParks,
-        OurLeadershipBoardOfDirectors,
         OfficesOffices,
         CorporateCenters,
         SubsidiariesCompanies,
@@ -160,9 +161,7 @@ export const Pages: CollectionConfig = {
         DreamsBuiltGreenIconText,
         DreamsBuiltGreenTitleText,
         DreamsBuiltGreenMediaSection,
-        VisionMissionCoreValuesVision,
-        VisionMissionCoreValuesMission,
-        VisionMissionCoreValuesCoreValues,
+        VisionMissionCoreValues,
         CompanyBackgroundIconText,
         CompanyBackgroundImageText,
         StockInformationTitle,
@@ -193,7 +192,6 @@ export const Pages: CollectionConfig = {
         BoardCommitteesTitleYear,
         BoardCommitteesTable,
         EnterpriseRiskManagementTable,
-        FilPayHeaderImage,
         FilPayOnlinePaymentsSection,
         MixedUsedEstatesTitleText,
         MixedUsedEstatesMixedUsedEstates,
@@ -205,6 +203,18 @@ export const Pages: CollectionConfig = {
         TownscapesTownscapes,
         PreviousLink,
         NextLink,
+        OurLeadershipBoardOfDirectors,
+        OurLeadershipSeniorManagementTeam,
+        NewsNews,
+        ResidentialTitleText,
+        ResidentialPrestige,
+        ResidentialAspire,
+        ResidentialFutura,
+        ResidentialSlider,
+        TermsText,
+        CareersCallHr,
+        CareersImageText,
+        ContactUs,
       ],
     },
     {
