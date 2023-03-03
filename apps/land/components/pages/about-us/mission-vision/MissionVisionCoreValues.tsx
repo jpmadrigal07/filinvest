@@ -36,16 +36,18 @@ const MissionVisionCoreValues = ({ news, content }: any) => {
           />
           <h3 className="text-jet text-4xl font-bold">Mission</h3>
           <div>
-            {data.missionBulletDescription.map((bulletDescription: any) => (
-              <div className="mt-1 flex items-center gap-3">
-                <div className="mt-1 flex-none">
-                  <Diamond />
+            {data.missionBulletDescription.map(
+              (bulletDescription: any, index: number) => (
+                <div className="mt-1 flex items-center gap-3" key={index}>
+                  <div className="mt-1 flex-none">
+                    <Diamond />
+                  </div>
+                  <p className="text-jet flex-1 text-lg">
+                    {bulletDescription.description}
+                  </p>
                 </div>
-                <p className="text-jet flex-1 text-lg">
-                  {bulletDescription.description}
-                </p>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
         <div className="flex flex-1 flex-col items-center gap-6 bg-white px-6 py-16 shadow-xl lg:w-1/4 lg:flex-none lg:px-12">

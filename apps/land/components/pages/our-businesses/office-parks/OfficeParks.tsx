@@ -10,10 +10,11 @@ const OfficeParks = ({ content }: any) => {
   return (
     <>
       <div className="flex flex-col gap-9 md:flex-row">
-        {data.officeParks.map((item: any) => (
+        {data.officeParks.map((item: any, index: number) => (
           <Link
             href="/our-businesses/office-parks/north-gate"
             className="flex-1 transition delay-150 hover:opacity-70"
+            key={index}
           >
             <div>
               <Image
