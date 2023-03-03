@@ -10,8 +10,11 @@ const ManualCorporateGovernance = ({ content }: any) => {
   return (
     <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="grid grid-cols-3 gap-12">
-        {data.codeOfBusinessEthics.map((item: any) => (
-          <div className="flex flex-col items-center gap-6 bg-white p-16 px-6 shadow-xl">
+        {data.codeOfBusinessEthics.map((item: any, index: number) => (
+          <div
+            className="flex flex-col items-center gap-6 bg-white p-16 px-6 shadow-xl"
+            key={index}
+          >
             <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full px-6 py-6 shadow-2xl">
               <Image
                 src={`${item.icon.url}`}
