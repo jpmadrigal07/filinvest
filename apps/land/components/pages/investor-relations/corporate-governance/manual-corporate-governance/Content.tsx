@@ -2,8 +2,8 @@
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import MainHeader from "@/components/header/MainHeader";
 import React from "react";
-import { Tabs } from "react-bootstrap";
 import ManualCorporateGovernance from "./ManualCorporateGovernance";
+import Tabs from "@/components/header/Tabs";
 
 const Content = ({ content }: any) => {
   const header = content?.content.find(
