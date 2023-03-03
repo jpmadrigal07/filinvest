@@ -3,10 +3,13 @@ import Image from "next/image";
 import React from "react";
 
 const CodeOfBusinessConductAndEthics = ({ content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "code-of-business-conduct-and-ethics"
+  );
   return (
     <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="grid grid-cols-3 gap-12">
-        {content.content[0].codeOfBusinessConductAndEthics.map((item: any) => (
+        {data.codeOfBusinessConductAndEthics.map((item: any) => (
           <div className="flex flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
             <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full px-6 py-6 shadow-2xl">
               <Image
