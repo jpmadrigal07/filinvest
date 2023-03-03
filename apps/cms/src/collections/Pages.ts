@@ -99,6 +99,8 @@ import {
   ResidentialFutura,
   ResidentialSlider,
 } from "../blocks/Residential";
+import { CareersCallHr, CareersImageText } from "../blocks/Careers";
+import { ContactUs } from "../blocks/ContactUs";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
@@ -210,6 +212,9 @@ export const Pages: CollectionConfig = {
         ResidentialFutura,
         ResidentialSlider,
         TermsText,
+        CareersCallHr,
+        CareersImageText,
+        ContactUs,
       ],
     },
     {
