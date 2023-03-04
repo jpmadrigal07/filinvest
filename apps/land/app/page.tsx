@@ -11,7 +11,9 @@ import StockReport from "@/components/pages/home/StockReport";
 import { metaBuilder } from "@/helpers/metaBuilder";
 
 export async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: 300 },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

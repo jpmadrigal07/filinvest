@@ -1,16 +1,14 @@
 "use client";
 import CareersModal from "@/components/modal/CareersModal";
-import MapPin from "@/components/svg/MapPin";
-import PhoneBlue from "@/components/svg/PhoneBlue";
 import { combineClass } from "@/helpers/combineClass";
-import Link from "next/link";
 import React, { useState } from "react";
 import Accordion from "./Accordion";
 import CareerContent from "./CareerContent";
 import useGetCareers from "./hooks/useGetCareers";
 import { Career } from "shared-types";
+import CareersCallHr from "./CareersCallHr";
 
-const Positions = () => {
+const Positions = ({ content }: any) => {
   const {
     data: careersRes,
     isLoading,
@@ -104,108 +102,7 @@ const Positions = () => {
             </div> */}
           </div>
         </div>
-        <div className="mt-9 pt-14 pb-24">
-          <h2 className="text-dark-cornflower-blue text-4xl font-bold">
-            Call our HR department at:
-          </h2>
-          <div className="mt-14 grid grid-cols-1 gap-4 md:mx-9 md:grid-cols-2 lg:grid-cols-3 2xl:mx-14">
-            <div className="bg-cultured flex flex-col gap-3 p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex-none">
-                  <MapPin />
-                </div>
-                <p className="font-bold">Filinvest Land, Inc. - Head Office</p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex-none">
-                  <PhoneBlue />
-                </div>
-                <p>(63 2) 7918-818 loc. 6112, 6114, 6119, 6333</p>
-              </div>
-            </div>
-            <div className="bg-cultured flex flex-col gap-3 p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex-none">
-                  <MapPin />
-                </div>
-                <p className="font-bold">
-                  Filinvest Land, Inc. - Alabang Office
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex-none">
-                  <PhoneBlue />
-                </div>
-                <p>(63 2) 8842-9874</p>
-              </div>
-            </div>
-            <div className="bg-cultured flex flex-col gap-3 p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex-none">
-                  <MapPin />
-                </div>
-                <p className="font-bold">Filinvest Alabang, Inc.</p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex-none">
-                  <PhoneBlue />
-                </div>
-                <p>(63 2) 8846-0278 loc. 7010, 7042</p>
-              </div>
-            </div>
-            <div className="bg-cultured flex flex-col gap-3 p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex-none">
-                  <MapPin />
-                </div>
-                <p className="font-bold">Festival Mall Office</p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex-none">
-                  <PhoneBlue />
-                </div>
-                <p>(63 2) 8850-3575 and 8850-3517 loc. 230</p>
-              </div>
-            </div>
-            <div className="bg-cultured flex flex-col gap-3 p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex-none">
-                  <MapPin />
-                </div>
-                <p className="font-bold">Filinvest Land, Inc. - Cebu Office</p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex-none">
-                  <PhoneBlue />
-                </div>
-                <p>(63 32) 517-1888 loc. 1512</p>
-              </div>
-            </div>
-            <div className="bg-cultured flex flex-col gap-3 p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex-none">
-                  <MapPin />
-                </div>
-                <p className="font-bold">Filinvest Land, Inc. - Davao Office</p>
-              </div>
-              <div className="flex gap-3">
-                <div className="flex-none">
-                  <PhoneBlue />
-                </div>
-                <p>(63 82) 226-8802</p>
-              </div>
-            </div>
-          </div>
-          <p className="text-jet mt-6 md:mx-9 2xl:mx-14">
-            Or email us at{" "}
-            <Link
-              href="mailto:WeRecruitTalent@filinvestland.com"
-              className="text-dark-cornflower-blue hover:underline"
-            >
-              WeRecruitTalent@filinvestland.com
-            </Link>
-          </p>
-        </div>
+        <CareersCallHr content={content} />
       </div>
       <CareersModal
         setOpen={setIsFormModalOpen}
