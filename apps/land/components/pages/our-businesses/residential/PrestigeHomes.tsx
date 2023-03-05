@@ -40,7 +40,10 @@ const PrestigeHomes = ({ content }: any) => {
         </div>
       </div>
       <div className="mt-22 relative">
-        <FullPropertySlider sliders={sliderPrestige.imageSlides} />
+        <FullPropertySlider
+          sliders={sliderPrestige.imageSlides}
+          withThumbnail={true}
+        />
       </div>
       <div className="mx-9 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
         {data.prestigeHomes.map((item: any, index: number) => (

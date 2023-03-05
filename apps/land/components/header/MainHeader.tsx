@@ -77,8 +77,8 @@ const MainHeader = ({
             >
               <h1
                 className={`mb-2 ${
-                  tabs ? "text-2xl" : "text-3xl"
-                } mt-4 font-extrabold text-white md:mt-0 lg:mb-4 lg:text-6xl`}
+                  tabs ? "mt-4 text-2xl" : "-mt-4 text-3xl"
+                }  font-extrabold text-white md:mt-0 lg:mb-4 lg:text-6xl`}
               >
                 {title}
               </h1>
