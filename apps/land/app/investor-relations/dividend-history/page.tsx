@@ -1,27 +1,19 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/dividend-history/Content";
-import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
+import { getPageContent } from "../../page";
+import { metaBuilder } from "@/helpers/metaBuilder";
+
+const DIVIDEND_HISTORY_PAGE_ID = "6405a9a99736d66cfb1b15f2";
 
 export async function generateMetadata() {
-  return {
-    title: "Dividend History",
-    description: "Dividend History",
-  };
+  const content = await getPageContent(DIVIDEND_HISTORY_PAGE_ID);
+  return metaBuilder(content);
 }
 
-const DividendHistoryPage = () => {
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.dividendHistory;
+const DividendHistoryPage = async () => {
+  const content = await getPageContent(DIVIDEND_HISTORY_PAGE_ID);
   return (
     <div className="sketch-bg">
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-        bgUrlSmall={imageSmall}
-      />
-      <Content />
+      <Content content={content} />
     </div>
   );
 };
