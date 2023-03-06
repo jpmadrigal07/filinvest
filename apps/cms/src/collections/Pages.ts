@@ -36,6 +36,7 @@ import {
   FinancialHighlightsTable,
   FinancialHighlightsLegends,
   FinancialHighlightsFinancialStatements,
+  FinancialHighlightsChartImage,
   FinancialHighlightsAnnualReports,
 } from "../blocks/FinancialHighlights";
 import { Presentations } from "../blocks/Presentations";
@@ -181,6 +182,7 @@ export const Pages: CollectionConfig = {
         FinancialHighlightsTable,
         FinancialHighlightsLegends,
         FinancialHighlightsFinancialStatements,
+        FinancialHighlightsChartImage,
         FinancialHighlightsAnnualReports,
         Presentations,
         ManualCorporateGovernance,

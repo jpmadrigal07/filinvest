@@ -15,8 +15,8 @@ export default function CareersCallHr({ content }: any) {
         {careersCallHrBlock?.title}
       </h2>
       <div className="mt-14 grid grid-cols-1 gap-4 md:mx-9 md:grid-cols-2 lg:grid-cols-3 2xl:mx-14">
-        {contacts?.map((contact: any) => (
-          <div className="bg-cultured flex flex-col gap-3 p-8">
+        {contacts?.map((contact: any, index: number) => (
+          <div key={index} className="bg-cultured flex flex-col gap-3 p-8">
             <div className="flex items-center gap-3">
               <div className="flex-none">
                 <MapPin />

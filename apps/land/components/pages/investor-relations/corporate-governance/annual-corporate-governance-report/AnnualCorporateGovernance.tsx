@@ -9,8 +9,11 @@ const AnnualCorporateGovernance = ({ content }: any) => {
   return (
     <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="grid grid-cols-4 gap-12">
-        {data.reportList.map((item: any) => (
-          <div className="flex h-full flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
+        {data.reportList.map((item: any, index: number) => (
+          <div
+            key={index}
+            className="flex h-full flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl"
+          >
             <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full px-6 py-6 shadow-2xl">
               <Image
                 src={`${item.icon.url}`}
@@ -21,8 +24,8 @@ const AnnualCorporateGovernance = ({ content }: any) => {
             </div>
             <h3 className="text-jet text-xl font-bold">{item.year}</h3>
             <ul className="text-jet text-lg underline">
-              {item.reportBullets.map((bullet: any) => (
-                <li>{bullet.report}</li>
+              {item.reportBullets.map((bullet: any, i: number) => (
+                <li key={i}>{bullet.report}</li>
               ))}
             </ul>
           </div>
