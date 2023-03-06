@@ -8,8 +8,9 @@ import OurBusinesses from "@/components/pages/home/OurBusinesses";
 import OurServices from "@/components/pages/home/OurServices";
 import Projects from "@/components/pages/home/Projects";
 import StockReport from "@/components/pages/home/StockReport";
-import { metaBuilder } from "@/helpers/metaBuilder";
 import { CACHE_REVALIDATE } from "@/helpers/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
+
 export async function getPageContent(id: string) {
   const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
     next: { revalidate: CACHE_REVALIDATE },
