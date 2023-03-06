@@ -96,16 +96,10 @@ const Content = ({ content }: any) => {
           ]}
         />
         <p className="text-dim-gray mx-6 lg:mx-0">
-          Except as stated above, the Board of Directors and Management of the
-          Company have no knowledge of any person who, as of the date of the
-          annual report, was directly or indirectly the beneficial owner of more
-          than five percent (5%) of the Company’s outstanding shares or who has
-          voting power or investment power with respect to shares comprising
-          more than five percent (5%) of the Company’s outstanding common stock.
+          {shareholdingStructureTable?.tableFooter}
         </p>
         <p className="text-dim-gray mx-6 lg:mx-0">
-          As of 28 February 2022, 38,382,404 or 0.44% of the total outstanding
-          voting shares of FDC is owned by foreigners.
+          {shareholdingStructureTable?.tableSubFooter}
         </p>
         <div className="mt-4 flex justify-center">
           <Link
@@ -114,7 +108,7 @@ const Content = ({ content }: any) => {
             className="bg-royal-dark-blue border-sonic-silver hover:bg-oxford-blue flex gap-4 border px-12 py-6 text-white focus:shadow-lg"
           >
             <Download color="#ffffff" />
-            <span>FDC Shareholding Structure </span>
+            <span>FDC Shareholding Structure</span>
           </Link>
         </div>
         <div className="mx-6 mt-24 flex lg:mx-0">

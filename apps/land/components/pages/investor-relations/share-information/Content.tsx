@@ -49,10 +49,6 @@ const Content = ({ content }: any) => {
         <Stocks />
         <OutstandingSharesTable content={content} />
         <StockHolderTable content={content} />
-        <h3 className="text-dim-gray mx-24 text-center text-lg">
-          Filinvest Development Corporation holds 8,000,000,000 preferred
-          shares.
-        </h3>
       </section>
     </div>
   );
