@@ -1,78 +1,41 @@
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
-import LinkedIn from "@/components/svg/LinkedIn";
+"use client";
 import React from "react";
+import CodeOfBusinessConductAndEthics from "./CodeOfBusinessConductAndEthics";
+import Breadcrumbs from "@/components/header/Breadcrumbs";
+import Tabs from "@/components/header/Tabs";
+import MainHeader from "@/components/header/MainHeader";
 
-const Content = () => {
+const Content = ({ content }: any) => {
+  const header = content?.content.find(
+    (item: any) => item.blockType === "header"
+  );
+  const breadcrumbsItems = header?.breadcrumbs.map(
+    (tab: any, index: number) => {
+      return {
+        title: tab.link.label,
+        ...(index + 1 < header?.breadcrumbs?.length && { link: tab.link.url }),
+      };
+    }
+  );
+  const breadcrumbs = <Breadcrumbs items={breadcrumbsItems} />;
+  const tabItems = header?.tabs.map((tab: any) => {
+    return {
+      title: tab.link.label,
+      link: tab.link.url,
+    };
+  });
+  const tabs = <Tabs items={tabItems} />;
   return (
-    <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
-      <div className="grid grid-cols-3 gap-12">
-        <div className="flex flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
-          <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-            <LinkedIn />
-          </div>
-          <h3 className="text-dim-gray text-center text-lg">
-            No employee shall accept gifts or lavish entertainment from
-            customers or suppliers either for himself or his family.
-          </h3>
-        </div>
-        <div className="flex flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
-          <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-            <LinkedIn />
-          </div>
-          <h3 className="text-dim-gray text-center text-lg">
-            No employee shall solicit or accept personal benefits such as fees
-            or commission from any customer of the Company, or any individual or
-            organization doing or seeking business with the Company.
-          </h3>
-        </div>
-        <div className="flex flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
-          <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-            <LinkedIn />
-          </div>
-          <h3 className="text-dim-gray text-center text-lg">
-            No employee shall take an opportunity that rightly belongs to the
-            Company. It is also inappropriate for an employee to use the
-            Company’s name or his connection with the Company for personal or
-            non-job related purposes.
-          </h3>
-        </div>
-        <div className="flex flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
-          <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-            <LinkedIn />
-          </div>
-          <h3 className="text-dim-gray text-center text-lg">
-            Employees shall award orders, contracts, and commitments to
-            suppliers without favoritism. Business must be conducted strictly on
-            the basis of merit.
-          </h3>
-        </div>
-        <div className="flex flex-col items-center gap-6 bg-white p-16 px-12 shadow-xl">
-          <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-            <LinkedIn />
-          </div>
-          <h3 className="text-dim-gray text-center text-lg">
-            No employee shall use company assets for personal use.
-          </h3>
-        </div>
-      </div>
-      <div className="mt-32 flex">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Structures"
-            isLeft={true}
-          />
-        </div>
-        <div className="grow"></div>
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Investor Relations Program"
-            isLeft={false}
-          />
-        </div>
-      </div>
-    </section>
+    <>
+      <MainHeader
+        title={header.title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={header.coverImage.url}
+        bgUrlSmall={header.smallCoverImage.url}
+        tabs={tabs}
+      />
+      <CodeOfBusinessConductAndEthics content={content} />
+    </>
   );
 };
 
