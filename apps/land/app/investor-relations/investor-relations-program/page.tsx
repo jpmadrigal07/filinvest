@@ -13,7 +13,7 @@ const InvestorRelationsProgramPage = () => {
   const { title, breadcrumbs, image, imageSmall } =
     HEADER_INFO.investorRelationsProgram;
   return (
-    <>
+    <div className="sketch-bg">
       <MainHeader
         title={title}
         breadcrumbs={breadcrumbs}
@@ -21,7 +21,7 @@ const InvestorRelationsProgramPage = () => {
         bgUrlSmall={imageSmall}
       />
       <Content />
-    </>
+    </div>
   );
 };
 

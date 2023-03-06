@@ -12,6 +12,10 @@ const StockInformationStockHolderTable: Block = {
       name: "tableSubTitle",
     },
     {
+      type: "text",
+      name: "tableFooter",
+    },
+    {
       type: "textarea",
       name: "tableDescription",
     },

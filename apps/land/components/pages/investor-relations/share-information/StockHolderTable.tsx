@@ -9,6 +9,7 @@ export default function StockHolderTable({ content }: any) {
   const tableTitle = StockHolderTableSection.tableTitle;
   const tableSubTitle = StockHolderTableSection.tableSubTitle;
   const tableDescription = StockHolderTableSection.tableDescription;
+  const tableFooter = StockHolderTableSection.tableFooter;
 
   return (
     <>
@@ -70,6 +71,7 @@ export default function StockHolderTable({ content }: any) {
           </div>
         </div>
       </div>
+      <h3 className="text-dim-gray mx-24 text-center text-lg">{tableFooter}</h3>
     </>
   );
 }
