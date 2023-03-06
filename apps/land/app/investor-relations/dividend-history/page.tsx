@@ -13,7 +13,7 @@ const DividendHistoryPage = () => {
   const { title, breadcrumbs, image, tabs, imageSmall } =
     HEADER_INFO.dividendHistory;
   return (
-    <>
+    <div className="sketch-bg">
       <MainHeader
         title={title}
         breadcrumbs={breadcrumbs}
@@ -22,7 +22,7 @@ const DividendHistoryPage = () => {
         bgUrlSmall={imageSmall}
       />
       <Content />
-    </>
+    </div>
   );
 };
 

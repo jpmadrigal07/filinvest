@@ -10,10 +10,16 @@ export async function generateMetadata() {
 }
 
 const InvestorRelationsPage = () => {
-  const { title, breadcrumbs, image } = HEADER_INFO.investorRelations;
+  const { title, breadcrumbs, image, imageSmall } =
+    HEADER_INFO.investorRelations;
   return (
     <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
+      <MainHeader
+        title={title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={image}
+        bgUrlSmall={imageSmall}
+      />
       <Content />
     </>
   );

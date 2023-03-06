@@ -1,27 +1,17 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
 import Content from "@/components/pages/investor-relations/disclosures/Content";
+import { getPageContent } from "../../page";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
+const DISCLOSURES_PAGE_ID = "6403761dcda32af5e1100236";
 export async function generateMetadata() {
-  return {
-    title: "Disclosures",
-    description: "Disclosures",
-  };
+  const content = await getPageContent(DISCLOSURES_PAGE_ID);
+  return metaBuilder(content);
 }
 
-const DisclosuresPage = () => {
-  const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.disclosures;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-      />
-      <Content />
-    </>
-  );
+const DisclosuresPage = async () => {
+  const content = await getPageContent(DISCLOSURES_PAGE_ID);
+  /* const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.disclosures; */
+  return <Content content={content} />;
 };
 
 export default DisclosuresPage;

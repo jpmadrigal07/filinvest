@@ -17,7 +17,7 @@ const Content = () => {
   } = INVESTOR_RELATIONS;
   return (
     <section className="-mt-6 2xl:-mt-36">
-      <div className="flex justify-center gap-12 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="hidden justify-center gap-12 md:flex lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="bg-royal-dark-blue relative flex w-[200px] flex-none flex-col items-center gap-6 p-16 px-6 shadow-xl">
           <h3 className="text-center text-white">{OUR_COMPANY.name}</h3>
           <Link
@@ -68,7 +68,7 @@ const Content = () => {
           </Link>
         </div>
       </div>
-      <div className="mt-16 flex gap-6 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mt-16 flex flex-col gap-6 md:flex-row lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex-1">
           <div className="flex-none py-20 px-9">
             <div className="mx-12">
@@ -92,10 +92,16 @@ const Content = () => {
             <div className="border-jet border-[1px]">
               <div className="flex py-6 px-12">
                 <div className="mx-12 flex items-end gap-3">
-                  <h3 className="text-jet ml-7 text-4xl font-bold">FLI</h3>
+                  <h3 className="text-jet ml-7 text-sm font-bold md:text-4xl">
+                    FLI
+                  </h3>
                   <RedDownTriangle />
-                  <h3 className="text-jet text-8xl font-bold">1.00</h3>
-                  <h4 className="text-jet text-4xl font-bold">PHP</h4>
+                  <h3 className="text-jet text-5xl font-bold md:text-8xl">
+                    1.00
+                  </h3>
+                  <h4 className="text-jet text-xl font-bold md:text-4xl">
+                    PHP
+                  </h4>
                 </div>
               </div>
             </div>
@@ -152,7 +158,7 @@ const Content = () => {
           Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Ut
           consequat semper viverra nam libero justo laoreet sit.
         </p>
-        <div className="mt-16 grid grid-cols-3 items-center justify-center gap-x-4 gap-y-12 lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="mt-16 grid grid-cols-1 items-center justify-center gap-x-4 gap-y-12 px-8 md:grid-cols-3 md:px-0 lg:mx-9 xl:mx-16 2xl:mx-44">
           <div className="flex gap-6">
             <div className="flex-none">
               <Image
@@ -294,8 +300,8 @@ const Content = () => {
           />
         </div>
       </div>
-      <div className="divide-gainsboro flex divide-x divide-solid">
-        <div className="flex-1 py-24 px-16">
+      <div className="divide-gainsboro flex flex-col divide-x divide-solid md:flex-row">
+        <div className="flex-1 py-24 px-16 px-4 md:px-0">
           <h2 className="text-jet text-center text-4xl font-bold">
             Disclosures
           </h2>
