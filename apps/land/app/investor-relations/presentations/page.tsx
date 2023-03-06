@@ -1,23 +1,19 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/presentations/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
+import { getPageContent } from "../../page";
+
+const PRESENTATION_PAGE_ID = "64058e3b9736d66cfb1b10fb";
 
 export async function generateMetadata() {
-  return {
-    title: "Presentations",
-    description: "Presentations",
-  };
+  const content = await getPageContent(PRESENTATION_PAGE_ID);
+  return metaBuilder(content);
 }
 
-const PresentationPage = () => {
+const PresentationPage = async () => {
+  const content = await getPageContent(PRESENTATION_PAGE_ID);
   return (
     <>
-      <MainHeader
-        title="Presentations"
-        breadcrumbs="Home / Investor Relations / Presentations"
-        bgUrl="presentations.png"
-        bgUrlSmall="presentations-small.png"
-      />
-      <Content />
+      <Content content={content} />
     </>
   );
 };
