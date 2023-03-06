@@ -40,6 +40,7 @@ const BREADCRUMBS = [
 const dividendHistoryImage = "dividend-history.png";
 const dividendHistoryImageSmall = "dividend-history-small.png";
 const investorRelationsImage = "investor-relations.png";
+const investorRelationsImageSmall = "investor-relations-small.png";
 const investorRelationsProgramImage = "investor-relations-program.png";
 const investorRelationsProgramSmallImage =
   "investor-relations-program-small.png";
@@ -55,6 +56,7 @@ export const HEADER_INFO = {
       />
     ),
     image: investorRelationsImage,
+    imageSmall: investorRelationsImageSmall,
   },
   dividendPolicy: {
     title: DIVIDEND_POLICY.name,

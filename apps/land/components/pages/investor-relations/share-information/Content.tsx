@@ -34,7 +34,7 @@ const Content = ({ content }: any) => {
   )?.title;
 
   return (
-    <>
+    <div className="sketch-bg">
       <MainHeader
         title={header.title}
         breadcrumbs={breadcrumbs}
@@ -54,7 +54,7 @@ const Content = ({ content }: any) => {
           shares.
         </h3>
       </section>
-    </>
+    </div>
   );
 };
 

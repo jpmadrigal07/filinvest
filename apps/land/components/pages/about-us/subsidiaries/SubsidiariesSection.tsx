@@ -14,12 +14,15 @@ const SubsidiariesSection = ({ content }: any) => {
             className="bg-ghost-white flex flex-col gap-10 px-7 pt-6 pb-12"
             key={index}
           >
-            <Image
-              src={`${item.companyLogo.url}`}
-              width={74}
-              height={74}
-              alt={item.companyLogo.alt}
-            />
+            <div className="inline-flex h-[112px] w-[112px] overflow-hidden rounded-full bg-white">
+              <Image
+                className="relative object-cover"
+                src={`${item.companyLogo.url}`}
+                width={112}
+                height={112}
+                alt={item.companyLogo.alt}
+              />
+            </div>
             <div>
               <h3 className="text-jet text-4xl font-bold">
                 {item.companyName}

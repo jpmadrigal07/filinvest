@@ -1,27 +1,17 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/contact-us/constants";
 import Content from "@/components/pages/contact-us/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
+import { getPageContent } from "../page";
+
+const CONTACT_US_PAGE_ID = "6402fc1da18562766728404c";
 
 export async function generateMetadata() {
-  return {
-    title: "Contact Us",
-    description: "Contact Us",
-  };
+  const content = await getPageContent(CONTACT_US_PAGE_ID);
+  return metaBuilder(content);
 }
 
 const ContactUsPage = async () => {
-  const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.contactUs;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-      />
-      <Content />
-    </>
-  );
+  const content = await getPageContent(CONTACT_US_PAGE_ID);
+  return <Content content={content} />;
 };
 
 export default ContactUsPage;

@@ -39,6 +39,17 @@ const ContactUs: Block = {
               required: true,
             },
             {
+              name: "address2",
+              type: "text",
+              required: false,
+            },
+            {
+              name: "isAddressSecondary",
+              type: "checkbox",
+              label: "Make address 2 secondary (gray and smaller)?",
+              defaultValue: false,
+            },
+            {
               name: "phone",
               type: "text",
               required: true,

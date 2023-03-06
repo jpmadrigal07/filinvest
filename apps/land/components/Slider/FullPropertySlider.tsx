@@ -9,31 +9,59 @@ import ChevronRight from "@/components/svg/ChevronRight";
 import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
 import Link from "next/link";
+import ChevronCircleLeft from "../svg/ChevronCircleLeft";
+import ChevronCircleRight from "../svg/ChevronCircleRight";
 
-const FullPropertySlider = ({ sliders }: any) => {
+const FullPropertySlider = ({ sliders, withThumbnail = false }: any) => {
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
   return (
     <>
       <div className="relative hidden md:block">
-        <div className="absolute right-6 bottom-6 z-40">
+        <div
+          className={`absolute ${
+            withThumbnail ? "left-16" : "right-6"
+          } bottom-12 z-40`}
+        >
           <div className="flex gap-7">
             <div
-              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
+              className={`cursor-pointer rounded-full ${
+                !withThumbnail && "bg-white"
+              } px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70`}
               // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
-              <ChevronLeft color="#000000" />
+              {!withThumbnail ? (
+                <ChevronLeft color="#000000" />
+              ) : (
+                <ChevronCircleLeft color="white" />
+              )}
             </div>
             <div
-              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
+              className={`cursor-pointer rounded-full ${
+                !withThumbnail && "bg-white"
+              } px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70`}
               // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
-              <ChevronRight color="#000000" />
+              {!withThumbnail ? (
+                <ChevronRight color="#000000" />
+              ) : (
+                <ChevronCircleRight color="white" />
+              )}
             </div>
           </div>
         </div>
+        {withThumbnail && (
+          <div className="absolute bottom-12 right-6 z-40 max-h-[180px] max-w-[180px] rounded-[5px] opacity-[0.8]">
+            <Image
+              src={`/single-house.png`}
+              width={180}
+              height={180}
+              alt={`single-house`}
+            />
+          </div>
+        )}
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
