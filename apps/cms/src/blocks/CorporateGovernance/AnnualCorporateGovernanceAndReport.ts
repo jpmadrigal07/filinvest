@@ -20,9 +20,16 @@ const AnnualCorporateGovernanceAndReport: Block = {
           required: true,
         },
         {
-          type: "richText",
-          name: "report",
+          type: "array",
+          name: "reportBullets",
           required: true,
+          fields: [
+            {
+              type: "textarea",
+              name: "report",
+              required: true,
+            },
+          ],
         },
       ],
     },
