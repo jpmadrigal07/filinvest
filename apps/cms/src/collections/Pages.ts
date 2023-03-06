@@ -100,6 +100,9 @@ import {
   ResidentialSlider,
 } from "../blocks/Residential";
 import { CareersCallHr, CareersImageText } from "../blocks/Careers";
+import { AnnualReports } from "../blocks/AnnualReports";
+import { DividendHistory } from "../blocks/DividendHistory";
+import { DividendPolicy } from "../blocks/DividendPolicy";
 import { ContactUs } from "../blocks/ContactUs";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
@@ -215,6 +218,9 @@ export const Pages: CollectionConfig = {
         CareersCallHr,
         CareersImageText,
         ContactUs,
+        AnnualReports,
+        DividendHistory,
+        DividendPolicy,
       ],
     },
     {
