@@ -1,3 +1,4 @@
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { T_SearchQuery } from "@/types/global";
 import { useQuery } from "@tanstack/react-query";
 import qs from "qs";
@@ -57,6 +58,7 @@ export async function getNews(searchParams: T_SearchQuery | null) {
     { addQueryPrefix: true }
   );
   const res = await fetch(`/api/news${stringifiedQuery}&limit=3`, {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",

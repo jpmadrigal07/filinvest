@@ -1,7 +1,9 @@
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { useQuery } from "@tanstack/react-query";
 
 export async function getFooter() {
   const res = await fetch(`/api/globals/footer`, {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",

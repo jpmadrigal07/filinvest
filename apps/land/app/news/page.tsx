@@ -1,8 +1,11 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/news/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 async function getNews() {
-  const res = await fetch(`${process.env.CMS_URL}/api/news`);
+  const res = await fetch(`${process.env.CMS_URL}/api/news`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

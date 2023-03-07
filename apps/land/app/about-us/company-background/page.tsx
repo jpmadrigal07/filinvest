@@ -1,4 +1,5 @@
 import Content from "@/components/pages/about-us/company-background/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
 
@@ -18,7 +19,10 @@ const stringifiedQuery = qs.stringify(
 
 async function getNews() {
   const res = await fetch(
-    `${process.env.CMS_URL}/api/news${stringifiedQuery}&limit=3`
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}&limit=3`,
+    {
+      next: { revalidate: CACHE_REVALIDATE },
+    }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -28,7 +32,9 @@ async function getNews() {
 }
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

@@ -1,9 +1,12 @@
 import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/annual-corporate-governance-report/Content";
 import { metaBuilder } from "@/helpers/metaBuilder";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

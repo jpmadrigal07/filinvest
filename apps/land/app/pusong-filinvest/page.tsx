@@ -1,6 +1,7 @@
 import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
 import Content from "@/components/pages/pusong-filinvest/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 const query = {
   "site.title": {
@@ -27,7 +28,9 @@ async function getNews() {
 }
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
