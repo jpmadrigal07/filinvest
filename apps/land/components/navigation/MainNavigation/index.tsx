@@ -54,8 +54,6 @@ const MainNavigation = ({ className }: { className?: string }) => {
     }
   }, [showFixedNavigation]);
 
-  console.log("eee", menus);
-
   const renderNavigation = () => {
     return (
       <nav
