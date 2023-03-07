@@ -16,7 +16,11 @@ const Projects = ({ content }: any) => {
       <h4 className="text-dim-gray mx-6 mt-4 text-center md:mx-0">
         {content.content[1].description}
       </h4>
-      <FullPropertySlider sliders={content.content[1].imageSlides} />
+      <FullPropertySlider
+        sliders={content.content[1].imageSlides}
+        isDefault={false}
+        with360={true}
+      />
     </section>
   );
 };
