@@ -13,7 +13,7 @@ const NewsStories = ({ content, className }: any) => {
       <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex flex-col justify-center md:flex-row md:items-center">
           <div className="flex-1 px-4 text-center md:px-0 md:text-left">
-            <h4 className="text-dark-cornflower-blue text-lg font-black tracking-wider">
+            <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
               {content?.content[6].title}
             </h4>
             <h2 className="text-jet mt-2 text-4xl font-black tracking-tighter">

@@ -47,14 +47,14 @@ export default function BioInfo({
                 <Dialog.Panel className="relative flex w-full flex-1 flex-col bg-white">
                   <div className="flex justify-end px-8 pt-6 lg:px-16">
                     <p
-                      className="text-dark-cornflower-blue p-3 text-xl hover:cursor-pointer focus:cursor-pointer"
+                      className="text-dark-cornflower-blue p-3 text-3xl hover:cursor-pointer focus:cursor-pointer"
                       onClick={() => setSidebarOpen(false)}
                     >
                       x
                     </p>
                   </div>
                   <div className="flex h-0 flex-1 flex-col gap-12 overflow-y-auto px-16 pt-6 pb-16 lg:flex-row">
-                    <div className="flex flex-col gap-3">
+                    <div className="mt-[5px] flex flex-col gap-3">
                       <Image
                         src={`${information?.directorImage?.url}`}
                         width={323}

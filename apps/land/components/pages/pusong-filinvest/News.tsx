@@ -29,7 +29,13 @@ const News = ({ news }: any) => {
           </Link>
         </div>
       </div>
-      <FeaturedArticles className="mt-16" sliderOnMobile articles={news} />
+      <FeaturedArticles
+        className="mt-16"
+        sliderOnMobile
+        articles={news}
+        withExtras={false}
+        isTwoLines={true}
+      />
     </div>
   );
 };

@@ -20,6 +20,7 @@ type T_ArticlesList = {
   articles: any[];
   withExtras?: boolean;
   sliderImageClassName?: string;
+  isTwoLines?: boolean;
 };
 
 const FeaturedArticles = ({
@@ -28,6 +29,7 @@ const FeaturedArticles = ({
   sliderImageClassName,
   articles = [],
   withExtras = true,
+  isTwoLines = false,
 }: T_ArticlesList) => {
   const query = {
     propertyType: "",
@@ -71,7 +73,7 @@ const FeaturedArticles = ({
             <Link
               href={`/article/${article.slug}`}
               key={index}
-              className="group"
+              className={`group `}
             >
               <Image
                 src={article.coverImage.url}
@@ -80,12 +82,31 @@ const FeaturedArticles = ({
                 alt={article.coverImage.alt}
                 className="opacity-100 transition duration-150 hover:opacity-70"
               />
-              <h2 className="text-jet mt-6 truncate text-2xl font-bold">
+              <h2
+                className={`text-jet mt-6 text-2xl font-bold ${
+                  isTwoLines
+                    ? "max-h-[80px] overflow-hidden text-ellipsis"
+                    : "truncate"
+                }`}
+                style={
+                  isTwoLines
+                    ? {
+                        WebkitLineClamp: 2,
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                      }
+                    : {}
+                }
+              >
                 {article.title}
               </h2>
 
               {withExtras && (
-                <h4 className="text-dim-gray text-sm opacity-70">
+                <h4
+                  className={`text-dim-gray text-sm opacity-70 ${
+                    isTwoLines && "mt-4"
+                  }`}
+                >
                   {`Posted by ${article.author.roles[0]
                     .charAt(0)
                     .toUpperCase()}${article.author.roles[0].substr(
@@ -96,7 +117,22 @@ const FeaturedArticles = ({
                 </h4>
               )}
 
-              <h4 className="text-dim-gray mt-4 truncate">
+              <h4
+                className={`text-dim-gray ${
+                  isTwoLines
+                    ? "max-h-[68px] overflow-hidden text-ellipsis"
+                    : "mt-4 truncate"
+                }`}
+                style={
+                  isTwoLines
+                    ? {
+                        WebkitLineClamp: 2,
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                      }
+                    : {}
+                }
+              >
                 {article.content[0].children[0].text}
               </h4>
 

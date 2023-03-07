@@ -10,15 +10,17 @@ const StockReport = ({ content }: any) => {
     <section className="flex flex-col pt-24 lg:flex-row">
       <div className="flex-1 bg-[#143264] py-20 px-6 lg:px-9">
         <div className="mx-auto lg:w-1/2">
-          <h2 className="text-3xl font-bold text-white">
+          <h2 className="text-center text-3xl font-bold tracking-tighter text-white md:text-left">
             {content.content[8].stockInfoTitle}
           </h2>
-          <div className="flex flex-col py-6 px-12">
-            <h3 className="ml-7 text-2xl font-bold text-white">FLI</h3>
-            <div className="flex items-end gap-3">
-              <RedDownTriangle />
-              <h3 className="text-5xl font-extrabold text-white">1.00</h3>
-              <h4 className="text-lg text-white">PHP</h4>
+          <div className="flex items-center justify-center py-6">
+            <div className="flex flex-col">
+              <h3 className="ml-7 text-2xl font-bold text-white ">FLI</h3>
+              <div className="flex items-end gap-3">
+                <RedDownTriangle />
+                <h3 className="text-5xl font-extrabold text-white">1.00</h3>
+                <h4 className="text-lg text-white">PHP</h4>
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-2 border-b-[1px] border-solid border-white py-6 pb-2">
@@ -66,28 +68,30 @@ const StockReport = ({ content }: any) => {
         </div>
       </div>
       <div className="bg-vivid-sky-blue flex-1 py-20 px-6 lg:px-16">
-        <h2 className="text-3xl font-bold text-white">
-          {content.content[8].annualReportTitle}
-        </h2>
-        <div className="mt-24 flex gap-14">
-          <div className="flex flex-col gap-12 md:flex-row md:items-center">
-            <div className="flex-none md:w-1/3">
-              <Image
-                src={`${!content.content[8].annualReportImage.url ? "/" : ""}${
-                  content.content[8].annualReportImage.url
-                }`}
-                width={487}
-                height={671}
-                alt={content.content[8].annualReportImage.url}
-              />
+        <div className="gap-14">
+          <div className="flex flex-col items-center gap-12 md:flex-row">
+            <div className="flex flex-col items-center gap-12">
+              <h2 className="text-center text-4xl font-black tracking-tighter text-white md:text-left">
+                {content.content[8].annualReportTitle}
+              </h2>
+              <div className="flex w-60 items-center justify-center ">
+                <Image
+                  src={`${
+                    !content.content[8].annualReportImage.url ? "/" : ""
+                  }${content.content[8].annualReportImage.url}`}
+                  width={487}
+                  height={671}
+                  alt={content.content[8].annualReportImage.url}
+                />
+              </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center md:items-start">
               <Link
                 href={content.content[8].downloadReportLink}
                 target="_blank"
                 className="flex items-center gap-4"
               >
-                <div className="w-1/4 max-w-[99px] flex-none">
+                <div className="ml-8 w-1/4 max-w-[99px] flex-none md:ml-0">
                   <Image
                     src="/download-stock-report.png"
                     width={143}
@@ -95,7 +99,7 @@ const StockReport = ({ content }: any) => {
                     alt="Picture of the author"
                   />
                 </div>
-                <h4 className="text-normal text-white transition hover:opacity-70">
+                <h4 className="text-2xl text-white transition hover:opacity-70">
                   Download Annual Report For 2021
                 </h4>
               </Link>

@@ -8,6 +8,7 @@ type T_AboutUsMenu = {
   title: string;
   subTitle?: string;
   link: string;
+  newTab: boolean;
 };
 const AboutUs = ({
   aboutUsMenu,
@@ -27,6 +28,7 @@ const AboutUs = ({
               <div key={index} className={`${index > 0 && "mt-9"}`}>
                 <Link
                   href={routes.link}
+                  target={routes.newTab ? "_blank" : "_self"}
                   className="text-white transition delay-150 hover:opacity-70"
                 >
                   <h3 className="text-xl text-white">{routes.title}</h3>

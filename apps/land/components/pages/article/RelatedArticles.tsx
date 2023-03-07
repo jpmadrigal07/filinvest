@@ -46,6 +46,7 @@ const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
         sliderOnMobile
         articles={data ? data : []}
         withExtras={true}
+        isTwoLines={true}
       />
     </>
   );
