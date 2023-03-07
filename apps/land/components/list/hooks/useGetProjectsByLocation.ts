@@ -1,3 +1,4 @@
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { useQuery } from "@tanstack/react-query";
 import qs from "qs";
 
@@ -24,6 +25,7 @@ export async function getProjectsByLocation({
     { addQueryPrefix: true }
   );
   const res = await fetch(`/api/projects${stringifiedQuery}`, {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",

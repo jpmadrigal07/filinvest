@@ -276,7 +276,8 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      name: "subLocation",
+      name: "subLocationTwo",
+      label: "Sub Location",
       type: "relationship",
       relationTo: "sub-location-categories",
     },

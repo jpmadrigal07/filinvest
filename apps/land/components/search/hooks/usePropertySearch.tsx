@@ -11,6 +11,7 @@ import flattenUnitSizes from "@/helpers/flattenUnitSizes";
 import flattenPricePoints from "@/helpers/flattenPricePoints";
 import flattenBedroomRange from "@/helpers/flattenBedroomRange";
 import flattenSubLocations from "@/helpers/flattenSubLocations";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 export async function getProperties(searchParams: T_SearchQuery) {
   const query = {
@@ -46,7 +47,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
       : {}),
     ...(searchParams.subLocation
       ? {
-          "subLocation.title": {
+          "subLocationTwo.title": {
             equals: searchParams.subLocation,
           },
         }
@@ -117,6 +118,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
     { addQueryPrefix: true }
   );
   const res = await fetch(`/api/projects${stringifiedQuery}`, {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",

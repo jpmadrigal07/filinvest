@@ -2,6 +2,7 @@ import Content from "@/components/pages/our-businesses/co-living/Content";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
 import { metaBuilder } from "@/helpers/metaBuilder";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 const query = {
   "projectType.title": {
@@ -17,7 +18,9 @@ const stringifiedQuery = qs.stringify(
 );
 
 async function getPageContent(id: string) {
-  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

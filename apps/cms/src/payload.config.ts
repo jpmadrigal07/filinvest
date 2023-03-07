@@ -17,6 +17,7 @@ import { PropertyCategories } from "./collections/PropertyCategories";
 import { LocationGroupCategories } from "./collections/LocationGroupCategories";
 import { LocationCategories } from "./collections/LocationCategories";
 import { SubLocationCategories } from "./collections/SubLocationCategories";
+// import { SubLocationCategoriesTwo } from "./collections/SubLocationCategoriesTwo";
 
 import { Navigation } from "./globals/Navigation";
 import { Footer } from "./globals/Footer";

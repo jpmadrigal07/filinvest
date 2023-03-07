@@ -1,4 +1,5 @@
 import Content from "@/components/pages/article/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { metaBuilder } from "@/helpers/metaBuilder";
 import { notFound } from "next/navigation";
 import qs from "qs";
@@ -23,7 +24,9 @@ async function getNewsContent(slug: string) {
   );
   const res = await fetch(
     `${process.env.CMS_URL}/api/news${stringifiedQuery}`,
-    { cache: "force-cache" }
+    {
+      next: { revalidate: CACHE_REVALIDATE },
+    }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");

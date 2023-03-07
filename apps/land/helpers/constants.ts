@@ -178,4 +178,4 @@ export const SAMPLE_PROJECTS = [
 export const PROPERTY_TYPE = ["Condominium", "House & Lot", "Lot Only"];
 
 export const BRAND_ARR = ["Prestige", "Futura", "Aspire"];
-export const CACHE_REVALIDATE = 300;
+export const CACHE_REVALIDATE = 30;

@@ -1,8 +1,8 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../access/isAdmin";
 
-export const SubLocationCategories: CollectionConfig = {
-  slug: "sub-location-categories",
+export const SubLocationCategoriesTwo: CollectionConfig = {
+  slug: "sub-location-categories-two",
   admin: {
     useAsTitle: "title",
     group: "Category",
