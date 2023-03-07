@@ -6,12 +6,12 @@ import ROUTES from "@/helpers/routes";
 import Facebook from "@/components/svg/Facebook";
 import LinkedIn from "@/components/svg/LinkedIn";
 import Mail from "@/components/svg/Mail";
-import MainLogo from "@/components/svg/MainLogo";
 import MapLine from "@/components/svg/MapLine";
 import Phone from "@/components/svg/Phone";
 import Send from "@/components/svg/Send";
 import Twitter from "@/components/svg/Twitter";
 import useGetFooter from "./hooks/useGetFooter";
+import Image from "next/image";
 
 const MainFooter = () => {
   const { data: footerRes, isLoading } = useGetFooter();
@@ -21,9 +21,19 @@ const MainFooter = () => {
     <footer>
       <div className="bg-royal-dark-blue flex flex-col gap-9 px-6 py-12 lg:flex-row lg:gap-36 lg:px-16 lg:py-24">
         <div className="flex flex-1 flex-col gap-14">
-          <Link href={HOME.url}>
-            <MainLogo />
-          </Link>
+          {footerRes?.filinvestLogo?.url ? (
+            <Link href={HOME.url}>
+              <Image
+                src={footerRes?.filinvestLogo?.url}
+                width={222}
+                height={56}
+                alt={`${footerRes?.filinvestLogo?.alt}`}
+              />
+            </Link>
+          ) : (
+            "Loading..."
+          )}
+
           <h3 className="text-md font-md text-white">
             {!isLoading ? footerRes.emailDescription : "Loading..."}
           </h3>
