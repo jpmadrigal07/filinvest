@@ -8,6 +8,7 @@ type T_InvestorRelationsMenu = {
   title: string;
   subTitle?: string;
   link: string;
+  newTab: boolean;
 };
 const InvestorRelations = ({
   investorRelationsMenu,
@@ -27,6 +28,7 @@ const InvestorRelations = ({
                   <div key={index}>
                     <Link
                       href={routes.link}
+                      target={routes.newTab ? "_blank" : "_self"}
                       className="text-white transition delay-150 hover:opacity-70"
                     >
                       <h3 className="text-xl text-white">{routes.title}</h3>

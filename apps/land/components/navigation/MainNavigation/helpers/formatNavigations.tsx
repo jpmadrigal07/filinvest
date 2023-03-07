@@ -14,6 +14,7 @@ const formatNavigations = (navigations: Navigation) => {
               subTitle: sub.link.description,
               link: sub.link.url,
               featured: sub.featured,
+              newTab: sub.link.newTab ? true : false,
             };
           })
         : undefined;
@@ -46,6 +47,7 @@ const formatNavigations = (navigations: Navigation) => {
       ...(wideMenuComponent && { fullComponent: wideMenuComponent }),
       ...(subMenus && { subMenus }),
       ...(link && { link }),
+      newTab: menu.link.newTab ? true : false,
     };
     return singleMenu;
     // TODO: fix type for this

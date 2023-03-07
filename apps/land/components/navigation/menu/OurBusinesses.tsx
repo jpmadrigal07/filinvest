@@ -13,6 +13,7 @@ type T_OurBusinessesMenu = {
   subTitle?: string;
   link: string;
   featured: any;
+  newTab: boolean;
 };
 const OurBusinesses = ({
   ourBusinessesMenu,
@@ -50,6 +51,7 @@ const OurBusinesses = ({
                 <div key={index} className={`${index > 0 && "mt-9"}`}>
                   <Link
                     href={routes.link}
+                    target={routes.newTab ? "_blank" : "_self"}
                     className={`cursor-pointer text-white transition delay-150 ${
                       routes.title === "Residentials" &&
                       selectedMenu === "Residentials"

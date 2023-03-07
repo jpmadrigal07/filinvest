@@ -10,6 +10,7 @@ type T_Sub_Menus = {
   title: string;
   subTitle?: string;
   link: string;
+  newTab: boolean;
 };
 
 interface I_Props {
@@ -125,6 +126,7 @@ const LinkWrapper = ({
                         {subMenus.map((item, index) => (
                           <Link
                             href={item.link}
+                            target={item.newTab ? "_blank" : "_self"}
                             key={index}
                             onClick={() => close()}
                             className="hover:bg-oxford-blue flex items-start transition duration-150 ease-in-out"
