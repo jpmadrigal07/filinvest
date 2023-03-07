@@ -187,6 +187,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
                                 <Link
                                   key={subMenuIndex}
                                   href={subMenu.link}
+                                  target={item.newTab ? "_blank" : "_self"}
                                   className="pt-4"
                                   onClick={() => close()}
                                 >
@@ -206,6 +207,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
                           <Link
                             key={index}
                             href={item.link}
+                            target={item.newTab ? "_blank" : "_self"}
                             onClick={() => close()}
                             className="hover:bg-oxford-blue focus:bg-oxford-blue flex w-full py-4 px-4 text-lg font-medium text-white"
                           >
