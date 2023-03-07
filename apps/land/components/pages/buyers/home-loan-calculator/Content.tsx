@@ -41,19 +41,19 @@ const Content = () => {
   const [monthlyAmortization, setMonthlyAmortization] = useState(0);
   const [requiredMonthlyIncome, setRequiredMonthlyIncome] = useState(0);
   const reservationFeeMarks = {
-    0: <strong>10,000</strong>,
-    50: <strong>20,000</strong>,
-    100: <strong>50,000</strong>,
+    0: <strong className="absolute top-[12px] -left-[19px]">10,000</strong>,
+    50: <strong className="absolute top-[12px] -left-[19px]">20,000</strong>,
+    100: <strong className="absolute top-[12px] -left-[19px]">50,000</strong>,
   };
   const downPaymentMarks = {
-    0: <strong>10%</strong>,
-    50: <strong>20%</strong>,
-    100: <strong>30%</strong>,
+    0: <strong className="absolute top-[12px] -left-[10px]">10%</strong>,
+    50: <strong className="absolute top-[12px] -left-[10px]">20%</strong>,
+    100: <strong className="absolute top-[12px] -left-[10px]">30%</strong>,
   };
   const yearsPayMarks = {
-    0: <strong>5 Years</strong>,
-    50: <strong>10 Years</strong>,
-    100: <strong>15 Years</strong>,
+    0: <strong className="absolute top-[12px] -left-[13px]">5 Years</strong>,
+    50: <strong className="absolute top-[12px] -left-[13px]">10 Years</strong>,
+    100: <strong className="absolute top-[12px] -left-[13px]">15 Years</strong>,
   };
   const downPaymentTerms = [12, 24, 36, 48, 60];
   useEffect(() => {
