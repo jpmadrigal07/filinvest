@@ -13,7 +13,7 @@ const StockReport = ({ content }: any) => {
           <h2 className="text-3xl font-bold text-white">
             {content.content[8].stockInfoTitle}
           </h2>
-          <div className="flex flex-col py-6 px-12">
+          <div className="flex flex-col items-center py-6">
             <h3 className="ml-7 text-2xl font-bold text-white">FLI</h3>
             <div className="flex items-end gap-3">
               <RedDownTriangle />
