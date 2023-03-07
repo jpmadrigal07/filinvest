@@ -153,14 +153,15 @@ const FullPropertySlider = ({
         <div className="absolute bottom-0 z-40">
           <div className="flex gap-6 md:gap-[43rem]">
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_3px_60px_rgba(0,0,0,0.5)] "
               // @ts-expect-error
               onClick={() => swiperRefMobile.current?.slidePrev()}
             >
               <ChevronLeft color="#000000" />
             </div>
             <div
-              className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_3px_60px_rgba(0,0,0,0.5)]"
+              // className="rounded-full bg-white px-4 py-3 shadow-md transition duration-150 hover:opacity-70"
               // @ts-expect-error
               onClick={() => swiperRefMobile.current?.slideNext()}
             >
@@ -192,7 +193,7 @@ const FullPropertySlider = ({
                         height={560}
                         alt={slider.slideBackgroundImage.alt}
                       />
-                      <div className="relative mx-8 -mt-20 mb-12 flex flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 shadow-xl">
+                      <div className="relative mx-8 -mt-20 mb-12 flex flex-col items-center gap-6 bg-white px-12 pt-4 pb-12">
                         <div className="hidden lg:block">
                           <Image
                             src={`${!slider.blockLogo.url ? "/" : ""}${

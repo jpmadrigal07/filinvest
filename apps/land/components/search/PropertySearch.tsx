@@ -269,10 +269,10 @@ const PropertySearch = ({
           {showSearch && (
             <div className="flex-none">
               <button
-                className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-4 px-8 transition"
+                className="hover:bg-platinum focus:bg-platinum delay-50 w-full bg-white py-4 px-8 transition md:w-auto"
                 onClick={() => searchInit()}
               >
-                <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
+                <div className="text-dark-cornflower-blue flex items-center justify-center gap-2 font-bold md:justify-start">
                   <Search /> Search
                 </div>
               </button>
