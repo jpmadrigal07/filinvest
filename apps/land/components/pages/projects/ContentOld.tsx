@@ -1,6 +1,6 @@
 "use client";
 import BorderButton from "@/components/button/BorderButton";
-import SelectCategory from "@/components/select/SelectCategory";
+/* import SelectCategory from "@/components/select/SelectCategory"; */
 import Grid from "@/components/svg/Grid";
 import List from "@/components/svg/List";
 import Image from "next/image";
@@ -24,7 +24,7 @@ const Content = ({ news }: any) => {
           className="hover:cursor-pointer focus:cursor-pointer"
           onClick={() => setPosition("grid")}
         />
-        <SelectCategory />
+        {/* <SelectCategory /> */}
       </div>
       <div
         className={`grid ${
