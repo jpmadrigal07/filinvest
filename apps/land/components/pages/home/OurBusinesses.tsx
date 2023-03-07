@@ -14,13 +14,13 @@ const OurBusinesses = ({ content }: any) => {
   const swiperRefMobile = useRef();
   return (
     <section className="pt-28">
-      <h4 className="text-dark-cornflower-blue mx-6 text-center font-bold md:mx-0">
+      <h4 className="text-dark-cornflower-blue mx-6 text-center font-black tracking-widest md:mx-0">
         {content.content[3].title}
       </h4>
-      <h2 className="text-jet mx-6 mt-2 text-center text-4xl font-extrabold md:mx-0">
+      <h2 className="text-jet mx-6 mt-2 text-center text-4xl font-black tracking-tighter md:mx-0">
         {content.content[3].subTitle}
       </h2>
-      <h4 className="text-dim-gray mx-6 mt-4 text-center md:mx-0">
+      <h4 className="text-dim-gray mx-6 mt-4 text-center text-2xl md:mx-0">
         {content.content[3].description}
       </h4>
       <div className="hidden md:block">
