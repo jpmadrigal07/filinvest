@@ -24,6 +24,23 @@ const DividendHistory: Block = {
       relationTo: "files",
       required: true,
     },
+    {
+      type: "array",
+      name: "tableRowData",
+      required: true,
+      fields: [
+        {
+          type: "text",
+          name: "title",
+          required: true,
+        },
+        {
+          type: "text",
+          name: "value",
+          required: true,
+        },
+      ],
+    },
   ],
 };
 

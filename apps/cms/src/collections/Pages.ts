@@ -104,10 +104,16 @@ import { AnnualReports } from "../blocks/AnnualReports";
 import { DividendHistory } from "../blocks/DividendHistory";
 import { DividendPolicy } from "../blocks/DividendPolicy";
 import { ContactUs } from "../blocks/ContactUs";
+import {
+  InvestorRelationsBoxLinks,
+  InvestorRelationsFinancialHighlights,
+  InvestorRelationsLinks,
+} from "../blocks/InvestorRelations";
 import Header from "../blocks/Header";
 import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
 import TermsText from "../blocks/TermsText";
+import PrivacyPolicyText from "../blocks/PrivacyPolicyText";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -221,6 +227,10 @@ export const Pages: CollectionConfig = {
         AnnualReports,
         DividendHistory,
         DividendPolicy,
+        InvestorRelationsBoxLinks,
+        InvestorRelationsFinancialHighlights,
+        InvestorRelationsLinks,
+        PrivacyPolicyText,
       ],
     },
     {

@@ -1,20 +1,22 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/privacy-policy/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-export async function generateMetadata() {
-  return {
-    title: "Privacy",
-    description: "Privacy",
-  };
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 
-const PrivacyPage = () => {
-  return (
-    <>
-      <MainHeader title="Privacy Policy" isBlueHeader={true} />
-      <Content />
-    </>
-  );
+export async function generateMetadata() {
+  const content = await getPageContent("64059918a5ee128a26e97e5b");
+  return metaBuilder(content);
+}
+
+const PrivacyPage = async () => {
+  const content = await getPageContent("64059918a5ee128a26e97e5b");
+  return <Content content={content} />;
 };
 
 export default PrivacyPage;

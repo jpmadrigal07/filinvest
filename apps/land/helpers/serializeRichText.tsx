@@ -85,13 +85,13 @@ export const serializeRichText = (children: any) =>
         );
       case "ul":
         return (
-          <ul key={i} className="ml-6">
+          <ul key={i} className="text-dim-gray ml-6">
             {serializeRichText(node.children)}
           </ul>
         );
       case "ol":
         return (
-          <ol key={i} className="ml-6">
+          <ol key={i} className="text-dim-gray ml-6">
             {serializeRichText(node.children)}
           </ol>
         );

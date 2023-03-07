@@ -1,28 +1,22 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import Content from "@/components/pages/investor-relations/Content";
 
-export async function generateMetadata() {
-  return {
-    title: "Investor Relations",
-    description: "Investor Relations",
-  };
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 
-const InvestorRelationsPage = () => {
-  const { title, breadcrumbs, image, imageSmall } =
-    HEADER_INFO.investorRelations;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-      />
-      <Content />
-    </>
-  );
+export async function generateMetadata() {
+  const content = await getPageContent("640594d02dd194ccf101c72e");
+  return metaBuilder(content);
+}
+
+const InvestorRelationsPage = async () => {
+  const content = await getPageContent("640594d02dd194ccf101c72e");
+  return <Content content={content} />;
 };
 
 export default InvestorRelationsPage;
