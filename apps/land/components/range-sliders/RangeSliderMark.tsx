@@ -28,6 +28,7 @@ const RangeSliderMark = ({
   allowCross?: boolean;
   range?: boolean;
 }) => {
+  const themeColor = "#163E82";
   return (
     <Slider
       min={min}
@@ -35,6 +36,21 @@ const RangeSliderMark = ({
       marks={marks}
       step={step}
       range={range}
+      handleStyle={{
+        backgroundColor: "white",
+        borderColor: themeColor,
+      }}
+      dotStyle={{
+        width: "1px",
+        border: "none",
+        borderRadius: "0%",
+        backgroundColor: "black",
+        height: "10px",
+        bottom: "-18px",
+      }}
+      trackStyle={{
+        backgroundColor: themeColor,
+      }}
       allowCross={allowCross}
       defaultValue={defaultValue}
       onChange={(value) => onValueChange(value)}

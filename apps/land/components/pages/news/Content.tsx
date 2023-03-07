@@ -4,8 +4,10 @@ import Grid from "@/components/svg/Grid";
 import List from "@/components/svg/List";
 import React, { useState } from "react";
 import NewsTileList from "./NewsTileList";
+import SelectCategory from "@/components/select/SelectCategory";
 
 const Content = ({ news }: any) => {
+  const [selectedPropertyType, setSelectedPropertyType] = useState();
   const [position, setPosition] = useState<"list" | "grid">("grid");
   return (
     <section className="my-12 mx-9 gap-9 xl:my-24 xl:mx-16 2xl:mx-44">
@@ -20,7 +22,11 @@ const Content = ({ news }: any) => {
           className="hidden hover:cursor-pointer focus:cursor-pointer md:block"
           onClick={() => setPosition("grid")}
         />
-        {/* <SelectCategory /> */}
+        <SelectCategory
+          values={["Co-Living", "Offices", "Projects"]}
+          defaultValue={selectedPropertyType}
+          onValueChange={setSelectedPropertyType}
+        />
       </div>
       <NewsTileList news={news} position={position} />
     </section>

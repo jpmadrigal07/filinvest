@@ -25,6 +25,7 @@ const MainHeader = ({
   const bgUrlSmallUpdated = bgUrlSmall.includes("/files")
     ? `${bgUrlSmall}`
     : `/${bgUrlSmall}`;
+
   return (
     <>
       {isBlueHeader ? (
@@ -36,7 +37,9 @@ const MainHeader = ({
               >
                 <h1
                   className={`mt-16 mb-4 md:mt-0 ${
-                    isTitleSmall ? "text-2xl lg:text-6xl" : "text-6xl"
+                    isTitleSmall
+                      ? "max-w-[800px] text-2xl lg:text-4xl"
+                      : "text-6xl"
                   } text-center font-extrabold text-white`}
                 >
                   {title}
