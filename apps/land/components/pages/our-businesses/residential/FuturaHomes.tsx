@@ -43,6 +43,7 @@ const FuturaHomes = ({ content }: any) => {
         <FullPropertySlider
           sliders={sliderFutura.imageSlides}
           withThumbnail={true}
+          isDefault={false}
         />
       </div>
       <div className="mx-9 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">

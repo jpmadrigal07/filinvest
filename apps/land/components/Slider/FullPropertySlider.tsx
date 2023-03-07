@@ -11,27 +11,37 @@ import BorderButton from "@/components/button/BorderButton";
 import Link from "next/link";
 import ChevronCircleLeft from "../svg/ChevronCircleLeft";
 import ChevronCircleRight from "../svg/ChevronCircleRight";
-
-const FullPropertySlider = ({ sliders, withThumbnail = false }: any) => {
+import Button360 from "../svg/Button360";
+const FullPropertySlider = ({
+  sliders,
+  withThumbnail = false,
+  isDefault = true,
+  with360 = false,
+}: any) => {
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
   return (
     <>
       <div className="relative hidden md:block">
+        {with360 && (
+          <div className="absolute right-0 top-[60px] z-10 hidden cursor-pointer transition hover:opacity-60 lg:inline-block">
+            <Button360 />
+          </div>
+        )}
         <div
           className={`absolute ${
             withThumbnail ? "left-16" : "right-6"
           } bottom-12 z-40`}
         >
-          <div className="flex gap-7">
+          <div className={`flex ${isDefault ? "gap-7" : "-gap-2"}`}>
             <div
               className={`cursor-pointer rounded-full ${
-                !withThumbnail && "bg-white"
-              } px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70`}
+                isDefault && "bg-white  shadow-md"
+              }  px-2 py-3 opacity-100 transition duration-150 hover:opacity-70`}
               // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
-              {!withThumbnail ? (
+              {isDefault ? (
                 <ChevronLeft color="#000000" />
               ) : (
                 <ChevronCircleLeft color="white" />
@@ -39,12 +49,12 @@ const FullPropertySlider = ({ sliders, withThumbnail = false }: any) => {
             </div>
             <div
               className={`cursor-pointer rounded-full ${
-                !withThumbnail && "bg-white"
-              } px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70`}
+                isDefault && "bg-white  shadow-md"
+              }  px-2 py-3 opacity-100 transition duration-150 hover:opacity-70`}
               // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
-              {!withThumbnail ? (
+              {isDefault ? (
                 <ChevronRight color="#000000" />
               ) : (
                 <ChevronCircleRight color="white" />

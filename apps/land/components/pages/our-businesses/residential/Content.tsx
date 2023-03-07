@@ -7,6 +7,7 @@ import TitleText from "@/components/pages/our-businesses/residential/TitleText";
 import MainHeader from "@/components/header/MainHeader";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
+
 // import FullPropertySlider from "@/components/Slider/FullPropertySlider";
 
 const Content = ({ content }: any) => {
@@ -29,6 +30,7 @@ const Content = ({ content }: any) => {
     };
   });
   const tabs = <Tabs items={tabItems} />;
+
   return (
     <>
       <MainHeader
