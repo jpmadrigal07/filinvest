@@ -36,6 +36,7 @@ import {
   FinancialHighlightsTable,
   FinancialHighlightsLegends,
   FinancialHighlightsFinancialStatements,
+  FinancialHighlightsChartImage,
   FinancialHighlightsAnnualReports,
 } from "../blocks/FinancialHighlights";
 import { Presentations } from "../blocks/Presentations";
@@ -101,7 +102,10 @@ import {
 } from "../blocks/Residential";
 import { CareersCallHr, CareersImageText } from "../blocks/Careers";
 import { AnnualReports } from "../blocks/AnnualReports";
-import { DividendHistory } from "../blocks/DividendHistory";
+import {
+  DividendHistory,
+  DividendHistoryTable,
+} from "../blocks/DividendHistory";
 import { DividendPolicy } from "../blocks/DividendPolicy";
 import { ContactUs } from "../blocks/ContactUs";
 import {
@@ -187,6 +191,7 @@ export const Pages: CollectionConfig = {
         FinancialHighlightsTable,
         FinancialHighlightsLegends,
         FinancialHighlightsFinancialStatements,
+        FinancialHighlightsChartImage,
         FinancialHighlightsAnnualReports,
         Presentations,
         ManualCorporateGovernance,
@@ -226,6 +231,7 @@ export const Pages: CollectionConfig = {
         ContactUs,
         AnnualReports,
         DividendHistory,
+        DividendHistoryTable,
         DividendPolicy,
         InvestorRelationsBoxLinks,
         InvestorRelationsFinancialHighlights,

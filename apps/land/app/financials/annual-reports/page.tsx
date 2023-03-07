@@ -1,29 +1,15 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/financials/annual-reports/Content";
-import { HEADER_INFO } from "@/components/pages/financials/constants";
-
+import { metaBuilder } from "@/helpers/metaBuilder";
+import { getPageContent } from "../../page";
+const ANNUAL_REPORTS_PAGE = "6405e15317553e0c63002470";
 export async function generateMetadata() {
-  return {
-    title: "Annual Reports",
-    description: "Annual Reports",
-  };
+  const content = await getPageContent(ANNUAL_REPORTS_PAGE);
+  return metaBuilder(content);
 }
 
-const AnnualReportsPage = () => {
-  const { title, breadcrumbs, image, tabs, imageSmall } =
-    HEADER_INFO.annualReports;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+const AnnualReportsPage = async () => {
+  const content = await getPageContent(ANNUAL_REPORTS_PAGE);
+  return <Content content={content} />;
 };
 
 export default AnnualReportsPage;

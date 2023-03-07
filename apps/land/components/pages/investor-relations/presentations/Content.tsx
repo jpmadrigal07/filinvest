@@ -1,133 +1,77 @@
 import Image from "next/image";
 import React from "react";
 import ArrowRight from "@/components/svg/ArrowRight";
+import MainHeader from "@/components/header/MainHeader";
+import Breadcrumbs from "@/components/header/Breadcrumbs";
 
-const Content = () => {
+type PresentationCardProps = {
+  imageSrc: string;
+  imageAlt: string;
+  cardTitle: string;
+};
+
+const PresentationCard = ({
+  imageSrc,
+  imageAlt,
+  cardTitle,
+}: PresentationCardProps) => {
   return (
-    <section className="mt-16 mb-28 flex flex-col gap-6">
-      <div className="mx-3 grid grid-cols-3 gap-6 lg:mx-9 xl:mx-16 2xl:mx-44">
-        <div>
-          <Image
-            src="/presentations-1.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">
-              9M2020 Analysts Briefing
-            </h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-2.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">
-              1H20 Analysts Briefing
-            </h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-3.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 px-4 py-1 xl:p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">{`President's Report 2019 - Annual Stockholders' Meeting`}</h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-4.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 px-4 py-1 xl:p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">{`Full Year 2019 and 1st Quarter 2020 Analysts' Briefing`}</h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-5.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">{`9M 2019 Analysts' Briefing`}</h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-6.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">
-              FY2020 Analysts Briefing
-            </h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-7.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">
-              1Q2021 Analysts Briefing
-            </h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-8.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">
-              1Q2021 Analysts Briefing
-            </h4>
-            <ArrowRight />
-          </div>
-        </div>
-        <div>
-          <Image
-            src="/presentations-9.png"
-            width={1014}
-            height={794}
-            alt="Picture of the author"
-          />
-          <div className="bg-dark-cornflower-blue flex items-center gap-4 p-4">
-            <h4 className="flex-1 text-xs font-bold text-white lg:text-base">
-              2021 Analysts Briefing
-            </h4>
-            <ArrowRight />
-          </div>
-        </div>
+    <div>
+      <Image src={imageSrc} width={1014} height={794} alt={imageAlt} />
+      <div className="bg-dark-cornflower-blue flex h-[85px] items-center gap-4 pl-[30px] pr-6">
+        <p className="flex-1 text-base font-bold text-white lg:text-xl xl:text-2xl">
+          {cardTitle}
+        </p>
+        <ArrowRight />
       </div>
-    </section>
+    </div>
+  );
+};
+const Content = ({ content }: any) => {
+  const header = content?.content.find(
+    (item: any) => item.blockType === "header"
+  );
+
+  const presentations: any[] = content.content.find(
+    (item: any) => item.blockType === "presentations"
+  ).presentation;
+
+  const breadcrumbsItems = header?.breadcrumbs.map(
+    (tab: any, index: number) => {
+      return {
+        title: tab.link.label,
+        ...(index + 1 < header?.breadcrumbs?.length && {
+          link: tab.link.url,
+        }),
+      };
+    }
+  );
+
+  const breadcrumbs = <Breadcrumbs items={breadcrumbsItems} />;
+
+  return (
+    <>
+      <MainHeader
+        title={header.title}
+        breadcrumbs={breadcrumbs}
+        bgUrl={header.coverImage.url}
+        bgUrlSmall={header.smallCoverImage.url}
+      />
+      <section className="mt-16 mb-28 flex flex-col gap-6">
+        <div className="mx-3 grid gap-6 sm:grid-cols-2 lg:mx-9 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
+          {presentations.map((presentation) => {
+            return (
+              <PresentationCard
+                key={presentation.id}
+                imageSrc={`/${presentation.image.filename}`}
+                imageAlt={presentation.image.alt}
+                cardTitle={presentation.title}
+              />
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 };
 
