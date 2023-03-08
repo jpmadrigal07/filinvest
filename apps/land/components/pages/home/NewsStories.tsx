@@ -42,7 +42,7 @@ const NewsStories = ({ content, className }: any) => {
           </div>
         </div>
         <FeaturedArticles
-          className="mt-16 px-8 text-center md:px-0"
+          className="mt-16 px-8 md:px-0"
           sliderImageClassName="object-cover h-72"
           sliderOnMobile
           articles={flattenNews}
