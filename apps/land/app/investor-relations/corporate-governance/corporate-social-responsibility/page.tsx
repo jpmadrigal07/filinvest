@@ -1,28 +1,25 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/corporate-social-responsibility/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-export async function generateMetadata() {
-  return {
-    title: "Corporate Social Responsibility",
-    description: "Corporate Social Responsibility",
-  };
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 
-const CompanyPoliciesPage = async () => {
-  const { title, breadcrumbs, image, tabs } =
-    HEADER_INFO.corporateSocialResponsibility;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+export async function generateMetadata() {
+  const content = await getPageContent("63f22159182491936d85fe44");
+  return metaBuilder(content);
+}
+
+const corporateSocialResponsibility = async () => {
+  const content = await getPageContent("63f22159182491936d85fe44");
+  return <Content content={content} />;
 };
 
-export default CompanyPoliciesPage;
+export default corporateSocialResponsibility;
