@@ -19,12 +19,14 @@ type T_ArticlesList = {
   isList?: boolean;
   articles: any[];
   withExtras?: boolean;
+  sliderImageClassName?: string;
   isTwoLines?: boolean;
 };
 
 const FeaturedArticles = ({
   sliderOnMobile = false,
   className,
+  sliderImageClassName,
   articles = [],
   withExtras = true,
   isTwoLines = false,
@@ -152,24 +154,6 @@ const FeaturedArticles = ({
           sliderOnMobile ? "md:hidden" : "hidden"
         }`}
       >
-        <div className="absolute -bottom-12 z-40">
-          <div className="flex gap-6 md:gap-[43rem]">
-            <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
-              // @ts-expect-error
-              onClick={() => swiperRef.current?.slidePrev()}
-            >
-              <ChevronLeft color="#000000" />
-            </div>
-            <div
-              className="rounded-full bg-white px-4 py-3 shadow-md"
-              // @ts-expect-error
-              onClick={() => swiperRef.current?.slideNext()}
-            >
-              <ChevronRight color="#000000" />
-            </div>
-          </div>
-        </div>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
@@ -180,7 +164,7 @@ const FeaturedArticles = ({
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
-          className="mySwiper"
+          className="max-h-[500px]"
         >
           {updatedArticle.map((article: any, index: any) => {
             return (
@@ -191,8 +175,9 @@ const FeaturedArticles = ({
                     width={1364}
                     height={663}
                     alt={article.coverImage.alt}
+                    className={sliderImageClassName}
                   />
-                  <h2 className="text-jet mt-6 text-2xl font-bold">
+                  <h2 className="text-jet mt-6 text-3xl font-black tracking-tighter">
                     {article.title}
                   </h2>
                   {withExtras && (
@@ -200,7 +185,7 @@ const FeaturedArticles = ({
                       Posted by Admin on April 22, 2022
                     </h4>
                   )}
-                  <h4 className="text-dim-gray mt-4">
+                  <h4 className="text-dim-gray mt-4 text-2xl tracking-tight">
                     {article.content[0].children[0].text}
                   </h4>
                   {withExtras && (
@@ -217,6 +202,24 @@ const FeaturedArticles = ({
             );
           })}
         </Swiper>
+      </div>
+      <div className="mt-12 flex items-center justify-center md:hidden">
+        <div className="flex gap-6 md:gap-[43rem]">
+          <div
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_3px_60px_rgba(0,0,0,0.5)]"
+            // @ts-expect-error
+            onClick={() => swiperRef.current?.slidePrev()}
+          >
+            <ChevronLeft color="#000000" />
+          </div>
+          <div
+            className="flex h-12 w-12 items-center justify-center rounded-full shadow-[0_3px_60px_rgba(0,0,0,0.5)]"
+            // @ts-expect-error
+            onClick={() => swiperRef.current?.slideNext()}
+          >
+            <ChevronRight color="#000000" />
+          </div>
+        </div>
       </div>
     </div>
   );
