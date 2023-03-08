@@ -1,26 +1,27 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/enterprise-risk-management/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-export async function generateMetadata() {
-  return {
-    title: "Enterprise Risk Management",
-    description: "Enterprise Risk Management",
-  };
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 
-const ShareInformationPage = () => {
-  const { title, breadcrumbs, image, tabs } =
-    HEADER_INFO.enterpriseRiskManagement;
+export async function generateMetadata() {
+  const content = await getPageContent("64082a5c59011a71b0e60996");
+  return metaBuilder(content);
+}
+
+const ShareInformationPage = async () => {
+  const content = await getPageContent("64082a5c59011a71b0e60996");
   return (
     <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
+      <Content content={content} />
     </>
   );
 };
