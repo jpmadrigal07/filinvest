@@ -5,25 +5,49 @@ const CompanyPoliciesPolicy: Block = {
   fields: [
     {
       type: "array",
-      name: "policies",
+      name: "companyPolicies",
       required: true,
       maxRows: 4,
       fields: [
         {
-          type: "upload",
-          name: "icon",
-          relationTo: "files",
-          required: true,
+          type: "text",
+          name: "title",
         },
         {
           type: "text",
-          name: "title",
-          required: true,
+          name: "subtitle",
         },
         {
-          type: "textarea",
-          name: "description",
+          type: "array",
+          name: "policies",
           required: true,
+          maxRows: 4,
+          fields: [
+            {
+              type: "upload",
+              name: "icon",
+              relationTo: "files",
+              required: true,
+            },
+            {
+              type: "text",
+              name: "title",
+              required: true,
+            },
+            {
+              type: "array",
+              name: "description",
+              required: true,
+              maxRows: 4,
+              fields: [
+                {
+                  type: "textarea",
+                  name: "descriptionParagraph",
+                  required: true,
+                },
+              ],
+            },
+          ],
         },
       ],
     },
