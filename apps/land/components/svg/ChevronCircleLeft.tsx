@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChevronCircleLeft = ({ color = "white" }: any) => {
+const ChevronCircleLeft = ({ color = "black" }: any) => {
   return (
     <svg
       width="39"
