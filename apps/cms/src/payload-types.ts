@@ -5,11 +5,1067 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
-export interface Config {}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "navigation".
- */
+export interface Config {
+  collections: {
+    pages: Page;
+    news: News;
+    projects: Project;
+    awards: Award;
+    careers: Career;
+    users: User;
+    sites: Site;
+    "career-categories": CareerCategory;
+    "project-categories": ProjectCategory;
+    "property-categories": PropertyCategory;
+    "location-group-categories": LocationGroupCategory;
+    "location-categories": LocationCategory;
+    "sub-location-categories": SubLocationCategory;
+    files: File;
+  };
+  globals: {
+    navigation: Navigation;
+    footer: Footer;
+    "property-search": PropertySearch;
+  };
+}
+export interface Page {
+  id: string;
+  title: string;
+  content: (
+    | {
+        coverImage: string | File;
+        smallCoverImage?: string | File;
+        title: string;
+        breadcrumbs: {
+          link: {
+            type?: "reference" | "custom";
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: "pages";
+            };
+            url: string;
+            label: string;
+            description?: string;
+          };
+          id?: string;
+        }[];
+        tabs: {
+          link: {
+            type?: "reference" | "custom";
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: "pages";
+            };
+            url: string;
+            label: string;
+            description?: string;
+          };
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "header";
+      }
+    | {
+        backgroundType?: "image" | "video" | "youtube" | "vimeo";
+        mediaBackground: string | File;
+        videoBackground?: string | File;
+        youtubeBackground?: string;
+        vimeoBackground?: string;
+        title: string;
+        description: string;
+        prestigeImage: string | File;
+        prestigeLogo: string | File;
+        prestigeLink: string;
+        futuraImage: string | File;
+        futuraLogo: string | File;
+        futuraLink: string;
+        aspireImage: string | File;
+        aspireLogo: string | File;
+        aspireLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeHeroSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        imageSlides: {
+          slideBackgroundImage: string | File;
+          hasBlock?: boolean;
+          blockTitle: string;
+          blockDescription: string;
+          blockLogo: string | File;
+          blockLearnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeProjectsSection";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homePropertySearchSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        propertyTypes: {
+          image: string | File;
+          title: string;
+          link: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeOurBusinessesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        serviceTypes: {
+          image: string | File;
+          title: string;
+          link: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeOurServicesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        coverImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "homeAboutUsSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        newsStories: {
+          news: string | News;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "homeNewsStoriesSection";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        learnMoreLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeInvestorRelationSection";
+      }
+    | {
+        stockInfoTitle: string;
+        annualReportTitle: string;
+        downloadReportLink: string;
+        viewReportLink: string;
+        annualReportImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "homeStockReportSection";
+      }
+    | {
+        filPayLink: string;
+        messageLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "homeFloatingButtons";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "malls-title-and-text";
+      }
+    | {
+        malls: {
+          mallImage: string | File;
+          mallName: string;
+          mallLink: string;
+          mallLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "malls-malls";
+      }
+    | {
+        officeParks: {
+          image: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "offices-parks-office-parks";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "offices-title-and-text";
+      }
+    | {
+        officeParks: {
+          image: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "offices-office-parks";
+      }
+    | {
+        title: string;
+        description: string;
+        director: {
+          directorImage: string | File;
+          directorFullName: string;
+          directorTitle: string;
+          facebook?: string;
+          twitter?: string;
+          linkedIn?: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "our-leadership-board-of-directors";
+      }
+    | {
+        office: {
+          officeImage: string | File;
+          officeName: string;
+          officeLink: string;
+          officeLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "offices-offices";
+      }
+    | {
+        center: {
+          centerImage: string | File;
+          centerName: string;
+          centerLink: string;
+          centerLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-centers";
+      }
+    | {
+        subsidiariesCompanies: {
+          companyLogo: string | File;
+          companyName: string;
+          companyDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "subsidiaries-companies";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "pusong-filinvest-our-story";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "pusong-filinvest-corporate-social-responsibility";
+      }
+    | {
+        title: string;
+        subTitle: string;
+        description: string;
+        image: {
+          image: string | File;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "pusong-filinvest-gallery";
+      }
+    | {
+        iconText: {
+          iconImage: string | File;
+          text: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "dreams-built-green-icon-text";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "dreams-built-green-title-text";
+      }
+    | {
+        backgroundMedia: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "dreams-built-green-media-section";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "vision-mission-core-values-vision";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        description: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "vision-mission-core-values-mission";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "vision-mission-core-values-core-values";
+      }
+    | {
+        iconText: {
+          iconImage: string | File;
+          description: {
+            textLine: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "company-background-icon-text";
+      }
+    | {
+        image: string | File;
+        title: string;
+        description: {
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "company-background-image-and-text";
+      }
+    | {
+        title: string;
+        id?: string;
+        blockName?: string;
+        blockType: "stock-information-title";
+      }
+    | {
+        rowData: {
+          outstandingNumberOfShares: string;
+          epsAttributableToParentEquityHolders: string;
+          dividendDeclared: string;
+          id?: string;
+        }[];
+        description?: string;
+        id?: string;
+        blockName?: string;
+        blockType: "stock-information-outstanding-number-of-shares-table";
+      }
+    | {
+        tableTitle?: string;
+        tableSubTitle?: string;
+        tableDescription?: string;
+        rowData: {
+          shareholder: string;
+          numberOfSharesHeld: string;
+          toTotalOutstanding: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "stock-information-stock-holder-table";
+      }
+    | {
+        title: string;
+        chartImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "structures-chart-image";
+      }
+    | {
+        tableTitle?: string;
+        tableColumn: {
+          header: string;
+          tableData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "structures-chart-table";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "structures-title-and-text";
+      }
+    | {
+        downloadLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "structures-download-button";
+      }
+    | {
+        rowData: {
+          date: string;
+          name: string;
+          category: string;
+          downloadLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "disclosures-table";
+      }
+    | {
+        title: string;
+        awards: {
+          awardImage: string | File;
+          date: string;
+          awardTitle: {
+            [k: string]: unknown;
+          }[];
+          awardDescription: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "press-releases-awards";
+      }
+    | {
+        description: string;
+        programs: {
+          icon: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-programs-programs";
+      }
+    | {
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-programs-image";
+      }
+    | {
+        typeOfData: string;
+        title: string;
+        description: string;
+        tableColumn: {
+          header: string;
+          columnData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-table";
+      }
+    | {
+        legends: {
+          character: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-legends";
+      }
+    | {
+        title: string;
+        financialStatements: {
+          icon: string | File;
+          financialStatementTitle: string;
+          downloadLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-financial-statements";
+      }
+    | {
+        title: string;
+        annualFinancialReports: {
+          year: string;
+          annualFinancialReport: {
+            icon: string | File;
+            annualFinancialReportTitle: string;
+            downloadLink: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-annual-reports";
+      }
+    | {
+        presentation: {
+          image: string | File;
+          title: string;
+          presentationLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "presentations";
+      }
+    | {
+        icon: string | File;
+        title: string;
+        viewLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "manual-corporate-governance";
+      }
+    | {
+        icon: string | File;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "code-of-business-conduct-and-ethics";
+      }
+    | {
+        reportList: {
+          icon: string | File;
+          year: string;
+          report: {
+            [k: string]: unknown;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "annual-corporate-governance-and-report";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-social-responsibility-title-text";
+      }
+    | {
+        title: string;
+        description: string;
+        readMoreLink: string;
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-social-responsibility-environmental-preservation";
+      }
+    | {
+        title: string;
+        subtitle: string;
+        description: string;
+        images: {
+          image: string | File;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "corporate-social-responsibility-programs";
+      }
+    | {
+        policies: {
+          icon: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "company-policies-policy";
+      }
+    | {
+        title?: string;
+        subtitle?: string;
+        id?: string;
+        blockName?: string;
+        blockType: "company-policies-title";
+      }
+    | {
+        tabs: {
+          tab: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-tabs";
+      }
+    | {
+        title?: string;
+        year?: string;
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-title-and-year";
+      }
+    | {
+        tableTitle?: string;
+        tableHeader: {
+          header: string;
+          tableData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-table";
+      }
+    | {
+        tableHeader: {
+          header: string;
+          tableData: {
+            data: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "enterprise-risk-management-table";
+      }
+    | {
+        image: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "filpay-header-image";
+      }
+    | {
+        title: string;
+        filpayAdvantages: {
+          icon: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        text: string;
+        filpayIternationalPaymentMethodsIcons: {
+          icon: string | File;
+          id?: string;
+        }[];
+        filpayLocalPaymentMethodsIcons: {
+          icon: string | File;
+          id?: string;
+        }[];
+        learnMoreLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "filpay-online-payments-section";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "mixed-used-and-estates-title-and-text";
+      }
+    | {
+        mixedUsedAndEstates: {
+          mixedUsedAndEstatesImage: string | File;
+          mixedUsedAndEstatesName: string;
+          mixedUsedAndEstatesLink: string;
+          mixedUsedAndEstatesLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "mixed-used-and-estates-mixed-used-and-estates";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "co-living-title-and-text";
+      }
+    | {
+        coLiving: {
+          coLivingImage: string | File;
+          coLivingName: string;
+          coLivingLink: string;
+          coLivingLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "co-living-co-living";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "industrial-title-and-text";
+      }
+    | {
+        industrial: {
+          industrialImage: string | File;
+          industrialName: string;
+          industrialLink: string;
+          industrialLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "industrial-industrial";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "townscapes-title-and-text";
+      }
+    | {
+        townscapes: {
+          townscapeImage: string | File;
+          townscapeName: string;
+          townscapeLink: string;
+          townscapeLocation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "townscapes-townscapes";
+      }
+    | {
+        previousPageTitle: string;
+        previousLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "previous-link";
+      }
+    | {
+        nextPageTitle: string;
+        nextLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "next-link";
+      }
+    | {
+        news: {
+          image: string | File;
+          title: string;
+          header: string;
+          readMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "news-news";
+      }
+    | {
+        title: string;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: "residential-title-and-text";
+      }
+    | {
+        prestigeImage: string | File;
+        title: string;
+        description: string;
+        readMoreLink: string;
+        prestigeHomes: {
+          homeImage: string | File;
+          homeName: string;
+          homeDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-prestige";
+      }
+    | {
+        aspireImage: string | File;
+        title: string;
+        description: string;
+        readMoreLink: string;
+        aspireHomes: {
+          homeImage: string | File;
+          homeName: string;
+          homeDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-aspire";
+      }
+    | {
+        futuraImage: string | File;
+        title: string;
+        description: string;
+        readMoreLink: string;
+        futuraHomes: {
+          homeImage: string | File;
+          homeName: string;
+          homeDescription: string;
+          learnMoreLink: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-futura";
+      }
+  )[];
+  site: string | Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | File;
+  };
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface File {
+  id: string;
+  alt: string;
+  site: string | Site;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Site {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface News {
+  id: string;
+  title: string;
+  shortDescription: string;
+  coverImage: string | File;
+  content?: {
+    [k: string]: unknown;
+  }[];
+  author: string | User;
+  slug?: string;
+  projectTypeTag?: string | ProjectCategory;
+  propertyTypeTag?: string | PropertyCategory;
+  locationTag?: string | LocationCategory;
+  locationGroupTag?: string | LocationGroupCategory;
+  subLocationTag?: string | SubLocationCategory;
+  site: string | Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | File;
+  };
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  roles?: ("admin" | "editor" | "subEditor")[];
+  sites?: string[] | Site[];
+  email?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiration?: string;
+  loginAttempts?: number;
+  lockUntil?: string;
+  createdAt: string;
+  updatedAt: string;
+  password?: string;
+}
+export interface ProjectCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface PropertyCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface LocationCategory {
+  id: string;
+  title: string;
+  locationGroup: string | LocationGroupCategory;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface LocationGroupCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface SubLocationCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Project {
+  id: string;
+  dataType?: "regular" | "office";
+  title: string;
+  slug?: string;
+  headerImage: string | File;
+  logo: string | File;
+  price: number;
+  numberOfStaffRoom: number;
+  numberOfBathrooms: number;
+  numberOfBedrooms?: number;
+  address1: string;
+  address2: string;
+  floor: string;
+  wall: string;
+  ceiling: string;
+  heightClearance: string;
+  VRF: string;
+  elevator: string;
+  telephone: string;
+  powerInput: string;
+  powerOutput: string;
+  people: string;
+  description: string;
+  projectType: string | ProjectCategory;
+  propertyType?: string | PropertyCategory;
+  size: number;
+  coverImage: string | File;
+  imageGallery: {
+    image?: string | File;
+    id?: string;
+  }[];
+  shortDescription: string;
+  overview: {
+    [k: string]: unknown;
+  }[];
+  locationTab: {
+    [k: string]: unknown;
+  }[];
+  location: string | LocationCategory;
+  locationGroup: string | LocationGroupCategory;
+  subLocation?: string | SubLocationCategory;
+  mapImage: string | File;
+  managerName: string;
+  managerPhoto: string | File;
+  managerPhone: string;
+  managerEmail: string;
+  managerFacebookLink: string;
+  managerLinkedinLink: string;
+  relatedOffice1: string | Project;
+  relatedOffice2: string | Project;
+  relatedOffice3: string | Project;
+  site: string | Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: string | File;
+  };
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Award {
+  id: string;
+  title: string;
+  description: string;
+  coverImage: string | File;
+  site: string | Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Career {
+  id: string;
+  title: string;
+  location: string;
+  responsibilities: {
+    [k: string]: unknown;
+  }[];
+  requirements: {
+    [k: string]: unknown;
+  }[];
+  careersCategory: string | CareerCategory;
+  site: string | Site;
+  _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface CareerCategory {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+}
 export interface Navigation {
   id: string;
   mainMenu: {
@@ -82,363 +1138,6 @@ export interface Navigation {
   callToActionText: string;
   callToActionLink: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: string;
-  title: string;
-  content: (
-    | {
-        coverImage: string | File;
-        smallCoverImage?: string | File;
-        title: string;
-        breadcrumbs: {
-          link: {
-            type?: "reference" | "custom";
-            newTab?: boolean;
-            reference: {
-              value: string | Page;
-              relationTo: "pages";
-            };
-            url: string;
-            label: string;
-            description?: string;
-          };
-          id?: string;
-        }[];
-        tabs: {
-          link: {
-            type?: "reference" | "custom";
-            newTab?: boolean;
-            reference: {
-              value: string | Page;
-              relationTo: "pages";
-            };
-            url: string;
-            label: string;
-            description?: string;
-          };
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "header";
-      }
-    | {
-        backgroundType?: "image" | "video" | "youtube";
-        mediaBackground: string | File;
-        videoBackground?: string | File;
-        youtubeBackground?: string;
-        title: string;
-        description: string;
-        prestigeImage: string | File;
-        prestigeLogo: string | File;
-        futuraImage: string | File;
-        futuraLogo: string | File;
-        aspireImage: string | File;
-        aspireLogo: string | File;
-        id?: string;
-        blockName?: string;
-        blockType: "homeHeroSection";
-      }
-    | {
-        title: string;
-        subTitle: string;
-        description: string;
-        imageSlides: {
-          slideBackgroundImage: string | File;
-          hasBlock?: boolean;
-          blockTitle: string;
-          blockDescription: string;
-          blockLogo: string | File;
-          blockLearnMoreLink: string;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "homeProjectsSection";
-      }
-    | {
-        title: string;
-        description: string;
-        id?: string;
-        blockName?: string;
-        blockType: "homePropertySearchSection";
-      }
-    | {
-        title: string;
-        subTitle: string;
-        description: string;
-        propertyTypes: {
-          image: string | File;
-          title: string;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "homeOurBusinessesSection";
-      }
-    | {
-        title: string;
-        subTitle: string;
-        description: string;
-        serviceTypes: {
-          image: string | File;
-          title: string;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "homeOurServicesSection";
-      }
-    | {
-        title: string;
-        subTitle: string;
-        description: string;
-        learnMoreLink: string;
-        coverImage: string | File;
-        id?: string;
-        blockName?: string;
-        blockType: "homeAboutUsSection";
-      }
-    | {
-        title: string;
-        subTitle: string;
-        description: string;
-        learnMoreLink: string;
-        newsStories: {
-          news: string | News;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "homeNewsStoriesSection";
-      }
-    | {
-        title: string;
-        subTitle: string;
-        description: string;
-        learnMoreLink: string;
-        id?: string;
-        blockName?: string;
-        blockType: "homeInvestorRelationSection";
-      }
-    | {
-        stockInfoTitle: string;
-        annualReportTitle: string;
-        downloadReportLink: string;
-        viewReportLink: string;
-        annualReportImage: string | File;
-        id?: string;
-        blockName?: string;
-        blockType: "homeStockReportSection";
-      }
-    | {
-        filPayLink: string;
-        messageLink: string;
-        id?: string;
-        blockName?: string;
-        blockType: "homeFloatingButtons";
-      }
-    | {
-        title: string;
-        description: string;
-        director: {
-          directorImage: string | File;
-          directorFullName: string;
-          directorTitle: string;
-          facebook?: string;
-          twitter?: string;
-          linkedIn?: string;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "our-leadership-board-of-directors";
-      }
-  )[];
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "files".
- */
-export interface File {
-  id: string;
-  alt: string;
-  site: string | Site;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sites".
- */
-export interface Site {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "news".
- */
-export interface News {
-  id: string;
-  title: string;
-  slug: string;
-  coverImage: string | File;
-  content?: {
-    [k: string]: unknown;
-  }[];
-  author: string | User;
-  newsCategory: string | NewsCategory;
-  tags: string | PropertyCategory;
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  roles?: ("admin" | "editor" | "subEditor")[];
-  sites?: string[] | Site[];
-  email?: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "news-categories".
- */
-export interface NewsCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "property-categories".
- */
-export interface PropertyCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: string;
-  title: string;
-  slug: string;
-  price: number;
-  numberOfBedrooms?: number;
-  headerImage: string | File;
-  logo: string | File;
-  projectType: string | ProjectCategory;
-  propertyType?: string | PropertyCategory;
-  location: string | LocationCategory;
-  subLocation?: string | SubLocationCategory;
-  size: number;
-  coverImage: string | File;
-  shortDescription: string;
-  overview: {
-    [k: string]: unknown;
-  }[];
-  locationTab: {
-    [k: string]: unknown;
-  }[];
-  mapImage: string | File;
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "project-categories".
- */
-export interface ProjectCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "location-categories".
- */
-export interface LocationCategory {
-  id: string;
-  title: string;
-  locationGroup: string | LocationGroupCategory;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "location-group-categories".
- */
-export interface LocationGroupCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sub-location-categories".
- */
-export interface SubLocationCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "awards".
- */
-export interface Award {
-  id: string;
-  title: string;
-  description: string;
-  coverImage: string | File;
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "footer".
- */
 export interface Footer {
   id: string;
   filinvestLogo: string | File;
@@ -494,10 +1193,6 @@ export interface Footer {
   linkedInLink?: string;
   twitterLink?: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "property-search".
- */
 export interface PropertySearch {
   id: string;
   pricePoints: {
@@ -550,34 +1245,4 @@ export interface PropertySearch {
     bedroomTo: number;
     id?: string;
   }[];
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "careers".
- */
-export interface Career {
-  id: string;
-  title: string;
-  location: string;
-  responsibilities: {
-    [k: string]: unknown;
-  }[];
-  requirements: {
-    [k: string]: unknown;
-  }[];
-  careersCategory: string | CareerCategory;
-  site: string | Site;
-  _status?: "draft" | "published";
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "career-categories".
- */
-export interface CareerCategory {
-  id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
 }

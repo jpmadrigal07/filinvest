@@ -38,9 +38,14 @@ const BREADCRUMBS = [
 ];
 
 const dividendHistoryImage = "dividend-history.png";
+const dividendHistoryImageSmall = "dividend-history-small.png";
 const investorRelationsImage = "investor-relations.png";
+const investorRelationsImageSmall = "investor-relations-small.png";
 const investorRelationsProgramImage = "investor-relations-program.png";
+const investorRelationsProgramSmallImage =
+  "investor-relations-program-small.png";
 const disclosuresImage = "disclosures.png";
+const disclosuresSmallImage = "disclosures-small.png";
 
 export const HEADER_INFO = {
   investorRelations: {
@@ -51,6 +56,7 @@ export const HEADER_INFO = {
       />
     ),
     image: investorRelationsImage,
+    imageSmall: investorRelationsImageSmall,
   },
   dividendPolicy: {
     title: DIVIDEND_POLICY.name,
@@ -58,6 +64,7 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: DIVIDEND_POLICY.name }]} />
     ),
     image: dividendHistoryImage,
+    imageSmall: dividendHistoryImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
   dividendHistory: {
@@ -66,6 +73,7 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: DIVIDEND_HISTORY.name }]} />
     ),
     image: dividendHistoryImage,
+    imageSmall: dividendHistoryImageSmall,
     tabs: <Tabs items={TAB_ITEMS} />,
   },
   stockInformation: {
@@ -84,6 +92,7 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: DISCLOSURES.name }]} />
     ),
     image: disclosuresImage,
+    imageSmall: disclosuresSmallImage,
   },
   investorRelationsProgram: {
     title: INVESTOR_RELATIONS_PROGRAM.name,
@@ -93,6 +102,7 @@ export const HEADER_INFO = {
       />
     ),
     image: investorRelationsProgramImage,
+    imageSmall: investorRelationsProgramSmallImage,
   },
 };
 

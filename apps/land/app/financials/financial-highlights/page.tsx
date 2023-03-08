@@ -1,20 +1,17 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/financials/financial-highlights/Content";
-import { HEADER_INFO } from "@/components/pages/financials/constants";
+import { getPageContent } from "../../page";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-const FinancialHighlightsPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.financialHighlights;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+const FINANCIAL_HIGHLIGHTS_PAGE = "640594d60b410795a32daac1";
+
+export async function generateMetadata() {
+  const content = await getPageContent(FINANCIAL_HIGHLIGHTS_PAGE);
+  return metaBuilder(content);
+}
+
+const FinancialHighlightsPage = async () => {
+  const content = await getPageContent(FINANCIAL_HIGHLIGHTS_PAGE);
+  return <Content content={content} />;
 };
 
 export default FinancialHighlightsPage;

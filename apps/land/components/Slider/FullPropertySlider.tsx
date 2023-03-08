@@ -9,31 +9,69 @@ import ChevronRight from "@/components/svg/ChevronRight";
 import Image from "next/image";
 import BorderButton from "@/components/button/BorderButton";
 import Link from "next/link";
-
-const FullPropertySlider = ({ sliders }: any) => {
+import ChevronCircleLeft from "../svg/ChevronCircleLeft";
+import ChevronCircleRight from "../svg/ChevronCircleRight";
+import Button360 from "../svg/Button360";
+const FullPropertySlider = ({
+  sliders,
+  withThumbnail = false,
+  isDefault = true,
+  with360 = false,
+}: any) => {
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
   return (
     <>
       <div className="relative hidden md:block">
-        <div className="absolute right-6 bottom-6 z-40">
-          <div className="flex gap-7">
+        {with360 && (
+          <div className="absolute right-0 top-[60px] z-10 hidden cursor-pointer transition hover:opacity-60 lg:inline-block">
+            <Button360 />
+          </div>
+        )}
+        <div
+          className={`absolute ${
+            withThumbnail ? "left-16" : "right-6"
+          } bottom-12 z-40`}
+        >
+          <div className={`flex ${isDefault ? "gap-7" : "-gap-2"}`}>
             <div
-              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
+              className={`cursor-pointer rounded-full ${
+                isDefault && "bg-white  shadow-md"
+              }  px-2 py-3 opacity-100 transition duration-150 hover:opacity-70`}
               // @ts-expect-error
               onClick={() => swiperRef.current?.slidePrev()}
             >
-              <ChevronLeft color="#000000" />
+              {isDefault ? (
+                <ChevronLeft color="#000000" />
+              ) : (
+                <ChevronCircleLeft color="white" />
+              )}
             </div>
             <div
-              className="cursor-pointer rounded-full bg-white px-4 py-3 opacity-100 shadow-md transition duration-150 hover:opacity-70"
+              className={`cursor-pointer rounded-full ${
+                isDefault && "bg-white  shadow-md"
+              }  px-2 py-3 opacity-100 transition duration-150 hover:opacity-70`}
               // @ts-expect-error
               onClick={() => swiperRef.current?.slideNext()}
             >
-              <ChevronRight color="#000000" />
+              {isDefault ? (
+                <ChevronRight color="#000000" />
+              ) : (
+                <ChevronCircleRight color="white" />
+              )}
             </div>
           </div>
         </div>
+        {withThumbnail && (
+          <div className="absolute bottom-12 right-6 z-40 max-h-[180px] max-w-[180px] rounded-[5px] opacity-[0.8]">
+            <Image
+              src={`/single-house.png`}
+              width={180}
+              height={180}
+              alt={`single-house`}
+            />
+          </div>
+        )}
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -49,9 +87,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
                         <div className="hidden lg:block">
@@ -78,21 +116,23 @@ const FullPropertySlider = ({ sliders }: any) => {
                           <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
                             {slider.blockTitle}
                           </h2>
-                          <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
+                          <h4 className="text-dim-gray lg:text-normal text-md text-center">
                             {slider.blockDescription}
                           </h4>
                         </div>
-                        <div className="mt-2 lg:mt-0">
-                          <button type="button">
-                            <Link href={slider.blockLearnMoreLink}>
-                              <BorderButton
-                                buttonText="Learn More"
-                                textColor="dark-cornflower-blue"
-                                borderColor="dark-cornflower-blue"
-                              />
-                            </Link>
-                          </button>
-                        </div>
+                        {slider.blockLearnMoreLink && (
+                          <div className="mt-2 lg:mt-0">
+                            <button type="button">
+                              <Link href={slider.blockLearnMoreLink}>
+                                <BorderButton
+                                  buttonText="Learn More"
+                                  textColor="dark-cornflower-blue"
+                                  borderColor="dark-cornflower-blue"
+                                />
+                              </Link>
+                            </button>
+                          </div>
+                        )}
                       </div>
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
@@ -140,9 +180,9 @@ const FullPropertySlider = ({ sliders }: any) => {
           className="mySwiper"
         >
           {sliders
-            ? sliders.map((slider: any) => {
+            ? sliders.map((slider: any, index: number) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div className="relative mt-28">
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
@@ -177,21 +217,23 @@ const FullPropertySlider = ({ sliders }: any) => {
                           <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
                             {slider.blockTitle}
                           </h2>
-                          <h4 className="text-dim-gray lg:text-normal text-center text-xs font-bold">
+                          <h4 className="text-dim-gray lg:text-normal text-md text-center">
                             {slider.blockDescription}
                           </h4>
                         </div>
-                        <div className="mt-2 lg:mt-0">
-                          <button type="button">
-                            <Link href={slider.blockLearnMoreLink}>
-                              <BorderButton
-                                buttonText="Learn More"
-                                textColor="dark-cornflower-blue"
-                                borderColor="dark-cornflower-blue"
-                              />
-                            </Link>
-                          </button>
-                        </div>
+                        {slider.blockLearnMoreLink && (
+                          <div className="mt-2 lg:mt-0">
+                            <button type="button">
+                              <Link href={slider.blockLearnMoreLink}>
+                                <BorderButton
+                                  buttonText="Learn More"
+                                  textColor="dark-cornflower-blue"
+                                  borderColor="dark-cornflower-blue"
+                                />
+                              </Link>
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </SwiperSlide>

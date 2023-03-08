@@ -6,12 +6,12 @@ import ROUTES from "@/helpers/routes";
 import Facebook from "@/components/svg/Facebook";
 import LinkedIn from "@/components/svg/LinkedIn";
 import Mail from "@/components/svg/Mail";
-import MainLogo from "@/components/svg/MainLogo";
 import MapLine from "@/components/svg/MapLine";
 import Phone from "@/components/svg/Phone";
 import Send from "@/components/svg/Send";
 import Twitter from "@/components/svg/Twitter";
 import useGetFooter from "./hooks/useGetFooter";
+import Image from "next/image";
 
 const MainFooter = () => {
   const { data: footerRes, isLoading } = useGetFooter();
@@ -21,9 +21,19 @@ const MainFooter = () => {
     <footer>
       <div className="bg-royal-dark-blue flex flex-col gap-9 px-6 py-12 lg:flex-row lg:gap-36 lg:px-16 lg:py-24">
         <div className="flex flex-1 flex-col gap-14">
-          <Link href={HOME.url}>
-            <MainLogo />
-          </Link>
+          {footerRes?.filinvestLogo?.url ? (
+            <Link href={HOME.url}>
+              <Image
+                src={footerRes?.filinvestLogo?.url}
+                width={222}
+                height={56}
+                alt={`${footerRes?.filinvestLogo?.alt}`}
+              />
+            </Link>
+          ) : (
+            "Loading..."
+          )}
+
           <h3 className="text-md font-md text-white">
             {!isLoading ? footerRes.emailDescription : "Loading..."}
           </h3>
@@ -40,10 +50,13 @@ const MainFooter = () => {
           <h3 className="text-md font-bold text-white">Quick Links</h3>
           <ul className="flex list-none flex-col gap-3 text-white">
             {!isLoading && footerRes.quickLinks
-              ? footerRes.quickLinks.map((link: any) => {
+              ? footerRes.quickLinks.map((link: any, index: number) => {
                   return (
-                    <li>
-                      <Link href={link.link.url} className="hover:underline">
+                    <li key={index}>
+                      <Link
+                        href={link.link.url}
+                        className="transition hover:text-[#1AC0E8]"
+                      >
                         {link.link.label}
                       </Link>
                     </li>
@@ -56,10 +69,13 @@ const MainFooter = () => {
           <h3 className="text-md font-bold text-white">Filinvest Land</h3>
           <ul className="flex list-none flex-col gap-3 text-white">
             {!isLoading && footerRes.filinvestLand
-              ? footerRes.filinvestLand.map((link: any) => {
+              ? footerRes.filinvestLand.map((link: any, index: number) => {
                   return (
-                    <li>
-                      <Link href={link.link.url} className="hover:underline">
+                    <li key={index}>
+                      <Link
+                        href={link.link.url}
+                        className="transition hover:text-[#1AC0E8]"
+                      >
                         {link.link.label}
                       </Link>
                     </li>
@@ -72,14 +88,16 @@ const MainFooter = () => {
           <h3 className="text-md font-bold text-white">Contact Us</h3>
           <ul className="flex list-none flex-col gap-3 text-white">
             <li className="flex items-center gap-3">
-              <Phone />
+              <div className="w-6 flex-none">
+                <Phone />
+              </div>
               <Link
                 href={`tel:${
                   !isLoading && footerRes.firstPhone
                     ? footerRes?.firstPhone
                     : ""
                 }`}
-                className="hover:underline"
+                className="transition hover:text-[#1AC0E8]"
               >
                 {!isLoading && footerRes.firstPhone
                   ? footerRes.firstPhone
@@ -87,14 +105,16 @@ const MainFooter = () => {
               </Link>
             </li>
             <li className="flex items-center gap-3">
-              <Phone />
+              <div className="w-6 flex-none">
+                <Phone />
+              </div>
               <Link
                 href={`tel:${
                   !isLoading && footerRes.secondPhone
                     ? footerRes.secondPhone
                     : ""
                 }`}
-                className="hover:underline"
+                className="transition hover:text-[#1AC0E8]"
               >
                 {!isLoading && footerRes.secondPhone
                   ? footerRes.secondPhone
@@ -102,14 +122,16 @@ const MainFooter = () => {
               </Link>
             </li>
             <li className="flex items-center gap-3">
-              <Mail />
+              <div className="w-6 flex-none">
+                <Mail />
+              </div>
               <Link
                 href={`mailto:${
                   !isLoading && footerRes.emailAddress
                     ? footerRes.emailAddress
                     : ""
                 }`}
-                className="hover:underline"
+                className="transition hover:text-[#1AC0E8]"
               >
                 {!isLoading && footerRes.emailAddress
                   ? footerRes.emailAddress
@@ -117,7 +139,7 @@ const MainFooter = () => {
               </Link>
             </li>
             <li className="flex gap-3">
-              <div className="flex-none xl:flex-1">
+              <div className="w-6 flex-none">
                 <MapLine />
               </div>
               {!isLoading && footerRes.address
@@ -150,11 +172,12 @@ const MainFooter = () => {
         </div>
         <div className="flex gap-7 lg:justify-end">
           {!isLoading && footerRes.bottomRightLinks
-            ? footerRes.bottomRightLinks.map((link: any) => {
+            ? footerRes.bottomRightLinks.map((link: any, index: number) => {
                 return (
                   <Link
                     href={link.link.url}
                     className="text-white hover:underline"
+                    key={index}
                   >
                     {link.link.label}
                   </Link>

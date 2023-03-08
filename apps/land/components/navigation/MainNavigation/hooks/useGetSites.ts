@@ -1,7 +1,9 @@
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { useQuery } from "@tanstack/react-query";
 
 export async function getSites() {
   const res = await fetch(`/api/sites`, {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",

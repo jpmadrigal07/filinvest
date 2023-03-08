@@ -4,20 +4,8 @@ const StockInformationStockHolderTable: Block = {
   slug: "stock-information-stock-holder-table",
   fields: [
     {
-      type: "text",
-      name: "tableTitle",
-    },
-    {
-      type: "text",
-      name: "tableSubTitle",
-    },
-    {
-      type: "textarea",
-      name: "tableDescription",
-    },
-    {
       type: "array",
-      name: "rowData",
+      name: "tableRowData",
       required: true,
       fields: [
         {
@@ -32,8 +20,24 @@ const StockInformationStockHolderTable: Block = {
         },
         {
           type: "text",
-          name: "%ToTotalOutstanding",
+          name: "toTotalOutstanding",
           required: true,
+        },
+        {
+          name: "numberOfColumns",
+          label: "Is this a title row?",
+          type: "radio",
+          options: [
+            {
+              label: "Yes",
+              value: "yes",
+            },
+            {
+              label: "No",
+              value: "no",
+            },
+          ],
+          defaultValue: "no",
         },
       ],
     },

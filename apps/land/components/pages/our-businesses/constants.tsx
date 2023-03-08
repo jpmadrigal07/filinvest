@@ -58,6 +58,7 @@ export const HEADER_INFO = {
       <Breadcrumbs items={[...BREADCRUMBS, { title: MIXEDUSE_ESTATES.name }]} />
     ),
     image: "mixed-use-header-bg.png",
+    imageSmall: "mixed-use-header-bg-small.png",
   },
   industrial: {
     title: INDUSTRIAL.name,

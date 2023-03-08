@@ -4,6 +4,16 @@ const OfficesOfficeParks: Block = {
   slug: "offices-office-parks",
   fields: [
     {
+      name: "title",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "description",
+      type: "textarea",
+      required: true,
+    },
+    {
       type: "array",
       name: "officeParks",
       required: true,

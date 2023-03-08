@@ -24,6 +24,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
   const [showFixedNavigation, setShowFixedNavigation] = useState(false);
   const [wasScroll, setWasScroll] = useState(false);
   const [menus, setMenus] = useState(staticMenus);
+  const [isHovering, setisHovering] = useState(false);
 
   useEffect(() => {
     setFlyoutMenu("");
@@ -77,9 +78,9 @@ const MainNavigation = ({ className }: { className?: string }) => {
               setCurrentMenuIndex(null);
             }}
           >
-            <div className="flex items-center gap-14 px-9 py-10 font-bold text-white">
+            <div className="flex items-center gap-6 px-9 py-10 font-bold text-white 2xl:gap-14">
               <div className="flex-none">
-                <Link href={ROUTES.HOME.url}>
+                <Link href="/">
                   <MainLogo />
                 </Link>
               </div>
@@ -92,6 +93,9 @@ const MainNavigation = ({ className }: { className?: string }) => {
                       setFlyoutMenu: setFlyoutMenu,
                       flyoutMenu: flyoutMenu,
                       menuIndex: index,
+                      currentMenuIndex: currentMenuIndex,
+                      isHovering: isHovering,
+                      setisHovering: setisHovering,
                     };
                     return (
                       <li key={index}>
@@ -101,6 +105,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
                   })}
                 </ul>
               </div>
+
               <div className="flex-none">
                 <Link
                   href={navigationRes ? navigationRes.callToActionLink : "/"}
@@ -115,6 +120,14 @@ const MainNavigation = ({ className }: { className?: string }) => {
                   </button>
                 </Link>
               </div>
+              {flyoutMenu === "full" && (
+                <button
+                  onClick={() => setFlyoutMenu("")}
+                  className="cursor-pointer transition hover:opacity-70"
+                >
+                  X
+                </button>
+              )}
             </div>
             <div
               className={`px-9 pb-10 ${
@@ -174,6 +187,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
                                 <Link
                                   key={subMenuIndex}
                                   href={subMenu.link}
+                                  target={item.newTab ? "_blank" : "_self"}
                                   className="pt-4"
                                   onClick={() => close()}
                                 >
@@ -193,6 +207,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
                           <Link
                             key={index}
                             href={item.link}
+                            target={item.newTab ? "_blank" : "_self"}
                             onClick={() => close()}
                             className="hover:bg-oxford-blue focus:bg-oxford-blue flex w-full py-4 px-4 text-lg font-medium text-white"
                           >
