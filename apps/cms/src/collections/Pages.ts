@@ -48,10 +48,12 @@ import {
   CorporateSocialResponsibilityPrograms,
   CompanyPoliciesPolicy,
   CompanyPoliciesTitle,
-  BoardCommitteesTabs,
   BoardCommitteesTitleYear,
-  BoardCommitteesTable,
+  BoardCommitteesSeniorManagementOfficers,
+  BoardCommitteesBoardCommittees,
+  BoardCommitteesKeyOfficers,
   EnterpriseRiskManagementTable,
+  BoardCommitteesCharter,
 } from "../blocks/CorporateGovernance";
 import { CoLivingTitleText, CoLivingCoLiving } from "../blocks/CoLiving";
 import {
@@ -188,9 +190,11 @@ export const Pages: CollectionConfig = {
         CorporateSocialResponsibilityPrograms,
         CompanyPoliciesPolicy,
         CompanyPoliciesTitle,
-        BoardCommitteesTabs,
         BoardCommitteesTitleYear,
-        BoardCommitteesTable,
+        BoardCommitteesSeniorManagementOfficers,
+        BoardCommitteesBoardCommittees,
+        BoardCommitteesKeyOfficers,
+        BoardCommitteesCharter,
         EnterpriseRiskManagementTable,
         FilPayOnlinePaymentsSection,
         MixedUsedEstatesTitleText,

@@ -1,89 +1,35 @@
 import React from "react";
 import Download from "@/components/svg/Download";
-import LinkedIn from "@/components/svg/LinkedIn";
-
-const Charters = () => {
+import Image from "next/image";
+const Charters = ({ content }: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "board-committees-charter"
+  );
   return (
     <div className="flex-1">
-      <div className="mt-4 flex flex-col gap-6">
-        <h3 className="text-jet text-2xl font-bold">2020</h3>
-        <div className="hover:bg-ghost-white hover:cursor-pointer">
-          <div className="flex items-center gap-6">
-            <div className="flex flex-1 items-center gap-6">
-              <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-                <LinkedIn />
+      {data.charter.map((item: any) => (
+        <div className="mt-4 flex flex-col gap-6">
+          <h3 className="text-jet text-2xl font-bold">{item.year}</h3>
+          {item.charterItem.map((charterItem: any) => (
+            <div className="hover:bg-ghost-white hover:cursor-pointer">
+              <div className="flex items-center gap-6">
+                <div className="flex flex-1 items-center gap-6">
+                  <div className="bg-dark-cornflower-blue flex w-16 flex-none items-center justify-center rounded-full px-6 py-6 shadow-2xl">
+                    <Image
+                      src={`${charterItem.icon.url}`}
+                      width={1834}
+                      height={1414}
+                      alt={charterItem.icon.alt}
+                    />
+                  </div>
+                  <h4 className="flex-1 underline">{charterItem.title}</h4>
+                </div>
+                <Download />
               </div>
-              <h4 className="flex-1 underline">
-                Corporate Governance Committee Charter
-              </h4>
             </div>
-            <Download />
-          </div>
+          ))}
         </div>
-        <div className="hover:bg-ghost-white hover:cursor-pointer">
-          <div className="flex items-center gap-6">
-            <div className="flex flex-1 items-center gap-6">
-              <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-                <LinkedIn />
-              </div>
-              <h4 className="flex-1 underline">
-                Related Party Transaction Committee Charter
-              </h4>
-            </div>
-            <Download />
-          </div>
-        </div>
-        <div className="hover:bg-ghost-white hover:cursor-pointer">
-          <div className="flex items-center gap-6">
-            <div className="flex flex-1 items-center gap-6">
-              <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-                <LinkedIn />
-              </div>
-              <h4 className="flex-1 underline">
-                FLI Result of Board Meeting Declaration of Cash Dividends as of
-                June 11, 2020
-              </h4>
-            </div>
-            <Download />
-          </div>
-        </div>
-        <h3 className="text-jet mt-16 text-2xl font-bold">2014</h3>
-        <div className="hover:bg-ghost-white hover:cursor-pointer">
-          <div className="flex items-center gap-6">
-            <div className="flex flex-1 items-center gap-6">
-              <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-                <LinkedIn />
-              </div>
-              <h4 className="flex-1 underline">Nomination Committee Charter</h4>
-            </div>
-            <Download />
-          </div>
-        </div>
-        <div className="hover:bg-ghost-white hover:cursor-pointer">
-          <div className="flex items-center gap-6">
-            <div className="flex flex-1 items-center gap-6">
-              <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-                <LinkedIn />
-              </div>
-              <h4 className="flex-1 underline">Audit Committee Charter</h4>
-            </div>
-            <Download />
-          </div>
-        </div>
-        <div className="hover:bg-ghost-white hover:cursor-pointer">
-          <div className="flex items-center gap-6">
-            <div className="flex flex-1 items-center gap-6">
-              <div className="bg-dark-cornflower-blue flex flex-none items-center justify-center rounded-full py-6 px-6 shadow-2xl">
-                <LinkedIn />
-              </div>
-              <h4 className="flex-1 underline">
-                Refer to Revised Manual on Corporate Governance.
-              </h4>
-            </div>
-            <Download />
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
