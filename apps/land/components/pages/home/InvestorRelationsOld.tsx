@@ -4,18 +4,19 @@ import BorderButton from "@/components/button/BorderButton";
 import Image from "next/image";
 import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
 import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
+
 export default function InvestorRelationsOld({ content }: any) {
   return (
     <section className="flex flex-col items-center">
       <div className="mx-6 flex flex-col gap-16 pt-36 lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
-        <div className="flex-1 lg:w-1/4">
-          <h4 className="text-dark-cornflower-blue font-bold">
+        <div className="flex-1 px-4 text-center md:px-0 md:text-left  lg:w-1/4">
+          <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
             {content.content[7].title}
           </h4>
-          <h2 className="text-jet mt-2 text-4xl font-extrabold">
+          <h2 className="text-jet mt-2 text-4xl font-black tracking-tighter">
             {content.content[7].subTitle}
           </h2>
-          <h4 className="text-dim-gray mt-4">
+          <h4 className="text-dim-gray mt-4 text-2xl">
             {content.content[7].description}
           </h4>
           <button type="button" className="mt-16">
@@ -118,19 +119,15 @@ export default function InvestorRelationsOld({ content }: any) {
               </div>
             </div>
           </div>
-          {/* <div className="mt-16 ml-16 flex gap-6">
-            <ChevronCircleLeft />
-            <ChevronCircleRight />
-          </div> */}
+          {/*  <div className="mt-16 ml-16 flex gap-6">
+          <ChevronCircleLeft />
+          <ChevronCircleRight />
+        </div> */}
         </div>
       </div>
       <div className="mt-16 hidden gap-6 lg:flex">
-        <button>
-          <ChevronCircleLeft />
-        </button>
-        <button>
-          <ChevronCircleRight />
-        </button>
+        <ChevronCircleLeft />
+        <ChevronCircleRight />
       </div>
     </section>
   );
