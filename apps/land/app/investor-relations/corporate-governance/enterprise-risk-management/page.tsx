@@ -1,5 +1,3 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/enterprise-risk-management/Content";
 import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { metaBuilder } from "@/helpers/metaBuilder";
@@ -15,23 +13,15 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  const content = await getPageContent("639a584bb60dc36e6fc86d90");
+  const content = await getPageContent("64082a5c59011a71b0e60996");
   return metaBuilder(content);
 }
 
 const ShareInformationPage = async () => {
-  const content = await getPageContent("63f22c28754b3f5b4132a500");
-  const { title, breadcrumbs, image, tabs } =
-    HEADER_INFO.enterpriseRiskManagement;
+  const content = await getPageContent("64082a5c59011a71b0e60996");
   return (
     <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
+      <Content content={content} />
     </>
   );
 };

@@ -15,7 +15,7 @@ const EnterpriseRiskManagementTable: Block = {
         },
         {
           type: "textarea",
-          name: "riskPolicy",
+          name: "riskManagementPolicy",
           required: true,
         },
         {

@@ -1,11 +1,14 @@
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
+import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import React from "react";
 
 const EnterpriseRiskManagementTable = ({ content }: any) => {
-  const RISK_DATA = content.content[0].riskManagementTable.map((item: any) => {
+  const data = content?.content.find(
+    (item: any) => item.blockType === "enterprise-risk-management-table"
+  );
+  const flatRiskData = data.riskManagementTable.map((item: any) => {
     return {
       riskExposure: item.riskExposure,
-      riskPolicy: item.riskPolicy,
+      riskManagementPolicy: item.riskManagementPolicy,
       objective: item.riskObjective,
     };
   });
@@ -39,13 +42,13 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {RISK_DATA.map((item: any, index: any) => (
+                  {flatRiskData.map((item: any, index: any) => (
                     <tr key={index} className="divide-x divide-gray-200">
                       <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                         {item.riskExposure}
                       </td>
                       <td className="p-4 text-sm text-gray-500">
-                        {item.riskPolicy}
+                        {item.riskManagementPolicy}
                       </td>
                       <td className="p-4 text-sm text-gray-500">
                         {item.objective}
