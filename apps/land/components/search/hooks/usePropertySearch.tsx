@@ -11,6 +11,7 @@ import flattenUnitSizes from "@/helpers/flattenUnitSizes";
 import flattenPricePoints from "@/helpers/flattenPricePoints";
 import flattenBedroomRange from "@/helpers/flattenBedroomRange";
 import flattenSubLocations from "@/helpers/flattenSubLocations";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 export async function getProperties(searchParams: T_SearchQuery) {
   const query = {
@@ -32,7 +33,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
       : {}),
     ...(searchParams.locationGroup
       ? {
-          "location.locationGroup.title": {
+          "locationGroup.title": {
             equals: searchParams.locationGroup,
           },
         }
@@ -46,7 +47,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
       : {}),
     ...(searchParams.subLocation
       ? {
-          "subLocation.title": {
+          "subLocationTwo.title": {
             equals: searchParams.subLocation,
           },
         }
@@ -117,6 +118,7 @@ export async function getProperties(searchParams: T_SearchQuery) {
     { addQueryPrefix: true }
   );
   const res = await fetch(`/api/projects${stringifiedQuery}`, {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",
@@ -142,17 +144,17 @@ function usePropertySearch() {
   const [projectType, setProjectType] = useState("");
   const [locationGroup, setLocationGroup] = useState("");
   useEffect(() => {
-    const propertyType = searchParams.get("propertyType");
-    const location = searchParams.get("location");
-    const brand = searchParams.get("brand");
-    const unitSize = searchParams.get("unitSize");
-    const priceRangeFrom = searchParams.get("priceRangeFrom");
-    const projectType = searchParams.get("projectType");
-    const priceRangeTo = searchParams.get("priceRangeTo");
-    const propertyName = searchParams.get("propertyName");
-    const bedrooms = searchParams.get("bedrooms");
-    const locationGroup = searchParams.get("locationGroup");
-    const subLocation = searchParams.get("subLocation");
+    const propertyType = searchParams?.get("propertyType");
+    const location = searchParams?.get("location");
+    const brand = searchParams?.get("brand");
+    const unitSize = searchParams?.get("unitSize");
+    const priceRangeFrom = searchParams?.get("priceRangeFrom");
+    const projectType = searchParams?.get("projectType");
+    const priceRangeTo = searchParams?.get("priceRangeTo");
+    const propertyName = searchParams?.get("propertyName");
+    const bedrooms = searchParams?.get("bedrooms");
+    const locationGroup = searchParams?.get("locationGroup");
+    const subLocation = searchParams?.get("subLocation");
     const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
     const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
     setPropertyType(propertyType ? decodeURIComponent(propertyType) : "");

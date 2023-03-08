@@ -26,6 +26,7 @@ const SubsidiariesCompanies: Block = {
         },
         {
           name: "learnMoreLink",
+          label: "Learn More Link (i.e. https://www.company-site.com)",
           type: "text",
           required: true,
         },

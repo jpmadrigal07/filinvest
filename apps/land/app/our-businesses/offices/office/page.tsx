@@ -1,11 +1,27 @@
-import MainHeader from "@/components/header/MainHeader";
-import Content from "@/components/pages/our-businesses/offices/office/Content";
+import PageContent from "@/components/pages/our-businesses/offices/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-const OfficePage = () => {
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
+  return metaBuilder(content);
+}
+
+const OfficePage = async () => {
+  const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
   return (
     <>
-      <MainHeader bgUrl="office.png" bgUrlSmall="office.png" />
-      <Content projects={[]} />
+      <PageContent content={content} projects={[]} locations={[]} />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import qs from "qs";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 export async function getCareers(category: string) {
   const query = {
@@ -17,6 +18,7 @@ export async function getCareers(category: string) {
   const res = await fetch(
     `/api/careers${category !== "All" ? stringifiedQuery : ""}`,
     {
+      next: { revalidate: CACHE_REVALIDATE },
       method: "GET",
       headers: {
         "content-type": "application/json",

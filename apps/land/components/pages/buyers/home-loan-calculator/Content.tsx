@@ -10,10 +10,12 @@ import {
   getRate,
   getRequiredMonthlyIncome,
   toCurrency,
+  toCurrencyComma,
 } from "@/helpers/homeCalculator";
 
 const Content = () => {
   const [tcp, setTcp] = useState<number | null>(null);
+  const [formattedTcp, setFormattedTcp] = useState("");
   const [reservationFee, setReservationFee] = useState(0);
   const [downPaymentPercent, setDownPaymentPercent] = useState(0);
   const [downPaymentTerm, setDownPaymentTerm] = useState(12);
@@ -150,8 +152,8 @@ const Content = () => {
   };
 
   return (
-    <section className="mt-24 mb-32 flex gap-16 lg:mx-9 xl:mx-16 2xl:mx-44">
-      <div className="flex-1">
+    <section className="mt-24 mb-32 flex flex-col gap-16 md:flex-row lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="flex-1 p-8">
         <h2 className="text-jet text-4xl font-bold">
           Your New Home With The Right Loan
         </h2>
@@ -163,28 +165,44 @@ const Content = () => {
           <div>
             <label
               htmlFor="totalContactPrice"
-              className="text-jet block text-sm font-medium"
+              className="text-jet block text-sm font-bold"
             >
               Total Contract Price
             </label>
             <div className="mt-2">
               <input
-                type="number"
-                min="1"
+                max="100000000000000"
+                type="text"
+                min="0"
                 step="any"
                 name="totalContactPrice"
                 id="totalContactPrice"
                 className="border-b-jet focus:ring-none block w-full border-b-[1px] px-2 py-4 sm:text-sm"
                 placeholder="Php"
-                value={tcp ? tcp : ""}
-                onChange={(e) => setTcp(Number(e.target.value))}
+                value={formattedTcp ? formattedTcp : ""}
+                onChange={(e) => {
+                  let { value, min, max } = e.target;
+
+                  //convert to number first without comma
+                  value = value.replace(/[$,]/g, "");
+
+                  //set a max value
+                  value = String(
+                    Math.max(Number(min), Math.min(Number(max), Number(value)))
+                  );
+
+                  setTcp(Number(value));
+                  setFormattedTcp(
+                    toCurrencyComma(value.replace(/[^0-9.]/g, ""))
+                  );
+                }}
               />
             </div>
           </div>
           <div className="mt-8">
             <label
               htmlFor="totalContactPrice"
-              className="text-jet block text-sm font-medium"
+              className="text-jet block text-sm font-bold"
             >
               Reservation Fee
             </label>
@@ -200,7 +218,7 @@ const Content = () => {
           <div className="mt-14">
             <label
               htmlFor="totalContactPrice"
-              className="text-jet block text-sm font-medium"
+              className="text-jet block text-sm font-bold"
             >
               Percent Down Payment
             </label>
@@ -216,11 +234,11 @@ const Content = () => {
           <div className="mt-14">
             <label
               htmlFor="totalContactPrice"
-              className="text-jet block text-sm font-medium"
+              className="text-jet block text-sm font-bold"
             >
               Down Payment Term (Months)
             </label>
-            <div className="mt-8 flex gap-8">
+            <div className="mt-8 flex flex-wrap gap-8">
               {downPaymentTerms.map((term: number, i: number) => {
                 return (
                   <div
@@ -258,7 +276,7 @@ const Content = () => {
           <div className="mt-14">
             <label
               htmlFor="totalContactPrice"
-              className="text-jet block text-sm font-medium"
+              className="text-jet block text-sm font-bold"
             >
               Number of Years to Pay Loan
             </label>

@@ -76,3 +76,7 @@ export function getRate(yearsToPay: number) {
 export function toCurrency(value: number) {
   return `₱${new Intl.NumberFormat("en-US").format(Math.trunc(value))}`;
 }
+
+export function toCurrencyComma(value: string) {
+  return `${new Intl.NumberFormat("en-US").format(Math.trunc(Number(value)))}`;
+}

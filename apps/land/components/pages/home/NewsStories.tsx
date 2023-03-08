@@ -4,12 +4,12 @@ import BorderButton from "../../button/BorderButton";
 import Link from "next/link";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 
-const NewsStories = ({ content }: any) => {
+const NewsStories = ({ content, className }: any) => {
   const flattenNews = content
     ? content.content[6].newsStories.map((newsStory: any) => newsStory.news)
     : [];
   return (
-    <section className="pt-36 xl:pt-44">
+    <section className={`pt-36 xl:pt-44 ${className}`}>
       <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex flex-col justify-center md:flex-row md:items-center">
           <div className="flex-1">
@@ -45,6 +45,7 @@ const NewsStories = ({ content }: any) => {
           className="mt-16"
           sliderOnMobile
           articles={flattenNews}
+          withExtras={false}
         />
       </div>
     </section>

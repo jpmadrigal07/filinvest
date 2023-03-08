@@ -44,25 +44,6 @@ const link: LinkType = ({
         type: "row",
         fields: [
           {
-            name: "type",
-            type: "radio",
-            options: [
-              {
-                label: "Internal link",
-                value: "reference",
-              },
-              {
-                label: "Custom URL",
-                value: "custom",
-              },
-            ],
-            defaultValue: "reference",
-            admin: {
-              layout: "horizontal",
-              width: "50%",
-            },
-          },
-          {
             name: "newTab",
             label: "Open in new tab",
             type: "checkbox",
@@ -78,36 +59,16 @@ const link: LinkType = ({
     ],
   };
 
-  let linkTypes: Field[] = [
-    {
-      name: "reference",
-      label: "Document to link to",
-      type: "relationship",
-      relationTo: ["pages"],
-      required: true,
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === "reference",
-      },
-    },
-    {
-      name: "url",
-      label: "Custom URL",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === "custom",
-      },
-    },
-  ];
-
   if (!disableLabel) {
-    linkTypes[0].admin.width = "50%";
-    linkTypes[1].admin.width = "50%";
-
     linkResult.fields.push({
       type: "row",
       fields: [
-        ...linkTypes,
+        {
+          name: "url",
+          label: "Custom URL",
+          type: "text",
+          required: true,
+        },
         {
           name: "label",
           label: "Label",
@@ -128,7 +89,7 @@ const link: LinkType = ({
       ],
     });
   } else {
-    linkResult.fields = [...linkResult.fields, ...linkTypes];
+    linkResult.fields = [...linkResult.fields];
   }
 
   if (appearances !== false) {

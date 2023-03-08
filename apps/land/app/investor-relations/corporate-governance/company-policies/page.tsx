@@ -2,6 +2,13 @@ import MainHeader from "@/components/header/MainHeader";
 import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/company-policies/Content";
 
+export async function generateMetadata() {
+  return {
+    title: "Company Policies",
+    description: "Company Policies",
+  };
+}
+
 // async function getPageContent(id: string) {
 //   const res = await fetch(`${process.env.CMS_API_URL}/api/pages/${id}`);
 //   if (!res.ok) {

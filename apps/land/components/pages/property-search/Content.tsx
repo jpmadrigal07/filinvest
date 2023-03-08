@@ -8,8 +8,8 @@ import useGetNews from "../../../hooks/useGetNews";
 import { T_SearchQuery } from "@/types/global";
 
 const Content = () => {
-  const [searchParams, setSearchParams] = useState<T_SearchQuery | null>(null);
-  const { data } = useGetNews({
+  const [searchParams] = useState<T_SearchQuery | null>(null);
+  const { data, refetch } = useGetNews({
     searchParams,
   });
   const [projects, setProjects] = useState<Project[]>([]);
@@ -25,7 +25,8 @@ const Content = () => {
         onPropertyResultChange={setProjects}
         showSearch={false}
         onLoading={setIsPropertyLoading}
-        setSearchParams={setSearchParams}
+        //setSearchParams={setSearchParams}
+        refetch={refetch}
       />
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         {!isPropertyLoading ? (

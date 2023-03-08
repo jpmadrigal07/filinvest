@@ -13,6 +13,7 @@ type T_OurBusinessesMenu = {
   subTitle?: string;
   link: string;
   featured: any;
+  newTab: boolean;
 };
 const OurBusinesses = ({
   ourBusinessesMenu,
@@ -50,6 +51,7 @@ const OurBusinesses = ({
                 <div key={index} className={`${index > 0 && "mt-9"}`}>
                   <Link
                     href={routes.link}
+                    target={routes.newTab ? "_blank" : "_self"}
                     className={`cursor-pointer text-white transition delay-150 ${
                       routes.title === "Residentials" &&
                       selectedMenu === "Residentials"
@@ -83,16 +85,19 @@ const OurBusinesses = ({
                 </div>
                 <div className="flex flex-col gap-4">
                   {propertyTypes ? (
-                    propertyTypes.map((type: PropertyCategory) => {
-                      return (
-                        <Link
-                          className="text-white opacity-50 transition delay-150 hover:opacity-100"
-                          href={`/property-search?projectType=${selectedMenu}&propertyType=${type.title}`}
-                        >
-                          {type.title}
-                        </Link>
-                      );
-                    })
+                    propertyTypes.map(
+                      (type: PropertyCategory, index: number) => {
+                        return (
+                          <Link
+                            key={index}
+                            className="text-white opacity-50 transition delay-150 hover:opacity-100"
+                            href={`/property-search?projectType=${selectedMenu}&propertyType=${type.title}`}
+                          >
+                            {type.title}
+                          </Link>
+                        );
+                      }
+                    )
                   ) : (
                     <p className="text-white opacity-50 hover:underline">
                       Loading...
@@ -107,16 +112,19 @@ const OurBusinesses = ({
                 </div>
                 <div className="flex flex-col gap-4">
                   {locationGroup ? (
-                    locationGroup.map((location: LocationGroupCategory) => {
-                      return (
-                        <Link
-                          className="text-white opacity-50 transition delay-150 hover:opacity-100"
-                          href={`/property-search?projectType=${selectedMenu}&locationGroup=${location.title}`}
-                        >
-                          {location.title}
-                        </Link>
-                      );
-                    })
+                    locationGroup.map(
+                      (location: LocationGroupCategory, index: number) => {
+                        return (
+                          <Link
+                            key={index}
+                            className="text-white opacity-50 transition delay-150 hover:opacity-100"
+                            href={`/property-search?projectType=${selectedMenu}&locationGroup=${location.title}`}
+                          >
+                            {location.title}
+                          </Link>
+                        );
+                      }
+                    )
                   ) : (
                     <p className="text-white opacity-50 hover:underline">
                       Loading...
@@ -131,9 +139,10 @@ const OurBusinesses = ({
                 </div>
                 <div className="flex flex-col gap-4">
                   {brands ? (
-                    brands.map((brand: Site) => {
+                    brands.map((brand: Site, index: number) => {
                       return (
                         <Link
+                          key={index}
                           className="text-white opacity-50 transition delay-150 hover:opacity-100"
                           href={`/property-search?projectType=${selectedMenu}&brand=${brand.title}`}
                         >

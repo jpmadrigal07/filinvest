@@ -10,6 +10,7 @@ import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
 import BorderButton from "../button/BorderButton";
+import useGetNews from "../../hooks/useGetNews";
 import moment from "moment";
 
 type T_ArticlesList = {
@@ -17,16 +18,45 @@ type T_ArticlesList = {
   className?: string;
   isList?: boolean;
   articles: any[];
+  withExtras?: boolean;
 };
 
 const FeaturedArticles = ({
   sliderOnMobile = false,
   className,
   articles = [],
+  withExtras = true,
 }: T_ArticlesList) => {
+  const query = {
+    propertyType: "",
+    location: "",
+    unitSize: "",
+    unitSizeFrom: 0,
+    unitSizeTo: 0,
+    bedroomsFrom: 0,
+    bedroomsTo: 0,
+    priceRangeFrom: 0,
+    priceRangeTo: 0,
+    priceRange: [0, 0],
+    brand: "All",
+    subLocation: "",
+    projectType: "",
+    locationGroup: "",
+    propertyName: "",
+    bedrooms: "",
+  };
+  const { data } = useGetNews({
+    searchParams: query,
+  });
   const swiperRef = useRef();
-  if (articles.length === 0)
-    return <div className="text-gainsboro mt-12 text-xl italic">No result</div>;
+  const updatedArticle =
+    articles.length > 0 ? articles : data && data.length > 0 ? data : [];
+  if (updatedArticle.length === 0)
+    return (
+      <div className="text-gainsboro mt-12 mb-24 w-full text-xl italic">
+        No result
+      </div>
+    );
   return (
     <div className={className}>
       <div
@@ -34,35 +64,49 @@ const FeaturedArticles = ({
           sliderOnMobile ? "hidden md:grid" : ""
         } grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3`}
       >
-        {articles.map((article, index) => {
+        {updatedArticle.map((article: any, index: any) => {
           return (
             <Link
               href={`/article/${article.slug}`}
               key={index}
-              className="opacity-100 transition duration-150 hover:opacity-70"
+              className="group"
             >
               <Image
                 src={article.coverImage.url}
                 width={1364}
                 height={663}
                 alt={article.coverImage.alt}
+                className="opacity-100 transition duration-150 hover:opacity-70"
               />
               <h2 className="text-jet mt-6 truncate text-2xl font-bold">
                 {article.title}
               </h2>
-              <h4 className="text-dim-gray text-sm opacity-70">
-                Posted on {moment(article.createdAt).format("MMM DD, YYYY")}
-              </h4>
+
+              {withExtras && (
+                <h4 className="text-dim-gray text-sm opacity-70">
+                  {`Posted by ${article.author.roles[0]
+                    .charAt(0)
+                    .toUpperCase()}${article.author.roles[0].substr(
+                    1
+                  )} on`}{" "}
+                  {` `}
+                  {moment(article.createdAt).format("MMM DD, YYYY")}
+                </h4>
+              )}
+
               <h4 className="text-dim-gray mt-4 truncate">
                 {article.content[0].children[0].text}
               </h4>
-              <div className="mt-8">
-                <BorderButton
-                  buttonText="Read More"
-                  textColor="dark-cornflower-blue"
-                  borderColor="dark-cornflower-blue"
-                />
-              </div>
+
+              {withExtras && (
+                <div className="mt-8">
+                  <BorderButton
+                    buttonText="Read More"
+                    textColor="dark-cornflower-blue"
+                    borderColor="dark-cornflower-blue"
+                  />
+                </div>
+              )}
             </Link>
           );
         })}
@@ -102,7 +146,7 @@ const FeaturedArticles = ({
           modules={[Navigation]}
           className="mySwiper"
         >
-          {articles.map((article, index) => {
+          {updatedArticle.map((article: any, index: any) => {
             return (
               <SwiperSlide key={index}>
                 <Link href={`/article/${article.slug}`}>
@@ -115,17 +159,23 @@ const FeaturedArticles = ({
                   <h2 className="text-jet mt-6 text-2xl font-bold">
                     {article.title}
                   </h2>
-                  {/* <h4 className="text-dim-gray mt-4 text-sm">Posted by Admin on April 22, 2022</h4> */}
+                  {withExtras && (
+                    <h4 className="text-dim-gray mt-4 text-sm">
+                      Posted by Admin on April 22, 2022
+                    </h4>
+                  )}
                   <h4 className="text-dim-gray mt-4">
                     {article.content[0].children[0].text}
                   </h4>
-                  {/* <div className="mt-12">
-                                        <BorderButton
-                                            buttonText="Read More"
-                                            textColor="dark-cornflower-blue"
-                                            borderColor="dark-cornflower-blue"
-                                        />
-                                    </div> */}
+                  {withExtras && (
+                    <div className="mt-12">
+                      <BorderButton
+                        buttonText="Read More"
+                        textColor="dark-cornflower-blue"
+                        borderColor="dark-cornflower-blue"
+                      />
+                    </div>
+                  )}
                 </Link>
               </SwiperSlide>
             );

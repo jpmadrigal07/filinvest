@@ -43,15 +43,16 @@ const SelectLocation = ({
             <Popover.Panel className="absolute z-10 mt-3">
               <div className="max-h-60 w-52 overflow-auto shadow-lg">
                 <div className="gap-6 bg-white sm:gap-8">
-                  {locations.map((location) => (
+                  {locations.map((location, index) => (
                     <span
                       onClick={() => {
                         setCurrentLocation(location);
                         close();
                       }}
-                      className={`hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer ${
+                      className={`hover:bg-ghost-white flex items-start border-b border-gray-200 transition duration-150 ease-in-out hover:cursor-pointer ${
                         currentLocation === location && "bg-ghost-white"
                       }`}
+                      key={index}
                     >
                       <div className="w-full py-4 px-5">
                         <p className="text-md text-jet whitespace-nowrap text-left font-medium">

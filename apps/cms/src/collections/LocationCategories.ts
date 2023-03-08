@@ -29,5 +29,12 @@ export const LocationCategories: CollectionConfig = {
       relationTo: "location-group-categories",
       required: true,
     },
+    {
+      name: "subLocation",
+      type: "relationship",
+      relationTo: "sub-location-categories",
+      required: true,
+      hasMany: true,
+    },
   ],
 };

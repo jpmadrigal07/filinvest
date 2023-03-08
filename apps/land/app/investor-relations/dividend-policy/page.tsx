@@ -1,18 +1,18 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/dividend-policy/Content";
-import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
+import { getPageContent } from "../../page";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-const DividendPolicyPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.dividendPolicy;
+const DIVIDEND_POLICY_PAGE_ID = "640640c7f1b2d3552c7c5e02";
+export async function generateMetadata() {
+  const content = await getPageContent(DIVIDEND_POLICY_PAGE_ID);
+  return metaBuilder(content);
+}
+
+const DividendPolicyPage = async () => {
+  const content = await getPageContent(DIVIDEND_POLICY_PAGE_ID);
   return (
     <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
+      <Content content={content} />
     </>
   );
 };

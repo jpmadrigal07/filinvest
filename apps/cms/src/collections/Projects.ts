@@ -70,7 +70,6 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      label: "Count",
       type: "row",
       fields: [
         {
@@ -231,6 +230,19 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      type: "array",
+      name: "imageGallery",
+      label: "Image Gallery",
+      fields: [
+        {
+          name: "image",
+          label: "Image (Size: 1920x833)",
+          type: "upload",
+          relationTo: "files",
+        },
+      ],
+    },
+    {
       name: "shortDescription",
       type: "text",
       required: true,
@@ -264,7 +276,8 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      name: "subLocation",
+      name: "subLocationTwo",
+      label: "Sub Location",
       type: "relationship",
       relationTo: "sub-location-categories",
     },
@@ -275,7 +288,6 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      label: "Manager",
       type: "row",
       fields: [
         {
@@ -298,7 +310,6 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      label: "Manager",
       type: "row",
       fields: [
         {
@@ -320,7 +331,6 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      label: "Manager",
       type: "row",
       fields: [
         {
@@ -342,7 +352,6 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      label: "Related Offices",
       type: "row",
       fields: [
         {

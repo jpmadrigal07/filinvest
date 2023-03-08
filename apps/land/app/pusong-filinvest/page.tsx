@@ -1,7 +1,7 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/pusong-filinvest/constants";
-import Content from "@/components/pages/pusong-filinvest/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
 import qs from "qs";
+import Content from "@/components/pages/pusong-filinvest/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 const query = {
   "site.title": {
@@ -18,7 +18,7 @@ const stringifiedQuery = qs.stringify(
 
 async function getNews() {
   const res = await fetch(
-    `${process.env.CMS_API_URL}/api/news${stringifiedQuery}&limit=3`
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}&limit=3`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -27,20 +27,25 @@ async function getNews() {
   return jsonData.docs ? jsonData.docs : null;
 }
 
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("639a57cab60dc36e6fc86cc7");
+  return metaBuilder(content);
+}
+
 const PusongFilinvestPage = async () => {
   const news = await getNews();
-  const { title, breadcrumbs, image, imageSmall } = HEADER_INFO.pusongFilinvest;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-      />
-      <Content news={news} />
-    </>
-  );
+  const content = await getPageContent("639a57cab60dc36e6fc86cc7");
+  return <Content content={content} news={news} />;
 };
 
 export default PusongFilinvestPage;

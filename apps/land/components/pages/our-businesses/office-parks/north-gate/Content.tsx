@@ -10,13 +10,13 @@ const Content = () => {
     <section className="-mt-72 mb-16 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-[26rem]">
       <div className="relative flex justify-center">
         <Image
-          src="/northgate-office.png"
+          src="/northgate-banner.png"
           width={1574}
           height={882}
           alt="Picture of the author"
           className="z-10 hidden md:block"
         />
-        <div className="absolute -bottom-[27rem] z-0 rounded-full bg-white p-12 shadow-md md:-bottom-36 md:z-50 md:shadow-none">
+        <div className="absolute -bottom-[27rem] z-0 h-[236px] w-[236px] rounded-full bg-white p-12 shadow-md md:-bottom-36 md:z-50 md:shadow-none ">
           <Image
             src="/northgate-logo.png"
             width={190}
@@ -56,12 +56,32 @@ const Content = () => {
             The country’s biggest DCS, with a total refrigeration capacity of
             12,000 TR, providing the following benefits:
           </p>
-          <ul className="text-dim-gray ml-5">
-            <li>Excellent energy efficiency of up to 40%</li>
-            <li>Reduction of CO2 emissions and polluting waste</li>
-            <li>Reduction in Operations and Maintenance costs</li>
-            <li>Reduction in water consumption</li>
-            <li>Noise and vibration reduction in buildings</li>
+          <ul className="text-dim-gray ml-6  list-[square]">
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                Excellent energy efficiency of up to 40%
+              </p>
+            </li>
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                Reduction of CO2 emissions and polluting waste
+              </p>
+            </li>
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                Reduction in Operations and Maintenance costs
+              </p>
+            </li>
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                Reduction in water consumption
+              </p>
+            </li>
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                Noise and vibration reduction in buildings
+              </p>
+            </li>
           </ul>
           <p className="text-jet mt-4 font-bold">Filinvest City 360 Eco Loop</p>
           <p className="text-dim-gray">
@@ -129,14 +149,23 @@ const Content = () => {
             Muntinlupa City, placing it at the gateway to the CALABARZON
             (Cavite, Laguna, Batangas, Rizal, Quezon).
           </p>
-          <ul className="text-dim-gray ml-5">
-            <li>Accessible via all modes of transportation</li>
-            <li>
-              Less than fifteen (15) minutes away from Makati via the Skyway
+          <ul className="text-dim-gray ml-5 flex list-[square] flex-col gap-4">
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                Accessible via all modes of transportation
+              </p>
             </li>
-            <li>
-              A huge potential manpower base of skilled, well-educated, and
-              English-speaking personnel
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                {" "}
+                Less than fifteen (15) minutes away from Makati via the Skyway
+              </p>
+            </li>
+            <li className="text-2xl text-[#163E82]">
+              <p className="text-dim-gray text-base">
+                A huge potential manpower base of skilled, well-educated, and
+                English-speaking personnel
+              </p>
             </li>
           </ul>
         </div>

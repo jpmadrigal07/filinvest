@@ -1,19 +1,27 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/manual-corporate-governance/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-const ManualCorporateGovernancePage = () => {
-  const { title, breadcrumbs, image, tabs } =
-    HEADER_INFO.manualCorporateGovernance;
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("63f211e17ed2c505a81c3b77");
+  return metaBuilder(content);
+}
+
+const ManualCorporateGovernancePage = async () => {
+  const content = await getPageContent("63f211e17ed2c505a81c3b77");
   return (
     <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
+      <Content content={content} />
     </>
   );
 };

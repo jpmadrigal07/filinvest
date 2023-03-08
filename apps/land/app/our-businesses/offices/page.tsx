@@ -1,8 +1,17 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/our-businesses/offices/constants";
-import Content from "@/components/pages/our-businesses/offices/Content";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
+import Content from "@/components/pages/our-businesses/offices/Content";
+import { metaBuilder } from "@/helpers/metaBuilder";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
 
 const query = {
   "projectType.title": {
@@ -17,15 +26,17 @@ const stringifiedQuery = qs.stringify(
   { addQueryPrefix: true }
 );
 
+export async function generateMetadata() {
+  const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
+  return metaBuilder(content);
+}
+
 const OfficePage = async () => {
+  const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
-  const { title, breadcrumbs, image } = HEADER_INFO.offices;
   return (
-    <>
-      <MainHeader title={title} breadcrumbs={breadcrumbs} bgUrl={image} />
-      <Content projects={projects} locations={locations} />
-    </>
+    <Content content={content} projects={projects} locations={locations} />
   );
 };
 
