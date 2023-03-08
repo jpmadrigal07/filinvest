@@ -6,7 +6,6 @@ const CompanyPolicies = ({ content }: any) => {
   const data = content?.content.find(
     (item: any) => item.blockType === "company-policies-policy"
   );
-  console.log(data);
   return (
     <section className="mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
       {data.companyPolicies.map((item: any) => (
