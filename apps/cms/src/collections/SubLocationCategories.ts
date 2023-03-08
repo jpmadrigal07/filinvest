@@ -22,7 +22,6 @@ export const SubLocationCategories: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
-      unique: true,
     },
   ],
 };

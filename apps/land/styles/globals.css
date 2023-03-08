@@ -36,3 +36,8 @@ body {
   margin: 0;
   font-family: "Futura";
 }
+
+.sketch-bg {
+  background-image: url("/sketch-house.png");
+  background-size: contain;
+}

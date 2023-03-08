@@ -9,9 +9,17 @@ const DreamsBuiltGreenTitleText: Block = {
       required: true,
     },
     {
-      name: "description",
-      type: "textarea",
+      type: "array",
+      name: "descriptionParagraph",
+      minRows: 1,
       required: true,
+      fields: [
+        {
+          name: "description",
+          type: "textarea",
+          required: true,
+        },
+      ],
     },
   ],
 };

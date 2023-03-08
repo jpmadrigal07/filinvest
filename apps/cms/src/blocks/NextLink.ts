@@ -4,6 +4,12 @@ const NextLink: Block = {
   slug: "next-link",
   fields: [
     {
+      type: "upload",
+      name: "image",
+      relationTo: "files",
+      required: true,
+    },
+    {
       name: "nextPageTitle",
       type: "text",
       required: true,

@@ -8,16 +8,16 @@ import Link from "next/link";
 const StockReport = ({ content }: any) => {
   return (
     <section className="flex flex-col pt-24 lg:flex-row">
-      <div className="bg-oxford-blue flex-1 py-20 px-6 lg:px-9">
+      <div className="flex-1 bg-[#143264] py-20 px-6 lg:px-9">
         <div className="mx-auto lg:w-1/2">
           <h2 className="text-3xl font-bold text-white">
             {content.content[8].stockInfoTitle}
           </h2>
-          <div className="flex flex-col py-6 px-12">
-            <h3 className="ml-7 text-2xl text-white">FLI</h3>
+          <div className="flex flex-col items-center py-6">
+            <h3 className="ml-7 text-2xl font-bold text-white">FLI</h3>
             <div className="flex items-end gap-3">
               <RedDownTriangle />
-              <h3 className="text-4xl text-white">1.00</h3>
+              <h3 className="text-5xl font-extrabold text-white">1.00</h3>
               <h4 className="text-lg text-white">PHP</h4>
             </div>
           </div>
@@ -87,7 +87,7 @@ const StockReport = ({ content }: any) => {
                 target="_blank"
                 className="flex items-center gap-4"
               >
-                <div className="w-1/4 flex-none">
+                <div className="w-1/4 max-w-[99px] flex-none">
                   <Image
                     src="/download-stock-report.png"
                     width={143}
@@ -95,7 +95,7 @@ const StockReport = ({ content }: any) => {
                     alt="Picture of the author"
                   />
                 </div>
-                <h4 className="text-normal text-white">
+                <h4 className="text-normal text-white transition hover:opacity-70">
                   Download Annual Report For 2021
                 </h4>
               </Link>

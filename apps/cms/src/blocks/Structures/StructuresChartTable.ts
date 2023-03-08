@@ -8,6 +8,14 @@ const StructuresChartTable: Block = {
       name: "tableTitle",
     },
     {
+      type: "text",
+      name: "tableFooter",
+    },
+    {
+      type: "text",
+      name: "tableSubFooter",
+    },
+    {
       type: "array",
       name: "tableColumn",
       required: true,

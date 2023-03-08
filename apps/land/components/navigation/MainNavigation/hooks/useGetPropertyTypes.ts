@@ -1,7 +1,9 @@
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { useQuery } from "@tanstack/react-query";
 
 export async function getPropertyTyPes() {
   const res = await fetch("/api/property-categories", {
+    next: { revalidate: CACHE_REVALIDATE },
     method: "GET",
     headers: {
       "content-type": "application/json",

@@ -1,20 +1,25 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/about-us/our-leadership/constants";
 import Content from "@/components/pages/about-us/our-leadership/board-of-directors/Content";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
-const BoardOfDirectorsPage = () => {
-  const { title, breadcrumbs, image, tabs } = HEADER_INFO.boardOfDirectors;
-  return (
-    <>
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        tabs={tabs}
-      />
-      <Content />
-    </>
-  );
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export async function generateMetadata() {
+  const content = await getPageContent("63fda31b8f9bdd6c055d9553");
+  return metaBuilder(content);
+}
+
+const BoardOfDirectorsPage = async () => {
+  const content = await getPageContent("63fda31b8f9bdd6c055d9553");
+  return <Content content={content} />;
 };
 
 export default BoardOfDirectorsPage;

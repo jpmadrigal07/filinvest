@@ -17,12 +17,25 @@ const RangeSliderStep = ({
   const indexRight = steps.findIndex((step) => step === value[1]);
   const finalLeft = Math.round(indexLeft * step);
   const finalRight = Math.round(indexRight * step);
+
+  const themeColor = "#4389FF";
   return (
     <>
       <Slider
         dots
         step={step}
         range
+        handleStyle={{
+          backgroundColor: themeColor,
+          border: "none",
+        }}
+        trackStyle={{
+          backgroundColor: themeColor,
+        }}
+        activeDotStyle={{
+          backgroundColor: themeColor,
+          border: "none",
+        }}
         value={[finalLeft, finalRight]}
         onChange={(value) => {
           const left = (value as number[])[0];
