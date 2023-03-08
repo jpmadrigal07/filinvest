@@ -164,7 +164,7 @@ const FeaturedArticles = ({
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
-          className="mySwiper"
+          className="max-h-[500px]"
         >
           {updatedArticle.map((article: any, index: any) => {
             return (
