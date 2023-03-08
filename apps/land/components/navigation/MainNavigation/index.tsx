@@ -120,14 +120,14 @@ const MainNavigation = ({ className }: { className?: string }) => {
                   </button>
                 </Link>
               </div>
-              {flyoutMenu === "full" && (
+              {/*  {flyoutMenu === "full" && (
                 <button
                   onClick={() => setFlyoutMenu("")}
                   className="cursor-pointer transition hover:opacity-70"
                 >
                   X
                 </button>
-              )}
+              )} */}
             </div>
             <div
               className={`px-9 pb-10 ${
