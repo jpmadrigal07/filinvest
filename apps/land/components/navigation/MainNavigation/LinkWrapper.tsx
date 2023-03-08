@@ -154,6 +154,9 @@ const LinkWrapper = ({
       {!isLink && !link && fullComponent && (
         <>
           <span
+            onClick={() => {
+              setFlyoutMenu("");
+            }}
             className="flex cursor-pointer items-center gap-2 whitespace-nowrap transition duration-500"
             style={{
               opacity:
