@@ -7,7 +7,7 @@ export default function Button360() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       width="200"
       height="200"
-      viewBox="0 0 190 190"
+      viewBox="0 0 196 198"
     >
       <defs>
         <filter
