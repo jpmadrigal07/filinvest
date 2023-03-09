@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useRef } from "react";
-import "swiper/css";
+import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -164,7 +164,7 @@ const FeaturedArticles = ({
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
-          className="max-h-[500px]"
+          // className="max-h-[500px]"
         >
           {updatedArticle.map((article: any, index: any) => {
             return (
@@ -189,7 +189,7 @@ const FeaturedArticles = ({
                     {article.content[0].children[0].text}
                   </h4>
                   {withExtras && (
-                    <div className="mt-12">
+                    <div className="mt-12 mb-6">
                       <BorderButton
                         buttonText="Read More"
                         textColor="dark-cornflower-blue"

@@ -9,6 +9,7 @@ import ImageRightTextLeft from "./ImageRightTextLeft";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import MainHeader from "@/components/header/MainHeader";
+import MediaSection from "./MediaSection";
 
 const Content = ({ news, content }: any) => {
   const header = content?.content.find(
@@ -39,6 +40,7 @@ const Content = ({ news, content }: any) => {
         bgUrlSmall={header.smallCoverImage.url}
         tabs={tabs}
       />
+      <MediaSection content={content} />
       <IconText content={content} />
       <YearsOfExperience content={content} />
       <ImageRightTextLeft content={content} news={news} />
