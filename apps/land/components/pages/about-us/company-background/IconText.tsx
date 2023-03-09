@@ -19,6 +19,7 @@ const IconText = ({ content }: any) => {
               width={1834}
               height={1414}
               alt={item.iconImage.alt}
+              className="w-1/2 md:w-full"
             />
             <span className="bg-jet h-16 w-[1px]"></span>
 
