@@ -83,7 +83,7 @@ const FeaturedArticles = ({
                 className="opacity-100 transition duration-150 hover:opacity-70"
               />
               <h2
-                className={`text-jet mt-6 text-2xl font-bold ${
+                className={`text-jet mt-6 text-3xl font-bold leading-9 ${
                   isTwoLines
                     ? "max-h-[80px] overflow-hidden text-ellipsis"
                     : "truncate"
@@ -118,7 +118,7 @@ const FeaturedArticles = ({
               )}
 
               <h4
-                className={`text-dim-gray ${
+                className={`text-dim-gray mt-3 text-lg font-bold ${
                   isTwoLines
                     ? "max-h-[68px] overflow-hidden text-ellipsis"
                     : "mt-4 truncate"
@@ -150,7 +150,7 @@ const FeaturedArticles = ({
         })}
       </div>
       <div
-        className={`relative mt-16 flex items-center justify-center ${
+        className={`relative mt-10 flex items-center justify-center ${
           sliderOnMobile ? "md:hidden" : "hidden"
         }`}
       >
@@ -177,7 +177,7 @@ const FeaturedArticles = ({
                     alt={article.coverImage.alt}
                     className={sliderImageClassName}
                   />
-                  <h2 className="text-jet mt-6 text-3xl font-black tracking-tighter">
+                  <h2 className="text-jet mt-6 text-xl font-black tracking-tighter md:text-2xl">
                     {article.title}
                   </h2>
                   {withExtras && (
@@ -185,7 +185,7 @@ const FeaturedArticles = ({
                       Posted by Admin on April 22, 2022
                     </h4>
                   )}
-                  <h4 className="text-dim-gray mt-4 text-2xl tracking-tight">
+                  <h4 className="text-dim-gray mt-4 text-lg tracking-tight lg:text-xl">
                     {article.content[0].children[0].text}
                   </h4>
                   {withExtras && (
@@ -203,7 +203,7 @@ const FeaturedArticles = ({
           })}
         </Swiper>
       </div>
-      <div className="mt-12 flex items-center justify-center md:hidden">
+      <div className="mt-8 flex items-center justify-center md:hidden">
         <div className="flex gap-6 md:gap-[43rem]">
           <div
             className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_3px_60px_rgba(0,0,0,0.5)]"
