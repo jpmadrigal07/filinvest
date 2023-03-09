@@ -77,8 +77,8 @@ const FeaturedArticles = ({
             >
               <Image
                 src={article.coverImage.url}
-                width={518}
-                height={430}
+                width={1364}
+                height={663}
                 alt={article.coverImage.alt}
                 className="opacity-100 transition duration-150 hover:opacity-70"
               />
