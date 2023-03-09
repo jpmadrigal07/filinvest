@@ -13,12 +13,12 @@ const Gallery = ({ content }: any) => {
   return (
     <div className="mt-24">
       <h3 className="text-dark-cornflower-blue text-center font-bold">
-        {data.title}
+        {data?.title}
       </h3>
       <h2 className="mx-6 mt-4 text-center text-4xl font-bold">
-        {data.subTitle}
+        {data?.subTitle}
       </h2>
-      <p className="text-dim-gray mt-4 text-center">{data.descriptions}</p>
+      <p className="text-dim-gray mt-4 text-center">{data?.descriptions}</p>
       <Swiper
         slidesPerView={5}
         centeredSlides={true}
@@ -28,7 +28,7 @@ const Gallery = ({ content }: any) => {
         modules={[Pagination, FreeMode]}
         className="mySwiper mt-12"
       >
-        {data.image.map((item: any, index: number) => (
+        {data?.image?.map((item: any, index: number) => (
           <SwiperSlide key={index}>
             <Image
               src={`${item.image.url}`}
