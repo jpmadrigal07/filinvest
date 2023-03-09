@@ -42,7 +42,7 @@ const Content = ({ content }: any) => {
   ];
 
   return (
-    <div className="sketch-bg">
+    <div>
       <MainHeader
         title={header.title}
         breadcrumbs={breadcrumbs}
@@ -50,6 +50,7 @@ const Content = ({ content }: any) => {
         bgUrlSmall={header.smallCoverImage.url}
         tabs={tabs}
       />
+      <div className="sketch-bg-norepeat absolute top-[290px] z-[-1] h-[100%] min-w-[100%] 2xl:top-[390px]"></div>
       <section className="mx-3 mt-16 mb-28 flex flex-col gap-9 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
         {tableBlockIds?.map((tableId: any, index: number) => (
           <FinancialHighlightsTable
@@ -70,6 +71,16 @@ const Content = ({ content }: any) => {
         </div>
         <Statements content={content} />
       </section>
+      <div className="relative w-full">
+        <Image
+          priority
+          className={`absolute -bottom-[28rem] z-[-1] 2xl:-bottom-[26rem]`}
+          src={`/sketch-house.png`}
+          alt={`sketch-house.png`}
+          width={1508}
+          height={400}
+        />
+      </div>
     </div>
   );
 };

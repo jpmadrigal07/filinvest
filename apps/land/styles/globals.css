@@ -42,8 +42,8 @@ body {
   background-size: contain;
 }
 
-@media only screen and (min-width: 1440px) {
-  .hideReserve {
-    display: none;
-  }
+.sketch-bg-norepeat {
+  background-image: url("/sketch-house.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
