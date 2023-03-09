@@ -8,7 +8,7 @@ const OurStory = ({ content }: any) => {
   const data = content?.content.find(
     (item: any) => item.blockType === "pusong-filinvest-our-story"
   );
-  // console.log(data);
+
   return (
     <div className="mt-10 md:mt-0 lg:mx-9 xl:mx-16 2xl:mx-44">
       <h3 className="text-dark-cornflower-blue text-center text-lg font-bold lg:text-xl">
@@ -21,7 +21,7 @@ const OurStory = ({ content }: any) => {
         {data.description}
       </p>
       <div className="mx-6 mt-8 md:mt-10 lg:mx-9 lg:mt-12 xl:mx-16 2xl:mx-44">
-        <video controls loop autoPlay muted height={635}>
+        <video loop autoPlay muted height={635}>
           <source
             src={data.coverImage.url ? data.coverImage.url : ""}
             type="video/mp4"

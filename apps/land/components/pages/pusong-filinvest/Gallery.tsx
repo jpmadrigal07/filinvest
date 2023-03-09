@@ -50,9 +50,12 @@ const Gallery = ({ content }: any) => {
             centeredSlides={true}
             freeMode={true}
             loop={true}
-            pagination={true}
+            pagination={{
+              clickable: true,
+              bulletActiveClass: "!bg-dim-gray swiper-pagination-bullet-active",
+            }}
             modules={[Pagination, FreeMode]}
-            className="mt-8 lg:mt-12"
+            className="mt-8 h-[650px] min-w-[100%]"
           >
             {data.image.map((item: any, index: number) => (
               <SwiperSlide

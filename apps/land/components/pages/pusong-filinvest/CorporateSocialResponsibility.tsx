@@ -41,10 +41,10 @@ const CorporateSocialResponsibility = ({ content }: any) => {
               }
               className="mySwiper relative"
             >
-              {data.corporateSocialResponsibility.map(
+              {data?.corporateSocialResponsibility.map(
                 (item: any, index: number) => (
                   <SwiperSlide
-                    className="flex flex-col gap-5 md:gap-8 lg:flex-row lg:gap-10"
+                    className="flex flex-col items-center justify-center gap-5  md:gap-8 lg:flex-row lg:gap-10"
                     key={index}
                   >
                     <div className="lg:w-2/4">
@@ -80,7 +80,7 @@ const CorporateSocialResponsibility = ({ content }: any) => {
           )}
           <div className="mt-10 flex w-full items-center justify-center gap-6 lg:absolute lg:-top-12 lg:right-0 lg:left-0 lg:bottom-0 lg:mt-[5rem]">
             <button
-              className="-left-20 hover:opacity-70  lg:absolute"
+              className="-left-12 block hover:opacity-70 lg:absolute lg:hidden xl:-left-20  xl:block"
               onClick={() => {
                 // @ts-expect-error
                 swiperRef.current?.slidePrev();
@@ -89,7 +89,7 @@ const CorporateSocialResponsibility = ({ content }: any) => {
               <ChevronCircleLeft />
             </button>
             <button
-              className="-right-20 hover:opacity-70 lg:absolute"
+              className="-right-12 block hover:opacity-70 lg:absolute lg:hidden xl:-right-20 xl:block"
               onClick={() => {
                 // @ts-expect-error
                 swiperRef.current?.slideNext();
