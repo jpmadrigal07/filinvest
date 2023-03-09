@@ -1,3 +1,4 @@
+"use client";
 import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import React from "react";
 import Table from "./Table";
@@ -41,9 +42,46 @@ const Content = ({ content }: any) => {
     (col: any) => col?.header
   );
 
-  /* const tableRows = shareholdingStructureTable.tableColumn.map(
-    (col: any) => col?.tableData
-  ); */
+  let rows = shareholdingStructureTable?.tableColumn[0].tableData?.map(
+    (r: any, index: number) => {
+      return shareholdingStructureTable?.tableColumn?.map(
+        (x: any, i: number) => {
+          switch (i) {
+            case 1:
+              return (
+                <span className="flex max-w-[323px] flex-col gap-3">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: x?.tableData[index]?.data,
+                    }}
+                  ></div>
+                </span>
+              );
+            case 4:
+              return (
+                <span className="flex max-w-[170px] flex-col gap-3">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: x?.tableData[index]?.data,
+                    }}
+                  ></div>
+                </span>
+              );
+            default:
+              return (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: x?.tableData[index]?.data,
+                  }}
+                ></div>
+              );
+          }
+        }
+      );
+    }
+  );
+
+  console.log(rows);
 
   const downloadLink = content?.content.find(
     (item: any) => item.blockType === "structures-download-button"
@@ -65,35 +103,7 @@ const Content = ({ content }: any) => {
         <p className="text-dim-gray mx-6 lg:mx-0">
           {structureTitleAndText.description}
         </p>
-        <Table
-          header={tableColumns}
-          rows={[
-            [
-              "Common",
-              <span className="flex flex-col gap-3">
-                <p>{`A. L. Gotianun, Inc. ("ALGI") (formerly ALG Holdings Corporation) 32nd Floor, Parkway Corporate Center, Corporate Avenue, Filinvest City, Alabang, Muntinlupa City`}</p>
-                <p>{`Majority Owner of the Company A. L. Gotianun, Inc. ("ALGI") (formerly ALG Holdings Corporation) 32nd Floor,
-                Parkway Corporate Center, Corporate Avenue, Filinvest City, Alabang, Muntinlupa City`}</p>
-                <p>Majority Owner of the Company</p>
-              </span>,
-              "Same as the Record Owner",
-              "Filipino",
-              <span className="flex flex-col gap-3">
-                <p>7,587,823,502 (Direct)</p>
-                <p>61,976,540 (Indirect)</p>
-              </span>,
-              "87.74% (Direct)0. 72% (Indirect)",
-            ],
-            [
-              "Common",
-              "PCD Nominee Corporation (Filipino) G/F, Philippine Stock",
-              "",
-              "Filipino",
-              "901,940,68",
-              "10.43%",
-            ],
-          ]}
-        />
+        <Table header={tableColumns} rows={rows} />
         <p className="text-dim-gray mx-6 lg:mx-0">
           {shareholdingStructureTable?.tableFooter}
         </p>
