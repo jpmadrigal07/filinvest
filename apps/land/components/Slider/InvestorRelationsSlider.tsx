@@ -29,8 +29,8 @@ export default function InvestorRelationsSlider({ content }: any) {
         {[...Array(6)].map(() => (
           <SwiperSlide>
             <section className="flex flex-col items-center">
-              <div className="mx-6 flex flex-col gap-16 pt-36 lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
-                <div className="flex-1 px-4 text-center md:px-0 md:text-left lg:h-[290px] lg:w-1/4">
+              <div className="mx-6 flex flex-col gap-16 pt-36 pb-[1.5rem] lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
+                <div className="h-[100%] flex-1 px-4 text-center md:px-0 md:text-left lg:w-1/4">
                   <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
                     {content.content[7].title}
                   </h4>
