@@ -12,18 +12,15 @@ async function getPageContent(id: string) {
   return res.json();
 }
 
+const COMPANY_POLICIES_PAGE_ID = "640991881e1eb35f621ef423";
 export async function generateMetadata() {
-  const content = await getPageContent("640991881e1eb35f621ef423");
+  const content = await getPageContent(COMPANY_POLICIES_PAGE_ID);
   return metaBuilder(content);
 }
 
 const CompanyPoliciesPage = async () => {
-  const content = await getPageContent("640991881e1eb35f621ef423");
-  return (
-    <>
-      <Content content={content} />
-    </>
-  );
+  const content = await getPageContent(COMPANY_POLICIES_PAGE_ID);
+  return <Content content={content} />;
 };
 
 export default CompanyPoliciesPage;

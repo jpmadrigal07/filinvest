@@ -25,6 +25,7 @@ interface I_Props {
   currentMenuIndex: number | null;
   isHovering: boolean;
   setisHovering: Dispatch<boolean>;
+  flyoutMenu: string;
 }
 
 const LinkWrapper = ({
@@ -39,6 +40,7 @@ const LinkWrapper = ({
   currentMenuIndex,
   isHovering,
   setisHovering,
+  flyoutMenu,
 }: I_Props) => {
   const popoverRef = useRef(null);
   const setMenuType = (type: T_Flyout_Menu) => {
@@ -154,6 +156,9 @@ const LinkWrapper = ({
       {!isLink && !link && fullComponent && (
         <>
           <span
+            onClick={() => {
+              flyoutMenu == "full" ? setFlyoutMenu("") : setFlyoutMenu("full");
+            }}
             className="flex cursor-pointer items-center gap-2 whitespace-nowrap transition duration-500"
             style={{
               opacity:

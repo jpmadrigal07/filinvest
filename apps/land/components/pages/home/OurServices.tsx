@@ -13,13 +13,13 @@ const OurServices = ({ content }: any) => {
   return (
     <section className="pt-28">
       <div className="flex w-full flex-col items-center px-6 lg:mx-auto lg:w-[43%]">
-        <h4 className="text-dark-cornflower-blue text-center font-bold">
+        <h4 className="text-dark-cornflower-blue text-center font-black tracking-widest">
           {content.content[4].title}
         </h4>
-        <h2 className="text-jet mt-2 max-w-[670px] text-center text-4xl  font-extrabold">
+        <h2 className="text-jet mt-2 max-w-[670px] text-center text-4xl font-black tracking-tighter">
           {content.content[4].subTitle}
         </h2>
-        <h4 className="text-dim-gray mt-4 max-w-[630px] text-center">
+        <h4 className="text-dim-gray mt-4 max-w-[630px] text-center text-2xl">
           {content.content[4].description}
         </h4>
       </div>

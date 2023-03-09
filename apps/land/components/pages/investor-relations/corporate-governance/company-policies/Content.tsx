@@ -38,5 +38,4 @@ const Content = ({ content }: any) => {
     </>
   );
 };
-
 export default Content;
