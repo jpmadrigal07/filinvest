@@ -11,16 +11,18 @@ const Gallery = ({ content }: any) => {
   const data = content?.content.find(
     (item: any) => item.blockType === "pusong-filinvest-gallery"
   );
-  console.log(data);
+  // console.log(data);
   return (
-    <div className="mt-24">
-      <h3 className="text-dark-cornflower-blue text-center font-bold">
+    <div className="my-16 lg:my-24">
+      <h3 className="text-dark-cornflower-blue text-center text-lg font-bold lg:text-xl">
         {data.title}
       </h3>
-      <h2 className="mx-6 mt-4 text-center text-4xl font-bold">
+      <h2 className="mx-6 mt-4 text-center text-3xl font-bold lg:text-5xl">
         {data.subTitle}
       </h2>
-      <p className="text-dim-gray mt-4 text-center">{data.descriptions}</p>
+      <p className="text-dim-gray mt-4 text-center text-xl lg:text-2xl">
+        {data.description}
+      </p>
       <div>
         {!!data && (
           <Swiper
@@ -50,10 +52,13 @@ const Gallery = ({ content }: any) => {
             loop={true}
             pagination={true}
             modules={[Pagination, FreeMode]}
-            className="mt-12"
+            className="mt-8 lg:mt-12"
           >
             {data.image.map((item: any, index: number) => (
-              <SwiperSlide className="flex h-[569px] w-[329px]" key={index}>
+              <SwiperSlide
+                className="flex h-[400px] w-[329px] md:h-[569px]"
+                key={index}
+              >
                 <Image
                   src={`${item.image.url}`}
                   width={329}

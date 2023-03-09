@@ -39,7 +39,6 @@ const Content = ({ content, news }: any) => {
       <OurStory content={content} />
       <CorporateSocialResponsibility content={content} />
       <Gallery content={content} />
-
       <News news={news} />
     </>
   );

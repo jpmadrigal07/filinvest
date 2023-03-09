@@ -1,118 +1,105 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import "swiper/swiper-bundle.css";
+import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import Image from "next/image";
+import Image from "next/image";
 // import Link from "next/link";
-// import BorderButton from "../button/BorderButton";
-// import ChevronCircleLeft from "../svg/ChevronCircleLeft";
-// import ChevronCircleRight from "../svg/ChevronCircleRight";
+import ChevronCircleLeft from "../../svg/ChevronCircleLeft";
+import ChevronCircleRight from "../../svg/ChevronCircleRight";
+
 const CorporateSocialResponsibility = ({ content }: any) => {
   const data = content?.content.find(
     (item: any) =>
       item.blockType === "pusong-filinvest-corporate-social-responsibility"
   );
-  console.log(data.corporateSocialResponsibility);
   const swiperRef = useRef(null);
-
   return (
-    // flex flex-col items-center justify-center gap-12 md:flex-row
     <div className="bg-ghost-white mt-24 py-16">
       <div className="mx-6 lg:mx-9 xl:mx-16 2xl:mx-44">
-        <Swiper
-          tag="div"
-          slidesPerView={1}
-          spaceBetween={10}
-          centeredSlides={true}
-          loop={true}
-          onBeforeInit={(swiper) => {
-            // @ts-expect-error
-            swiperRef.current = swiper;
-          }}
-          modules={[Navigation]}
-          className="mySwiper"
-        >
-          {[...Array(6)].map((item, index) => (
-            <SwiperSlide key={index}>
-              <section className="flex flex-col items-center">
-                <div className="mx-6 flex flex-col gap-16 pt-36 lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
-                  <div className="flex flex-col gap-12 xl:gap-20">
-                    <div className="flex flex-1 flex-col gap-9 xl:flex-row">
-                      <div className="flex items-center gap-6 md:min-w-[450px] md:gap-9">
-                        <div className="flex-none"></div>
-                        <div className="flex flex-1 flex-col">
-                          <h2 className="text-2xl font-bold">
-                            Net income attributable to
-                            <br />
-                            equity holders of parent
-                          </h2>
-                          <div className="mt-3 flex flex-col gap-6 md:flex-row md:items-center">
-                            <h3 className="text-dark-cornflower-blue text-2xl font-bold">
-                              P 3.80 B
-                            </h3>
-                            <p className="text-dark-cornflower-blue text-normal">
-                              Year 2021
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-6 md:min-w-[450px] md:gap-9">
-                        <div className="flex flex-1 flex-col">
-                          <h2 className="text-2xl font-bold">Revenue</h2>
-                          <div className="mt-3 flex flex-col gap-6 md:flex-row md:items-center">
-                            <h3 className="text-dark-cornflower-blue text-2xl font-bold">
-                              P 17.74B B
-                            </h3>
-                            <p className="text-dark-cornflower-blue text-normal">
-                              Year 2021
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+        <div className="relative">
+          {!!data && (
+            <Swiper
+              tag="div"
+              slidesPerView={1}
+              spaceBetween={10}
+              centeredSlides={true}
+              loop={true}
+              onBeforeInit={(swiper) => {
+                // @ts-expect-error
+                swiperRef.current = swiper;
+              }}
+              modules={[Navigation]}
+              breakpoints={
+                {
+                  // when window width is >= 320px
+                  320: {
+                    slidesPerView: 1,
+                  },
+                } as any
+              }
+              className="mySwiper relative"
+            >
+              {data.corporateSocialResponsibility.map(
+                (item: any, index: number) => (
+                  <SwiperSlide
+                    className="flex flex-col gap-5 md:gap-8 lg:flex-row lg:gap-10"
+                    key={index}
+                  >
+                    <div className="lg:w-2/4">
+                      <Image
+                        src={`${item.image.url}`}
+                        width={841}
+                        height={644}
+                        alt={item.image.alt}
+                      />
                     </div>
-                    <div className="flex flex-1 flex-col gap-9 xl:flex-row">
-                      <div className="flex items-center gap-6 md:min-w-[450px] md:gap-9">
-                        <div className="flex flex-1 flex-col">
-                          <h2 className="text-2xl font-bold">Total Assets</h2>
-                          <div className="mt-3 flex flex-col gap-6 md:flex-row md:items-center">
-                            <h3 className="text-dark-cornflower-blue text-2xl font-bold">
-                              P 193.22 B B
-                            </h3>
-                            <p className="text-dark-cornflower-blue text-normal">
-                              Year 2021
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-6 md:min-w-[450px] md:gap-9">
-                        <div className="flex flex-1 flex-col">
-                          <h2 className="text-2xl font-bold">
-                            Earnings per share
-                          </h2>
-                          <div className="mt-3 flex flex-col gap-6 md:flex-row md:items-center">
-                            <h3 className="text-dark-cornflower-blue text-2xl font-bold">
-                              P 0.16 B
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="flex flex-col lg:w-2/4">
+                      <h3 className="text-dark-cornflower-blue text-base font-bold md:text-xl lg:text-2xl">
+                        {item.title}
+                      </h3>
+                      <h2 className="mt-4 text-2xl font-bold md:text-4xl lg:text-6xl">
+                        {item.subTitle}
+                      </h2>
+                      {item.descriptionParagraphs.map(
+                        (item: any, index: number) => (
+                          <p
+                            className="text-dim-gray mt-4 text-base lg:text-xl"
+                            key={index}
+                          >
+                            {item.paragraph}
+                          </p>
+                        )
+                      )}
                     </div>
-                    {/*  <div className="mt-16 ml-16 flex gap-6">
-          <ChevronCircleLeft />
-          <ChevronCircleRight />
-        </div> */}
-                  </div>
-                </div>
-                {/*   <div className="mt-16 hidden gap-6 lg:flex">
-                <ChevronCircleLeft />
-                <ChevronCircleRight />
-              </div> */}
-              </section>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                  </SwiperSlide>
+                )
+              )}
+            </Swiper>
+          )}
+          <div className="mt-10 flex w-full items-center justify-center gap-6 lg:absolute lg:-top-12 lg:right-0 lg:left-0 lg:bottom-0 lg:mt-[5rem]">
+            <button
+              className="-left-20 hover:opacity-70  lg:absolute"
+              onClick={() => {
+                // @ts-expect-error
+                swiperRef.current?.slidePrev();
+              }}
+            >
+              <ChevronCircleLeft />
+            </button>
+            <button
+              className="-right-20 hover:opacity-70 lg:absolute"
+              onClick={() => {
+                // @ts-expect-error
+                swiperRef.current?.slideNext();
+              }}
+            >
+              <ChevronCircleRight />
+            </button>
+          </div>
+        </div>
+
         {/* <div>
           <Swiper
             slidesPerView={1}
