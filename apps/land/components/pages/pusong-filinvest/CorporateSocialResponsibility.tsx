@@ -5,9 +5,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const CorporateSocialResponsibility = ({ content }: any) => {
-  const data = content?.content.find(
+  const data = content?.content?.find(
     (item: any) =>
-      item.blockType === "pusong-filinvest-corporate-social-responsibility"
+      item?.blockType === "pusong-filinvest-corporate-social-responsibility"
   );
   return (
     <div className="bg-ghost-white mt-24 py-16">
@@ -23,7 +23,7 @@ const CorporateSocialResponsibility = ({ content }: any) => {
         <div className="flex-1">
           <h3 className="text-dark-cornflower-blue font-bold">{data?.title}</h3>
           <h2 className="mt-4 text-4xl font-bold">{data?.subTitle}</h2>
-          {data?.descriptionParagraphs.map((item: any, index: number) => (
+          {data?.descriptionParagraphs?.map((item: any, index: number) => (
             <p className="text-dim-gray mt-2" key={index}>
               {item?.paragraph}
             </p>
