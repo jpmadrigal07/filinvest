@@ -10,18 +10,12 @@ const CompanyPoliciesPolicy: Block = {
       maxRows: 4,
       fields: [
         {
-          type: "upload",
-          name: "icon",
-          relationTo: "files",
-          required: true,
-        },
-        {
           type: "text",
           name: "title",
           required: true,
         },
         {
-          type: "textarea",
+          type: "richText",
           name: "description",
           required: true,
         },
