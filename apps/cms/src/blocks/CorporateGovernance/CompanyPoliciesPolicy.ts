@@ -35,17 +35,9 @@ const CompanyPoliciesPolicy: Block = {
               required: true,
             },
             {
-              type: "array",
-              name: "description",
+              type: "richText",
+              name: "descriptionParagraph",
               required: true,
-              maxRows: 4,
-              fields: [
-                {
-                  type: "textarea",
-                  name: "descriptionParagraph",
-                  required: true,
-                },
-              ],
             },
           ],
         },

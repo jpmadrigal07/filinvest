@@ -1,7 +1,5 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
 import React from "react";
-import LinkedIn from "@/components/svg/LinkedIn";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import MainHeader from "@/components/header/MainHeader";

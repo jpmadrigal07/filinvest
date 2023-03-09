@@ -13,12 +13,12 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  const content = await getPageContent("640835c6797c67814e70e5da");
+  const content = await getPageContent("640991881e1eb35f621ef423");
   return metaBuilder(content);
 }
 
 const CompanyPoliciesPage = async () => {
-  const content = await getPageContent("640835c6797c67814e70e5da");
+  const content = await getPageContent("640991881e1eb35f621ef423");
   return (
     <>
       <Content content={content} />
