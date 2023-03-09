@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import "swiper/css";
+import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import Image from "next/image";
@@ -34,15 +34,10 @@ const CorporateSocialResponsibility = ({ content }: any) => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {[...Array(6)].map(() => (
-            <SwiperSlide>
+          {[...Array(6)].map((item, index) => (
+            <SwiperSlide key={index}>
               <section className="flex flex-col items-center">
                 <div className="mx-6 flex flex-col gap-16 pt-36 lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
-                  <div className="flex-1 px-4 text-center md:px-0 md:text-left lg:h-[290px] lg:w-1/4">
-                    <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
-                      test
-                    </h4>
-                  </div>
                   <div className="flex flex-col gap-12 xl:gap-20">
                     <div className="flex flex-1 flex-col gap-9 xl:flex-row">
                       <div className="flex items-center gap-6 md:min-w-[450px] md:gap-9">

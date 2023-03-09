@@ -1,8 +1,9 @@
 "use client";
+
 import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 
@@ -21,27 +22,49 @@ const Gallery = ({ content }: any) => {
       </h2>
       <p className="text-dim-gray mt-4 text-center">{data.descriptions}</p>
       <div>
-        <Swiper
-          slidesPerView={5}
-          centeredSlides={true}
-          freeMode={true}
-          loop={true}
-          pagination={true}
-          modules={[Pagination, FreeMode]}
-          className="mySwiper mt-12"
-        >
-          {/* {data.image.map((item: any, index: number) => (
-          <SwiperSlide key={index} className="h-[567px]">
-            <Image
-              src={`${item.image.url}`}
-              width={329}
-              height={567}
-              alt={item.image.alt}
-              className="h-full"
-            />
-          </SwiperSlide>
-        ))} */}
-        </Swiper>
+        {!!data && (
+          <Swiper
+            slidesPerView="auto"
+            breakpoints={
+              {
+                // when window width is >= 320px
+                320: {
+                  slidesPerView: 2,
+                },
+                // when window width is >= 640px
+                640: {
+                  slidesPerView: 3,
+                },
+                // when window width is >= 768px
+                768: {
+                  slidesPerView: 4,
+                },
+                // when window width is >= 1024px
+                1024: {
+                  slidesPerView: 5,
+                },
+              } as any
+            }
+            centeredSlides={true}
+            freeMode={true}
+            loop={true}
+            pagination={true}
+            modules={[Pagination, FreeMode]}
+            className="mt-12"
+          >
+            {data.image.map((item: any, index: number) => (
+              <SwiperSlide className="flex h-[569px] w-[329px]" key={index}>
+                <Image
+                  src={`${item.image.url}`}
+                  width={329}
+                  height={569}
+                  alt={item.image.alt}
+                  className={"h-[569px] w-[329px] object-cover "}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </div>
     </div>
   );
