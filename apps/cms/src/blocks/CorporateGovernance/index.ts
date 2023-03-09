@@ -5,7 +5,6 @@ import CorporateSocialResponsibilityTitleText from "./CorporateSocialResponsibil
 import CorporateSocialResponsibilityEnvironmentalPreservation from "./CorporateSocialResponsibilityEnvironmentalPreservation";
 import CorporateSocialResponsibilityPrograms from "./CorporateSocialResponsibilityPrograms";
 import CompanyPoliciesPolicy from "./CompanyPoliciesPolicy";
-import CompanyPoliciesTitle from "./CompanyPoliciesTitle";
 import BoardCommitteesTitleYear from "./BoardCommitteesTitleYear";
 import BoardCommitteesSeniorManagementOfficers from "./BoardCommitteesSeniorManagementOfficers";
 import BoardCommitteesBoardCommittees from "./BoardCommitteesBoardCommittees";
@@ -21,7 +20,6 @@ export {
   CorporateSocialResponsibilityEnvironmentalPreservation,
   CorporateSocialResponsibilityPrograms,
   CompanyPoliciesPolicy,
-  CompanyPoliciesTitle,
   BoardCommitteesTitleYear,
   BoardCommitteesSeniorManagementOfficers,
   BoardCommitteesBoardCommittees,
