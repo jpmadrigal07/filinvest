@@ -5,26 +5,23 @@ const EnterpriseRiskManagementTable: Block = {
   fields: [
     {
       type: "array",
-      name: "tableHeader",
+      name: "riskManagementTable",
       required: true,
-      maxRows: 1,
       fields: [
         {
-          type: "text",
-          name: "header",
+          type: "textarea",
+          name: "riskExposure",
           required: true,
         },
         {
-          type: "array",
-          name: "tableData",
+          type: "textarea",
+          name: "riskManagementPolicy",
           required: true,
-          fields: [
-            {
-              type: "textarea",
-              name: "data",
-              required: true,
-            },
-          ],
+        },
+        {
+          type: "textarea",
+          name: "riskObjective",
+          required: true,
         },
       ],
     },
