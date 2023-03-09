@@ -10,9 +10,9 @@ import ChevronCircleLeft from "../../svg/ChevronCircleLeft";
 import ChevronCircleRight from "../../svg/ChevronCircleRight";
 
 const CorporateSocialResponsibility = ({ content }: any) => {
-  const data = content?.content.find(
+  const data = content?.content?.find(
     (item: any) =>
-      item.blockType === "pusong-filinvest-corporate-social-responsibility"
+      item?.blockType === "pusong-filinvest-corporate-social-responsibility"
   );
   const swiperRef = useRef(null);
   return (
@@ -99,57 +99,6 @@ const CorporateSocialResponsibility = ({ content }: any) => {
             </button>
           </div>
         </div>
-
-        {/* <div>
-          <Swiper
-            slidesPerView={1}
-            centeredSlides={true}
-            loop={true}
-            pagination={true}
-            modules={[Pagination]}
-            className=""
-          >
-            {data.corporateSocialResponsibility.map(
-              (item: any, index: number) => (
-                <SwiperSlide key={index}>
-                  <div className="flex flex-col">
-                    <h3 className="text-dark-cornflower-blue text-2xl font-bold">
-                      {item.title}
-                    </h3>
-                    <h2 className="mt-4 text-6xl font-bold">{item.subTitle}</h2>
-                    {item.descriptionParagraphs.map(
-                      (item: any, index: number) => (
-                        <p className="text-dim-gray mt-4 text-xl" key={index}>
-                          {item.paragraph}
-                        </p>
-                      )
-                    )}
-                  </div>
-                </SwiperSlide>
-              )
-            )}
-          </Swiper>
-        </div> */}
-
-        {/* <div className="flex-1">
-          <Image
-            src={`${data.image.url}`}
-            width={1682}
-            height={1288}
-            alt="Picture of the author"
-          />
-        </div>
-        <div className="flex-1">
-          <h3 className="text-dark-cornflower-blue text-2xl font-bold">
-            {data.title}
-          </h3>
-          <h2 className="mt-4 text-6xl font-bold">{data.subTitle}</h2>
-          {data.descriptionParagraphs.map((item: any, index: number) => (
-            <p className="text-dim-gray mt-4 text-xl" key={index}>
-              {item.paragraph}
-            </p>
-          ))}
-        </div> */}
       </div>
     </div>
   );

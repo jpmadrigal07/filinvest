@@ -1,27 +1,21 @@
 import { Block } from "payload/types";
 
-const CompanyPoliciesPolicy: Block = {
-  slug: "company-policies-policy",
+const BoardCommitteesCharter: Block = {
+  slug: "board-committees-charter",
   fields: [
     {
       type: "array",
-      name: "companyPolicies",
+      name: "charter",
       required: true,
-      maxRows: 4,
       fields: [
         {
           type: "text",
-          name: "title",
-        },
-        {
-          type: "text",
-          name: "subtitle",
+          name: "year",
         },
         {
           type: "array",
-          name: "policies",
+          name: "charterItem",
           required: true,
-          maxRows: 4,
           fields: [
             {
               type: "upload",
@@ -35,9 +29,8 @@ const CompanyPoliciesPolicy: Block = {
               required: true,
             },
             {
-              type: "richText",
-              name: "descriptionParagraph",
-              required: true,
+              type: "text",
+              name: "downloadLink",
             },
           ],
         },
@@ -46,4 +39,4 @@ const CompanyPoliciesPolicy: Block = {
   ],
 };
 
-export default CompanyPoliciesPolicy;
+export default BoardCommitteesCharter;

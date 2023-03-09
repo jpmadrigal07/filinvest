@@ -9,12 +9,21 @@ const CorporateSocialResponsibilityEnvironmentalPreservation: Block = {
       required: true,
     },
     {
-      name: "description",
-      type: "textarea",
+      type: "array",
+      name: "descriptionParagraphs",
       required: true,
+      maxRows: 4,
+      fields: [
+        {
+          name: "description",
+          type: "textarea",
+          required: true,
+        },
+      ],
     },
     {
       name: "readMoreLink",
+      label: "Read More Link (i.e. https://www.google.com",
       type: "text",
       required: true,
     },

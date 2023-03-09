@@ -14,13 +14,21 @@ const CorporateSocialResponsibilityPrograms: Block = {
       required: true,
     },
     {
-      name: "description",
-      type: "textarea",
+      type: "array",
+      name: "descriptionParagraphs",
       required: true,
+      maxRows: 4,
+      fields: [
+        {
+          name: "description",
+          type: "textarea",
+          required: true,
+        },
+      ],
     },
     {
       type: "array",
-      name: "images",
+      name: "gallery",
       required: true,
       maxRows: 4,
       fields: [

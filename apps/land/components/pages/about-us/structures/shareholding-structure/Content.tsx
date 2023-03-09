@@ -1,12 +1,11 @@
 import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
-import Download from "@/components/svg/Download";
 import React from "react";
 import Table from "./Table";
 import MainHeader from "@/components/header/MainHeader";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import Link from "next/link";
-
+import PDFIcon from "@/components/svg/PDFIcon";
 const Content = ({ content }: any) => {
   const header = content?.content.find(
     (item: any) => item.blockType === "header"
@@ -105,9 +104,9 @@ const Content = ({ content }: any) => {
           <Link
             href={downloadLink}
             target="_blank"
-            className="bg-royal-dark-blue border-sonic-silver hover:bg-oxford-blue flex gap-4 border px-12 py-6 text-white focus:shadow-lg"
+            className="border-sonic-silver hover:bg-oxford-blue flex items-center gap-4 border bg-[#163E82] px-12 py-6 text-white focus:shadow-lg"
           >
-            <Download color="#ffffff" />
+            <PDFIcon />
             <span>FDC Shareholding Structure</span>
           </Link>
         </div>

@@ -5,11 +5,12 @@ import CorporateSocialResponsibilityTitleText from "./CorporateSocialResponsibil
 import CorporateSocialResponsibilityEnvironmentalPreservation from "./CorporateSocialResponsibilityEnvironmentalPreservation";
 import CorporateSocialResponsibilityPrograms from "./CorporateSocialResponsibilityPrograms";
 import CompanyPoliciesPolicy from "./CompanyPoliciesPolicy";
-import CompanyPoliciesTitle from "./CompanyPoliciesTitle";
-import BoardCommitteesTabs from "./BoardCommitteesTabs";
 import BoardCommitteesTitleYear from "./BoardCommitteesTitleYear";
-import BoardCommitteesTable from "./BoardCommitteesTable";
+import BoardCommitteesSeniorManagementOfficers from "./BoardCommitteesSeniorManagementOfficers";
+import BoardCommitteesBoardCommittees from "./BoardCommitteesBoardCommittees";
+import BoardCommitteesKeyOfficers from "./BoardCommitteesKeyOfficers";
 import EnterpriseRiskManagementTable from "./EnterpriseRiskManagementTable";
+import BoardCommitteesCharter from "./BoardCommitteesCharter";
 
 export {
   ManualCorporateGovernance,
@@ -19,9 +20,10 @@ export {
   CorporateSocialResponsibilityEnvironmentalPreservation,
   CorporateSocialResponsibilityPrograms,
   CompanyPoliciesPolicy,
-  CompanyPoliciesTitle,
-  BoardCommitteesTabs,
   BoardCommitteesTitleYear,
-  BoardCommitteesTable,
+  BoardCommitteesSeniorManagementOfficers,
+  BoardCommitteesBoardCommittees,
+  BoardCommitteesKeyOfficers,
+  BoardCommitteesCharter,
   EnterpriseRiskManagementTable,
 };

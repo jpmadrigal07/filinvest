@@ -5,9 +5,9 @@ export default function Button360() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="250"
-      height="250"
-      viewBox="0 0 250 250"
+      width="200"
+      height="200"
+      viewBox="0 0 196 198"
     >
       <defs>
         <filter

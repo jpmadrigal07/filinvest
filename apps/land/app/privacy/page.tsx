@@ -21,5 +21,6 @@ const PrivacyPage = async () => {
   const content = await getPageContent("64059918a5ee128a26e97e5b");
   return <Content content={content} />;
 };
+// Comment
 
 export default PrivacyPage;
