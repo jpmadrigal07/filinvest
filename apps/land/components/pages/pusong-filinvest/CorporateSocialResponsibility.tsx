@@ -41,7 +41,7 @@ const CorporateSocialResponsibility = ({ content }: any) => {
               }
               className="mySwiper relative"
             >
-              {data?.corporateSocialResponsibility.map(
+              {data?.corporateSocialResponsibility?.map(
                 (item: any, index: number) => (
                   <SwiperSlide
                     className="flex flex-col items-center justify-center gap-5  md:gap-8 lg:flex-row lg:gap-10"
@@ -49,26 +49,26 @@ const CorporateSocialResponsibility = ({ content }: any) => {
                   >
                     <div className="lg:w-2/4">
                       <Image
-                        src={`${item.image.url}`}
+                        src={`${item.image.url ? item.image.url : ""}`}
                         width={841}
                         height={644}
-                        alt={item.image.alt}
+                        alt={item.image.alt ? item.image.alt : ""}
                       />
                     </div>
                     <div className="flex flex-col lg:w-2/4">
                       <h3 className="text-dark-cornflower-blue text-base font-bold md:text-xl lg:text-2xl">
-                        {item.title}
+                        {item?.title}
                       </h3>
                       <h2 className="mt-4 text-2xl font-bold md:text-4xl lg:text-6xl">
-                        {item.subTitle}
+                        {item?.subTitle}
                       </h2>
-                      {item.descriptionParagraphs.map(
+                      {item?.descriptionParagraphs?.map(
                         (item: any, index: number) => (
                           <p
                             className="text-dim-gray mt-4 text-base lg:text-xl"
                             key={index}
                           >
-                            {item.paragraph}
+                            {item?.paragraph}
                           </p>
                         )
                       )}

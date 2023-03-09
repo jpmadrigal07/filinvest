@@ -8,20 +8,20 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 
 const Gallery = ({ content }: any) => {
-  const data = content?.content.find(
-    (item: any) => item.blockType === "pusong-filinvest-gallery"
+  const data = content?.content?.find(
+    (item: any) => item?.blockType === "pusong-filinvest-gallery"
   );
   // console.log(data);
   return (
     <div className="my-16 lg:my-24">
       <h3 className="text-dark-cornflower-blue text-center text-lg font-bold lg:text-xl">
-        {data.title}
+        {data?.title}
       </h3>
       <h2 className="mx-6 mt-4 text-center text-3xl font-bold lg:text-5xl">
-        {data.subTitle}
+        {data?.subTitle}
       </h2>
       <p className="text-dim-gray mt-4 text-center text-xl lg:text-2xl">
-        {data.description}
+        {data?.description}
       </p>
       <div>
         {!!data && (
@@ -57,16 +57,16 @@ const Gallery = ({ content }: any) => {
             modules={[Pagination, FreeMode]}
             className="mt-8 h-[650px] min-w-[100%]"
           >
-            {data.image.map((item: any, index: number) => (
+            {data?.image?.map((item: any, index: number) => (
               <SwiperSlide
                 className="flex h-[400px] w-[329px] md:h-[569px]"
                 key={index}
               >
                 <Image
-                  src={`${item.image.url}`}
+                  src={`${item.image.url ? item.image.url : ""}`}
                   width={329}
                   height={569}
-                  alt={item.image.alt}
+                  alt={item.image.alt ? item.image.alt : ""}
                   className={"h-[569px] w-[329px] object-cover "}
                 />
               </SwiperSlide>
