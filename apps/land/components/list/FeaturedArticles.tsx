@@ -83,7 +83,7 @@ const FeaturedArticles = ({
                 className="opacity-100 transition duration-150 hover:opacity-70"
               />
               <h2
-                className={`text-jet mt-6 text-2xl font-bold ${
+                className={`text-jet mt-6 text-3xl font-bold ${
                   isTwoLines
                     ? "max-h-[80px] overflow-hidden text-ellipsis"
                     : "truncate"
