@@ -4,8 +4,16 @@ const BoardCommitteesTitleYear: Block = {
   slug: "board-committees-title-and-year",
   fields: [
     {
-      type: "text",
-      name: "title",
+      type: "array",
+      name: "titleLine",
+      required: true,
+      fields: [
+        {
+          type: "text",
+          name: "line",
+          required: true,
+        },
+      ],
     },
     {
       type: "text",

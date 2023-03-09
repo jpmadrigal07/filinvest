@@ -1,17 +1,24 @@
-import MainHeader from "@/components/header/MainHeader";
-import { HEADER_INFO } from "@/components/pages/investor-relations/corporate-governance/constants";
 import Content from "@/components/pages/investor-relations/corporate-governance/company-policies/Content";
-import { getPageContent } from "../../../page";
 import { metaBuilder } from "@/helpers/metaBuilder";
+import { CACHE_REVALIDATE } from "@/helpers/constants";
 
-const COMPANY_POLICIES_PAGE_ID = "640835c6797c67814e70e5da";
+async function getPageContent(id: string) {
+  const res = await fetch(`${process.env.CMS_URL}/api/pages/${id}`, {
+    next: { revalidate: CACHE_REVALIDATE },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+const COMPANY_POLICIES_PAGE_ID = "640991881e1eb35f621ef423";
 export async function generateMetadata() {
   const content = await getPageContent(COMPANY_POLICIES_PAGE_ID);
   return metaBuilder(content);
 }
 
 const CompanyPoliciesPage = async () => {
-  console.log("???");
   const content = await getPageContent(COMPANY_POLICIES_PAGE_ID);
   return <Content content={content} />;
 };
