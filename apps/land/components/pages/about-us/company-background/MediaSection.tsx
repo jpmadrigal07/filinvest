@@ -1,6 +1,6 @@
 import React from "react";
 
-const MediaSection = ({ content }: any) => {
+const MediaSection = () => {
   return (
     <div className="m-0 h-[740px] w-full md:mx-auto lg:-mt-36 lg:w-[85%]">
       <iframe
