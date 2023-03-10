@@ -165,12 +165,14 @@ const FeaturedArticles = ({
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
-          // className="max-h-[500px]"
         >
           {updatedArticle.map((article: any, index: any) => {
             return (
               <SwiperSlide key={index}>
-                <Link href={`/article/${article.slug}`}>
+                <Link
+                  href={`/article/${article.slug}`}
+                  className="text-center md:text-left"
+                >
                   <Image
                     src={article.coverImage.url}
                     width={1364}
@@ -178,7 +180,7 @@ const FeaturedArticles = ({
                     alt={article.coverImage.alt}
                     className={sliderImageClassName}
                   />
-                  <h2 className="text-jet mt-6 text-xl font-black tracking-tighter md:text-2xl">
+                  <h2 className="text-jet mt-6 text-4xl font-black tracking-tighter md:text-2xl">
                     {article.title}
                   </h2>
                   {withExtras && (
@@ -186,7 +188,7 @@ const FeaturedArticles = ({
                       Posted by Admin on April 22, 2022
                     </h4>
                   )}
-                  <h4 className="text-dim-gray mt-4 text-lg tracking-tight lg:text-xl">
+                  <h4 className="text-dim-gray line-clamp-5 mt-4 text-2xl tracking-tight lg:text-xl">
                     {article.content[0].children[0].text}
                   </h4>
                   {withExtras && (
