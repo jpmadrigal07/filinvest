@@ -77,7 +77,7 @@ const FeaturedArticles = ({
             >
               <Image
                 src={article.coverImage.url}
-                width={1364}
+                width={1280}
                 height={663}
                 alt={article.coverImage.alt}
                 className="opacity-100 transition duration-150 hover:opacity-70"
@@ -103,7 +103,7 @@ const FeaturedArticles = ({
 
               {withExtras && (
                 <h4
-                  className={`text-dim-gray text-sm opacity-70 ${
+                  className={`text-dim-gray mt-3 mb-4  text-sm opacity-70 ${
                     isTwoLines && "mt-4"
                   }`}
                 >
@@ -142,6 +142,7 @@ const FeaturedArticles = ({
                     buttonText="Read More"
                     textColor="dark-cornflower-blue"
                     borderColor="dark-cornflower-blue"
+                    isAlt
                   />
                 </div>
               )}
@@ -194,6 +195,7 @@ const FeaturedArticles = ({
                         buttonText="Read More"
                         textColor="dark-cornflower-blue"
                         borderColor="dark-cornflower-blue"
+                        isAlt
                       />
                     </div>
                   )}
