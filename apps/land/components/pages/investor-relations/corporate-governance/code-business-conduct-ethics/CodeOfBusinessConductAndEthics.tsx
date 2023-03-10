@@ -7,8 +7,8 @@ const CodeOfBusinessConductAndEthics = ({ content }: any) => {
     (item: any) => item.blockType === "code-of-business-conduct-and-ethics"
   );
   return (
-    <section className="-mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
-      <div className="grid grid-cols-3 gap-12">
+    <section className="-mt-16 flex flex-col gap-9 md:mb-28 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
+      <div className="flex grid-cols-3 flex-col gap-12 px-6 md:grid md:p-0">
         {data.codeOfBusinessConductAndEthics.map((item: any, index: number) => (
           <div
             key={index}
