@@ -103,14 +103,14 @@ const MainHeader = ({
             />
           </div>
           <div
-            className="block w-full bg-cover bg-center bg-no-repeat xl:hidden"
+            className="block w-full bg-cover bg-center bg-no-repeat py-28 xl:hidden"
             style={{
               backgroundImage: `url(${otherUrl ? otherUrl : bgUrlUpdated})`,
             }}
           >
             <div
               className={`flex flex-col items-center justify-center md:mt-0 ${
-                tabs ? " py-28" : "mt-16  py-32 "
+                tabs ? " py-28" : "mt-16  "
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1
