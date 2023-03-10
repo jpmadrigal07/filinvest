@@ -7,12 +7,14 @@ const TitleYear = ({ content }: any) => {
   return (
     <div>
       {data.titleLine.map((item: any) => (
-        <h2 className="text-jet text-4xl font-bold">
+        <h2 className="text-jet text-2xl font-bold md:text-3xl lg:text-4xl">
           {item.line}
           <br />
         </h2>
       ))}
-      <h4 className="text-jet mt-6 text-2xl font-bold">For {data.year}</h4>
+      <h4 className="text-jet mt-2 text-base font-bold md:text-xl lg:mt-5 lg:text-2xl">
+        For {data.year}
+      </h4>
     </div>
   );
 };

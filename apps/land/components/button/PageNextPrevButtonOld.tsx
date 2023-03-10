@@ -30,7 +30,7 @@ const PageNextPrevButtonOld = ({
         <p className="text-jet text-sm font-bold">
           {isLeft ? "Previous" : "Next"}
         </p>
-        <h3 className="text-jet text-2xl font-bold">{pageName}</h3>
+        <h3 className="text-jet text-xl font-bold lg:text-2xl">{pageName}</h3>
       </div>
       {isLeft ? <ArrowLeft color="#000000" /> : <ArrowRight color="#000000" />}
     </div>

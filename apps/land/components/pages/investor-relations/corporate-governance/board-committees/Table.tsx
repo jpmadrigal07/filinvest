@@ -9,31 +9,31 @@ const Table = ({
 }) => {
   return (
     <div className="mt-4 flex flex-col">
-      <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-          <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5">
-            <table className="min-w-full divide-y divide-gray-300">
+      <div className="">
+        <div className="inline-block min-w-full align-middle">
+          <div className="ring-jet shadow ring-1">
+            <table className="divide-jet min-w-full divide-y lg:min-w-full">
               <thead className="bg-dark-cornflower-blue">
-                <tr className="divide-x divide-gray-200 text-center">
+                <tr className="divide-x divide-white text-center">
                   {header.map((header, index) => (
                     <th
                       key={index}
                       scope="col"
-                      className="py-3.5 pl-4 pr-4 text-left text-lg font-semibold text-white sm:pl-6"
+                      className="py-3.5 pl-2 pr-2 text-left text-lg font-bold text-white sm:pl-4"
                     >
                       {header}
                     </th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-white">
+              <tbody className="divide-jet divide-y bg-white text-sm sm:text-base">
                 {rows.map((row, index) => (
-                  <tr key={index} className="divide-x divide-gray-200">
+                  <tr key={index} className="divide-jet divide-x">
                     {row.map((item, rowIndex) => {
                       return (
                         <td
                           key={rowIndex}
-                          className="whitespace-nowrap py-4 pl-4 pr-4 font-medium text-gray-900 sm:pl-6"
+                          className="py-4 px-2 font-medium text-black sm:pl-6 lg:pl-4 lg:pr-4"
                         >
                           {item}
                         </td>
