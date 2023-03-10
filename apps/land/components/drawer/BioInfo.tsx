@@ -44,7 +44,7 @@ export default function BioInfo({
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="relative flex w-full flex-1 flex-col bg-white">
+                <Dialog.Panel className="relative mb-[0.8rem] flex w-full flex-1 flex-col bg-white">
                   <div className="flex justify-end px-8 pt-6 lg:px-16">
                     <p
                       className="text-dark-cornflower-blue p-3 text-3xl hover:cursor-pointer focus:cursor-pointer"
