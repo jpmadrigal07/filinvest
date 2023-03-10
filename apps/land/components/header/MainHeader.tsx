@@ -110,7 +110,7 @@ const MainHeader = ({
           >
             <div
               className={`flex flex-col items-center justify-center md:mt-0 ${
-                tabs ? " py-28" : "mt-16  py-32 "
+                tabs ? " py-28" : "py-32 "
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1
