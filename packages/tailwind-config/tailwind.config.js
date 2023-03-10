@@ -38,6 +38,7 @@ module.exports = {
         "alice-blue": "#E1E6EF",
         cultured: "#f6f6f6",
         "permanent-geranium-lake": "#E02826",
+        report: "#434343",
       },
     },
   },

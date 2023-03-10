@@ -9,7 +9,7 @@ type ItemProps = {
 
 const Breadcrumbs = ({ items }: { items: ItemProps[] }) => {
   return (
-    <div className="text-sm text-white">
+    <div className="mx-5 text-sm text-white">
       {items?.map((item, index) => {
         if (item.link) {
           return (
