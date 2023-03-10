@@ -45,7 +45,9 @@ const MainHeader = ({
                   {title}
                 </h1>
                 {breadcrumbs && (
-                  <h5 className="text-sm text-white">{breadcrumbs}</h5>
+                  <h5 className="text-center text-sm text-white">
+                    {breadcrumbs}
+                  </h5>
                 )}
                 {tabs}
               </div>
@@ -79,7 +81,7 @@ const MainHeader = ({
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1
-                className={`mb-2 ${
+                className={`mb-2 text-center ${
                   tabs ? "mt-4 text-2xl" : "-mt-4 text-3xl"
                 }  font-extrabold text-white md:mt-0 lg:mb-4 lg:text-6xl`}
               >
@@ -103,18 +105,18 @@ const MainHeader = ({
             />
           </div>
           <div
-            className="block w-full bg-cover bg-center bg-no-repeat xl:hidden"
+            className="block w-full bg-cover bg-center bg-no-repeat py-28 xl:hidden"
             style={{
               backgroundImage: `url(${otherUrl ? otherUrl : bgUrlUpdated})`,
             }}
           >
             <div
               className={`flex flex-col items-center justify-center md:mt-0 ${
-                tabs ? " py-28" : "py-32 "
+                tabs ? " py-28" : "mt-16  "
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1
-                className={`mb-2 ${
+                className={`mb-2 text-center ${
                   tabs ? "mt-4 text-2xl" : "-mt-4 text-3xl"
                 }  font-extrabold text-white md:mt-0 lg:mb-4 lg:text-6xl`}
               >
