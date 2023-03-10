@@ -29,6 +29,11 @@ const AnnualCorporateGovernanceAndReport: Block = {
               name: "report",
               required: true,
             },
+            {
+              type: "text",
+              name: "report_link",
+              required: true,
+            },
           ],
         },
       ],
