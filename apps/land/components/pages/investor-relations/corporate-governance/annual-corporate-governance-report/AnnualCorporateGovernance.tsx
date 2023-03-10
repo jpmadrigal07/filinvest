@@ -27,7 +27,7 @@ const AnnualCorporateGovernance = ({ content }: any) => {
               {item?.year}
             </h3>
             <div className="text-report text-base underline lg:text-lg">
-              {item.reportBullets.map((bullet: any, i: number) => (
+              {item?.reportBullets.map((bullet: any, i: number) => (
                 <div key={i} className="mt-2">
                   <div className="relative flex">
                     <div className="bg-dark-cornflower-blue absolute top-0 right-0 bottom-0 left-0 mt-2 h-2 w-2 rotate-45" />
