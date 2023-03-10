@@ -19,7 +19,10 @@ const PresentationCard = ({
     <div>
       <Image src={imageSrc} width={1014} height={794} alt={imageAlt} />
       <div className="bg-dark-cornflower-blue flex h-[85px] items-center gap-4 pl-[30px] pr-6">
-        <p className="flex-1 text-base font-bold text-white md:text-base lg:text-lg xl:text-xl">
+        <p
+          title={cardTitle}
+          className="line-clamp-3 flex-1 text-base font-bold text-white md:text-base lg:text-lg xl:text-xl"
+        >
           {cardTitle}
         </p>
         <ArrowRight />
@@ -27,6 +30,7 @@ const PresentationCard = ({
     </div>
   );
 };
+
 const Content = ({ content }: any) => {
   const header = content?.content.find(
     (item: any) => item.blockType === "header"
