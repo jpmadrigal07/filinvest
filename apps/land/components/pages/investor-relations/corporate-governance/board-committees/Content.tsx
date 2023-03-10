@@ -37,14 +37,14 @@ const Content = ({ content }: any) => {
         bgUrlSmall={header.smallCoverImage.url}
         tabs={tabs}
       />
-      <section className="mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
-        <div className="flex gap-12">
-          <div className="w-1/4 flex-none">
-            <div className="divide-gainsboro divide-y bg-white py-4 px-9 shadow-xl">
+      <section className="mx-6 mb-16 flex flex-col gap-5 lg:mx-9 lg:mt-16 lg:mb-28 lg:gap-9 xl:mx-16 2xl:mx-44">
+        <div className="gap-12 lg:flex">
+          <div className="mb-5 lg:mb-0 lg:w-1/4 lg:flex-none">
+            <div className="divide-gainsboro flex flex-row bg-white lg:flex-col lg:divide-y lg:py-4 lg:px-9 lg:shadow-xl">
               <h4
                 className={`pb-5 pt-5 text-lg font-bold ${
                   currentTab === "member" && "text-dark-cornflower-blue"
-                } hover:cursor-pointer focus:cursor-pointer`}
+                } hover:cursor-pointer hover:border-b-2 focus:cursor-pointer focus:border-b`}
                 onClick={() => setCurrentTab("member")}
               >
                 Committees And Members
@@ -52,7 +52,7 @@ const Content = ({ content }: any) => {
               <h4
                 className={`pt-5 pb-3 text-lg font-bold ${
                   currentTab === "charter" && "text-dark-cornflower-blue"
-                } hover:cursor-pointer focus:cursor-pointer`}
+                } hover:cursor-pointer hover:border-b-2 focus:cursor-pointer focus:border-b`}
                 onClick={() => setCurrentTab("charter")}
               >
                 Board Committee Charters
@@ -65,7 +65,7 @@ const Content = ({ content }: any) => {
             <Charters content={content} />
           )}
         </div>
-        <div className="mt-32 flex">
+        <div className="mt-20 flex flex-col sm:flex-row lg:mt-32 ">
           <div className="flex-none">
             <PageNextPrevButton
               imgName="investor-relations-program-next-prev.png"
