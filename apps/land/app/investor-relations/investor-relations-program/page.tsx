@@ -1,26 +1,18 @@
-import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/investor-relations/investor-relations-program/Content";
-import { HEADER_INFO } from "@/components/pages/investor-relations/constants";
+import { getPageContent } from "../../page";
+import { metaBuilder } from "@/helpers/metaBuilder";
 
+const INVESTOR_RELATIONS_PROGRAM_PAGE_ID = "640be8732aff53ceb80cfebd";
 export async function generateMetadata() {
-  return {
-    title: "Investor Relations Program",
-    description: "Investor Relations Program",
-  };
+  const content = await getPageContent(INVESTOR_RELATIONS_PROGRAM_PAGE_ID);
+  return metaBuilder(content);
 }
 
-const InvestorRelationsProgramPage = () => {
-  const { title, breadcrumbs, image, imageSmall } =
-    HEADER_INFO.investorRelationsProgram;
+const InvestorRelationsProgramPage = async () => {
+  const content = await getPageContent(INVESTOR_RELATIONS_PROGRAM_PAGE_ID);
   return (
     <div className="sketch-bg">
-      <MainHeader
-        title={title}
-        breadcrumbs={breadcrumbs}
-        bgUrl={image}
-        bgUrlSmall={imageSmall}
-      />
-      <Content />
+      <Content content={content} />
     </div>
   );
 };
