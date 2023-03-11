@@ -156,10 +156,10 @@ mainLocation of Batangas. */
           return subLoc.title;
         });
 
-    console.log(settings);
+    setFilteredSublocations(settings);
   }, [subLocationSettings]);
 
-  console.log({ locationSettings, subLocation });
+  console.log({ subLocationSettings });
 
   return (
     <>
@@ -245,7 +245,7 @@ mainLocation of Batangas. */
               <div className="w-full flex-1">
                 <h3 className="text-white">Sub-Location</h3>
                 <MainDropdown
-                  values={subLocationSettings}
+                  values={filteredSublocations}
                   defaultValue={subLocation}
                   onValueChange={setSubLocation}
                 />
@@ -338,7 +338,7 @@ mainLocation of Batangas. */
               <div className="w-full flex-1">
                 <h3 className="text-white">Sub-Location</h3>
                 <MainDropdown
-                  values={subLocationSettings}
+                  values={filteredSublocations}
                   defaultValue={subLocation}
                   onValueChange={setSubLocation}
                 />

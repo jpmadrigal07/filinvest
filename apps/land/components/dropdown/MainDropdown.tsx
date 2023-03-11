@@ -28,6 +28,8 @@ const MainDropdown = ({
     }
   }, [defaultValue]);
 
+  console.log(values);
+
   const renderOptions = (optionsValues: any) => {
     if (!Array.isArray(optionsValues)) {
       let options: ReactNode[] = [];
