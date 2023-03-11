@@ -26,8 +26,8 @@ export default function InvestorRelationsSlider({ content }: any) {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {[...Array(6)].map(() => (
-          <SwiperSlide>
+        {[...Array(6)].map((item) => (
+          <SwiperSlide key={item}>
             <section className="flex flex-col items-center">
               <div className="mx-6 flex flex-col gap-16 pt-36 pb-[1.5rem] lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44">
                 <div className="h-[100%] flex-1 px-4 text-center md:px-0 md:text-left lg:w-1/4">

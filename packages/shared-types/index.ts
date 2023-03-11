@@ -388,6 +388,18 @@ export interface BedroomRangeSettings {
   id?: string;
 }
 export interface SubLocationSettings {
+  location: [
+    {
+      location: {
+        reference: {
+          value: {
+            title: string;
+            subLocation: [{ title: string }];
+          };
+        };
+      };
+    }
+  ];
   subLocation: {
     reference: {
       value: SubLocationCategory;

@@ -133,6 +133,34 @@ const PropertySearch = ({
   }, [searchParams,]); */
   //
 
+  // const subLocationData = Object.values(subLocationSettings).map((subLoc) => {
+  //   return Object.values(subLoc).filter(
+  //     (mainLocation) => mainLocation === "Batangas"
+  //   );
+  // });
+
+  const [filteredSublocations, setFilteredSublocations] = useState<any>([]);
+  useEffect(() => {
+    /* Filtering the subLocationSettings array of objects to get the subLocationSettings that has the
+mainLocation of Batangas. */
+    const settings =
+      !!subLocationSettings.length &&
+      subLocationSettings
+        ?.map((location: any) => {
+          return location.filter((subLoc: any) => {
+            return subLoc.mainLocation === "Batangas";
+          });
+        })
+        .filter((items: any) => items.length > 0)[0][0]
+        .subLocations.map((subLoc: any) => {
+          return subLoc.title;
+        });
+
+    console.log(settings);
+  }, [subLocationSettings]);
+
+  console.log({ locationSettings, subLocation });
+
   return (
     <>
       {/* Large Screen */}

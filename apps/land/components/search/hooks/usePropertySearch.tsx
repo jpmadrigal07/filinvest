@@ -222,7 +222,7 @@ function usePropertySearch() {
       ? flattenBedroomRange(inputSettings.bedroomRange)
       : [],
     subLocationSettings: inputSettings
-      ? flattenSubLocations(inputSettings.subLocations)
+      ? flattenSubLocations(inputSettings.locations)
       : {},
     unitSizeSettings: inputSettings
       ? flattenUnitSizes(inputSettings.unitSizes)
