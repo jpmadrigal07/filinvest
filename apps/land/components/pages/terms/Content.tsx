@@ -15,6 +15,7 @@ const Content = ({ content }: any) => {
         title={header.title}
         bgUrl={header.coverImage.url}
         bgUrlSmall={header.smallCoverImage.url}
+        isBlueHeader
       />
       <section className="mx-3 mt-16 mb-28 flex flex-col gap-6 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
         <h2 className="text-jet text-4xl font-bold">{richText.title}</h2>

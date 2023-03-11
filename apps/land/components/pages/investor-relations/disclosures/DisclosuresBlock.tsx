@@ -94,8 +94,8 @@ export default function DisclosuresBlock({ content }: any) {
   }, []);
 
   return (
-    <section className="z-[999] -mt-24 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-32">
-      <div className="bg-dark-cornflower-blue z-10 mx-16 flex items-center gap-8 px-10 py-6">
+    <section className="z-[999] mx-6 -mt-24 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-32">
+      <div className="bg-dark-cornflower-blue z-10 flex flex-col items-center gap-8 px-10 py-6 md:mx-10 lg:mx-16 lg:flex-row">
         <div className="w-full flex-1">
           <h3 className="text-white">Disclosures</h3>
           <MainDropdown
@@ -112,14 +112,14 @@ export default function DisclosuresBlock({ content }: any) {
             onValueChange={setYearFilter}
           />
         </div>
-        <div className="flex-none">
+        <div className="w-auto flex-none md:w-72 lg:w-auto">
           <button
             onClick={() => {
               handleSearch();
             }}
-            className="hover:bg-platinum focus:bg-platinum delay-50 bg-white py-5 px-8 transition"
+            className="hover:bg-platinum focus:bg-platinum delay-50 w-full bg-white py-5 px-8 transition"
           >
-            <div className="text-dark-cornflower-blue flex items-center gap-2 font-bold">
+            <div className="text-dark-cornflower-blue flex items-center gap-2 text-center font-bold">
               <Search /> Search
             </div>
           </button>
