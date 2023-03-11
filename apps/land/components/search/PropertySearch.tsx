@@ -1,11 +1,5 @@
 "use client";
-import React, {
-  Dispatch,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { Dispatch, useEffect, useMemo, useState } from "react";
 import Search from "@/components/svg/Search";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
@@ -140,11 +134,10 @@ const PropertySearch = ({
   //
 
   const filteredSublocations = useMemo(() => {
-    console.log("called");
     if (subLocationSettings.length) {
       const settings = subLocationSettings
-        ?.map((location: any) => {
-          return location.filter((subLoc: any) => {
+        ?.map((loc: any) => {
+          return loc.filter((subLoc: any) => {
             return subLoc.mainLocation === location;
           });
         })
@@ -152,10 +145,11 @@ const PropertySearch = ({
 
       if (settings.length === 0) return [];
 
-      const filtered = settings[0].subLocations.map((subLoc: any) => {
+      const filtered = settings[0].subLocations?.map((subLoc: any) => {
         return subLoc.title;
       });
 
+      console.log(filtered);
       return filtered;
     }
 
