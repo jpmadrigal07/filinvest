@@ -152,7 +152,7 @@ const Content = () => {
   };
 
   return (
-    <section className="mt-24 mb-32 flex flex-col gap-16 md:flex-row lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-6 mt-20 mb-32 flex flex-col gap-16 md:flex-row lg:mx-9 lg:mt-24 xl:mx-16 2xl:mx-44">
       <div className="flex-1 p-8">
         <h2 className="text-jet text-4xl font-bold">
           Your New Home With The Right Loan
