@@ -47,3 +47,29 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+ul {
+  list-style: none;
+  margin: 2em;
+  padding: 0;
+}
+
+.diamond {
+  margin: 0 !important;
+}
+.diamond > li {
+  margin: 0 !important;
+  padding-left: 1.5em;
+  position: relative;
+}
+.diamond > li::after {
+  content: "";
+  height: 0.55em;
+  width: 0.55em;
+  background: #163e82;
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 0.25em;
+  left: 0;
+}

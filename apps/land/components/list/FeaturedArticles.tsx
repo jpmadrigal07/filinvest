@@ -1,7 +1,7 @@
-"use client";
 import Image from "next/image";
 import React, { useRef } from "react";
 import "swiper/swiper-bundle.css";
+// import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -52,7 +52,7 @@ const FeaturedArticles = ({
   const { data } = useGetNews({
     searchParams: query,
   });
-  const swiperRef = useRef();
+  const swiperRef = useRef(null);
   const updatedArticle =
     articles.length > 0 ? articles : data && data.length > 0 ? data : [];
   if (updatedArticle.length === 0)
@@ -61,6 +61,8 @@ const FeaturedArticles = ({
         No result
       </div>
     );
+  console.log("articles: ", updatedArticle);
+
   return (
     <div className={className}>
       <div
@@ -151,24 +153,27 @@ const FeaturedArticles = ({
         })}
       </div>
       <div
-        className={`relative mt-10 flex items-center justify-center ${
+        className={`relative mt-10 flex w-full items-center justify-center ${
           sliderOnMobile ? "md:hidden" : "hidden"
         }`}
       >
         <Swiper
-          slidesPerView={1}
+          slidesPerView={"auto"}
           spaceBetween={10}
           centeredSlides={true}
-          loop={true}
           onBeforeInit={(swiper) => {
             // @ts-expect-error
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
+          className="relative"
         >
-          {updatedArticle.map((article: any, index: any) => {
+          {updatedArticle?.map((article: any, index: any) => {
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide
+                key={index}
+                className="flex items-center justify-center"
+              >
                 <Link
                   href={`/article/${article.slug}`}
                   className="text-center md:text-left"
@@ -178,10 +183,10 @@ const FeaturedArticles = ({
                     width={1364}
                     height={663}
                     alt={article.coverImage.alt}
-                    className={sliderImageClassName}
+                    className={`w-full ${sliderImageClassName}`}
                   />
                   <h2 className="text-jet mt-6 text-4xl font-black tracking-tighter md:text-2xl">
-                    {article.title}
+                    {article?.title}
                   </h2>
                   {withExtras && (
                     <h4 className="text-dim-gray mt-4 text-sm">
@@ -189,7 +194,7 @@ const FeaturedArticles = ({
                     </h4>
                   )}
                   <h4 className="text-dim-gray line-clamp-5 mt-4 text-2xl tracking-tight lg:text-xl">
-                    {article.content[0].children[0].text}
+                    {article?.content[0]?.children[0].text}
                   </h4>
                   {withExtras && (
                     <div className="mt-12 mb-6">
@@ -201,7 +206,7 @@ const FeaturedArticles = ({
                       />
                     </div>
                   )}
-                </Link>
+                </Link>{" "}
               </SwiperSlide>
             );
           })}
