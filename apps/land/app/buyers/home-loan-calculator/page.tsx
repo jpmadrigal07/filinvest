@@ -9,7 +9,7 @@ export async function generateMetadata() {
   };
 }
 
-const AnnualReportsPage = () => {
+const AnnualReportsPage = async () => {
   const { title, breadcrumbs } = HEADER_INFO.contactUs;
   return (
     <>
