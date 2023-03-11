@@ -1,5 +1,5 @@
 import Content from "@/components/pages/investor-relations/corporate-governance/corporate-social-responsibility/Content";
-import { CACHE_REVALIDATE } from "@/helpers/constants";
+//import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { metaBuilder } from "@/helpers/metaBuilder";
 import { getPageContent } from "../../../page";
 
