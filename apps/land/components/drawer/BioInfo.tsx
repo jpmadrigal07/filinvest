@@ -118,7 +118,10 @@ export default function BioInfo({
                       <p className="text-dark-cornflower-blue text-xl font-bold">
                         Bio
                       </p>
-                      <p className="text-dim-gray">{information.bio}</p>
+                      <div
+                        className="text-dim-gray"
+                        dangerouslySetInnerHTML={{ __html: information?.bio }}
+                      ></div>
                       <p className="text-dark-cornflower-blue text-xl font-bold">
                         Company Info
                       </p>
