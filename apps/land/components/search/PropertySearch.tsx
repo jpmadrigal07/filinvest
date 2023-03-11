@@ -134,8 +134,10 @@ const PropertySearch = ({
   //
 
   const filteredSublocations = useMemo(() => {
-    if (subLocationSettings.length) {
+    //@ts-expect-error
+    if (subLocationSettings?.length) {
       const settings = subLocationSettings
+        //@ts-expect-error
         ?.map((loc: any) => {
           return loc.filter((subLoc: any) => {
             return subLoc.mainLocation === location;
