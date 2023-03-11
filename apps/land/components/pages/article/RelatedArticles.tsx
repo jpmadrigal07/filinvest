@@ -33,16 +33,17 @@ const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
   const { data } = useGetNews({
     searchParams: query,
   });
+  // console.log("Data: ", data);
   return (
     <>
-      <div className="mt-24 flex w-full items-center gap-8">
+      <div className="mx-6 mt-24 flex w-full items-center gap-8">
         <h3 className="text-jet flex-none text-4xl font-bold">
           Related Articles
         </h3>
         <hr className="w-full flex-1" />
       </div>
       <FeaturedArticles
-        className="mt-16 mb-24"
+        className="mb-24 mt-5 w-full lg:mt-16"
         sliderOnMobile
         articles={data ? data : []}
         withExtras={true}
