@@ -1,5 +1,11 @@
 "use client";
-import React, { Dispatch, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import Search from "@/components/svg/Search";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
@@ -133,33 +139,30 @@ const PropertySearch = ({
   }, [searchParams,]); */
   //
 
-  // const subLocationData = Object.values(subLocationSettings).map((subLoc) => {
-  //   return Object.values(subLoc).filter(
-  //     (mainLocation) => mainLocation === "Batangas"
-  //   );
-  // });
-
-  const [filteredSublocations, setFilteredSublocations] = useState<any>([]);
-  useEffect(() => {
-    /* Filtering the subLocationSettings array of objects to get the subLocationSettings that has the
-mainLocation of Batangas. */
-    const settings =
-      !!subLocationSettings.length &&
-      subLocationSettings
+  const filteredSublocations = useMemo(() => {
+    console.log("called");
+    if (subLocationSettings.length) {
+      const settings = subLocationSettings
         ?.map((location: any) => {
           return location.filter((subLoc: any) => {
-            return subLoc.mainLocation === "Batangas";
+            return subLoc.mainLocation === location;
           });
         })
-        .filter((items: any) => items.length > 0)[0][0]
-        .subLocations.map((subLoc: any) => {
-          return subLoc.title;
-        });
+        .flatMap((item: any) => item);
 
-    setFilteredSublocations(settings);
-  }, [subLocationSettings]);
+      if (settings.length === 0) return [];
 
-  console.log({ subLocationSettings });
+      const filtered = settings[0].subLocations.map((subLoc: any) => {
+        return subLoc.title;
+      });
+
+      return filtered;
+    }
+
+    return [];
+  }, [subLocationSettings, location]);
+
+  console.log({ filteredSublocations, location });
 
   return (
     <>
