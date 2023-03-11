@@ -13,12 +13,13 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
     };
   });
   return (
-    <section className="mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-6 mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div className="flex flex-col">
-        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        {/* <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8"> */}
+        <div className="-my-2 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5">
-              <table className="min-w-full divide-y divide-gray-300">
+            <div className="ring-jet overflow-hidden shadow ring-1">
+              <table className="divide-jet min-w-full divide-y">
                 <thead className="bg-dark-cornflower-blue">
                   <tr className="divide-x divide-gray-200 text-center">
                     <th
@@ -41,9 +42,9 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
+                <tbody className="divide-jet divide-y bg-white">
                   {flatRiskData.map((item: any, index: any) => (
-                    <tr key={index} className="divide-x divide-gray-200">
+                    <tr key={index} className="divide-jet divide-x">
                       <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                         {item.riskExposure}
                       </td>
@@ -61,7 +62,7 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
           </div>
         </div>
       </div>
-      <div className="mt-20 flex">
+      <div className="mt-20 flex flex-col md:flex-row md:justify-between">
         <div className="flex-none">
           <PageNextPrevButton
             imgName="investor-relations-program-next-prev.png"
