@@ -82,12 +82,18 @@ const MainHeader = ({
           <div className="absolute hidden w-full xl:block">
             <div
               className={`flex flex-col items-center justify-center md:mt-0 ${
-                tabs ? "mt-6 py-28" : "mt-16 py-32 "
+                //@ts-expect-error
+                tabs?.props?.items?.length > 0
+                  ? "mt-6 py-0 md:py-28"
+                  : "mt-16 py-32 "
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1
                 className={`mb-2 text-center ${
-                  tabs ? "mt-4 text-2xl" : "-mt-4 text-3xl"
+                  //@ts-expect-error
+                  tabs?.props?.items?.length > 0
+                    ? "mt-4 text-2xl"
+                    : "-mt-4 text-3xl"
                 }  font-extrabold text-white md:mt-0 lg:mb-4 lg:text-6xl`}
               >
                 {title}
@@ -97,7 +103,8 @@ const MainHeader = ({
                   {breadcrumbs}
                 </h5>
               )}
-              {tabs}
+              {/*@ts-expect-error*/}
+              {tabs?.props?.items?.length > 0 ? tabs : ""}
             </div>
           </div>
           <div className="z-0 hidden xl:block">
@@ -119,12 +126,16 @@ const MainHeader = ({
           >
             <div
               className={`flex flex-col items-center justify-center md:mt-0 ${
-                tabs ? " py-28" : "mt-16  "
+                //@ts-expect-error
+                tabs?.props?.items?.length > 0 ? " py-0 md:py-28" : "mt-16  "
               }  md:py-24 lg:py-44 2xl:py-60`}
             >
               <h1
                 className={`mb-2 text-center ${
-                  tabs ? "mt-4 text-2xl" : "-mt-4 text-3xl"
+                  //@ts-expect-error
+                  tabs?.props?.items?.length > 0
+                    ? "mt-4 text-2xl"
+                    : "-mt-4 text-3xl"
                 }  font-extrabold text-white md:mt-0 lg:mb-4 lg:text-6xl`}
               >
                 {title}
@@ -134,7 +145,8 @@ const MainHeader = ({
                   {breadcrumbs}
                 </h5>
               )}
-              {tabs}
+              {/*@ts-expect-error*/}
+              {tabs?.props?.items?.length > 0 ? tabs : ""}
             </div>
           </div>
         </section>
