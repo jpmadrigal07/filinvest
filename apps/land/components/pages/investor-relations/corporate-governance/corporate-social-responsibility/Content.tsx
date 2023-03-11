@@ -5,6 +5,7 @@ import MainHeader from "@/components/header/MainHeader";
 import TitleText from "./TitleText";
 import EnvironmentalPreservation from "./EnvironmentalPreservation";
 import Programs from "./Programs";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ content }: any) => {
   const header = content?.content.find(
@@ -36,11 +37,14 @@ const Content = ({ content }: any) => {
         tabs={tabs}
       />
       <section>
-        <div className="mt-16 mb-28 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="flex flex-col gap-9 px-4 pb-16 pt-12 md:px-16 md:pb-36 md:pt-32">
           <TitleText content={content} />
           <EnvironmentalPreservation content={content} />
         </div>
         <Programs content={content} />
+      </section>
+      <section className="px-4 py-16 md:px-36">
+        <PageNextPrevButton content={content} />
       </section>
     </>
   );
