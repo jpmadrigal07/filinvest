@@ -61,13 +61,6 @@ const MainNavigation = ({ className }: { className?: string }) => {
     }
   }, [scroll]);
 
-  console.log({
-    scroll,
-    wasScroll,
-    showFixedNavigation,
-    flyoutMenu,
-  });
-
   const renderNavigation = () => {
     return (
       <nav
