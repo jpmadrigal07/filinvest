@@ -6,7 +6,7 @@ import TitleYear from "./TitleYear";
 
 const Members = ({ content }: any) => {
   return (
-    <div>
+    <div className="flex flex-col gap-6">
       <TitleYear content={content} />
       <div className="mt-5 lg:mt-10">
         <SeniorManagementOfficers content={content} />

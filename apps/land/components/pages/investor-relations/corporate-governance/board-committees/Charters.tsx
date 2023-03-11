@@ -6,7 +6,7 @@ const Charters = ({ content }: any) => {
     (item: any) => item.blockType === "board-committees-charter"
   );
   return (
-    <div className="flex-1">
+    <div className="flex flex-1 flex-col gap-[3rem]">
       {data.charter.map((item: any) => (
         <div className="mt-4 flex flex-col gap-6">
           <h3 className="text-jet text-2xl font-bold">{item.year}</h3>
