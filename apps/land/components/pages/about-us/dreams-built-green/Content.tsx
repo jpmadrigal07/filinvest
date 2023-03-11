@@ -26,6 +26,7 @@ const Content = ({ content }: any) => {
     };
   });
   const tabs = <Tabs items={tabItems} />;
+  console.log(tabs);
   return (
     <>
       <MainHeader
