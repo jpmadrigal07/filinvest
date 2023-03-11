@@ -56,6 +56,7 @@ export default function InvestorRelationsSlider({ content }: any) {
         >
           {[...Array(6)].map((_, i) => (
             <SwiperSlide
+              key={i}
               className={i + 1 === activeIndex ? `2xl:-mr-[220px]` : ""}
             >
               {/* <div className="mx-6 flex flex-col gap-16 pb-[1.5rem] lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44"> */}

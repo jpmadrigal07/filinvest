@@ -1,5 +1,5 @@
 "use client";
-import React, { Dispatch, useEffect, useState } from "react";
+import React, { Dispatch, useEffect, useMemo, useState } from "react";
 import Search from "@/components/svg/Search";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
@@ -133,6 +133,31 @@ const PropertySearch = ({
   }, [searchParams,]); */
   //
 
+  const filteredSublocations = useMemo(() => {
+    if (subLocationSettings.length) {
+      const settings = subLocationSettings
+        ?.map((loc: any) => {
+          return loc.filter((subLoc: any) => {
+            return subLoc.mainLocation === location;
+          });
+        })
+        .flatMap((item: any) => item);
+
+      if (settings.length === 0) return [];
+
+      const filtered = settings[0].subLocations?.map((subLoc: any) => {
+        return subLoc.title;
+      });
+
+      console.log(filtered);
+      return filtered;
+    }
+
+    return [];
+  }, [subLocationSettings, location]);
+
+  console.log({ filteredSublocations, location });
+
   return (
     <>
       {/* Large Screen */}
@@ -217,7 +242,7 @@ const PropertySearch = ({
               <div className="w-full flex-1">
                 <h3 className="text-white">Sub-Location</h3>
                 <MainDropdown
-                  values={subLocationSettings}
+                  values={filteredSublocations}
                   defaultValue={subLocation}
                   onValueChange={setSubLocation}
                 />
@@ -310,7 +335,7 @@ const PropertySearch = ({
               <div className="w-full flex-1">
                 <h3 className="text-white">Sub-Location</h3>
                 <MainDropdown
-                  values={subLocationSettings}
+                  values={filteredSublocations}
                   defaultValue={subLocation}
                   onValueChange={setSubLocation}
                 />
