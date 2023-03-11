@@ -16,9 +16,9 @@ const PropertySearch = ({
   className,
   onPropertyResultChange,
   onLoading,
-  //setSearchParams = () => {},
-  refetch,
-}: {
+  setSearchParams,
+}: //refetch,
+{
   showSearch?: boolean;
   className?: string;
   onPropertyResultChange?: Dispatch<Project[]>;
@@ -117,18 +117,20 @@ const PropertySearch = ({
   }, [propertyName, bedrooms, subLocation]);
 
   //https://app.asana.com/0/1204059442999640/1204080301274375
-  /* useEffect(() => {
+  useEffect(() => {
     if (setSearchParams) {
       setSearchParams(searchParams);
     }
-  }, [searchParams, setSearchParams]); */
+  }, [searchParams]);
 
-  //alt-solution
-  useEffect(() => {
+  //alt-solution causing network bug
+  /* useEffect(() => {
+    console.log("called");
     if (refetch) {
       refetch();
     }
-  }, [searchParams]);
+    console.log(searchParams);
+  }, [searchParams,]); */
   //
 
   return (

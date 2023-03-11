@@ -5,6 +5,11 @@ import Image from "next/image";
 import Facebook from "../svg/Facebook";
 import Twitter from "../svg/Twitter";
 import LinkedIn from "../svg/LinkedIn";
+import localFont from "next/font/local";
+
+const futuraHeavy = localFont({
+  src: "../../assets/fonts/Futura/Futura Heavy font.ttf",
+});
 
 export default function BioInfo({
   sidebarOpen = false,
@@ -62,7 +67,9 @@ export default function BioInfo({
                         alt="Picture of the author"
                       />
                       <div>
-                        <h3 className="text-dark-cornflower-blue text-xl font-bold">
+                        <h3
+                          className={`text-dark-cornflower-blue text-xl font-black ${futuraHeavy.className}`}
+                        >
                           {information.directorFullName}
                         </h3>
                         <p className="text-dim-gray">
