@@ -24,19 +24,19 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
                   <tr className="divide-x divide-gray-200 text-center">
                     <th
                       scope="col"
-                      className="py-3.5 pl-4 pr-4 text-lg font-semibold text-white sm:pl-6"
+                      className="xs:text-sm py-3.5 pl-4 pr-4 text-xs font-semibold text-white sm:pl-6 md:text-lg"
                     >
                       Risk Exposure
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-lg font-semibold text-white"
+                      className="xs:text-sm px-4 py-3.5 text-xs font-semibold text-white md:text-lg"
                     >
                       Risk Management Policy
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-lg font-semibold text-white"
+                      className="xs:text-sm px-4 py-3.5 text-xs font-semibold text-white md:text-lg"
                     >
                       Objectives
                     </th>
@@ -45,13 +45,13 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
                 <tbody className="divide-jet divide-y bg-white">
                   {flatRiskData.map((item: any, index: any) => (
                     <tr key={index} className="divide-jet divide-x">
-                      <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
+                      <td className="xs:text-sm py-4 pl-4 pr-4 text-xs font-medium text-gray-900 sm:pl-6 md:text-lg">
                         {item.riskExposure}
                       </td>
-                      <td className="p-4 text-sm text-gray-500">
+                      <td className="xs:text-sm p-4 text-xs text-gray-500 md:text-lg">
                         {item.riskManagementPolicy}
                       </td>
-                      <td className="p-4 text-sm text-gray-500">
+                      <td className="xs:text-sm p-4 text-xs text-gray-500 md:text-lg">
                         {item.objective}
                       </td>
                     </tr>
