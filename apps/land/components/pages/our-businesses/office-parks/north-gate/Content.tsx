@@ -7,7 +7,7 @@ import Flag from "@/components/svg/Flag";
 
 const Content = () => {
   return (
-    <section className="-mt-72 mb-16 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-[26rem]">
+    <section className="-mt-72 mb-16 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-[14rem]">
       <div className="relative flex justify-center">
         <Image
           src="/northgate-banner.png"
@@ -149,7 +149,7 @@ const Content = () => {
             Muntinlupa City, placing it at the gateway to the CALABARZON
             (Cavite, Laguna, Batangas, Rizal, Quezon).
           </p>
-          <ul className="text-dim-gray ml-5 flex list-[square] flex-col gap-4">
+          <ul className="text-dim-gray ml-6 flex list-[square] flex-col gap-4">
             <li className="text-2xl text-[#163E82]">
               <p className="text-dim-gray text-base">
                 Accessible via all modes of transportation
