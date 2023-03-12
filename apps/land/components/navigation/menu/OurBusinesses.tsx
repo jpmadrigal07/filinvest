@@ -43,7 +43,7 @@ const OurBusinesses = ({
 
   return (
     <div className="divide-sonic-silver flex divide-x py-8">
-      <div className="max-h-[700px] flex-none overflow-hidden pr-24 hover:overflow-auto">
+      <div className="max-h-[500px] flex-none overflow-hidden pr-24 hover:overflow-auto">
         {ourBusinessesMenu &&
           ourBusinessesMenu.map(
             (routes: T_OurBusinessesMenu, index: number) => {
