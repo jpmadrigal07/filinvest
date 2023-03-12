@@ -5,11 +5,13 @@ const LevelOne = ({
   setLevel,
   register,
   getValues,
+  setValue,
   selectedCareer,
 }: {
   setLevel: Dispatch<number>;
   register: any;
   getValues: any;
+  setValue: any;
   selectedCareer: string;
 }) => {
   return (
@@ -59,8 +61,15 @@ const LevelOne = ({
             <input
               type="text"
               id="contact"
+              maxLength={13}
               className="border-jet focus:ring-none block w-full border-[1px] p-2 shadow-sm sm:text-sm"
               {...register("contact", { required: true })}
+              onChange={(e) =>
+                setValue(
+                  "contact",
+                  "+63" + e.target.value.replace(/\D/g, "").slice(2)
+                )
+              }
             />
           </div>
         </div>
@@ -125,7 +134,7 @@ const LevelOne = ({
             <input
               type="file"
               title="browse"
-              accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
+              accept="application/pdf"
               {...register("cv", { required: true })}
             />
           </p>
@@ -151,11 +160,15 @@ const LevelOne = ({
               }
 
               let phNumber = /^(09|\+639)\d{9}$/;
+              //let phNumber = /^\+639{9}$/;
               if (!phNumber.test(values.contact)) {
-                alert("Please input a valid contact number");
+                alert("Please input a valid PH contact number");
                 return;
               }
 
+              if (values?.cv[0]?.type != "application/pdf") {
+                alert("Please upload your CV in pdf format");
+              }
               setLevel(2);
             } else {
               alert("Please complete all required fields");
