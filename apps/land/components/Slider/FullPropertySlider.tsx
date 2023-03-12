@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css";
@@ -20,6 +20,7 @@ const FullPropertySlider = ({
 }: any) => {
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
+  const [nextSlide, setNextSlide] = useState("");
   return (
     <>
       <div className="relative hidden md:block">
@@ -62,14 +63,16 @@ const FullPropertySlider = ({
             </div>
           </div>
         </div>
-        {withThumbnail && (
-          <div className="absolute bottom-12 right-6 z-40 max-h-[180px] max-w-[180px] rounded-[5px] opacity-[0.8]">
-            <Image
-              src={`/single-house.png`}
-              width={180}
-              height={180}
-              alt={`single-house`}
-            />
+        {withThumbnail && nextSlide && (
+          <div className="absolute bottom-12 right-6 z-40 h-[180px] max-h-[180px] w-[180px] max-w-[180px] rounded-[5px] opacity-[0.8]">
+            <div className="relative h-full w-full object-cover object-center">
+              <Image
+                src={nextSlide}
+                fill
+                className="relative block object-cover"
+                alt={`single-house`}
+              />
+            </div>
           </div>
         )}
         <Swiper
@@ -82,6 +85,16 @@ const FullPropertySlider = ({
           onBeforeInit={(swiper) => {
             // @ts-expect-error
             swiperRef.current = swiper;
+            setNextSlide(
+              sliders[swiper.activeIndex % sliders.length].slideBackgroundImage
+                .url
+            );
+          }}
+          onSlideChange={(swiper) => {
+            setNextSlide(
+              sliders[swiper.activeIndex % sliders.length].slideBackgroundImage
+                .url
+            );
           }}
           modules={[Pagination, Navigation]}
           className="mySwiper"
