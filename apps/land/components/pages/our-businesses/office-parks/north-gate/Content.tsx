@@ -9,12 +9,15 @@ import useGetScreen from "../../../../../hooks/useGetScreen";
 const Content = () => {
   const { width } = useGetScreen();
 
+  console.log(width);
   return (
     <>
       <MainHeader
         isBlueHeader
         bgUrl={
-          width <= 767 ? "northgate-banner-small.png" : "blue-header-bg-2.png"
+          width >= 767 || width == 0
+            ? "blue-header-bg-2.png"
+            : "northgate-banner-small.png"
         }
         bgUrlSmall="northgate-banner-small.png"
       />
