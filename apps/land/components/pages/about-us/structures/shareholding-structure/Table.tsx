@@ -3,9 +3,11 @@ import React, { ReactNode } from "react";
 const Table = ({
   header,
   rows,
+  isAlignedTop = false,
 }: {
   header: (string | ReactNode)[];
   rows: (string[] | ReactNode[])[];
+  isAlignedTop?: boolean;
 }) => {
   return (
     <div className="mt-4 flex flex-col overflow-auto px-9 md:mx-4">
@@ -33,7 +35,9 @@ const Table = ({
                       return (
                         <td
                           key={rowIndex}
-                          className="py-4 pl-4 pr-4 font-medium text-gray-900 sm:pl-6"
+                          className={`${
+                            isAlignedTop && "align-top"
+                          } py-4 pl-4 pr-4 font-medium text-gray-900 sm:pl-6`}
                         >
                           {item}
                         </td>

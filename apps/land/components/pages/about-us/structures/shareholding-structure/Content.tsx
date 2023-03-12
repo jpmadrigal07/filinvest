@@ -101,7 +101,7 @@ const Content = ({ content }: any) => {
         <p className="text-dim-gray mx-6 lg:mx-0">
           {structureTitleAndText.description}
         </p>
-        <Table header={tableColumns} rows={rows} />
+        <Table isAlignedTop={true} header={tableColumns} rows={rows} />
         <p className="text-dim-gray mx-6 lg:mx-0">
           {shareholdingStructureTable?.tableFooter}
         </p>

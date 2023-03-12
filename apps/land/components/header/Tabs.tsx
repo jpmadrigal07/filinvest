@@ -10,9 +10,10 @@ type ItemProps = {
 
 const Tabs = ({ items }: { items: ItemProps[] }) => {
   const pathname = usePathname();
-
   return (
-    <div className="mt-6 flex w-full gap-8 overflow-x-auto px-6 pb-3 md:w-auto lg:mx-9 lg:mt-12 xl:mx-16 2xl:mx-44">
+    <div
+      className={`sm:grid-cols-${items?.length} md:grid-cols-${items?.length} mt-10 grid w-full grid-cols-2 gap-5 overflow-x-auto px-6 pb-3 md:w-auto lg:mx-9 lg:mt-12 lg:flex lg:gap-8 xl:mx-16 2xl:mx-44`}
+    >
       {items?.map((item, index) => {
         return (
           <Link

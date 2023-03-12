@@ -1,3 +1,4 @@
+"use client";
 import InitialLoading from "@/components/loading/InitialLoading";
 
 export default function Loading() {

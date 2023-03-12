@@ -1,5 +1,5 @@
 "use client";
-import React, { Dispatch, useEffect, useState } from "react";
+import React, { Dispatch, useEffect, useMemo, useState } from "react";
 import Search from "@/components/svg/Search";
 import { toCurrency } from "@/helpers/homeCalculator";
 import MainDropdown from "../dropdown/MainDropdown";
@@ -16,9 +16,9 @@ const PropertySearch = ({
   className,
   onPropertyResultChange,
   onLoading,
-  //setSearchParams = () => {},
-  refetch,
-}: {
+  setSearchParams,
+}: //refetch,
+{
   showSearch?: boolean;
   className?: string;
   onPropertyResultChange?: Dispatch<Project[]>;
@@ -117,19 +117,48 @@ const PropertySearch = ({
   }, [propertyName, bedrooms, subLocation]);
 
   //https://app.asana.com/0/1204059442999640/1204080301274375
-  /* useEffect(() => {
+  useEffect(() => {
     if (setSearchParams) {
       setSearchParams(searchParams);
     }
-  }, [searchParams, setSearchParams]); */
+  }, [searchParams]);
 
-  //alt-solution
-  useEffect(() => {
+  //alt-solution causing network bug
+  /* useEffect(() => {
+    console.log("called");
     if (refetch) {
       refetch();
     }
-  }, [searchParams]);
+    console.log(searchParams);
+  }, [searchParams,]); */
   //
+
+  const filteredSublocations = useMemo(() => {
+    //@ts-expect-error
+    if (subLocationSettings?.length) {
+      const settings = subLocationSettings
+        //@ts-expect-error
+        ?.map((loc: any) => {
+          return loc.filter((subLoc: any) => {
+            return subLoc.mainLocation === location;
+          });
+        })
+        .flatMap((item: any) => item);
+
+      if (settings.length === 0) return [];
+
+      const filtered = settings[0].subLocations?.map((subLoc: any) => {
+        return subLoc.title;
+      });
+
+      console.log(filtered);
+      return filtered;
+    }
+
+    return [];
+  }, [subLocationSettings, location]);
+
+  console.log({ filteredSublocations, location });
 
   return (
     <>
@@ -215,7 +244,7 @@ const PropertySearch = ({
               <div className="w-full flex-1">
                 <h3 className="text-white">Sub-Location</h3>
                 <MainDropdown
-                  values={subLocationSettings}
+                  values={filteredSublocations}
                   defaultValue={subLocation}
                   onValueChange={setSubLocation}
                 />
@@ -308,7 +337,7 @@ const PropertySearch = ({
               <div className="w-full flex-1">
                 <h3 className="text-white">Sub-Location</h3>
                 <MainDropdown
-                  values={subLocationSettings}
+                  values={filteredSublocations}
                   defaultValue={subLocation}
                   onValueChange={setSubLocation}
                 />

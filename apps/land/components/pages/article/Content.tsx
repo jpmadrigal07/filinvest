@@ -52,7 +52,8 @@ const Content = (props: News) => {
         bgUrl="blue-header-bg-2.png"
         isTitleSmall
       />
-      <section className="-mt-48 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72">
+      {/* className="mx-6 -mt-48 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-72" */}
+      <section className="relative mx-6 -mt-28 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
         <div className="flex flex-col items-center gap-6">
           <Image
             src={`${props && props ? "" : "/"}${props?.coverImage.url}`}
@@ -77,9 +78,9 @@ const Content = (props: News) => {
               </h4>
             </div>
           </div>
-          <div className="mt-16 flex gap-14">
+          <div className="mt-10 flex flex-col gap-5 md:mt-16 md:flex-row md:gap-10 lg:gap-14">
             <div className="flex-none">
-              <div className="border-blue-ryb flex flex-col border-t-4">
+              <div className="border-blue-ryb flex flex-col md:border-t-4">
                 <h3 className="text-jet text-center text-4xl font-bold">
                   {moment(props?.createdAt).format("DD")}
                 </h3>
@@ -88,7 +89,7 @@ const Content = (props: News) => {
                   {moment(props?.createdAt).format("YY")}
                 </p>
               </div>
-              <div className="mt-8 flex flex-col gap-3">
+              <div className="mt-5 flex flex-row justify-center gap-3 md:mt-8 md:flex-col">
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
                   <Link href={`${facebookSharer}`} target="_blank">
                     <Facebook color="#303030" />
@@ -106,12 +107,15 @@ const Content = (props: News) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-1 flex-col gap-6">
+            <div className="flex flex-1 flex-col justify-center gap-6 text-center md:justify-start md:text-left">
               <>{serializeRichText(props.content)}</>
-              <h3 className="text-bold mt-6 flex gap-4 text-xl">
-                Tags: <div className="flex gap-4">{renderTags()}</div>
+              <h3 className="text-bold flex justify-center gap-4 text-xl md:mt-6 md:justify-start">
+                Tags:{" "}
+                <div className="flex justify-center  gap-4 md:justify-start">
+                  {renderTags()}
+                </div>
               </h3>
-              <div className="flex gap-3">
+              <div className="flex justify-center  gap-3 md:justify-start">
                 <div className="border-silver-chalice rounded-full border-[1px] bg-white p-4">
                   <Link href={`${facebookSharer}`} target="_blank">
                     <Facebook color="#303030" />

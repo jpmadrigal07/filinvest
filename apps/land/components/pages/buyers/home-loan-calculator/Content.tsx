@@ -152,15 +152,15 @@ const Content = () => {
   };
 
   return (
-    <section className="mt-24 mb-32 flex flex-col gap-16 md:flex-row lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="mx-6 mt-20 mb-32 flex flex-col gap-16 md:flex-row lg:mx-9 lg:mt-24 xl:mx-16 2xl:mx-44">
       <div className="flex-1 p-8">
         <h2 className="text-jet text-4xl font-bold">
           Your New Home With The Right Loan
         </h2>
-        <p className="text-dim-gray mt-6">
+        <div className="text-dim-gray mt-6">
           Use this calculator to calculate estimated monthly payments and
           monthly income required each month.
-        </p>
+        </div>
         <div className="mt-14">
           <div>
             <label
@@ -250,7 +250,7 @@ const Content = () => {
                         : "bg-gainsboro hover:bg-ghost-white"
                     } delay-50 flex-1 bg-opacity-95 py-5 px-5 transition hover:cursor-pointer`}
                   >
-                    <p
+                    <div
                       className={`text-center text-2xl font-bold ${
                         downPaymentTerm === term
                           ? "text-white"
@@ -258,8 +258,8 @@ const Content = () => {
                       } delay-50 bg-opacity-95 transition`}
                     >
                       {term}
-                    </p>
-                    <p
+                    </div>
+                    <div
                       className={`text-center text-sm ${
                         downPaymentTerm === term
                           ? "text-white"
@@ -267,7 +267,7 @@ const Content = () => {
                       } delay-50 bg-opacity-95 transition`}
                     >
                       Months
-                    </p>
+                    </div>
                   </div>
                 );
               })}
@@ -299,7 +299,7 @@ const Content = () => {
               onClick={() => clearFields()}
             >
               <Reset />
-              <p className="text-jet text-sm">Clear Fields</p>
+              <div className="text-jet text-sm">Clear Fields</div>
             </div>
           </div>
         </div>
@@ -310,170 +310,172 @@ const Content = () => {
             <h3 className="text-jet text-2xl font-bold">Payment Details</h3>
             <div className="mt-6 flex flex-col gap-4">
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">
+                <div className="text-jet flex-1 font-bold">
                   Total Contract Price:
-                </p>
-                <p className="text-jet flex-none font-bold">
+                </div>
+                <div className="text-jet flex-none font-bold">
                   {tcp ? toCurrency(tcp) : "---"}
-                </p>
+                </div>
               </div>
               <div>
-                <p className="text-jet">Add:</p>
+                <div className="text-jet">Add:</div>
                 <div className="mt-2 ml-4 flex">
-                  <p className="text-jet flex-1">VAT:</p>
-                  <p className="text-jet flex-none">
+                  <div className="text-jet flex-1">VAT:</div>
+                  <div className="text-jet flex-none">
                     {contractPrice.vat ? toCurrency(contractPrice.vat) : "---"}
-                  </p>
+                  </div>
                 </div>
                 <div className="mt-2 ml-4 flex">
-                  <p className="text-jet flex-1">Miscellaneous Fees:</p>
-                  <p className="text-jet flex-none">
+                  <div className="text-jet flex-1">Miscellaneous Fees:</div>
+                  <div className="text-jet flex-none">
                     {contractPrice.miscFees
                       ? toCurrency(contractPrice.miscFees)
                       : "---"}
-                  </p>
+                  </div>
                 </div>
                 <div className="mt-2 ml-4 flex">
-                  <p className="text-jet flex-1">Bank Fees:</p>
-                  <p className="text-jet flex-none">
+                  <div className="text-jet flex-1">Bank Fees:</div>
+                  <div className="text-jet flex-none">
                     {contractPrice.bankFees
                       ? toCurrency(contractPrice.bankFees)
                       : "---"}
-                  </p>
+                  </div>
                 </div>
               </div>
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">
+                <div className="text-jet flex-1 font-bold">
                   Gross Total Contract Price:
-                </p>
-                <p className="text-jet flex-none font-bold">
+                </div>
+                <div className="text-jet flex-none font-bold">
                   {contractPrice.contractPrice
                     ? toCurrency(contractPrice.contractPrice)
                     : "---"}
-                </p>
+                </div>
               </div>
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">Down Payment:</p>
-                <p className="text-jet flex-none font-bold">
+                <div className="text-jet flex-1 font-bold">Down Payment:</div>
+                <div className="text-jet flex-none font-bold">
                   {downPayment.downPayment
                     ? toCurrency(downPayment.downPayment)
                     : "---"}
-                </p>
+                </div>
               </div>
               <div>
-                <p className="text-jet">Less:</p>
+                <div className="text-jet">Less:</div>
                 <div className="mt-2 ml-4 flex">
-                  <p className="text-jet flex-1">Reservation Fee:</p>
-                  <p className="text-jet flex-none">
+                  <div className="text-jet flex-1">Reservation Fee:</div>
+                  <div className="text-jet flex-none">
                     {downPayment.reservationFee
                       ? toCurrency(downPayment.reservationFee)
                       : "---"}
-                  </p>
+                  </div>
                 </div>
               </div>
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">Net Down Payment:</p>
-                <p className="text-jet flex-none font-bold">
+                <div className="text-jet flex-1 font-bold">
+                  Net Down Payment:
+                </div>
+                <div className="text-jet flex-none font-bold">
                   {downPayment.netDownPayment
                     ? toCurrency(downPayment.netDownPayment)
                     : "---"}
-                </p>
+                </div>
               </div>
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">
+                <div className="text-jet flex-1 font-bold">
                   Monthly Down Payment:
-                </p>
-                <p className="text-jet flex-none font-bold">
+                </div>
+                <div className="text-jet flex-none font-bold">
                   {downPayment.monthlyDownPayment
                     ? toCurrency(downPayment.monthlyDownPayment)
                     : "---"}
-                </p>
+                </div>
               </div>
               <div>
                 <div className="flex">
-                  <p className="text-jet flex-1 font-bold">Loan:</p>
-                  <p className="text-jet flex-none font-bold">
+                  <div className="text-jet flex-1 font-bold">Loan:</div>
+                  <div className="text-jet flex-none font-bold">
                     {loan > 0 ? toCurrency(loan) : "---"}
-                  </p>
+                  </div>
                 </div>
                 <div className="mt-2 flex">
-                  <p className="text-jet flex-1">Rate:</p>
-                  <p className="text-jet flex-none">
+                  <div className="text-jet flex-1">Rate:</div>
+                  <div className="text-jet flex-none">
                     {rate.rate > 0
                       ? `${(rate.rate * 12 * 100).toFixed(3)}%`
                       : "---"}
-                  </p>
+                  </div>
                 </div>
                 <div className="mt-2 flex">
-                  <p className="text-jet flex-1">Period (Months):</p>
-                  <p className="text-jet flex-none">
+                  <div className="text-jet flex-1">Period (Months):</div>
+                  <div className="text-jet flex-none">
                     {rate.yearsToPay > 0 ? rate.yearsToPay * 12 : "---"}
-                  </p>
+                  </div>
                 </div>
               </div>
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">
+                <div className="text-jet flex-1 font-bold">
                   Monthly Amortization:
-                </p>
-                <p className="text-jet flex-none font-bold">
+                </div>
+                <div className="text-jet flex-none font-bold">
                   {monthlyAmortization > 0
                     ? toCurrency(monthlyAmortization)
                     : "---"}
-                </p>
+                </div>
               </div>
               <div className="flex">
-                <p className="text-jet flex-1 font-bold">
+                <div className="text-jet flex-1 font-bold">
                   Required Monthly Income:
-                </p>
-                <p className="text-jet flex-none font-bold">
+                </div>
+                <div className="text-jet flex-none font-bold">
                   {requiredMonthlyIncome > 0
                     ? toCurrency(requiredMonthlyIncome)
                     : "---"}
-                </p>
+                </div>
               </div>
             </div>
           </div>
           <div className="p-12">
-            <p className="text-jet">Disclaimer</p>
+            <div className="text-jet">Disclaimer</div>
             <div className="mt-6 flex gap-3">
               <div className="mt-1 flex-1">
                 <Diamond />
               </div>
-              <p className="text-dim-gray">
+              <div className="text-dim-gray">
                 Terms and prices are subject to change without prior notice.
                 Filinvest Land Inc. reserves the right to make any correction in
                 case of typographical errors.
-              </p>
+              </div>
             </div>
             <div className="mt-3 flex gap-3">
               <div className="mt-1 flex-1">
                 <Diamond />
               </div>
-              <p className="text-dim-gray">
+              <div className="text-dim-gray">
                 Sample computation is for initial reference only. Final
                 computation is system generated and shall be provided by
                 Filinvest Land, Inc.
-              </p>
+              </div>
             </div>
             <div className="mt-3 flex gap-3">
               <div className="mt-1 flex-1">
                 <Diamond />
               </div>
-              <p className="text-dim-gray">
+              <div className="text-dim-gray">
                 Total Contract Price (TCP) is inclusive of VAT (if applicable),
                 title transfer, and miscellaneous fees
-              </p>
+              </div>
             </div>
             <div className="mt-3 flex gap-3">
               <div className="mt-1 flex-1">
                 <Diamond />
               </div>
-              <p className="text-dim-gray">
+              <div className="text-dim-gray">
                 For bank financing payment term, the stated bank interest rate
                 are indicative only. The final loan interest rate shall be
                 determined by the bank at the time of loan arrangements and
                 approval.
-              </p>
+              </div>
             </div>
           </div>
         </div>

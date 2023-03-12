@@ -11,9 +11,9 @@ const SeniorManagementOfficers = ({ content }: any) => {
   });
   return (
     <div>
-      <div className="mt-12">
+      <div className="mt-5 lg:mt-10">
         <h4 className="text-jet text-2xl font-bold">{data.tableTitle}</h4>
-        <div className="mt-9">
+        <div className="mt-5">
           <Table
             header={["Committees", "Name"]}
             rows={flatSeniorManagementOfficer}

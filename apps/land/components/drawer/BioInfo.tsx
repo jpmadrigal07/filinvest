@@ -5,6 +5,11 @@ import Image from "next/image";
 import Facebook from "../svg/Facebook";
 import Twitter from "../svg/Twitter";
 import LinkedIn from "../svg/LinkedIn";
+import localFont from "next/font/local";
+
+const futuraHeavy = localFont({
+  src: "../../assets/fonts/Futura/Futura Heavy font.ttf",
+});
 
 export default function BioInfo({
   sidebarOpen = false,
@@ -44,7 +49,7 @@ export default function BioInfo({
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="relative flex w-full flex-1 flex-col bg-white">
+                <Dialog.Panel className="relative mb-[0.8rem] flex w-full flex-1 flex-col bg-white">
                   <div className="flex justify-end px-8 pt-6 lg:px-16">
                     <p
                       className="text-dark-cornflower-blue p-3 text-3xl hover:cursor-pointer focus:cursor-pointer"
@@ -62,7 +67,9 @@ export default function BioInfo({
                         alt="Picture of the author"
                       />
                       <div>
-                        <h3 className="text-dark-cornflower-blue text-xl font-bold">
+                        <h3
+                          className={`text-dark-cornflower-blue text-xl font-black ${futuraHeavy.className}`}
+                        >
                           {information.directorFullName}
                         </h3>
                         <p className="text-dim-gray">
@@ -111,7 +118,10 @@ export default function BioInfo({
                       <p className="text-dark-cornflower-blue text-xl font-bold">
                         Bio
                       </p>
-                      <p className="text-dim-gray">{information.bio}</p>
+                      <div
+                        className="text-dim-gray"
+                        dangerouslySetInnerHTML={{ __html: information?.bio }}
+                      ></div>
                       <p className="text-dark-cornflower-blue text-xl font-bold">
                         Company Info
                       </p>

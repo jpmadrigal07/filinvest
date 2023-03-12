@@ -31,14 +31,14 @@ const Content = () => {
       <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
         {!isPropertyLoading ? (
           <>
-            <p className="text-xl">
+            <div className="text-xl">
               {projects.length}{" "}
               {projects.length > 1 ? "properties" : "property"} found
-            </p>
+            </div>
             <TileProjects projects={projects} />
           </>
         ) : (
-          <p className="text-xl">Searching...</p>
+          <div className="text-xl">Searching...</div>
         )}
       </div>
       <div className="bg-ghost-white mt-24 flex flex-col items-center py-24">

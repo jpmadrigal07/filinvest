@@ -28,6 +28,10 @@ const MainDropdown = ({
     }
   }, [defaultValue]);
 
+  useEffect(() => {
+    if (!values) return setSelected("");
+  }, [values]);
+
   const renderOptions = (optionsValues: any) => {
     if (!Array.isArray(optionsValues)) {
       let options: ReactNode[] = [];
@@ -123,7 +127,7 @@ const MainDropdown = ({
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute z-40 mt-1 max-h-96 w-full overflow-auto bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {renderOptions(values)}
+              {renderOptions(values || [])}
             </Listbox.Options>
           </Transition>
         </div>

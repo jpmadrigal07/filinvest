@@ -10,9 +10,11 @@ const KeyOfficers = ({ content }: any) => {
   });
   return (
     <div>
-      <div className="mt-12">
-        <h4 className="text-jet text-2xl font-bold">{data.tableTitle}</h4>
-        <div className="mt-9">
+      <div className="mt-5 lg:mt-10">
+        <h4 className="text-jet text-2xl font-bold lg:text-3xl">
+          {data.tableTitle}
+        </h4>
+        <div className="mt-5 lg:w-3/4">
           <Table header={["Name", "Position"]} rows={flatKeyCommittees} />
         </div>
       </div>

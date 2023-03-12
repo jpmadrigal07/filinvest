@@ -1,56 +1,70 @@
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
+"use client";
+import ChevronCircleLeft from "@/components/svg/ChevronCircleLeft";
+import ChevronCircleRight from "@/components/svg/ChevronCircleRight";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import type { Swiper as SwiperType } from "swiper";
+import { SwiperSlide, Swiper } from "swiper/react";
 
 const Programs = ({ content }: any) => {
+  const swiperRef = useRef<SwiperType | null>(null);
   const data = content?.content.find(
     (item: any) => item.blockType === "corporate-social-responsibility-programs"
   );
+
   return (
-    <section>
-      <div className="bg-ghost-white xl:py-12 2xl:py-24">
-        <div className="lg:mx-9 xl:mx-16 2xl:mx-44">
-          <h2 className="text-jet text-3xl font-bold">{data.title}</h2>
-          <p className="text-dim-gray mt-8">{data.subtitle}</p>
-          {data.descriptionParagraphs.map((item: any, index: number) => (
-            <p className="text-dim-gray mt-8" key={index}>
-              {item.description}
-            </p>
-          ))}
-        </div>
-        <div className="mt-16 flex gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
-          {data.gallery.map((item: any, index: number) => (
-            <div className="flex-1" key={index}>
+    <div className="bg-ghost-white px-4 pb-16 pt-12 md:px-16 md:pb-36 md:pt-32">
+      <div className="flex flex-col gap-8 md:px-20">
+        <h2 className="text-jet text-4xl font-bold tracking-tighter">
+          {data.title}
+        </h2>
+        <p className="text-dim-gray text-2xl leading-9">{data.subtitle}</p>
+        {data.descriptionParagraphs.map((item: any) => (
+          <p className="text-dim-gray text-2xl leading-9">{item.description}</p>
+        ))}
+      </div>
+      <div className="mt-16 flex gap-9">
+        <button onClick={() => swiperRef.current?.slidePrev()}>
+          <ChevronCircleLeft />
+        </button>
+        <Swiper
+          slidesPerView="auto"
+          spaceBetween={10}
+          loop={true}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            720: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            960: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {data.gallery.map((item: any) => (
+            <SwiperSlide key={item.id}>
               <Image
                 src={`${item.image.url}`}
                 width={790}
                 height={664}
                 alt={item.image.alt}
               />
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
+        <button onClick={() => swiperRef.current?.slideNext()}>
+          <ChevronCircleRight />
+        </button>
       </div>
-      <div className="lg:mx-9 xl:mx-16 2xl:mx-44">
-        <div className="my-20 flex">
-          <div className="flex-none">
-            <PageNextPrevButton
-              imgName="investor-relations-program-next-prev.png"
-              pageName="Structures"
-              isLeft={true}
-            />
-          </div>
-          <div className="grow"></div>
-          <div className="flex-none">
-            <PageNextPrevButton
-              imgName="investor-relations-program-next-prev.png"
-              pageName="Investor Relations Program"
-              isLeft={false}
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 

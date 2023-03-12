@@ -54,6 +54,13 @@ const MainNavigation = ({ className }: { className?: string }) => {
     }
   }, [showFixedNavigation]);
 
+  useEffect(() => {
+    if (scroll === 0) {
+      setWasScroll(false);
+      setShowFixedNavigation(false);
+    }
+  }, [scroll]);
+
   const renderNavigation = () => {
     return (
       <nav
