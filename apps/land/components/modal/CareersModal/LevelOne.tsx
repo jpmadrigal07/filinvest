@@ -168,6 +168,7 @@ const LevelOne = ({
 
               if (values?.cv[0]?.type != "application/pdf") {
                 alert("Please upload your CV in pdf format");
+                return;
               }
               setLevel(2);
             } else {
