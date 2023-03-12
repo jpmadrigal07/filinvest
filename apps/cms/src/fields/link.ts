@@ -19,7 +19,7 @@ export const appearanceOptions = {
 export type LinkAppearances = "primary" | "secondary" | "default";
 
 type LinkType = (
-  /* eslint-disable  no-unused-vars */
+  /* eslint-disable no-unused-vars */
   options?: {
     appearances?: LinkAppearances[] | false;
     disableLabel?: boolean;

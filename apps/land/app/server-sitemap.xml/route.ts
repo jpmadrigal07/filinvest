@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-unused-vars */
 import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { getServerSideSitemap } from "next-sitemap";
 
