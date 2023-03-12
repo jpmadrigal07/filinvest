@@ -8,8 +8,6 @@ import MainHeader from "@/components/header/MainHeader";
 import useGetScreen from "../../../../../hooks/useGetScreen";
 const Content = () => {
   const { width } = useGetScreen();
-
-  console.log(width);
   return (
     <>
       <MainHeader
