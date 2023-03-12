@@ -31,7 +31,7 @@ const NewsStories = ({ content, className, isHomePage = true }: any) => {
               href={
                 content?.content[6].learnMoreLink
                   ? content?.content[6].learnMoreLink
-                  : "/"
+                  : "/news"
               }
             >
               <button type="button">

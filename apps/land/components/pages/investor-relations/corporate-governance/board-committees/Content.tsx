@@ -40,7 +40,7 @@ const Content = ({ content }: any) => {
       <section className="mx-6 mb-16 flex flex-col gap-5 lg:mx-9 lg:mt-16 lg:mb-28 lg:gap-9 xl:mx-16 2xl:mx-44">
         <div className="gap-12 lg:flex">
           <div className="mb-5 lg:mb-0 lg:w-1/4 lg:flex-none">
-            <div className="divide-gainsboro flex flex-row bg-white lg:flex-col lg:divide-y lg:py-4 lg:px-9 lg:shadow-xl">
+            <div className="divide-gainsboro flex flex-row gap-[2rem] bg-white lg:flex-col lg:gap-0 lg:divide-y lg:py-4 lg:px-9 lg:shadow-xl">
               <h4
                 className={`pb-5 pt-5 text-lg font-bold ${
                   currentTab === "member" && "text-dark-cornflower-blue"
