@@ -39,7 +39,7 @@ const Content = ({ content }: any) => {
         bgUrlSmall={header.smallCoverImage.url}
       />
       <section className="-mt-6 2xl:-mt-36">
-        <div className="hidden justify-center gap-12 md:flex lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="hidden flex-wrap justify-center gap-12 md:flex lg:mx-9 xl:mx-16 2xl:mx-44">
           {relationLinks.investorRelationsLinks.map(
             (link: any, index: number) => {
               return (
@@ -59,10 +59,10 @@ const Content = ({ content }: any) => {
             }
           )}
         </div>
-        <div className="mt-16 flex flex-col gap-6 md:flex-row lg:mx-9 xl:mx-16 2xl:mx-44">
+        <div className="mt-16 flex flex-col flex-wrap gap-6 md:flex-row lg:mx-9 xl:mx-16 2xl:mx-44">
           <div className="flex-1">
-            <div className="flex-none py-20 px-9">
-              <div className="mx-12">
+            <div className="flex-none py-20 px-6">
+              <div className="mx-12 flex flex-col items-center">
                 <h2 className="text-jet text-4xl font-bold">
                   Stock Information
                 </h2>
@@ -83,16 +83,16 @@ const Content = ({ content }: any) => {
           <div className="flex-1">
             <div className="flex-1 py-20 px-16">
               <div className="border-jet border-[1px]">
-                <div className="flex py-6 px-12">
-                  <div className="mx-12 flex items-end gap-3">
-                    <h3 className="text-jet ml-7 text-sm font-bold md:text-4xl">
+                <div className="lg: flex items-center justify-center py-6 px-0">
+                  <div className="mx-0 flex items-end gap-3 md:mx-8 lg:mx-12">
+                    <h3 className="text-jet text-sm font-bold md:text-4xl">
                       FLI
                     </h3>
                     <RedDownTriangle />
                     <h3 className="text-jet text-5xl font-bold md:text-8xl">
                       1.00
                     </h3>
-                    <h4 className="text-jet text-xl font-bold md:text-4xl">
+                    <h4 className="text-jet text-base font-bold md:text-4xl">
                       PHP
                     </h4>
                   </div>
@@ -100,10 +100,10 @@ const Content = ({ content }: any) => {
               </div>
               <div className="border-jet flex flex-col gap-2 border-b-[1px] border-solid py-6 pb-2">
                 <div className="flex">
-                  <h3 className="text-jet w-4/6 flex-none text-xl font-bold">
+                  <h3 className="text-jet w-4/6 flex-none text-base font-bold">
                     Open
                   </h3>
-                  <h3 className="text-jet flex-none text-xl font-bold">
+                  <h3 className="text-jet flex-none text-base font-bold">
                     %Change
                   </h3>
                 </div>
@@ -114,10 +114,10 @@ const Content = ({ content }: any) => {
               </div>
               <div className="border-jet flex flex-col gap-2 border-b-[1px] border-solid py-4">
                 <div className="flex">
-                  <h3 className="text-jet w-4/6 flex-none text-xl font-bold">
+                  <h3 className="text-jet w-4/6 flex-none text-base font-bold">
                     Close
                   </h3>
-                  <h3 className="text-jet flex-none text-xl font-bold">
+                  <h3 className="text-jet flex-none text-base font-bold">
                     52-Week High
                   </h3>
                 </div>
@@ -128,10 +128,10 @@ const Content = ({ content }: any) => {
               </div>
               <div className="flex flex-col gap-2 py-4">
                 <div className="flex">
-                  <h3 className="text-jet w-4/6 flex-none text-xl font-bold">
+                  <h3 className="text-jet w-4/6 flex-none text-base font-bold">
                     Change
                   </h3>
-                  <h3 className="text-jet flex-none text-xl font-bold">
+                  <h3 className="text-jet flex-none text-base font-bold">
                     52-Week Low
                   </h3>
                 </div>
@@ -143,17 +143,20 @@ const Content = ({ content }: any) => {
             </div>
           </div>
         </div>
-        <div className="bg-ghost-white py-24">
+        <div className="bg-ghost-white flex flex-col py-24 px-12">
           <h2 className="text-jet text-center text-4xl font-bold">
             {highlights.title}
           </h2>
           <p className="text-dim-gray mt-6 text-center">
             {highlights.description}
           </p>
-          <div className="mt-16 grid grid-cols-1 items-center justify-center gap-x-4 gap-y-12 px-8 md:grid-cols-3 md:px-0 lg:mx-9 xl:mx-16 2xl:mx-44">
+          <div className="mt-16 grid grid-cols-1 items-center justify-center gap-x-4 gap-y-12 px-8 md:px-0 lg:mx-9 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
             {highlights.highlights.map((link: any, index: number) => {
               return (
-                <div className="flex gap-6" key={index}>
+                <div
+                  className="flex flex-col items-center gap-6 md:flex-row"
+                  key={index}
+                >
                   <div className="flex-none">
                     <Image
                       src={link.logo.url ? link.logo.url : ""}
@@ -163,10 +166,10 @@ const Content = ({ content }: any) => {
                     />
                   </div>
                   <div>
-                    <h3 className="text-jet text-2xl font-bold">
+                    <h3 className="text-jet text-center text-2xl font-bold md:text-left">
                       {link.title}
                     </h3>
-                    <div className="mt-4 flex items-center gap-4">
+                    <div className="mt-4 flex items-center justify-center gap-4 md:justify-start">
                       <h4 className="text-royal-dark-blue text-2xl font-bold">
                         {link.cost}
                       </h4>
@@ -189,7 +192,7 @@ const Content = ({ content }: any) => {
             </Link>
           </div>
         </div>
-        <div className="divide-gainsboro flex flex-col divide-x divide-solid md:flex-row">
+        <div className="divide-gainsboro flex flex-col divide-x divide-solid lg:flex-row">
           {boxLinks.investorRelationsBoxLinks.map(
             (link: any, index: number) => {
               return (
