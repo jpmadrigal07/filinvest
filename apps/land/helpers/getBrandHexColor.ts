@@ -7,5 +7,5 @@ export function getBrandHexColor(brand: T_Brands) {
     Futura: "#E02826",
     Aspire: "#23A0CF",
   };
-  return brandColor[brand];
+  return brandColor[brand] ?? "#000000";
 }
