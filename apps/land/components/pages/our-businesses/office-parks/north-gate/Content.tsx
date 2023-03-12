@@ -16,13 +16,13 @@ const Content = () => {
           alt="Picture of the author"
           className="z-10 hidden md:block"
         />
-        <div className="absolute -bottom-[27rem] z-0 h-[236px] w-[236px] rounded-full bg-white p-12 shadow-md md:-bottom-36 md:z-50 md:shadow-none ">
+        <div className="absolute -bottom-[24rem] z-0 flex max-h-[200px] max-w-[200px] items-center justify-center rounded-full bg-white p-12 shadow-md  md:-bottom-[7rem] md:z-50 md:shadow-none">
           <Image
             src="/northgate-logo.png"
             width={190}
             height={169}
             alt="Picture of the author"
-            className="mb-6"
+            className=" min-h-[90px] min-w-[150px]"
           />
         </div>
       </div>
