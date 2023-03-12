@@ -12,7 +12,7 @@ export async function generateMetadata() {
 const DividendHistoryPage = async () => {
   const content = await getPageContent(DIVIDEND_HISTORY_PAGE_ID);
   return (
-    <div className="sketch-bg">
+    <div className="sketch-bg-dividend">
       <Content content={content} />
     </div>
   );
