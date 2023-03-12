@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "escape-html": "^1.0.3",
     "moment": "^2.29.4",
     "next": "^13.2.1",
+    "next-sitemap": "^4.0.5",
     "qs": "^6.11.0",
     "rc-slider": "^10.0.1",
     "react": "18.2.0",

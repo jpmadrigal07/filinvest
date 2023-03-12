@@ -17,7 +17,8 @@
         "ZOHO_CLIENT_ID",
         "ZOHO_CLIENT_SECRET",
         "ZOHO_REFRESH_TOKEN_URL",
-        "ZOHO_LEADS_URL"
+        "ZOHO_LEADS_URL",
+        "SENDGRID_API_KEY"
       ]
     },
     "lint": {

@@ -6,8 +6,8 @@ const TitleYear = ({ content }: any) => {
   );
   return (
     <div>
-      {data.titleLine.map((item: any) => (
-        <h2 className="text-jet text-4xl font-bold">
+      {data.titleLine.map((item: any, index: number) => (
+        <h2 className="text-jet text-4xl font-bold" key={index}>
           {item.line}
           <br />
         </h2>

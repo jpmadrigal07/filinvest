@@ -50,7 +50,6 @@ const ProjectsPage = async ({ params: { projectSlug } }: PageProps) => {
   if (!content) {
     notFound();
   }
-  console.log(content);
   return (
     <div>
       {content.dataType === "regular" ? (

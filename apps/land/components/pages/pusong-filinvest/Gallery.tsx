@@ -11,7 +11,6 @@ const Gallery = ({ content }: any) => {
   const data = content?.content?.find(
     (item: any) => item?.blockType === "pusong-filinvest-gallery"
   );
-  // console.log(data);
   return (
     <div className="my-16 lg:my-24">
       <h3 className="text-dark-cornflower-blue text-center text-lg font-bold lg:text-xl">

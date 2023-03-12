@@ -55,6 +55,7 @@ const MainFooter = () => {
                     <li key={index}>
                       <Link
                         href={link.link.url}
+                        target={link.newTab ? "_blank" : "_self"}
                         className="transition hover:text-[#1AC0E8]"
                       >
                         {link.link.label}
@@ -74,6 +75,7 @@ const MainFooter = () => {
                     <li key={index}>
                       <Link
                         href={link.link.url}
+                        target={link.newTab ? "_blank" : "_self"}
                         className="transition hover:text-[#1AC0E8]"
                       >
                         {link.link.label}
@@ -176,6 +178,7 @@ const MainFooter = () => {
                 return (
                   <Link
                     href={link.link.url}
+                    target={link.newTab ? "_blank" : "_self"}
                     className="text-white hover:underline"
                     key={index}
                   >

@@ -12,8 +12,10 @@ const EnvironmentalPreservation = ({ content }: any) => {
     <div className="flex gap-9">
       <div className="w-1/2 flex-none">
         <h3 className="text-jet text-3xl font-bold">{data.title}</h3>
-        {data.descriptionParagraphs.map((item: any) => (
-          <p className="text-dim-gray mt-8">{item.description}</p>
+        {data.descriptionParagraphs.map((item: any, index: number) => (
+          <p className="text-dim-gray mt-8" key={index}>
+            {item.description}
+          </p>
         ))}
         <div className="mt-12">
           <BorderButton

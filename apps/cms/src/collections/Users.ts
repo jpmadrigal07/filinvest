@@ -46,7 +46,7 @@ export const Users: CollectionConfig = {
       saveToJWT: true,
       type: "select",
       hasMany: true,
-      defaultValue: ["editor"],
+      required: true,
       access: {
         // Only admins can create or update a value for this field
         create: isAdminFieldLevel,

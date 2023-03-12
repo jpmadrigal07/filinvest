@@ -88,18 +88,6 @@ export const News: CollectionConfig = {
       required: false,
     },
     {
-      name: "locationGroupTag",
-      type: "relationship",
-      relationTo: "location-group-categories",
-      required: false,
-    },
-    {
-      name: "subLocationTag",
-      type: "relationship",
-      relationTo: "sub-location-categories",
-      required: false,
-    },
-    {
       name: "site",
       type: "relationship",
       relationTo: "sites",

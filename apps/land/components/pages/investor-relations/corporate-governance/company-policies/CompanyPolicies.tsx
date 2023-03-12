@@ -9,8 +9,8 @@ const CompanyPolicies = ({ content }: any) => {
   );
   return (
     <section className="mt-16 mb-28 flex flex-col gap-10 px-4 lg:mx-9 xl:mx-16 2xl:mx-44">
-      {data.companyPolicies.map((item: any) => (
-        <>
+      {data.companyPolicies.map((item: any, index: number) => (
+        <div key={index}>
           {item.title || item.subtitle ? (
             <div className="flex flex-col gap-3 py-12">
               {item.title ? (
@@ -40,7 +40,7 @@ const CompanyPolicies = ({ content }: any) => {
               </div>
             ))}
           </div>
-        </>
+        </div>
       ))}
       <PageNextPrevButton content={content} />
     </section>

@@ -81,8 +81,6 @@ const Content = ({ content }: any) => {
     }
   );
 
-  console.log(rows);
-
   const downloadLink = content?.content.find(
     (item: any) => item.blockType === "structures-download-button"
   )?.downloadLink;

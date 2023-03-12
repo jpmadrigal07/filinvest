@@ -12,13 +12,15 @@ const Programs = ({ content }: any) => {
         <div className="lg:mx-9 xl:mx-16 2xl:mx-44">
           <h2 className="text-jet text-3xl font-bold">{data.title}</h2>
           <p className="text-dim-gray mt-8">{data.subtitle}</p>
-          {data.descriptionParagraphs.map((item: any) => (
-            <p className="text-dim-gray mt-8">{item.description}</p>
+          {data.descriptionParagraphs.map((item: any, index: number) => (
+            <p className="text-dim-gray mt-8" key={index}>
+              {item.description}
+            </p>
           ))}
         </div>
         <div className="mt-16 flex gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
-          {data.gallery.map((item: any) => (
-            <div className="flex-1">
+          {data.gallery.map((item: any, index: number) => (
+            <div className="flex-1" key={index}>
               <Image
                 src={`${item.image.url}`}
                 width={790}

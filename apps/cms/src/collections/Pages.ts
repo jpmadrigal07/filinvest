@@ -67,7 +67,7 @@ import {
 import { MallsTitleText, MallsMalls } from "../blocks/Malls";
 import { OfficeParksOfficeParks } from "../blocks/OfficeParks";
 import { OfficesOfficeParks, OfficesOffices } from "../blocks/Offices";
-import { CorporateCenters } from "../blocks/CorporateCenters";
+// import { CorporateCenters } from "../blocks/CorporateCenters";
 import { SubsidiariesCompanies } from "../blocks/Subsidiaries";
 import {
   PusongFilinvestOurStory,
@@ -119,6 +119,7 @@ import NextLink from "../blocks/NextLink";
 import PreviousLink from "../blocks/PreviousLink";
 import TermsText from "../blocks/TermsText";
 import PrivacyPolicyText from "../blocks/PrivacyPolicyText";
+import Sitemap from "../blocks/Sitemap";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -167,7 +168,6 @@ export const Pages: CollectionConfig = {
         OfficeParksOfficeParks,
         OfficesOfficeParks,
         OfficesOffices,
-        CorporateCenters,
         SubsidiariesCompanies,
         PusongFilinvestOurStory,
         PusongFilinvestCorporateSocialResponsibility,
@@ -239,6 +239,7 @@ export const Pages: CollectionConfig = {
         InvestorRelationsFinancialHighlights,
         InvestorRelationsLinks,
         PrivacyPolicyText,
+        Sitemap,
       ],
     },
     {

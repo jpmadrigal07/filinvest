@@ -3,6 +3,7 @@ import { Transition, Popover } from "@headlessui/react";
 import Link from "next/link";
 import { combineClass } from "@/helpers/combineClass";
 import ChevronDown from "@/components/svg/ChevronDown";
+import { useRouter } from "next/navigation";
 
 type T_Flyout_Menu = "" | "full" | "single" | "link";
 
@@ -43,6 +44,7 @@ const LinkWrapper = ({
   flyoutMenu,
 }: I_Props) => {
   const popoverRef = useRef(null);
+  const router = useRouter();
   const setMenuType = (type: T_Flyout_Menu) => {
     setFlyoutMenu(type);
   };
@@ -53,7 +55,7 @@ const LinkWrapper = ({
 
   return (
     <>
-      {isLink && link && !subMenus && (
+      {!fullComponent && isLink && link && !subMenus && (
         <>
           <Link
             href={link}
@@ -153,10 +155,13 @@ const LinkWrapper = ({
           </Popover>
         </>
       )}
-      {!isLink && !link && fullComponent && (
+      {fullComponent && (
         <>
           <span
             onClick={() => {
+              if (link) {
+                router.push(link ? link : "/");
+              }
               flyoutMenu == "full" ? setFlyoutMenu("") : setFlyoutMenu("full");
             }}
             className="flex cursor-pointer items-center gap-2 whitespace-nowrap transition duration-500"
