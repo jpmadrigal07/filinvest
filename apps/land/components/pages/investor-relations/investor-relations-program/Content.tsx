@@ -27,7 +27,9 @@ const Content = ({ content }: any) => {
         bgUrl={header.coverImage.url}
         bgUrlSmall={header.smallCoverImage.url}
       />
-      <InvestorRelationsProgramBlock content={content} />
+      <div className="sketch-bg">
+        <InvestorRelationsProgramBlock content={content} />
+      </div>
     </>
   );
 };
