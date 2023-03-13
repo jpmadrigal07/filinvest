@@ -18,7 +18,8 @@ const stringifiedQuery = qs.stringify(
 
 async function getNews() {
   const res = await fetch(
-    `${process.env.CMS_URL}/api/news${stringifiedQuery}&limit=3`
+    `${process.env.CMS_URL}/api/news${stringifiedQuery}&limit=3`,
+    { next: { revalidate: CACHE_REVALIDATE } }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
