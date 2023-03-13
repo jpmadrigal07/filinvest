@@ -36,7 +36,9 @@ const SelectCategory = ({
             className={combineClass("group inline-flex hover:underline")}
           >
             <div className="divide-gainsboro flex w-52 items-center divide-x bg-white shadow-xl">
-              <div className="flex-1 py-3 px-6 font-bold">Category - All</div>
+              <div className="flex-1 truncate py-3 px-6 font-bold">
+                {defaultValue === "" ? "Category - All" : defaultValue}
+              </div>
               <div className="flex flex-none flex-col gap-1 p-4">
                 <ChevronDown color="#303030" classes="rotate-180" />
                 <ChevronDown color="#303030" />
@@ -59,12 +61,16 @@ const SelectCategory = ({
                   {values?.map((val: any, index: number) => (
                     <span
                       key={index}
-                      onClick={() => close()}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onValueChange(val);
+                        close();
+                      }}
                       className="hover:bg-ghost-white flex items-start transition duration-150 ease-in-out hover:cursor-pointer"
                     >
                       <div className="w-full py-4 px-5">
                         <p className="text-md text-jet whitespace-nowrap text-left font-medium">
-                          {val}
+                          {val == "" ? "Category - All" : val}
                         </p>
                       </div>
                     </span>

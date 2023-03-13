@@ -5,10 +5,13 @@ import List from "@/components/svg/List";
 import React, { useState } from "react";
 import NewsTileList from "./NewsTileList";
 import SelectCategory from "@/components/select/SelectCategory";
-
+import useGetProjectsByCategory from "@/components/list/hooks/useGetProjectsByCategory";
 const Content = ({ news }: any) => {
-  const [selectedPropertyType, setSelectedPropertyType] = useState();
+  const [selectedPropertyType, setSelectedPropertyType] = useState<string>("");
   const [position, setPosition] = useState<"list" | "grid">("grid");
+  const { data, isFetching } = useGetProjectsByCategory({
+    projectType: selectedPropertyType,
+  });
   return (
     <section className="my-12 mx-9 gap-9 xl:my-24 xl:mx-16 2xl:mx-44">
       <div className="flex items-center justify-end gap-7">
@@ -23,12 +26,39 @@ const Content = ({ news }: any) => {
           onClick={() => setPosition("grid")}
         />
         <SelectCategory
-          values={["Co-Living", "Offices", "Projects"]}
+          values={[
+            "",
+            "Co-living",
+            "Offices",
+            "Projects",
+            "Corporate Centers",
+            "Industrial",
+            "Malls",
+            "Mixed-use",
+            "Offices",
+            "Residentials",
+            "Townscapes",
+          ]}
           defaultValue={selectedPropertyType}
           onValueChange={setSelectedPropertyType}
         />
       </div>
-      <NewsTileList news={news} position={position} />
+      {!isFetching ? (
+        <>
+          <h3 className="text-jet text-2xl">
+            {`${
+              selectedPropertyType == "" ? "" : `${data && data?.length} found`
+            }`}
+            <NewsTileList
+              news={data ? data : news}
+              position={position}
+              expandHeight={true}
+            />
+          </h3>
+        </>
+      ) : (
+        <h3 className="text-jet min-h-[600px] text-2xl">Loading...</h3>
+      )}
     </section>
   );
 };
