@@ -39,8 +39,9 @@ body {
 
 .sketch-bg {
   background-image: url("/sketch-bg.png");
-  background-size: contain;
-  background-position: center;
+  background-size: 1200px;
+
+  background-repeat: no-repeat;
 }
 
 .sketch-bg-norepeat {

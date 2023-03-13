@@ -10,11 +10,7 @@ export async function generateMetadata() {
 
 const InvestorRelationsProgramPage = async () => {
   const content = await getPageContent(INVESTOR_RELATIONS_PROGRAM_PAGE_ID);
-  return (
-    <div className="sketch-bg">
-      <Content content={content} />
-    </div>
-  );
+  return <Content content={content} />;
 };
 
 export default InvestorRelationsProgramPage;
