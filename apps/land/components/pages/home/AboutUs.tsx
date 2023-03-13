@@ -7,7 +7,7 @@ import BorderButton from "../../button/BorderButton";
 const AboutUs = ({ content }: any) => {
   return (
     <section className="justfify-center mx-6 flex flex-col items-center gap-12 pt-36 lg:mx-9 lg:flex-row lg:gap-24 xl:mx-16 xl:pt-44 2xl:mx-44">
-      <div className="hidden flex-1 md:block">
+      <div className="flex-1">
         <Image
           src={`${!content.content[5].coverImage.url ? "/" : ""}${
             content.content[5].coverImage.url
