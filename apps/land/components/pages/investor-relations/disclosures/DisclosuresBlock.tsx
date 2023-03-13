@@ -108,7 +108,7 @@ export default function DisclosuresBlock({ content }: any) {
   }, []);
 
   return (
-    <section className="z-[999] mx-6 -mt-24 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-32">
+    <section className="z-[999] mx-6 -mt-10 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44 2xl:-mt-32">
       <div className="bg-dark-cornflower-blue z-10 flex flex-col items-center gap-8 px-10 py-6 md:mx-10 lg:mx-16 lg:flex-row">
         <div className="w-full flex-1">
           <h3 className="text-white">Disclosures</h3>

@@ -67,21 +67,21 @@ const FeaturedArticles = ({
       <div
         className={`${
           sliderOnMobile ? "hidden md:grid" : ""
-        } grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3`}
+        } grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3`}
       >
-        {updatedArticle.map((article: any, index: any) => {
+        {updatedArticle?.map((article: any, index: any) => {
           return (
             <Link
-              href={`/article/${article.slug}`}
+              href={`/article/${article?.slug}`}
               key={index}
               className={`group `}
             >
               <Image
-                src={article.coverImage.url}
+                src={article?.coverImage?.url}
                 width={1280}
                 height={663}
-                alt={article.coverImage.alt}
-                className="opacity-100 transition duration-150 hover:opacity-70"
+                alt={article?.coverImage?.alt}
+                className="h-[230px] w-full opacity-100 transition duration-150 hover:opacity-70 lg:h-[280px]"
               />
               <h2
                 className={`text-jet mt-6 text-3xl font-bold leading-9 ${
@@ -108,13 +108,13 @@ const FeaturedArticles = ({
                     isTwoLines && "mt-4"
                   }`}
                 >
-                  {`Posted by ${article.author.roles[0]
+                  {`Posted by ${article?.author?.roles[0]
                     .charAt(0)
-                    .toUpperCase()}${article.author.roles[0].substr(
+                    .toUpperCase()}${article?.author?.roles[0].substr(
                     1
                   )} on`}{" "}
                   {` `}
-                  {moment(article.createdAt).format("MMM DD, YYYY")}
+                  {moment(article?.createdAt).format("MMM DD, YYYY")}
                 </h4>
               )}
 
@@ -134,7 +134,7 @@ const FeaturedArticles = ({
                     : {}
                 }
               >
-                {article.content[0].children[0].text}
+                {article?.content[0].children[0].text}
               </h4>
 
               {withExtras && (
