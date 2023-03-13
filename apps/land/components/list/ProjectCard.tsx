@@ -92,7 +92,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   console.log(project);
   return (
     <>
-      <div className="min-h-80 flex max-h-[600px] w-full flex-col overflow-hidden">
+      <div className="min-h-80 flex w-full flex-col overflow-hidden">
         <div className="relative flex grow items-center justify-center">
           {project.imageGallery.length > 1 ? (
             <ImageSlider imageGallery={project.imageGallery} />
@@ -104,9 +104,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               height={375}
             />
           )}
-        </div>
-        <div className="relative flex flex-col px-9">
-          <div className="absolute right-0 -top-8 z-20 rounded-full ">
+          <div className="absolute right-0 -bottom-7 z-20 rounded-full ">
             <ImageWithFallback
               style={{ clipPath: "circle()" }}
               width={100}
@@ -115,37 +113,37 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               alt={project.logo.alt ?? ""}
             />
           </div>
+        </div>
+        <div className="relative flex flex-col px-9">
           <div className="flex flex-col border-b py-4 md:py-8">
-            <h5 className="text-3xl font-black tracking-tighter">
+            <h5 className="line-clamp-2 font-black tracking-tighter md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
               {project.title}
             </h5>
-            <p className="text-lg md:text-xl">
+            <p className="line-clamp-2">
               {project.description ?? "No description"}
             </p>
           </div>
-          <div className="flex gap-5 py-4 md:py-8">
+          <div className="flex gap-5 py-4 text-sm md:py-8 md:text-base">
             <div className="flex items-center justify-center gap-3">
               <Peso
                 color={getBrandHexColor(project.site.title as T_Brands)}
                 classes="h-4 w-4 md:h-5 md:w-5"
               />
-              <p className="text-sm font-bold md:text-xl">{formattedPrice}</p>
+              <p className="font-bold">{formattedPrice}</p>
             </div>
             <div className="flex items-center justify-center gap-3">
               <Flag
                 color={getBrandHexColor(project.site.title as T_Brands)}
                 classes="h-4 w-4 md:h-5 md:w-5"
               />
-              <p className="text-sm font-bold md:text-xl">
-                {project.location.title}
-              </p>
+              <p className="font-bold">{project.location.title}</p>
             </div>
             <div className="flex items-center justify-center gap-3">
               <SizeBox
                 color={getBrandHexColor(project.site.title as T_Brands)}
                 classes="h-4 w-4 md:h-5 md:w-5"
               />
-              <p className="text-sm font-bold md:text-xl">{project.size} sqm</p>
+              <p className="font-bold">{project.size} sqm</p>
             </div>
           </div>
         </div>
