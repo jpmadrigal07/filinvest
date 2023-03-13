@@ -10,10 +10,12 @@ const NewsTileList = ({
   news,
   position = "grid",
   className,
+  expandHeight = false,
 }: {
   news: any;
   position?: string;
   className?: string;
+  expandHeight?: boolean;
 }) => {
   const router = useRouter();
   return (
@@ -26,10 +28,11 @@ const NewsTileList = ({
               : "grid-cols-1"
           } mt-12 gap-x-9 gap-y-20 ${className}`}
         >
-          {news.map((item: any, index: number) => {
+          {news?.map((item: any, index: number) => {
+            console.log(item);
             return (
               <span
-                onClick={() => router.push(`/article/${item.slug}`)}
+                onClick={() => router.push(`/article/${item?.slug}`)}
                 className={`grid ${
                   position === "grid"
                     ? "grid-cols-1 gap-4"
@@ -39,23 +42,23 @@ const NewsTileList = ({
               >
                 <div className="bg-ghost-white">
                   <Image
-                    src={`${item.coverImage.url}`}
+                    src={`${item?.coverImage?.url}`}
                     width={1364}
                     height={663}
-                    alt={item.coverImage.alt}
+                    alt={item?.coverImage?.alt}
                     className="transition delay-150 group-hover:opacity-70"
                   />
                 </div>
                 <div className="mt-4">
-                  <h3 className="text-jet text-2xl font-bold">{item.title}</h3>
+                  <h3 className="text-jet text-2xl font-bold">{item?.title}</h3>
                   <p className="text-dim-gray text-sm opacity-70">
-                    Posted on {moment(item.createdAt).format("ll")}
+                    Posted on {moment(item?.createdAt).format("ll")}
                   </p>
                   <p className="text-dim-gray mt-4 truncate">
-                    {item.content[0].children[0].text}
+                    {item?.content[0]?.children[0]?.text}
                   </p>
                   <div className="mt-8">
-                    <Link href={`/article/${item.slug}`}>
+                    <Link href={`/article/${item?.slug}`}>
                       <BorderButton
                         buttonText="Read More"
                         textColor="dark-cornflower-blue"
@@ -69,7 +72,13 @@ const NewsTileList = ({
           })}
         </div>
       ) : (
-        <h3 className="text-silver-chalice text-xl italic">No result</h3>
+        <h3
+          className={`text-silver-chalice text-xl italic ${
+            expandHeight && "min-h-[600px]"
+          }`}
+        >
+          No result
+        </h3>
       )}
     </>
   );
