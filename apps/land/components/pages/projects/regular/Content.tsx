@@ -13,13 +13,7 @@ import Link from "next/link";
 const Content = ({ project }: { project: Project }) => {
   return (
     <div>
-      <MainHeader
-        title={project.title}
-        otherUrl={`${process.env.CMS_URL}${encodeURI(
-          // @ts-expect-error
-          project.headerImage.url
-        )}`}
-      />
+      <MainHeader title={project.title} otherUrl={project.headerImage.url} />
       <div className="bg-alice-blue flex items-center gap-3 px-9 py-4 2xl:px-16">
         <p className="text-dim-gray">Projects</p>
         <p className="text-dim-gray">/</p>
