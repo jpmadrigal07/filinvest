@@ -33,7 +33,6 @@ const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
   const { data } = useGetNews({
     searchParams: query,
   });
-  // console.log("Data: ", data);
   return (
     <>
       <div className="mx-6 mt-24 flex w-full items-center gap-8">

@@ -4,23 +4,34 @@ import SelectLocation from "@/components/select/SelectLocation";
 import Projects from "@/components/list/Projects";
 import { LocationCategory, Project } from "shared-types";
 import useGetProjectsByLocation from "@/components/list/hooks/useGetProjectsByLocation";
+import SelectStatus from "@/components/select/SelectStatus";
 
 const ProjectsContent = ({
   projects,
   locations,
+  projectStatus,
 }: {
   projects: Project[];
   locations: LocationCategory[];
+  projectStatus: any;
 }) => {
   const [currentLocation, setCurrentLocation] = useState("");
+  const [currentStatus, setCurrentStatus] = useState("");
   const { data, isFetching } = useGetProjectsByLocation({
     location: currentLocation,
     projectType: "Offices",
+    status: currentStatus,
   });
   const locationString =
     locations.length > 0
       ? locations.map((location) => {
           return location.title;
+        })
+      : [];
+  const statusString =
+    projectStatus.length > 0
+      ? projectStatus.map((status: any) => {
+          return status.title;
         })
       : [];
   return (
@@ -44,6 +55,11 @@ const ProjectsContent = ({
             </div>
             <div className="flex flex-none items-center gap-9">
               <h3 className="text-jet text-xl">Filter by</h3>
+              <SelectStatus
+                status={statusString}
+                setCurrentStatus={setCurrentStatus}
+                currentStatus={currentStatus}
+              />
               <SelectLocation
                 locations={locationString}
                 setCurrentLocation={setCurrentLocation}

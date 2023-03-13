@@ -18,6 +18,8 @@ export default function DisclosuresBlock({ content }: any) {
   const [disclosuresFilter, setDisclosuresFilter] = useState("All");
   const [yearFilter, setYearFilter] = useState("All");
   const [rowData, setRowData] = useState(disclosuresTableBlock?.rowData);
+  const countPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(1);
 
   const rows = Object.values(rowData.map((r: any) => Object.values(r)));
 
@@ -60,6 +62,18 @@ export default function DisclosuresBlock({ content }: any) {
     });
     return r;
   });
+
+  finalRows = finalRows.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / countPerPage);
+
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []; // start a new chunk
+    }
+
+    resultArray[chunkIndex].push(item);
+
+    return resultArray;
+  }, []);
 
   const handleSearch = () => {
     if (disclosuresFilter == "All") {
@@ -128,28 +142,25 @@ export default function DisclosuresBlock({ content }: any) {
       <div className="mb-6">
         <Table
           header={["Date", "Name", "Category", "Download"]}
-          rows={finalRows}
+          rows={finalRows[currentPage - 1]}
         />
       </div>
       <div className="mb-24 flex justify-center gap-4">
-        <div className="bg-dark-cornflower-blue px-3 py-[5px] text-white">
-          1
-        </div>
-        <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-          2
-        </div>
-        <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-          3
-        </div>
-        <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-          4
-        </div>
-        <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-          5
-        </div>
-        <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-          6
-        </div>
+        {finalRows.map((row: any, index: number) => {
+          return (
+            <div
+              onClick={() => setCurrentPage(index + 1)}
+              className={`${
+                index === currentPage - 1
+                  ? "bg-dark-cornflower-blue"
+                  : "border-dark-cornflower-blue text-jet border-[1px]"
+              } cursor-pointer px-3 py-[5px] text-white`}
+              key={index}
+            >
+              {index + 1}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

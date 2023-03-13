@@ -4,18 +4,8 @@ const Sitemap: Block = {
   slug: "sitemap",
   fields: [
     {
-      name: "title",
-      type: "text",
-      required: true,
-    },
-    {
-      type: "text",
-      name: "url",
-      required: true,
-    },
-    {
       type: "array",
-      name: "subMenu",
+      name: "menu",
       fields: [
         {
           name: "title",
@@ -40,6 +30,22 @@ const Sitemap: Block = {
               type: "text",
               name: "url",
               required: true,
+            },
+            {
+              type: "array",
+              name: "subSubMenu",
+              fields: [
+                {
+                  name: "title",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  type: "text",
+                  name: "url",
+                  required: true,
+                },
+              ],
             },
           ],
         },

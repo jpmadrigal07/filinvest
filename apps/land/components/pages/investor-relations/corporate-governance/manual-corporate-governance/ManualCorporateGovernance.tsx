@@ -8,7 +8,6 @@ const ManualCorporateGovernance = ({ content }: any) => {
   const data = content?.content.find(
     (item: any) => item.blockType === "manual-corporate-governance"
   );
-  console.log(data);
   return (
     <section className="mx-6 -mt-20 mb-28 flex flex-col gap-6 md:mb-28 md:-mt-16 lg:mx-9 lg:-mt-32 xl:mx-16 2xl:mx-44 2xl:-mt-48">
       <div className="flex flex-col gap-10 px-6 md:grid md:grid-cols-2 md:p-0 lg:grid-cols-4 lg:gap-12">

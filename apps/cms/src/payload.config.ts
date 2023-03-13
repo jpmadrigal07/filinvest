@@ -17,6 +17,7 @@ import { PropertyCategories } from "./collections/PropertyCategories";
 import { LocationGroupCategories } from "./collections/LocationGroupCategories";
 import { LocationCategories } from "./collections/LocationCategories";
 import { SubLocationCategories } from "./collections/SubLocationCategories";
+import { ProjectStatusCategories } from "./collections/ProjectStatusCategories";
 
 import { Navigation } from "./globals/Navigation";
 import { Footer } from "./globals/Footer";
@@ -27,6 +28,7 @@ import { PropertySearch } from "./globals/PropertySearch";
 
 export default buildConfig({
   cors: "*",
+  serverURL: process.env.CMS_URL,
   admin: {
     user: Users.slug,
     css: path.resolve(__dirname, "styles/custom.scss"),
@@ -56,6 +58,7 @@ export default buildConfig({
     LocationGroupCategories,
     LocationCategories,
     SubLocationCategories,
+    ProjectStatusCategories,
     Files,
   ],
   plugins: [

@@ -5,7 +5,7 @@ import MainHeader from "@/components/header/MainHeader";
 import OfficeParks from "./OfficeParks";
 import ProjectsContent from "./Projects";
 
-const Content = ({ content, projects, locations }: any) => {
+const Content = ({ content, projects, locations, projectStatus }: any) => {
   const header = content?.content.find(
     (item: any) => item.blockType === "header"
   );
@@ -28,7 +28,11 @@ const Content = ({ content, projects, locations }: any) => {
       />
       <section className="mx-9 mt-16 mb-32 xl:mx-16 2xl:mx-44">
         <OfficeParks content={content} />
-        <ProjectsContent projects={projects} locations={locations} />
+        <ProjectsContent
+          projects={projects}
+          locations={locations}
+          projectStatus={projectStatus}
+        />
       </section>
     </>
   );

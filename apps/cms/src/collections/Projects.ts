@@ -282,6 +282,11 @@ export const Projects: CollectionConfig = {
       relationTo: "sub-location-categories",
     },
     {
+      name: "status",
+      type: "relationship",
+      relationTo: "project-status-categories",
+    },
+    {
       name: "mapImage",
       type: "upload",
       relationTo: "files",

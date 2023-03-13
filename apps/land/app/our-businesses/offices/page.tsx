@@ -35,8 +35,14 @@ const OfficePage = async () => {
   const content = await getPageContent("63f1c8faaf1792ce5d297e9e");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
+  const projectStatus = await getRequest(`/api/project-status-categories`);
   return (
-    <Content content={content} projects={projects} locations={locations} />
+    <Content
+      content={content}
+      projects={projects}
+      locations={locations}
+      projectStatus={projectStatus}
+    />
   );
 };
 

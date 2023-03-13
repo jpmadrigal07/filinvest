@@ -61,7 +61,6 @@ const FeaturedArticles = ({
         No result
       </div>
     );
-  console.log("articles: ", updatedArticle);
 
   return (
     <div className={className}>

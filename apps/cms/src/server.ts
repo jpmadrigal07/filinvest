@@ -30,7 +30,7 @@ const start = async () => {
             transportOptions: nodemailerSendgrid({
               apiKey: sendGridAPIKey,
             }),
-            fromName: "Admin",
+            fromName: "Filinvest CMS Forgot Password",
             fromAddress: "jepoyyy0225@gmail.com",
           },
         }

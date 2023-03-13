@@ -5,17 +5,28 @@ import qs from "qs";
 export async function getProjectsByLocation({
   location,
   projectType,
+  status,
 }: {
   location: string;
   projectType: string;
+  status?: string;
 }) {
   const query = {
-    "projectType.title": {
-      equals: projectType,
-    },
-    "location.title": {
-      equals: location,
-    },
+    ...(location && {
+      "location.title": {
+        equals: location,
+      },
+    }),
+    ...(projectType && {
+      "projectType.title": {
+        equals: projectType,
+      },
+    }),
+    ...(status && {
+      "status.title": {
+        equals: status,
+      },
+    }),
   };
 
   const stringifiedQuery = qs.stringify(
@@ -38,15 +49,17 @@ export async function getProjectsByLocation({
 function useGetProjectsByLocation({
   location,
   projectType,
+  status,
 }: {
   location: string;
   projectType: string;
+  status?: string;
 }) {
   const query = useQuery(
-    ["project", location],
-    () => getProjectsByLocation({ location, projectType }),
+    ["project", { location, projectType, status }],
+    () => getProjectsByLocation({ location, projectType, status }),
     {
-      enabled: !!location && !!projectType,
+      enabled: (!!location && !!projectType) || !!status,
       refetchOnWindowFocus: false,
     }
   );

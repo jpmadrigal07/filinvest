@@ -13,6 +13,7 @@ export const Users: CollectionConfig = {
   admin: {
     useAsTitle: "email",
     group: "Admin",
+    disableDuplicate: true,
   },
   access: {
     // Only admins can create users
