@@ -151,7 +151,7 @@ const HeroSection = ({ content }: any) => {
           </div>
         </Link>
       </div>
-      <div className="absolute -mt-24 flex w-full items-center justify-center gap-12 md:-mt-64 lg:hidden 2xl:-mt-80">
+      <div className="absolute z-[100] -mt-24 flex w-full items-center justify-center gap-12 md:-mt-64 lg:hidden 2xl:-mt-80">
         <div className="absolute z-40">
           <div className="flex gap-64 md:gap-[43rem]">
             <div
@@ -188,68 +188,75 @@ const HeroSection = ({ content }: any) => {
         >
           <SwiperSlide>
             <div className="relative">
-              <Image
-                src={`${!content.content[0].prestigeImage.url ? "/" : ""}${
-                  content.content[0].prestigeImage.url
-                }`}
-                width={434}
-                height={500}
-                alt={content.content[0].prestigeImage.alt}
-              />
-              <div className="absolute -mt-24 flex w-full items-center justify-center">
+              <Link href={content.content[0].prestigeLink} className="z-10">
                 <Image
-                  src={`${!content.content[0].prestigeLogo.url ? "/" : ""}${
-                    content.content[0].prestigeLogo.url
+                  src={`${!content.content[0].prestigeImage.url ? "/" : ""}${
+                    content.content[0].prestigeImage.url
                   }`}
-                  width={190}
-                  height={68}
-                  alt={content.content[0].prestigeLogo.alt}
+                  width={434}
+                  height={500}
+                  alt={content.content[0].prestigeImage.alt}
                 />
-              </div>
+
+                <div className="absolute -mt-24 flex w-full items-center justify-center">
+                  <Image
+                    src={`${!content.content[0].prestigeLogo.url ? "/" : ""}${
+                      content.content[0].prestigeLogo.url
+                    }`}
+                    width={190}
+                    height={68}
+                    alt={content.content[0].prestigeLogo.alt}
+                  />
+                </div>
+              </Link>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="relative">
-              <Image
-                src={`${!content.content[0].aspireImage.url ? "/" : ""}${
-                  content.content[0].aspireImage.url
-                }`}
-                width={434}
-                height={500}
-                alt={content.content[0].aspireImage.alt}
-              />
-              <div className="absolute -mt-24 flex w-full items-center justify-center">
+              <Link href={content.content[0].aspireLink} className="z-10">
                 <Image
-                  src={`${!content.content[0].aspireLogo.url ? "/" : ""}${
-                    content.content[0].aspireLogo.url
+                  src={`${!content.content[0].aspireImage.url ? "/" : ""}${
+                    content.content[0].aspireImage.url
                   }`}
-                  width={190}
-                  height={68}
-                  alt={content.content[0].aspireLogo.alt}
+                  width={434}
+                  height={500}
+                  alt={content.content[0].aspireImage.alt}
                 />
-              </div>
+                <div className="absolute -mt-24 flex w-full items-center justify-center">
+                  <Image
+                    src={`${!content.content[0].aspireLogo.url ? "/" : ""}${
+                      content.content[0].aspireLogo.url
+                    }`}
+                    width={190}
+                    height={68}
+                    alt={content.content[0].aspireLogo.alt}
+                  />
+                </div>
+              </Link>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="relative">
-              <Image
-                src={`${!content.content[0].futuraImage.url ? "/" : ""}${
-                  content.content[0].futuraImage.url
-                }`}
-                width={434}
-                height={500}
-                alt={content.content[0].futuraImage.alt}
-              />
-              <div className="absolute -mt-24 flex w-full items-center justify-center">
+              <Link href={content.content[0].futuraLink} className="z-10">
                 <Image
-                  src={`${!content.content[0].futuraLogo.url ? "/" : ""}${
-                    content.content[0].futuraLogo.url
+                  src={`${!content.content[0].futuraImage.url ? "/" : ""}${
+                    content.content[0].futuraImage.url
                   }`}
-                  width={198}
-                  height={67}
-                  alt={content.content[0].futuraLogo.alt}
+                  width={434}
+                  height={500}
+                  alt={content.content[0].futuraImage.alt}
                 />
-              </div>
+                <div className="absolute -mt-24 flex w-full items-center justify-center">
+                  <Image
+                    src={`${!content.content[0].futuraLogo.url ? "/" : ""}${
+                      content.content[0].futuraLogo.url
+                    }`}
+                    width={198}
+                    height={67}
+                    alt={content.content[0].futuraLogo.alt}
+                  />
+                </div>
+              </Link>
             </div>
           </SwiperSlide>
         </Swiper>
