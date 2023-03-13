@@ -94,7 +94,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     <>
       <div className="min-h-80 flex max-h-[600px] w-full flex-col overflow-hidden">
         <div className="relative flex grow items-center justify-center">
-          {project.imageGallery.length > 1 ? (
+          {project.imageGallery?.length > 1 ? (
             <ImageSlider imageGallery={project.imageGallery} />
           ) : (
             <ImageWithFallback
@@ -109,8 +109,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               style={{ clipPath: "circle()" }}
               width={100}
               height={100}
-              src={project.logo.url ?? ""}
-              alt={project.logo.alt ?? ""}
+              src={project.logo?.url ?? ""}
+              alt={project.logo?.alt ?? ""}
             />
           </div>
         </div>
@@ -133,10 +133,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             </div>
             <div className="flex items-center justify-center gap-3">
               <Flag
-                color={getBrandHexColor(project.site.title as T_Brands)}
+                color={getBrandHexColor(project.site?.title as T_Brands)}
                 classes="h-4 w-4 md:h-5 md:w-5"
               />
-              <p className="font-bold">{project.location.title}</p>
+              <p className="font-bold">{project.location?.title}</p>
             </div>
             <div className="flex items-center justify-center gap-3">
               <SizeBox
