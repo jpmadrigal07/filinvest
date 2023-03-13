@@ -1,3 +1,4 @@
+"use client";
 import MainHeader from "@/components/header/MainHeader";
 import Facebook from "@/components/svg/Facebook";
 import LinkedIn from "@/components/svg/LinkedIn";
@@ -9,34 +10,45 @@ import { News } from "shared-types";
 import RelatedArticles from "./RelatedArticles";
 import { serializeRichText } from "@/helpers/serializeRichText";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Content = (props: News) => {
   const articleUrl = `${process.env.LAND_URL}/article/${props.slug}`;
   const linkedInSharer = `https://www.linkedin.com/sharing/share-offsite/?url=${articleUrl}`;
   const facebookSharer = `https://www.facebook.com/sharer/sharer.php?u=${articleUrl}`;
   const twitterSharer = `https://twitter.com/intent/tweet?text=${articleUrl}`;
-  const tagWrapper = (text: string) => {
-    return <span className="text-vivid-sky-blue uppercase">{text}</span>;
+  const router = useRouter();
+  const tagWrapper = (type: string, text: string) => {
+    return (
+      <span
+        onClick={() => {
+          router.push(`property-search?${type}=${text}`);
+        }}
+        className="text-vivid-sky-blue cursor-pointer uppercase hover:opacity-70"
+      >
+        {text}
+      </span>
+    );
   };
   const renderTags = () => {
     let tags = [];
     if (props.locationGroupTag) {
-      tags.push(tagWrapper(props.locationGroupTag?.title));
+      tags.push(tagWrapper("locationGroup", props.locationGroupTag?.title));
     }
     if (props.locationTag) {
-      tags.push(tagWrapper(props.locationTag?.title));
+      tags.push(tagWrapper("location", props.locationTag?.title));
     }
     if (props.projectTypeTag) {
-      tags.push(tagWrapper(props.projectTypeTag?.title));
+      tags.push(tagWrapper("projectType", props.projectTypeTag?.title));
     }
     if (props.propertyTypeTag) {
-      tags.push(tagWrapper(props.propertyTypeTag?.title));
+      tags.push(tagWrapper("propertyType", props.propertyTypeTag?.title));
     }
     if (props.subLocationTag) {
-      tags.push(tagWrapper(props.subLocationTag?.title));
+      tags.push(tagWrapper("subLocation", props.subLocationTag?.title));
     }
     if (props.site) {
-      tags.push(tagWrapper(props.site?.title));
+      tags.push(tagWrapper("brand", props.site?.title));
     }
     return tags.length > 0 ? (
       tags
