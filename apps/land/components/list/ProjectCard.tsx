@@ -115,7 +115,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
         </div>
         <div className="flex flex-col px-9">
-          <div className="flex flex-col border-b py-2 md:py-4 lg:py-6 xl:py-8">
+          <div className="flex flex-col border-b py-4 lg:py-6 xl:py-8">
             <h5 className="line-clamp-2 font-black tracking-tighter md:text-base lg:text-lg xl:text-xl 2xl:text-3xl">
               {project.title}
             </h5>
