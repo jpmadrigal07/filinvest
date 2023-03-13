@@ -3,6 +3,7 @@ import PropertySearch from "@/components/search/PropertySearch";
 import React, { useEffect, useState } from "react";
 import TileProjects from "@/components/list/TileProjects";
 import { Project } from "shared-types";
+import Recommendation from "@/components/list/Recommendations";
 
 const Content = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -32,6 +33,9 @@ const Content = () => {
         ) : (
           <div className="text-xl">Searching...</div>
         )}
+      </div>
+      <div className="bg-ghost-white py-24">
+        <Recommendation />
       </div>
     </section>
   );
