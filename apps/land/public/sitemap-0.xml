@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:3000/careers/submit</loc><lastmod>2023-03-12T02:54:02.470Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/buyers/home-loan-calculator</loc><lastmod>2023-03-12T02:54:02.470Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/contact-us/submit</loc><lastmod>2023-03-12T02:54:02.470Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/our-businesses/office-parks/north-gate</loc><lastmod>2023-03-12T02:54:02.470Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/property-search</loc><lastmod>2023-03-12T02:54:02.470Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/sitemap</loc><lastmod>2023-03-12T02:54:02.470Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/careers/submit</loc><lastmod>2023-03-13T00:50:44.580Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/contact-us/submit</loc><lastmod>2023-03-13T00:50:44.580Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/our-businesses/office-parks/north-gate</loc><lastmod>2023-03-13T00:50:44.580Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/property-search</loc><lastmod>2023-03-13T00:50:44.580Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

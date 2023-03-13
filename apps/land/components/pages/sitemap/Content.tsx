@@ -21,7 +21,6 @@ const Content = ({ content }: any) => {
       <section className="mx-9 mt-16 mb-28 flex flex-col gap-6 lg:mx-9 xl:mx-16 2xl:mx-44">
         <h2 className="text-jet text-4xl font-bold">Pages</h2>
         {sitemap.menu.map((links: any, index: number) => {
-          console.log("wewew", links.subMenu);
           return (
             <>
               <Link
