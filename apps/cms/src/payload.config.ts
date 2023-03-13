@@ -28,7 +28,7 @@ import { PropertySearch } from "./globals/PropertySearch";
 
 export default buildConfig({
   cors: "*",
-  // serverURL: process.env.CMS_URL,
+  serverURL: process.env.CMS_URL,
   admin: {
     user: Users.slug,
     css: path.resolve(__dirname, "styles/custom.scss"),
