@@ -19,12 +19,7 @@ import { Project } from "shared-types";
 const Content = ({ project }: { project: Project }) => {
   return (
     <section>
-      <MainHeader
-        otherUrl={`${process.env.CMS_URL}${encodeURI(
-          // @ts-expect-error
-          project.headerImage.url
-        )}`}
-      />
+      <MainHeader otherUrl={project.headerImage.url} />
       <div className="border-gainsboro border-b-[1px]">
         <div className="my-4 mx-9 flex flex-col gap-9 lg:flex-row xl:mx-16 2xl:mx-44">
           <div className="flex flex-1 items-center gap-4">
