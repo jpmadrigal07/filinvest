@@ -11,7 +11,12 @@ export async function generateMetadata() {
 
 const FinancialHighlightsPage = async () => {
   const content = await getPageContent(FINANCIAL_HIGHLIGHTS_PAGE);
-  return <Content content={content} />;
+  // return <Content content={content} />;
+  return (
+    <div className="sketch-bg-dividend">
+      <Content content={content} />
+    </div>
+  );
 };
 
 export default FinancialHighlightsPage;
