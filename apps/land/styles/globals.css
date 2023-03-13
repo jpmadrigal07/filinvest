@@ -38,13 +38,20 @@ body {
 }
 
 .sketch-bg {
-  background-image: url("/sketch-house.png");
+  background-image: url("/sketch-bg.png");
   background-size: contain;
+  background-position: center;
 }
 
 .sketch-bg-norepeat {
+  background-image: url("/sketch-bg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.sketch-bg-dividend {
   background-image: url("/sketch-house.png");
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
 }
 

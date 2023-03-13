@@ -6,7 +6,7 @@ import Image from "next/image";
 import React, { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Link from "next/link";
 const EnvironmentalPreservation = ({ content }: any) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const data = content?.content.find(
@@ -14,6 +14,7 @@ const EnvironmentalPreservation = ({ content }: any) => {
       item.blockType ===
       "corporate-social-responsibility-environmental-preservation"
   );
+
   return (
     <div className="flex flex-col gap-32 md:px-20 lg:flex-row">
       <div>
@@ -24,11 +25,13 @@ const EnvironmentalPreservation = ({ content }: any) => {
           </p>
         ))}
         <div className="mt-12">
-          <BorderButton
-            buttonText="Read More"
-            textColor="dark-cornflower-blue"
-            borderColor="dark-cornflower-blue"
-          />
+          <Link href={data?.readMoreLink}>
+            <BorderButton
+              buttonText="Read More"
+              textColor="dark-cornflower-blue"
+              borderColor="dark-cornflower-blue"
+            />
+          </Link>
         </div>
       </div>
       <div className="flex flex-col justify-center md:justify-start">

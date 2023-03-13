@@ -1,6 +1,7 @@
 import React from "react";
 import Download from "@/components/svg/Download";
 import Image from "next/image";
+import Link from "next/link";
 const Charters = ({ content }: any) => {
   const data = content?.content.find(
     (item: any) => item.blockType === "board-committees-charter"
@@ -27,7 +28,9 @@ const Charters = ({ content }: any) => {
                   </div>
                   <h4 className="flex-1 underline">{charterItem.title}</h4>
                 </div>
-                <Download />
+                <Link href={charterItem?.downloadLink} target="_blank">
+                  <Download />
+                </Link>
               </div>
             </div>
           ))}

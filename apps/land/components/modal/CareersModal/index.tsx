@@ -15,7 +15,7 @@ const CareersModal = ({
   open: boolean;
   selectedCareer: string;
 }) => {
-  const { register, getValues } = useForm();
+  const { register, getValues, setValue } = useForm();
   const router = useRouter();
   const [level, setLevel] = useState(1);
   const onSubmit = () => {
@@ -71,6 +71,7 @@ const CareersModal = ({
                       setLevel={setLevel}
                       register={register}
                       getValues={getValues}
+                      setValue={setValue}
                       selectedCareer={selectedCareer}
                     />
                   ) : (

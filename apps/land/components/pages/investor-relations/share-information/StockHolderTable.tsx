@@ -21,10 +21,10 @@ export default function StockHolderTable({ content }: any) {
           {tableTitle}
         </h2>
       </div>
-      <h3 className="text-dim-gray mx-24 text-center text-lg">
+      <h3 className="text-dim-gray mx-6 text-center text-lg lg:mx-24">
         {tableDescription}
       </h3>
-      <div className="mx-16 flex flex-col">
+      <div className="mx-6 flex flex-col lg:mx-16">
         <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5">
@@ -71,7 +71,9 @@ export default function StockHolderTable({ content }: any) {
           </div>
         </div>
       </div>
-      <h3 className="text-dim-gray mx-24 text-center text-lg">{tableFooter}</h3>
+      <h3 className="text-dim-gray mx-6 text-center text-lg lg:mx-24">
+        {tableFooter}
+      </h3>
     </>
   );
 }

@@ -1,12 +1,16 @@
 import React from "react";
+import { ChevronCircle } from "./ChevronCircleRight";
 
-const ChevronCircleLeft = ({ color = "black" }: any) => {
+const ChevronCircleLeft = ({
+  color = "black",
+  fill = "none",
+}: ChevronCircle) => {
   return (
     <svg
       width="39"
       height="37"
       viewBox="0 0 39 37"
-      fill="none"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
