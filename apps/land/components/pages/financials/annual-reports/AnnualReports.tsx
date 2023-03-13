@@ -35,7 +35,7 @@ export default function AnnualReports({ content }: any) {
                         {report?.annualFinancialReportTitle}
                       </h4>
                     </div>
-                    <Link href={report?.downloadLink} target="_blank">
+                    <Link href={report?.file?.url} target="_blank">
                       <Download />
                     </Link>
                   </div>

@@ -104,49 +104,51 @@ const FullPropertySlider = ({
                 return (
                   <SwiperSlide key={index}>
                     <div className="relative mt-28">
-                      <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
-                        <div className="hidden lg:block">
-                          <Image
-                            src={`${!slider.blockLogo.url ? "/" : ""}${
-                              slider.blockLogo.url
-                            }`}
-                            width={228}
-                            height={50}
-                            alt={slider.blockLogo.alt}
-                          />
-                        </div>
-                        <div className="block lg:hidden">
-                          <Image
-                            src={`${!slider.blockLogo.url ? "/" : ""}${
-                              slider.blockLogo.url
-                            }`}
-                            width={114}
-                            height={25}
-                            alt={slider.blockLogo.alt}
-                          />
-                        </div>
-                        <div>
-                          <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
-                            {slider.blockTitle}
-                          </h2>
-                          <h4 className="text-dim-gray lg:text-normal text-md text-center">
-                            {slider.blockDescription}
-                          </h4>
-                        </div>
-                        {slider.blockLearnMoreLink && (
-                          <div className="mt-2 lg:mt-0">
-                            <button type="button">
-                              <Link href={slider.blockLearnMoreLink}>
-                                <BorderButton
-                                  buttonText="Learn More"
-                                  textColor="dark-cornflower-blue"
-                                  borderColor="dark-cornflower-blue"
-                                />
-                              </Link>
-                            </button>
+                      {slider?.blockLogo && (
+                        <div className="absolute flex w-1/2 flex-col items-center gap-6 bg-white px-12 pt-4 pb-12 lg:w-1/3 lg:gap-12">
+                          <div className="hidden lg:block">
+                            <Image
+                              src={`${!slider?.blockLogo?.url ? "/" : ""}${
+                                slider?.blockLogo?.url
+                              }`}
+                              width={228}
+                              height={50}
+                              alt={slider?.blockLogo?.alt}
+                            />
                           </div>
-                        )}
-                      </div>
+                          <div className="block lg:hidden">
+                            <Image
+                              src={`${!slider?.blockLogo?.url ? "/" : ""}${
+                                slider?.blockLogo?.url
+                              }`}
+                              width={114}
+                              height={25}
+                              alt={slider?.blockLogo?.alt}
+                            />
+                          </div>
+                          <div>
+                            <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
+                              {slider.blockTitle}
+                            </h2>
+                            <h4 className="text-dim-gray lg:text-normal text-md text-center">
+                              {slider.blockDescription}
+                            </h4>
+                          </div>
+                          {slider.blockLearnMoreLink && (
+                            <div className="mt-2 lg:mt-0">
+                              <button type="button">
+                                <Link href={slider.blockLearnMoreLink}>
+                                  <BorderButton
+                                    buttonText="Learn More"
+                                    textColor="dark-cornflower-blue"
+                                    borderColor="dark-cornflower-blue"
+                                  />
+                                </Link>
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
                       <Image
                         src={`${!slider.slideBackgroundImage.url ? "/" : ""}${
                           slider.slideBackgroundImage.url
@@ -206,49 +208,51 @@ const FullPropertySlider = ({
                         height={560}
                         alt={slider.slideBackgroundImage.alt}
                       />
-                      <div className="relative mx-8 -mt-20 mb-12 flex flex-col items-center gap-6 bg-white px-12 pt-4 pb-12">
-                        <div className="hidden lg:block">
-                          <Image
-                            src={`${!slider.blockLogo.url ? "/" : ""}${
-                              slider.blockLogo.url
-                            }`}
-                            width={228}
-                            height={50}
-                            alt={slider.blockLogo.alt}
-                          />
-                        </div>
-                        <div className="block lg:hidden">
-                          <Image
-                            src={`${!slider.blockLogo.url ? "/" : ""}${
-                              slider.blockLogo.url
-                            }`}
-                            width={114}
-                            height={25}
-                            alt={slider.blockLogo.alt}
-                          />
-                        </div>
-                        <div>
-                          <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
-                            {slider.blockTitle}
-                          </h2>
-                          <h4 className="text-dim-gray lg:text-normal text-md text-center">
-                            {slider.blockDescription}
-                          </h4>
-                        </div>
-                        {slider.blockLearnMoreLink && (
-                          <div className="mt-2 lg:mt-0">
-                            <button type="button">
-                              <Link href={slider.blockLearnMoreLink}>
-                                <BorderButton
-                                  buttonText="Learn More"
-                                  textColor="dark-cornflower-blue"
-                                  borderColor="dark-cornflower-blue"
-                                />
-                              </Link>
-                            </button>
+                      {slider?.blockLogo && (
+                        <div className="relative mx-8 -mt-20 mb-12 flex flex-col items-center gap-6 bg-white px-12 pt-4 pb-12">
+                          <div className="hidden lg:block">
+                            <Image
+                              src={`${!slider?.blockLogo?.url ? "/" : ""}${
+                                slider?.blockLogo?.url
+                              }`}
+                              width={228}
+                              height={50}
+                              alt={slider?.blockLogo?.alt}
+                            />
                           </div>
-                        )}
-                      </div>
+                          <div className="block lg:hidden">
+                            <Image
+                              src={`${!slider?.blockLogo?.url ? "/" : ""}${
+                                slider?.blockLogo?.url
+                              }`}
+                              width={114}
+                              height={25}
+                              alt={slider?.blockLogo?.alt}
+                            />
+                          </div>
+                          <div>
+                            <h2 className="text-jet mb-2 text-center text-xl font-bold lg:text-3xl">
+                              {slider.blockTitle}
+                            </h2>
+                            <h4 className="text-dim-gray lg:text-normal text-md text-center">
+                              {slider.blockDescription}
+                            </h4>
+                          </div>
+                          {slider.blockLearnMoreLink && (
+                            <div className="mt-2 lg:mt-0">
+                              <button type="button">
+                                <Link href={slider.blockLearnMoreLink}>
+                                  <BorderButton
+                                    buttonText="Learn More"
+                                    textColor="dark-cornflower-blue"
+                                    borderColor="dark-cornflower-blue"
+                                  />
+                                </Link>
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </SwiperSlide>
                 );

@@ -5,7 +5,7 @@ export default function StockHolderTable({ content }: any) {
     (item: any) => item.blockType === "stock-information-stock-holder-table"
   );
 
-  const rowData = StockHolderTableSection.rowData;
+  const rowData = StockHolderTableSection.tableRowData;
   const tableTitle = StockHolderTableSection.tableTitle;
   const tableSubTitle = StockHolderTableSection.tableSubTitle;
   const tableDescription = StockHolderTableSection.tableDescription;
