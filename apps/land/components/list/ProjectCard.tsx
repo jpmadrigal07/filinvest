@@ -38,15 +38,13 @@ type ImageSliderProps = {
 const ImageSlider = ({ imageGallery }: ImageSliderProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
   return (
-    <>
+    <div className="w-full">
       <Swiper
         loop
-        autoHeight
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
         centeredSlides
-        className="relative w-auto"
       >
         <div className="absolute top-1/2 left-1/2 z-10 flex w-full -translate-x-1/2 -translate-y-1/2 transform justify-between px-6">
           <button
@@ -55,7 +53,7 @@ const ImageSlider = ({ imageGallery }: ImageSliderProps) => {
               swiperRef.current?.slidePrev();
             }}
           >
-            <ChevronCircleLeft color="white" />
+            <ChevronCircleLeft color="white" fill="rgba(0,0,0,0.5)" />
           </button>
           <button
             onClick={(e) => {
@@ -63,7 +61,7 @@ const ImageSlider = ({ imageGallery }: ImageSliderProps) => {
               swiperRef.current?.slideNext();
             }}
           >
-            <ChevronCircleRight color="white" />
+            <ChevronCircleRight color="white" fill="rgba(0,0,0,0.5)" />
           </button>
         </div>
         {imageGallery.map(({ image, id }) => {
@@ -79,7 +77,7 @@ const ImageSlider = ({ imageGallery }: ImageSliderProps) => {
           );
         })}
       </Swiper>
-    </>
+    </div>
   );
 };
 
@@ -91,10 +89,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
   const formattedPrice = formatter.format(project.price);
 
+  console.log(project);
   return (
-    <div className="flex justify-center shadow-[0_3px_60px_rgba(0,0,0,0.10)]">
-      <div className="flex max-w-[350px] flex-col bg-white md:max-w-xl">
-        <div className="flex grow items-center justify-center">
+    <>
+      <div className="min-h-80 flex max-h-[600px] w-full flex-col overflow-hidden">
+        <div className="relative flex grow items-center justify-center">
           {project.imageGallery.length > 1 ? (
             <ImageSlider imageGallery={project.imageGallery} />
           ) : (
@@ -106,8 +105,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             />
           )}
         </div>
-        <div className="flex flex-col divide-y px-9">
-          <div className="flex flex-col py-4 md:py-8">
+        <div className="relative flex flex-col px-9">
+          <div className="absolute right-0 -top-8 z-20 rounded-full ">
+            <ImageWithFallback
+              style={{ clipPath: "circle()" }}
+              width={100}
+              height={100}
+              src={project.logo.url ?? ""}
+              alt={project.logo.alt ?? ""}
+            />
+          </div>
+          <div className="flex flex-col border-b py-4 md:py-8">
             <h5 className="text-3xl font-black tracking-tighter">
               {project.title}
             </h5>
@@ -142,7 +150,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
