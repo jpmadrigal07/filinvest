@@ -1,4 +1,5 @@
-// "use client";
+"use client";
+import "swiper/swiper-bundle.css";
 import React, { useRef, useState } from "react";
 import { getBrandHexColor } from "@/helpers/getBrandHexColor";
 import Image, { ImageProps } from "next/image";
@@ -89,10 +90,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
   const formattedPrice = formatter.format(project.price);
 
-  console.log(project);
   return (
     <>
-      <div className="min-h-80 flex w-full flex-col overflow-hidden">
+      <div className="min-h-80 flex max-h-[600px] w-full flex-col overflow-hidden">
         <div className="relative flex grow items-center justify-center">
           {project.imageGallery.length > 1 ? (
             <ImageSlider imageGallery={project.imageGallery} />
@@ -114,9 +114,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             />
           </div>
         </div>
-        <div className="relative flex flex-col px-9">
-          <div className="flex flex-col border-b py-4 md:py-8">
-            <h5 className="line-clamp-2 font-black tracking-tighter md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
+        <div className="flex flex-col px-9">
+          <div className="flex flex-col border-b py-4 lg:py-6 xl:py-8">
+            <h5 className="line-clamp-2 font-black tracking-tighter md:text-base lg:text-lg xl:text-xl 2xl:text-3xl">
               {project.title}
             </h5>
             <p className="line-clamp-2">
