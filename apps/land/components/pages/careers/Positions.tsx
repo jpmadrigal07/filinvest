@@ -9,14 +9,11 @@ import { Career } from "shared-types";
 import CareersCallHr from "./CareersCallHr";
 
 const Positions = ({ content }: any) => {
-  const {
-    data: careersRes,
-    isLoading,
-    category,
-    setCategory,
-  } = useGetCareers();
+  let { data: careersRes, isLoading, category, setCategory } = useGetCareers();
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [selectedCareer, setSelectedCareer] = useState<string | null>(null);
+  const countPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(1);
   const tabs = [
     "All",
     "Business",
@@ -27,6 +24,23 @@ const Positions = ({ content }: any) => {
     "Sales",
     "Technical",
   ];
+
+  careersRes = careersRes?.reduce(
+    (resultArray: any, item: any, index: number) => {
+      const chunkIndex = Math.floor(index / countPerPage);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = []; // start a new chunk
+      }
+
+      resultArray[chunkIndex].push(item);
+
+      return resultArray;
+    },
+    []
+  );
+
+  //careersRes = careersRes[currentPage - 1];
 
   return (
     <div className="mt-12">
@@ -58,48 +72,47 @@ const Positions = ({ content }: any) => {
             {isLoading ? (
               <p className="text-dim-gray">Loading...</p>
             ) : careersRes && careersRes.length > 0 ? (
-              careersRes.map((career: Career, index: number) => {
-                return (
-                  <Accordion
-                    key={index}
-                    title={career.title}
-                    description={career.location}
-                    setCareer={setSelectedCareer}
-                  >
-                    <CareerContent
-                      setModalOpen={setIsFormModalOpen}
-                      responsibilities={career.responsibilities}
-                      requirements={career.requirements}
-                    />
-                  </Accordion>
-                );
-              })
+              careersRes[currentPage - 1]?.map(
+                (career: Career, index: number) => {
+                  return (
+                    <Accordion
+                      key={index}
+                      title={career.title}
+                      description={career.location}
+                      setCareer={setSelectedCareer}
+                    >
+                      <CareerContent
+                        setModalOpen={setIsFormModalOpen}
+                        responsibilities={career.responsibilities}
+                        requirements={career.requirements}
+                      />
+                    </Accordion>
+                  );
+                }
+              )
             ) : (
               <p className="text-dim-gray">
                 No available position
                 {category !== "All" ? ` for ${category}` : ""}
               </p>
             )}
-            {/* <div className="mb-9 flex justify-center gap-4">
-              <div className="bg-dark-cornflower-blue px-3 py-[5px] text-white">
-                1
-              </div>
-              <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-                2
-              </div>
-              <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-                3
-              </div>
-              <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-                4
-              </div>
-              <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-                5
-              </div>
-              <div className="border-dark-cornflower-blue text-jet border-[1px] px-3 py-[5px]">
-                6
-              </div>
-            </div> */}
+            <div className="mb-9 flex justify-center gap-4">
+              {careersRes?.map((row: any, index: number) => {
+                return (
+                  <div
+                    onClick={() => setCurrentPage(index + 1)}
+                    className={`${
+                      index === currentPage - 1
+                        ? "bg-dark-cornflower-blue"
+                        : "border-dark-cornflower-blue text-jet border-[1px]"
+                    } cursor-pointer px-3 py-[5px] text-white`}
+                    key={index}
+                  >
+                    {index + 1}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <CareersCallHr content={content} />
