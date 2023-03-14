@@ -37,43 +37,34 @@ const PageNextPrevButton = ({ content }: any) => {
     } else if (dataNext && dataPrev) {
       return (
         <>
-          <div className="hidden lg:flex">
-            <div className="flex-none">
+          <div className="hidden w-full justify-between lg:flex">
+            <Button
+              imgName={dataPrev.image.url}
+              pageName={dataPrev.previousPageTitle}
+              url={dataPrev.previousLink}
+            />
+            <Button
+              imgName={dataNext.image.url}
+              pageName={dataNext.nextPageTitle}
+              url={dataNext.nextLink}
+              isLeft={false}
+            />
+          </div>
+          <div className="flex w-full flex-col gap-10 lg:hidden">
+            <div className="flex justify-start">
               <Button
                 imgName={dataPrev.image.url}
                 pageName={dataPrev.previousPageTitle}
                 url={dataPrev.previousLink}
               />
             </div>
-            <div className="grow"></div>
-            <div className="flex-none">
+            <div className="flex justify-end">
               <Button
                 imgName={dataNext.image.url}
                 pageName={dataNext.nextPageTitle}
                 url={dataNext.nextLink}
                 isLeft={false}
               />
-            </div>
-          </div>
-          <div className="block lg:hidden">
-            <div className="flex justify-start">
-              <div className="flex-none">
-                <Button
-                  imgName={dataPrev.image.url}
-                  pageName={dataPrev.previousPageTitle}
-                  url={dataPrev.previousLink}
-                />
-              </div>
-            </div>
-            <div className="mt-12 flex justify-end">
-              <div className="flex-none">
-                <Button
-                  imgName={dataNext.image.url}
-                  pageName={dataNext.nextPageTitle}
-                  url={dataNext.nextLink}
-                  isLeft={false}
-                />
-              </div>
             </div>
           </div>
         </>
