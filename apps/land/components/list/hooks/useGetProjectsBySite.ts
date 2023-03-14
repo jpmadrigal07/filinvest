@@ -1,7 +1,6 @@
 import { CACHE_REVALIDATE } from "@/helpers/constants";
 import { useQuery } from "@tanstack/react-query";
 import qs from "qs";
-import { stringify } from "querystring";
 
 export async function getProjectsBySite({ site }: { site: string }) {
   const query = {
