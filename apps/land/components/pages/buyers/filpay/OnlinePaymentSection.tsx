@@ -14,8 +14,9 @@ const OnlinePaymentSection = ({ content }: any) => {
         width={3284}
         height={684}
         alt="Picture of the author"
+        className="relative z-[10]"
       />
-      <h3 className="text-jet py-12 text-center text-4xl font-bold">
+      <h3 className="text-jet mt-12 py-12 text-center text-4xl font-bold md:mt-0">
         {data.title}
       </h3>
       <div className="mt-6 flex justify-center gap-12">

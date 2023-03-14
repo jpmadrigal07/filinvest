@@ -22,22 +22,9 @@ export default function ChartImage({ content }: any) {
           />
         </div>
       </div>
-      <div className="mx-6 mt-32 flex flex-col gap-12 md:flex-row md:gap-0 lg:mx-0">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Structures"
-            isLeft={true}
-          />
-        </div>
-        <div className="hidden grow md:block"></div>
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Investor Relations Program"
-            isLeft={false}
-          />
-        </div>
+
+      <div className="m-4 mt-32">
+        <PageNextPrevButton content={content} />
       </div>
     </section>
   );
