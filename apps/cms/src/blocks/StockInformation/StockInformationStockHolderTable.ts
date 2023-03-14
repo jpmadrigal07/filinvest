@@ -4,6 +4,26 @@ const StockInformationStockHolderTable: Block = {
   slug: "stock-information-stock-holder-table",
   fields: [
     {
+      type: "text",
+      name: "tableTitle",
+      required: true,
+    },
+    {
+      type: "text",
+      name: "tableSubTitle",
+      required: true,
+    },
+    {
+      type: "text",
+      name: "tableDescription",
+      required: true,
+    },
+    {
+      type: "text",
+      name: "tableFooter",
+      required: true,
+    },
+    {
       type: "array",
       name: "tableRowData",
       required: true,
