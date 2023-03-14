@@ -59,7 +59,7 @@ const OnlinePaymentSection = ({ content }: any) => {
           />
         </div>
       ))}
-      <div className="m-36 mt-12 flex justify-center">
+      <div className="m-0 mb-24 mt-12 flex justify-center md:m-36">
         <Link href={data.learnMoreLink}>
           <BorderButton
             buttonText="Learn More"

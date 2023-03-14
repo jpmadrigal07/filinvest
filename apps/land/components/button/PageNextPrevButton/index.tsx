@@ -8,7 +8,6 @@ const PageNextPrevButton = ({ content }: any) => {
   const dataPrev = content?.content.find(
     (item: any) => item.blockType === "previous-link"
   );
-  console.log(dataNext);
   const renderButtons = () => {
     if (dataNext && !dataPrev) {
       return (
