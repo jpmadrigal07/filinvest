@@ -3,28 +3,32 @@ import React from "react";
 import ArrowRight from "@/components/svg/ArrowRight";
 import MainHeader from "@/components/header/MainHeader";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
+import Link from "next/link";
 
 type PresentationCardProps = {
   imageSrc: string;
   imageAlt: string;
   cardTitle: string;
+  presentationLink: string;
 };
 
 const PresentationCard = ({
   imageSrc,
   imageAlt,
   cardTitle,
+  presentationLink,
 }: PresentationCardProps) => {
   return (
     <div>
       <Image src={imageSrc} width={1014} height={794} alt={imageAlt} />
       <div className="bg-dark-cornflower-blue flex h-[85px] items-center gap-4 pl-[30px] pr-6">
-        <p
+        <Link
+          href={presentationLink}
           title={cardTitle}
           className="line-clamp-3 flex-1 text-base font-bold text-white md:text-base lg:text-lg xl:text-xl"
         >
           {cardTitle}
-        </p>
+        </Link>
         <ArrowRight />
       </div>
     </div>
@@ -53,6 +57,7 @@ const Content = ({ content }: any) => {
 
   const breadcrumbs = <Breadcrumbs items={breadcrumbsItems} />;
 
+  console.log(presentations);
   return (
     <>
       <MainHeader
@@ -70,6 +75,7 @@ const Content = ({ content }: any) => {
                 imageSrc={`/${presentation.image.filename}`}
                 imageAlt={presentation.image.alt}
                 cardTitle={presentation.title}
+                presentationLink={presentation.presentationLink}
               />
             );
           })}
