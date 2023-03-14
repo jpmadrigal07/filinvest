@@ -53,7 +53,7 @@ const Content = ({ content }: any) => {
         <div className="relative w-full">
           <Image
             priority
-            className={`absolute -left-[105px] -bottom-[28rem] z-[-1] 2xl:-bottom-[26rem]`}
+            className={`absolute -left-[105px] -bottom-[28rem] z-[-1] 2xl:-bottom-10`}
             src={`/sketch-house.png`}
             alt={`sketch-house.png`}
             width={1508}

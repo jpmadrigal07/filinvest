@@ -19,18 +19,19 @@ const Button = ({
     <Link
       href={url}
       className={`flex ${
-        isLeft && "flex-row-reverse"
+        isLeft && "lg:flex-row-reverse"
       } hover:bg-ghost-white items-center gap-6 hover:cursor-pointer`}
     >
       <div className="flex-none">
         <Image
+          className="h-[54px] w-[65px]"
           src={imgName}
           width={64}
           height={54}
           alt="Picture of the author"
         />
       </div>
-      <div className="w-32 md:w-auto">
+      <div className="w-auto">
         <p className="text-jet text-sm font-bold">
           {isLeft ? "Previous" : "Next"}
         </p>
