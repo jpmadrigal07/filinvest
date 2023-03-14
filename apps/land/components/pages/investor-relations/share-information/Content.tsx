@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import OutstandingSharesTable from "./OutstandingSharesTable";
 import StockHolderTable from "./StockHolderTable";
+import Image from "next/image";
 const Content = ({ content }: any) => {
   const header = content?.content.find(
     (item: any) => item.blockType === "header"
@@ -34,7 +35,7 @@ const Content = ({ content }: any) => {
   )?.title;
 
   return (
-    <div className="sketch-bg">
+    <div className="sketch-bg-stock">
       <MainHeader
         title={header.title}
         breadcrumbs={breadcrumbs}
@@ -49,6 +50,16 @@ const Content = ({ content }: any) => {
         <Stocks />
         <OutstandingSharesTable content={content} />
         <StockHolderTable content={content} />
+        <div className="relative w-full">
+          <Image
+            priority
+            className={`absolute -left-[105px] -bottom-[28rem] z-[-1] 2xl:-bottom-[26rem]`}
+            src={`/sketch-house.png`}
+            alt={`sketch-house.png`}
+            width={1508}
+            height={400}
+          />
+        </div>
       </section>
     </div>
   );

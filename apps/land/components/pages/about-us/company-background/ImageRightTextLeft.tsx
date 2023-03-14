@@ -1,5 +1,5 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 import Image from "next/image";
 import React from "react";
@@ -31,14 +31,8 @@ const ImageRightTextLeft = ({ content, news }: any) => {
           />
         </div>
       </div>
-      <div className="mx-6 my-24 flex justify-end lg:mx-9 xl:mx-16 2xl:mx-44">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Our Leadership"
-            isLeft={false}
-          />
-        </div>
+      <div className="m-4 mt-32">
+        <PageNextPrevButton content={content} />
       </div>
       <div className="bg-ghost-white py-24">
         <h3 className="text-center text-4xl font-bold">Latest News</h3>

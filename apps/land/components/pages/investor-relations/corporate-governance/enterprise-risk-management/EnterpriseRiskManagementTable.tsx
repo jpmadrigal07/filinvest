@@ -46,7 +46,7 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
                   {flatRiskData.map((item: any, index: any) => (
                     <tr key={index} className="divide-jet divide-x">
                       {/* className="xs:text-sm py-4 pl-4 pr-4 text-xs font-bold text-gray-900 sm:pl-6 md:text-lg" */}
-                      <td className="xs:text-sm flex items-start  justify-center whitespace-nowrap py-4  pl-4 pr-4 text-xs font-bold text-gray-900 sm:pl-6 md:text-lg">
+                      <td className="xs:text-sm flex items-start  justify-center py-4  pl-4 pr-4 text-xs font-bold text-gray-900 sm:pl-6 md:text-lg">
                         {item.riskExposure}
                       </td>
                       <td className="xs:text-sm p-4 text-xs text-gray-500 md:text-lg">
