@@ -8,7 +8,7 @@ const OnlinePaymentSection = ({ content }: any) => {
     (item: any) => item.blockType === "filpay-online-payments-section"
   );
   return (
-    <section className="2xl-mt-52 -mt-36 gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+    <section className="2xl-mt-52 -mt-36 gap-9 px-4 lg:mx-9 xl:mx-16 2xl:mx-44">
       <Image
         src={`${data.headerImage.url}`}
         width={3284}
@@ -65,6 +65,7 @@ const OnlinePaymentSection = ({ content }: any) => {
             buttonText="Learn More"
             textColor="dark-cornflower-blue"
             borderColor="dark-cornflower-blue"
+            sidePadding={"4"}
           />
         </Link>
       </div>

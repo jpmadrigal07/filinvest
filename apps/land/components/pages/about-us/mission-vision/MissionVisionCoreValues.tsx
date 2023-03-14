@@ -1,5 +1,5 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import Image from "next/image";
 import React from "react";
 import "swiper/css";
@@ -65,14 +65,8 @@ const MissionVisionCoreValues = ({ content, news }: any) => {
           </p>
         </div>
       </div>
-      <div className="mx-6 my-24 flex justify-end lg:mx-9 xl:mx-16 2xl:mx-44">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="workplus-banner.png"
-            pageName="Our Leadership"
-            isLeft={false}
-          />
-        </div>
+      <div className="m-4 mb-24 mt-32">
+        <PageNextPrevButton content={content} />
       </div>
       <div className="bg-ghost-white py-24">
         <h3 className="text-center text-4xl font-bold">Latest News</h3>

@@ -31,7 +31,7 @@ const ImageRightTextLeft = ({ content, news }: any) => {
           />
         </div>
       </div>
-      <div className="m-4 mt-32">
+      <div className="m-4 mb-24 mt-32">
         <PageNextPrevButton content={content} />
       </div>
       <div className="bg-ghost-white py-24">
