@@ -5,11 +5,11 @@ import { Award } from "shared-types";
 
 const Content = ({ awards }: { awards: Award[] }) => {
   return (
-    <section className="short:-mt-32 mx-9 -mt-12 mb-24 gap-9 lg:-mt-36 xl:mx-16 2xl:mx-44 2xl:-mt-72">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <section className="short:-mt-32 relative z-10 -mt-12 mb-24 gap-9 px-9 lg:-mt-36 xl:px-16 2xl:-mt-36 2xl:px-44">
+      <div className="columns-1 gap-12 px-8 md:columns-2">
         {awards.map((award, index) => {
           return (
-            <div className="flex flex-col gap-6" key={index}>
+            <div className="mb-4 flex flex-col gap-6" key={index}>
               <Image
                 src={award.coverImage.url ? award.coverImage.url : ""}
                 width={award.coverImage.width ? award.coverImage.width : 512}
