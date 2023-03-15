@@ -184,7 +184,7 @@ const FeaturedArticles = ({
                     alt={article.coverImage.alt}
                     className={`w-full ${sliderImageClassName}`}
                   />
-                  <h2 className="text-jet mt-6 min-h-[72px] text-4xl font-black tracking-tighter md:text-2xl">
+                  <h2 className="text-jet line-clamp-2 mt-6 min-h-[72px] text-4xl font-black tracking-tighter md:text-2xl">
                     {article?.title}
                   </h2>
                   {withExtras && (
