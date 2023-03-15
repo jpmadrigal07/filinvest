@@ -16,11 +16,13 @@ const BoardOfDirectors = ({ content }: any) => {
   return (
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
-        <h2 className="text-jet text-5xl font-bold">{data.title}</h2>
-        <p className="text-dim-gray mt-6">{data.description}</p>
-        <div
-          className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-${data.numberOfColumns}`}
-        >
+        <h2 className="text-jet text-center text-5xl font-bold md:text-left">
+          {data.title}
+        </h2>
+        <p className="text-dim-gray mt-6  text-center md:text-left">
+          {data.description}
+        </p>
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {data.director.map((director: any, index: number) => (
             <div className="group relative" key={index}>
               <Image

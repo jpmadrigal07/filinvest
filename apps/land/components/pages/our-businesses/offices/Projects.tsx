@@ -53,7 +53,7 @@ const ProjectsContent = ({
                 <h3 className="text-jet text-2xl">Loading...</h3>
               )}
             </div>
-            <div className="flex flex-none items-center gap-9">
+            <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-8">
               <h3 className="text-jet text-xl">Filter by</h3>
               <SelectStatus
                 status={statusString}
