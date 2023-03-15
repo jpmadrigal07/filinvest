@@ -121,7 +121,11 @@ export const serializeRichText = (children: any) =>
 
       default:
         return (
-          <p key={i} className="text-dim-gray">
+          <p
+            key={i}
+            className="text-dim-gray"
+            style={{ wordBreak: "break-all" }}
+          >
             {serializeRichText(node.children)}
           </p>
         );
