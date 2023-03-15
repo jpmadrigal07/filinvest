@@ -14,7 +14,7 @@ import {
   toCurrencyComma,
 } from "@/helpers/homeCalculator";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
-
+import BlueButton from "@/components/button/BlueButton";
 const Content = ({ content }: any) => {
   const header = content?.content.find(
     (item: any) => item.blockType === "header"
@@ -504,6 +504,9 @@ const Content = ({ content }: any) => {
                 </div>
               </div>
             </div>
+            {String(tcp)?.length > 0 && tcp != 0 && tcp != null && (
+              <BlueButton text={`Contact Us`} />
+            )}
           </div>
         </div>
       </section>
