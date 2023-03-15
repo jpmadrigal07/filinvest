@@ -90,7 +90,7 @@ const Content = (props: News) => {
               </h4>
             </div>
           </div>
-          <div className="mt-10 flex flex-col gap-5 md:mt-16 md:flex-row md:gap-10 lg:gap-14">
+          <div className="mt-10 flex flex-col gap-5 px-4 md:mt-16 md:flex-row md:gap-10 lg:gap-14">
             <div className="flex-none">
               <div className="border-blue-ryb flex flex-col md:border-t-4">
                 <h3 className="text-jet text-center text-4xl font-bold">
@@ -121,9 +121,9 @@ const Content = (props: News) => {
             </div>
             <div className="flex flex-1 flex-col justify-center gap-6 text-center md:justify-start md:text-left">
               <>{serializeRichText(props.content)}</>
-              <h3 className="text-bold flex justify-center gap-4 text-xl md:mt-6 md:justify-start">
+              <h3 className="text-bold flex flex-col justify-center gap-4 text-xl md:mt-6 md:flex-row md:justify-start">
                 Tags:{" "}
-                <div className="flex justify-center  gap-4 md:justify-start">
+                <div className="flex flex-col  justify-center gap-4 md:flex-row md:justify-start">
                   {renderTags()}
                 </div>
               </h3>

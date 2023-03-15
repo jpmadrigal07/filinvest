@@ -29,7 +29,6 @@ const NewsTileList = ({
           } mt-12 gap-x-9 gap-y-20 ${className}`}
         >
           {news?.map((item: any, index: number) => {
-            console.log(item);
             return (
               <span
                 onClick={() => router.push(`/article/${item?.slug}`)}
@@ -50,7 +49,9 @@ const NewsTileList = ({
                   />
                 </div>
                 <div className="mt-4">
-                  <h3 className="text-jet text-2xl font-bold">{item?.title}</h3>
+                  <h3 className="text-jet line-clamp-2 text-2xl font-bold">
+                    {item?.title}
+                  </h3>
                   <p className="text-dim-gray text-sm opacity-70">
                     Posted on {moment(item?.createdAt).format("ll")}
                   </p>

@@ -84,7 +84,7 @@ const FeaturedArticles = ({
                 className="h-[230px] w-full opacity-100 transition duration-150 hover:opacity-70 lg:h-[280px]"
               />
               <h2
-                className={`text-jet mt-6 text-3xl font-bold leading-9 ${
+                className={`text-jet mt-6 min-h-[72px] text-3xl font-bold leading-9 ${
                   isTwoLines
                     ? "max-h-[80px] overflow-hidden text-ellipsis"
                     : "truncate"
@@ -184,7 +184,7 @@ const FeaturedArticles = ({
                     alt={article.coverImage.alt}
                     className={`w-full ${sliderImageClassName}`}
                   />
-                  <h2 className="text-jet mt-6 text-4xl font-black tracking-tighter md:text-2xl">
+                  <h2 className="text-jet mt-6 min-h-[72px] text-4xl font-black tracking-tighter md:text-2xl">
                     {article?.title}
                   </h2>
                   {withExtras && (
@@ -192,7 +192,10 @@ const FeaturedArticles = ({
                       Posted by Admin on April 22, 2022
                     </h4>
                   )}
-                  <h4 className="text-dim-gray line-clamp-5 mt-4 text-2xl tracking-tight lg:text-xl">
+                  <h4
+                    className="text-dim-gray line-clamp-2 mt-4 text-2xl tracking-tight lg:text-xl"
+                    style={{ wordBreak: "break-all" }}
+                  >
                     {article?.content[0]?.children[0].text}
                   </h4>
                   {withExtras && (
