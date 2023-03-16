@@ -16,10 +16,10 @@ const OurServices = ({ content }: any) => {
         <h4 className="text-dark-cornflower-blue text-center font-black tracking-widest">
           {content.content[4].title}
         </h4>
-        <h2 className="text-jet mt-2 max-w-[670px] text-center text-4xl font-black tracking-tighter">
+        <h2 className="text-jet mt-2 max-w-[670px] text-center text-2xl font-black tracking-tighter md:text-4xl">
           {content.content[4].subTitle}
         </h2>
-        <h4 className="text-dim-gray mt-4 max-w-[630px] text-center text-2xl">
+        <h4 className="text-dim-gray mt-4 max-w-[630px] text-center">
           {content.content[4].description}
         </h4>
       </div>

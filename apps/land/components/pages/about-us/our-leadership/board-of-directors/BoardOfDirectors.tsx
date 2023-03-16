@@ -16,7 +16,7 @@ const BoardOfDirectors = ({ content }: any) => {
   return (
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
-        <h2 className="text-jet text-center text-5xl font-bold md:text-left">
+        <h2 className="text-jet text-center text-2xl font-bold md:text-left md:text-4xl">
           {data.title}
         </h2>
         <p className="text-dim-gray mt-6  text-center md:text-left">

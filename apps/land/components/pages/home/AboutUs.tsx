@@ -18,15 +18,13 @@ const AboutUs = ({ content }: any) => {
         />
       </div>
       <div className="flex-none px-4 text-center md:px-0 md:text-left lg:w-1/3">
-        <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
+        <h4 className="text-dark-cornflower-blue  font-black tracking-widest">
           {content.content[5].title}
         </h4>
-        <h2 className="text-jet mt-2 break-normal px-4 text-4xl font-black tracking-tight md:px-0">
+        <h2 className="text-jet mt-2 break-normal px-4 text-2xl font-black tracking-tight md:px-0 md:text-4xl">
           {content.content[5].subTitle}
         </h2>
-        <h4 className="text-dim-gray mt-4 text-xl">
-          {content.content[5].description}
-        </h4>
+        <h4 className="text-dim-gray mt-4">{content.content[5].description}</h4>
         <button type="button" className="mt-14">
           <Link href={content.content[5].learnMoreLink}>
             <BorderButton

@@ -18,11 +18,13 @@ const SeniorManagementTeam = ({ content }: any) => {
   return (
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
-        <h2 className="text-jet text-5xl font-bold">{data.title}</h2>
+        <h2 className="text-jet text-2xl font-bold md:text-4xl">
+          {data.title}
+        </h2>
         <p className="text-dim-gray mt-6">{data.description}</p>
         <div
           className={cx(
-            `mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2`,
+            `mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3`,
             gridCols
           )}
         >

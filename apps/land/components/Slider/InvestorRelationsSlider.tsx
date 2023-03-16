@@ -19,13 +19,13 @@ export default function InvestorRelationsSlider({ content }: any) {
       <section className="flex flex-col items-center justify-center px-6 pt-28 md:items-stretch md:justify-start lg:flex-row lg:items-start lg:justify-between xl:pl-16 xl:pr-0 2xl:pl-40">
         {/* <div className="mx-6 flex w-1/3 flex-col items-start justify-center px-4 text-center md:px-0 md:text-left lg:mx-9 lg:w-1/4 xl:mx-16 2xl:mx-44"> */}
         <div className="flex flex-col items-center justify-center text-center md:items-start md:px-0 md:text-left xl:w-1/3 xl:pr-12">
-          <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
+          <h4 className="text-dark-cornflower-blue font-black tracking-widest">
             {content.content[7].title}
           </h4>
-          <h2 className="text-jet mt-2 text-4xl font-black tracking-tighter">
+          <h2 className="text-jet mt-2 text-2xl font-black tracking-tighter md:text-4xl">
             {content.content[7].subTitle}
           </h2>
-          <h4 className="text-dim-gray -mr- mt-4 text-2xl">
+          <h4 className="text-dim-gray -mr- mt-4">
             {content.content[7].description}
           </h4>
           <button type="button" className="mt-16">
