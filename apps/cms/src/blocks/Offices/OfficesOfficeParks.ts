@@ -36,6 +36,11 @@ const OfficesOfficeParks: Block = {
           type: "textarea",
           required: true,
         },
+        {
+          name: "link",
+          type: "text",
+          required: true,
+        },
       ],
     },
   ],

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const OfficeParks = ({ content }: any) => {
   const data = content?.content.find(
@@ -16,7 +17,11 @@ const OfficeParks = ({ content }: any) => {
       </div>
       <div className="mt-10 flex flex-col gap-9 md:flex-row">
         {data?.officeParks.map((item: any, index: number) => (
-          <div className="flex-1" key={index}>
+          <Link
+            className="flex-1 hover:opacity-80"
+            key={index}
+            href={item.link}
+          >
             <div>
               <Image
                 src={`${item?.image?.url}`}
@@ -27,7 +32,7 @@ const OfficeParks = ({ content }: any) => {
             </div>
             <h3 className="text-jet mt-6 text-2xl font-bold">{item?.title}</h3>
             <p className="text-dim-gray mt-3">{item?.description}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </>
