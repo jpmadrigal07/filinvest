@@ -2,6 +2,10 @@ require("dotenv").config({
   path: process.env.NODE_ENV === "production" ? "../../../.env" : "../../.env",
 });
 
+function removeHttp(url) {
+  return url.replace(/^https?:\/\//, "");
+}
+
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
@@ -9,7 +13,7 @@ module.exports = {
     appDir: true,
   },
   images: {
-    domains: ["localhost", process.env.CMS_URL],
+    domains: ["localhost", removeHttp(process.env.CMS_URL)],
   },
   async rewrites() {
     return [
