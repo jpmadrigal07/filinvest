@@ -18,11 +18,6 @@ module.exports = {
         destination: `${process.env.CMS_URL}/api/:path*`,
         basePath: false,
       },
-      {
-        source: `/files/:path*`,
-        destination: `${process.env.CMS_URL}/files/:path*`,
-        basePath: false,
-      },
     ];
   },
   env: {
