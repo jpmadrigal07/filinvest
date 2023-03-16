@@ -4,15 +4,10 @@ const CompanyBackgroundImageText: Block = {
   slug: "company-background-image-and-text",
   fields: [
     {
-      name: "videoCover", // required
-      type: "upload", // required
-      relationTo: "files", // required
-      filterOptions: {
-        mimeType: { contains: "video" },
-      },
-      access: {
-        read: () => true,
-      },
+      type: "upload",
+      name: "image",
+      relationTo: "files",
+      required: true,
     },
     {
       name: "title",
