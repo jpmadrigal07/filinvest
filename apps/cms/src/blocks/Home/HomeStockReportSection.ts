@@ -14,7 +14,7 @@ const HomeStockReportSection: Block = {
       required: true,
     },
     {
-      name: "downloadReportLink",
+      name: "viewReportLink",
       type: "text",
       required: true,
     },

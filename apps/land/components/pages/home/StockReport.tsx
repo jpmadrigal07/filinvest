@@ -87,7 +87,7 @@ const StockReport = ({ content }: any) => {
             </div>
             <div className="flex flex-col items-center md:items-start">
               <Link
-                href={content.content[8].downloadReportLink}
+                href={content.content[8].file.url}
                 target="_blank"
                 className="flex items-center gap-4"
               >
