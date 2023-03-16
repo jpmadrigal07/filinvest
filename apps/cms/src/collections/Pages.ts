@@ -83,6 +83,7 @@ import { VisionMissionCoreValues } from "../blocks/VisionMissionCoreValues";
 import {
   CompanyBackgroundIconText,
   CompanyBackgroundImageText,
+  CompanyBackgroundVideo,
 } from "../blocks/CompanyBackground";
 import {
   OurLeadershipBoardOfDirectors,
@@ -240,6 +241,7 @@ export const Pages: CollectionConfig = {
         InvestorRelationsLinks,
         PrivacyPolicyText,
         Sitemap,
+        CompanyBackgroundVideo,
       ],
     },
     {
