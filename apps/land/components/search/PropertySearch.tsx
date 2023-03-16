@@ -118,10 +118,24 @@ const PropertySearch = ({
 
   //https://app.asana.com/0/1204059442999640/1204080301274375
   useEffect(() => {
+    console.log("called");
     if (setSearchParams) {
       setSearchParams(searchParams);
     }
-  }, [searchParams]);
+  }, [
+    priceRange,
+    propertyType,
+    unitSize,
+    priceRangeFrom,
+    priceRangeTo,
+    location,
+    bedrooms,
+    subLocation,
+    propertyName,
+    projectType,
+    locationGroup,
+    setSearchParams,
+  ]);
 
   //alt-solution causing network bug
   /* useEffect(() => {
