@@ -13,15 +13,13 @@ const Gallery = ({ content }: any) => {
   );
   return (
     <div className="my-16 lg:my-24">
-      <h3 className="text-dark-cornflower-blue text-center text-lg font-bold lg:text-xl">
+      <h3 className="text-dark-cornflower-blue text-center font-bold ">
         {data?.title}
       </h3>
-      <h2 className="mx-6 mt-4 text-center text-3xl font-bold lg:text-5xl">
+      <h2 className="mx-6 mt-4 text-center text-2xl font-bold md:text-4xl ">
         {data?.subTitle}
       </h2>
-      <p className="text-dim-gray mt-4 text-center text-xl lg:text-2xl">
-        {data?.description}
-      </p>
+      <p className="text-dim-gray mt-4 text-center">{data?.description}</p>
       <div>
         {!!data && (
           <Swiper

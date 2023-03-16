@@ -12,10 +12,10 @@ const News = ({ news }: any) => {
     <div className="mx-6 mb-24 mt-12 lg:mx-9 xl:mx-16 2xl:mx-44">
       <div className="flex flex-col justify-center md:flex-row md:items-center">
         <div className="flex-1">
-          <h2 className="text-jet mt-2 text-3xl font-extrabold lg:text-5xl">
+          <h2 className="text-jet mt-2 text-2xl font-extrabold md:text-4xl">
             Press Releases
           </h2>
-          <h4 className="text-dim-gray mt-4 text-base lg:text-xl">{`Get updated to Filinvest Land's latest happenings.`}</h4>
+          <h4 className="text-dim-gray mt-4 text-base">{`Get updated to Filinvest Land's latest happenings.`}</h4>
         </div>
         <div className="mt-8 flex-none lg:mt-12">
           <Link href={NEWS_ROUTES.url}>

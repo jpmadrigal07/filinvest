@@ -11,7 +11,7 @@ const StockReport = ({ content }: any) => {
       <div className="flex-1 bg-[#143264] py-20 px-6 lg:px-9">
         <div className="mx-auto lg:w-1/2">
           <h2 className="text-center text-3xl font-bold tracking-tighter text-white md:text-left">
-            {content.content[8].stockInfoTitle}
+            {content?.content[8]?.stockInfoTitle}
           </h2>
           <div className="flex items-center justify-center py-6">
             <div className="flex flex-col">
@@ -72,22 +72,22 @@ const StockReport = ({ content }: any) => {
           <div className="flex flex-col items-center gap-12 md:flex-row">
             <div className="flex flex-col items-center gap-12">
               <h2 className="text-center text-4xl font-black tracking-tighter text-white md:text-left">
-                {content.content[8].annualReportTitle}
+                {content?.content[8]?.annualReportTitle}
               </h2>
               <div className="flex w-60 items-center justify-center ">
                 <Image
                   src={`${
-                    !content.content[8].annualReportImage.url ? "/" : ""
-                  }${content.content[8].annualReportImage.url}`}
+                    !content?.content[8]?.annualReportImage?.url ? "/" : ""
+                  }${content?.content[8]?.annualReportImage?.url}`}
                   width={487}
                   height={671}
-                  alt={content.content[8].annualReportImage.url}
+                  alt={content?.content[8]?.annualReportImage?.url}
                 />
               </div>
             </div>
             <div className="flex flex-col items-center md:items-start">
               <Link
-                href={content.content[8].file.url}
+                href={content?.content[8]?.file?.url}
                 target="_blank"
                 className="flex items-center gap-4"
               >
