@@ -23,6 +23,36 @@ const HomeInvestorRelationSection: Block = {
       type: "text",
       required: true,
     },
+    {
+      type: "array",
+      name: "sliderItems",
+      label: "Slider Items",
+      minRows: 1,
+      required: true,
+      fields: [
+        {
+          type: "upload",
+          name: "logo",
+          relationTo: "files",
+          required: true,
+        },
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "cost",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "year",
+          type: "text",
+          required: true,
+        },
+      ],
+    },
   ],
 };
 

@@ -24,8 +24,9 @@ const DisclosuresTable: Block = {
           required: true,
         },
         {
-          type: "text",
-          name: "downloadLink",
+          type: "upload",
+          name: "file",
+          relationTo: "files",
           required: true,
         },
       ],

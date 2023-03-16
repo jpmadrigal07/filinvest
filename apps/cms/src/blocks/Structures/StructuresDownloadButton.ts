@@ -4,8 +4,9 @@ const StructuresDownloadButton: Block = {
   slug: "structures-download-button",
   fields: [
     {
-      name: "downloadLink",
-      type: "text",
+      type: "upload",
+      name: "file",
+      relationTo: "files",
       required: true,
     },
   ],

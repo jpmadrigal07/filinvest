@@ -50,7 +50,7 @@ export default function DisclosuresBlock({ content }: any) {
               <Link
                 className="transition hover:opacity-50"
                 target="_blank"
-                href={item}
+                href={item.url}
               >
                 <Download />
               </Link>

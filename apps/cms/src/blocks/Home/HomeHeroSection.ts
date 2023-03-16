@@ -45,6 +45,28 @@ const HomeHeroSection: Block = {
       },
     },
     {
+      type: "array",
+      name: "imageBackgrounds",
+      required: true,
+      minRows: 1,
+      maxRows: 5,
+      fields: [
+        {
+          name: "mediaBackground2", // required
+          label: "Image Background",
+          type: "upload", // required
+          relationTo: "files", // required
+          required: true,
+          filterOptions: {
+            mimeType: { contains: "image" },
+          },
+          access: {
+            read: () => true,
+          },
+        },
+      ],
+    },
+    {
       name: "videoBackground", // required
       type: "upload", // required
       relationTo: "files", // required
@@ -56,15 +78,65 @@ const HomeHeroSection: Block = {
       },
     },
     {
+      type: "array",
+      name: "videoBackgrounds",
+      required: true,
+      minRows: 1,
+      maxRows: 5,
+      fields: [
+        {
+          name: "videoBackground2", // required
+          label: "Video Background",
+          type: "upload", // required
+          relationTo: "files", // required
+          filterOptions: {
+            mimeType: { contains: "video" },
+          },
+          access: {
+            read: () => true,
+          },
+        },
+      ],
+    },
+    {
       name: "youtubeBackground",
       label:
         "YouTube Video Background (i.e. https://www.youtube.com/watch?v=lQ6Yrf_5EOw)",
       type: "text",
     },
     {
+      type: "array",
+      name: "youtubeBackgrounds",
+      required: true,
+      minRows: 1,
+      maxRows: 5,
+      fields: [
+        {
+          name: "youtubeBackground2",
+          label:
+            "YouTube Video Background (i.e. https://www.youtube.com/watch?v=lQ6Yrf_5EOw)",
+          type: "text",
+        },
+      ],
+    },
+    {
       name: "vimeoBackground",
       label: "Vimeo Video Background (i.e. https://vimeo.com/266448492)",
       type: "text",
+    },
+    {
+      type: "array",
+      name: "vimeoBackgrounds",
+      required: true,
+      minRows: 1,
+      maxRows: 5,
+      fields: [
+        {
+          name: "vimeoBackground2",
+          label: "Vimeo Video Background (i.e. https://vimeo.com/266448492)",
+          type: "text",
+        },
+      ],
     },
     {
       name: "title",

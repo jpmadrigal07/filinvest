@@ -19,13 +19,14 @@ const HomeStockReportSection: Block = {
       required: true,
     },
     {
-      name: "viewReportLink",
-      type: "text",
+      type: "upload",
+      name: "annualReportImage",
+      relationTo: "files",
       required: true,
     },
     {
       type: "upload",
-      name: "annualReportImage",
+      name: "file",
       relationTo: "files",
       required: true,
     },

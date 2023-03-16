@@ -83,7 +83,7 @@ const Content = ({ content }: any) => {
 
   const downloadLink = content?.content.find(
     (item: any) => item.blockType === "structures-download-button"
-  )?.downloadLink;
+  );
 
   return (
     <>
@@ -110,7 +110,7 @@ const Content = ({ content }: any) => {
         </p>
         <div className="mt-4 flex justify-center">
           <Link
-            href={downloadLink}
+            href={downloadLink.file.url}
             target="_blank"
             className="border-sonic-silver hover:bg-oxford-blue flex items-center gap-4 border bg-[#163E82] px-12 py-6 text-white focus:shadow-lg"
           >
