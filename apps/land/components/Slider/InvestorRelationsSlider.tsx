@@ -41,7 +41,6 @@ export default function InvestorRelationsSlider({ content }: any) {
         <Swiper
           tag="div"
           slidesPerView={1}
-          // spaceBetween={-220}
           centeredSlides={true}
           loop={true}
           onBeforeInit={(swiper) => {
@@ -57,7 +56,11 @@ export default function InvestorRelationsSlider({ content }: any) {
           {[...Array(6)].map((_, i) => (
             <SwiperSlide
               key={i}
-              className={i + 1 === activeIndex ? `2xl:-mr-[220px]` : ""}
+              className={
+                i + 1 === activeIndex
+                  ? `2xl:-mr-[5vw] [@media(min-width:1800px)]:-mr-[10vw]`
+                  : ""
+              }
             >
               {/* <div className="mx-6 flex flex-col gap-16 pb-[1.5rem] lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44"> */}
               <div className="flex flex-col gap-16 pb-[1.5rem] lg:flex-row">
