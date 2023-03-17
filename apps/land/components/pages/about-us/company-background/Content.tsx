@@ -10,6 +10,7 @@ import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import MainHeader from "@/components/header/MainHeader";
 import MediaSection from "./MediaSection";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ news, content }: any) => {
   const header = content?.content.find(
@@ -44,6 +45,9 @@ const Content = ({ news, content }: any) => {
       <IconText content={content} />
       <YearsOfExperience content={content} />
       <ImageRightTextLeft content={content} news={news} />
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </>
   );
 };

@@ -1,4 +1,5 @@
 "use client";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import MainHeader from "@/components/header/MainHeader";
 import Tabs from "@/components/header/Tabs";
@@ -40,6 +41,9 @@ const Content = ({ content, news }: any) => {
       <CorporateSocialResponsibility content={content} />
       <Gallery content={content} />
       <News news={news} />
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </>
   );
 };

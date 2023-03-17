@@ -3,6 +3,7 @@ import MainHeader from "@/components/header/MainHeader";
 import SubsidiariesSection from "@/components/pages/about-us/subsidiaries/SubsidiariesSection";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ content }: any) => {
   const header = content?.content.find(
@@ -35,6 +36,9 @@ const Content = ({ content }: any) => {
       />
       {/* <Content /> */}
       <SubsidiariesSection content={content} />
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </>
   );
 };
