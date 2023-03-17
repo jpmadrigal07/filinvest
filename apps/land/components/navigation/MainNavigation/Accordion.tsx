@@ -19,7 +19,11 @@ const Accordion = ({
             }`}
           >
             <span>{title}</span>
-            <ChevronDown classes="w-[10px] h-[10px]" />
+            {open ? (
+              <ChevronDown classes="w-[10px] h-[10px] rotate-180 transition-transform" />
+            ) : (
+              <ChevronDown classes="w-[10px] h-[10px] transition-transform" />
+            )}
           </Disclosure.Button>
           <Transition
             enter="transition duration-100 ease-out"
