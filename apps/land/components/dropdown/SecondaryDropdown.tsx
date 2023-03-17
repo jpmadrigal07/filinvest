@@ -61,10 +61,14 @@ const SecondaryDropdown = ({
     <>
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
-          <Listbox.Button className="ring-none border-silver-chalice flex w-full items-center gap-3 border-b-[1px] bg-transparent py-2 text-white">
+          <Listbox.Button
+            className={`ring-none flex w-full items-center gap-3 border-b-[1px] border-b-white ${
+              selected ? "border-opacity-100" : "border-opacity-50"
+            } bg-transparent py-2 text-white`}
+          >
             <span
-              className={`block truncate ${
-                selected ? "text-white" : "text-silver-chalice"
+              className={`block truncate text-white ${
+                !selected && "text-opacity-50"
               }`}
             >
               {selected ? selected : "Select"}
