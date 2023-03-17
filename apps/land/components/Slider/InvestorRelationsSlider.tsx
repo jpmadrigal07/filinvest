@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-1;
 import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,8 +12,16 @@ import BorderButton from "../button/BorderButton";
 import ChevronCircleLeft from "../svg/ChevronCircleLeft";
 import ChevronCircleRight from "../svg/ChevronCircleRight";
 export default function InvestorRelationsSlider({ content }: any) {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      swiperRef.current?.slideNext();
+    }, 5000);
+
+    return () => clearInterval(slideInterval);
+  }, []);
   return (
     <>
       <section className="flex flex-col items-center justify-center px-6 pt-28 md:items-stretch md:justify-start lg:flex-row lg:items-start lg:justify-between xl:pl-16 xl:pr-0 2xl:pl-40">
@@ -44,7 +52,6 @@ export default function InvestorRelationsSlider({ content }: any) {
           centeredSlides={true}
           loop={true}
           onBeforeInit={(swiper) => {
-            // @ts-expect-error
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
@@ -174,20 +181,18 @@ export default function InvestorRelationsSlider({ content }: any) {
         <button
           className="hover:opacity-70"
           onClick={() => {
-            // @ts-expect-error
             swiperRef.current?.slidePrev();
           }}
         >
-          <ChevronCircleLeft />
+          <ChevronCircleLeft color="#163E82" />
         </button>
         <button
           className="hover:opacity-70"
           onClick={() => {
-            // @ts-expect-error
             swiperRef.current?.slideNext();
           }}
         >
-          <ChevronCircleRight />
+          <ChevronCircleRight color="#163E82" />
         </button>
       </div>
     </>
