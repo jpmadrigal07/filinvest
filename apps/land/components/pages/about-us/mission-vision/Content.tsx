@@ -4,6 +4,7 @@ import MainHeader from "@/components/header/MainHeader";
 import MissionVisionCoreValues from "@/components/pages/about-us/mission-vision/MissionVisionCoreValues";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ content, news }: any) => {
   const header = content?.content.find(
@@ -35,6 +36,9 @@ const Content = ({ content, news }: any) => {
         tabs={tabs}
       />
       <MissionVisionCoreValues content={content} news={news} />
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
       {/* <News news={news} />  */}
     </>
   );

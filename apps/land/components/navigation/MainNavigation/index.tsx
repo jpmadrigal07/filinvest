@@ -85,14 +85,14 @@ const MainNavigation = ({ className }: { className?: string }) => {
               setCurrentMenuIndex(null);
             }}
           >
-            <div className="flex flex-wrap items-center gap-6 px-9 py-10 font-bold text-white 2xl:gap-14">
+            <div className="flex flex-wrap items-center gap-1 py-6 px-9 font-bold text-white lg:py-10 2xl:gap-14">
               <div className="flex-none lg:order-1 lg:flex-grow 2xl:order-none 2xl:flex-grow-0">
                 <Link href="/">
                   <MainLogo />
                 </Link>
               </div>
               <div className="flex-1 lg:order-3 2xl:order-none">
-                <ul className="flex list-none items-center justify-center gap-7 text-center 2xl:justify-start">
+                <ul className="my-4 flex list-none items-center justify-center gap-7 text-center 2xl:justify-start">
                   {menus.map((menu, index) => {
                     const wrapperProps = {
                       ...menu,

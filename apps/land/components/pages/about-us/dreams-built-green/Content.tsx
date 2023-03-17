@@ -5,6 +5,7 @@ import TitleText from "@/components/pages/about-us/dreams-built-green/TitleText"
 import MediaSection from "@/components/pages/about-us/dreams-built-green/MediaSection";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ content }: any) => {
   const header = content?.content.find(
@@ -38,6 +39,9 @@ const Content = ({ content }: any) => {
       <IconText content={content} />
       <TitleText content={content} />
       <MediaSection content={content} />
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </>
   );
 };
