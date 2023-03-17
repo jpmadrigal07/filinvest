@@ -5,7 +5,7 @@ import Room from "@/components/svg/Room";
 import Baseball from "@/components/svg/Baseball";
 import Flag from "@/components/svg/Flag";
 import MainHeader from "@/components/header/MainHeader";
-import useGetScreen from "../../../../../hooks/useGetScreen";
+import useGetScreen from "../../../../../../hooks/useGetScreen";
 const Content = () => {
   const { width } = useGetScreen();
   return (

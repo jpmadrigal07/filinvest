@@ -39,6 +39,14 @@ export const Projects: CollectionConfig = {
           label: "Office",
           value: "office",
         },
+        {
+          label: "Office Park",
+          value: "office park",
+        },
+        {
+          label: "Corporate Center",
+          value: "corporate center",
+        },
       ],
       admin: {
         position: "sidebar",
@@ -56,6 +64,9 @@ export const Projects: CollectionConfig = {
       type: "upload",
       relationTo: "files",
       required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
     },
     {
       name: "logo",
@@ -68,6 +79,9 @@ export const Projects: CollectionConfig = {
       name: "price",
       type: "number",
       required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
     },
     {
       type: "row",
@@ -94,7 +108,9 @@ export const Projects: CollectionConfig = {
       name: "numberOfBedrooms",
       type: "number",
       admin: {
-        condition: (_, siblingsData) => siblingsData.dataType === "regular",
+        condition: (_, siblingsData) =>
+          siblingsData.dataType === "regular" ||
+          siblingsData.dataType === "corporate center",
       },
     },
     {
@@ -198,7 +214,9 @@ export const Projects: CollectionConfig = {
       type: "textarea",
       required: true,
       admin: {
-        condition: (_, siblingsData) => siblingsData.dataType === "office",
+        condition: (_, siblingsData) =>
+          siblingsData.dataType === "office" ||
+          siblingsData.dataType === "office park",
       },
     },
     {
@@ -213,7 +231,9 @@ export const Projects: CollectionConfig = {
       relationTo: "property-categories",
       required: false,
       admin: {
-        condition: (_, siblingsData) => siblingsData.dataType === "regular",
+        condition: (_, siblingsData) =>
+          siblingsData.dataType === "regular" ||
+          siblingsData.dataType === "corporate center",
       },
     },
     {
@@ -221,6 +241,9 @@ export const Projects: CollectionConfig = {
       label: "Size (sqm)",
       type: "number",
       required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
     },
     {
       name: "coverImage",
@@ -241,18 +264,123 @@ export const Projects: CollectionConfig = {
           relationTo: "files",
         },
       ],
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
     },
     {
       name: "shortDescription",
       type: "text",
       required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
+    },
+    {
+      name: "sustainabilityFeatureTitle",
+      type: "text",
+      required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
+    },
+    {
+      name: "sustainabilityFeatureDescription",
+      type: "text",
+      required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
+    },
+    {
+      type: "array",
+      name: "sustainabilityFeatureItemLists",
+      minRows: 1,
+      required: true,
+      fields: [
+        {
+          name: "item",
+          type: "text",
+          required: true,
+        },
+      ],
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
+    },
+    {
+      type: "array",
+      name: "sustainabilityFeatureTitleDescription",
+      minRows: 1,
+      required: true,
+      fields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "description",
+          type: "text",
+          required: true,
+        },
+      ],
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
+    },
+    {
+      type: "array",
+      name: "amenitiesTitleDescription",
+      minRows: 1,
+      required: true,
+      fields: [
+        {
+          name: "title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "description",
+          type: "text",
+        },
+      ],
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
+    },
+    {
+      name: "locationDescription",
+      type: "text",
+      required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
+    },
+    {
+      type: "array",
+      name: "locationItemLists",
+      minRows: 1,
+      required: true,
+      fields: [
+        {
+          name: "item",
+          type: "text",
+          required: true,
+        },
+      ],
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType === "office park",
+      },
     },
     {
       name: "overview",
       type: "richText",
       required: true,
       admin: {
-        condition: (_, siblingsData) => siblingsData.dataType === "regular",
+        condition: (_, siblingsData) =>
+          siblingsData.dataType === "regular" ||
+          siblingsData.dataType === "corporate center",
       },
     },
     {
@@ -260,7 +388,9 @@ export const Projects: CollectionConfig = {
       type: "richText",
       required: true,
       admin: {
-        condition: (_, siblingsData) => siblingsData.dataType === "regular",
+        condition: (_, siblingsData) =>
+          siblingsData.dataType === "regular" ||
+          siblingsData.dataType === "corporate center",
       },
     },
     {
@@ -285,12 +415,18 @@ export const Projects: CollectionConfig = {
       name: "status",
       type: "relationship",
       relationTo: "project-status-categories",
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
     },
     {
       name: "mapImage",
       type: "upload",
       relationTo: "files",
       required: true,
+      admin: {
+        condition: (_, siblingsData) => siblingsData.dataType !== "office park",
+      },
     },
     {
       type: "row",

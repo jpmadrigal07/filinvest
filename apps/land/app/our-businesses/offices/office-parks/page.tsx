@@ -1,4 +1,4 @@
-import Content from "@/components/pages/our-businesses/corporate-centers/Content";
+import Content from "@/components/pages/our-businesses/offices/office-parks/Content";
 import qs from "qs";
 import { getRequest } from "@/helpers/getRequest";
 import { metaBuilder } from "@/helpers/metaBuilder";
@@ -6,7 +6,10 @@ import { CACHE_REVALIDATE } from "@/helpers/constants";
 
 const query = {
   "projectType.title": {
-    equals: "Corporate Centers",
+    equals: "Offices",
+  },
+  dataType: {
+    equals: "office park",
   },
 };
 
@@ -28,12 +31,12 @@ async function getPageContent(id: string) {
 }
 
 export async function generateMetadata() {
-  const content = await getPageContent("63ff09f249eeffea13ebb96d");
+  const content = await getPageContent("641313657e02ce9b348ef31b");
   return metaBuilder(content);
 }
 
-const CorporateCentersPage = async () => {
-  const content = await getPageContent("63ff09f249eeffea13ebb96d");
+const OfficeParksPage = async () => {
+  const content = await getPageContent("641313657e02ce9b348ef31b");
   const projects = await getRequest(`/api/projects${stringifiedQuery}`);
   const locations = await getRequest(`/api/location-categories`);
   return (
@@ -43,4 +46,4 @@ const CorporateCentersPage = async () => {
   );
 };
 
-export default CorporateCentersPage;
+export default OfficeParksPage;

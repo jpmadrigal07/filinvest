@@ -20,6 +20,7 @@ export interface Config {
     "location-group-categories": LocationGroupCategory;
     "location-categories": LocationCategory;
     "sub-location-categories": SubLocationCategory;
+    "project-status-categories": ProjectStatusCategory;
     files: File;
   };
   globals: {
@@ -38,12 +39,7 @@ export interface Page {
         title: string;
         breadcrumbs: {
           link: {
-            type?: "reference" | "custom";
             newTab?: boolean;
-            reference: {
-              value: string | Page;
-              relationTo: "pages";
-            };
             url: string;
             label: string;
             description?: string;
@@ -52,12 +48,7 @@ export interface Page {
         }[];
         tabs: {
           link: {
-            type?: "reference" | "custom";
             newTab?: boolean;
-            reference: {
-              value: string | Page;
-              relationTo: "pages";
-            };
             url: string;
             label: string;
             description?: string;
@@ -71,9 +62,25 @@ export interface Page {
     | {
         backgroundType?: "image" | "video" | "youtube" | "vimeo";
         mediaBackground: string | File;
+        imageBackgrounds: {
+          mediaBackground2: string | File;
+          id?: string;
+        }[];
         videoBackground?: string | File;
+        videoBackgrounds: {
+          videoBackground2?: string | File;
+          id?: string;
+        }[];
         youtubeBackground?: string;
+        youtubeBackgrounds: {
+          youtubeBackground2?: string;
+          id?: string;
+        }[];
         vimeoBackground?: string;
+        vimeoBackgrounds: {
+          vimeoBackground2?: string;
+          id?: string;
+        }[];
         title: string;
         description: string;
         prestigeImage: string | File;
@@ -169,6 +176,13 @@ export interface Page {
         subTitle: string;
         description: string;
         learnMoreLink: string;
+        sliderItems: {
+          logo: string | File;
+          title: string;
+          cost: string;
+          year: string;
+          id?: string;
+        }[];
         id?: string;
         blockName?: string;
         blockType: "homeInvestorRelationSection";
@@ -176,9 +190,9 @@ export interface Page {
     | {
         stockInfoTitle: string;
         annualReportTitle: string;
-        downloadReportLink: string;
         viewReportLink: string;
         annualReportImage: string | File;
+        file: string | File;
         id?: string;
         blockName?: string;
         blockType: "homeStockReportSection";
@@ -211,6 +225,7 @@ export interface Page {
       }
     | {
         officeParks: {
+          link: string;
           image: string | File;
           title: string;
           description: string;
@@ -223,36 +238,16 @@ export interface Page {
     | {
         title: string;
         description: string;
-        id?: string;
-        blockName?: string;
-        blockType: "offices-title-and-text";
-      }
-    | {
         officeParks: {
           image: string | File;
           title: string;
           description: string;
+          link: string;
           id?: string;
         }[];
         id?: string;
         blockName?: string;
         blockType: "offices-office-parks";
-      }
-    | {
-        title: string;
-        description: string;
-        director: {
-          directorImage: string | File;
-          directorFullName: string;
-          directorTitle: string;
-          facebook?: string;
-          twitter?: string;
-          linkedIn?: string;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "our-leadership-board-of-directors";
       }
     | {
         office: {
@@ -265,18 +260,6 @@ export interface Page {
         id?: string;
         blockName?: string;
         blockType: "offices-offices";
-      }
-    | {
-        center: {
-          centerImage: string | File;
-          centerName: string;
-          centerLink: string;
-          centerLocation: string;
-          id?: string;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: "corporate-centers";
       }
     | {
         subsidiariesCompanies: {
@@ -294,16 +277,22 @@ export interface Page {
         title: string;
         subTitle: string;
         description: string;
-        image: string | File;
+        coverImage: string | File;
         id?: string;
         blockName?: string;
         blockType: "pusong-filinvest-our-story";
       }
     | {
-        title: string;
-        subTitle: string;
-        description: string;
-        image: string | File;
+        corporateSocialResponsibility: {
+          title: string;
+          subTitle: string;
+          descriptionParagraphs: {
+            paragraph: string;
+            id?: string;
+          }[];
+          image: string | File;
+          id?: string;
+        }[];
         id?: string;
         blockName?: string;
         blockType: "pusong-filinvest-corporate-social-responsibility";
@@ -332,42 +321,33 @@ export interface Page {
       }
     | {
         title: string;
-        description: string;
+        descriptionParagraph: {
+          description: string;
+          id?: string;
+        }[];
         id?: string;
         blockName?: string;
         blockType: "dreams-built-green-title-text";
       }
     | {
-        backgroundMedia: string | File;
+        backgroundVideoLink: string;
         id?: string;
         blockName?: string;
         blockType: "dreams-built-green-media-section";
       }
     | {
-        icon: string | File;
-        title: string;
-        description: string;
-        id?: string;
-        blockName?: string;
-        blockType: "vision-mission-core-values-vision";
-      }
-    | {
-        icon: string | File;
-        title: string;
-        description: {
-          [k: string]: unknown;
+        visionIcon: string | File;
+        visionDescription: string;
+        missionIcon: string | File;
+        missionBulletDescription: {
+          description: string;
+          id?: string;
         }[];
+        coreValuesIcon: string | File;
+        coreValuesDescription: string;
         id?: string;
         blockName?: string;
-        blockType: "vision-mission-core-values-mission";
-      }
-    | {
-        icon: string | File;
-        title: string;
-        description: string;
-        id?: string;
-        blockName?: string;
-        blockType: "vision-mission-core-values-core-values";
+        blockType: "vision-mission-and-core-values";
       }
     | {
         iconText: {
@@ -412,13 +392,15 @@ export interface Page {
         blockType: "stock-information-outstanding-number-of-shares-table";
       }
     | {
-        tableTitle?: string;
-        tableSubTitle?: string;
-        tableDescription?: string;
-        rowData: {
+        tableTitle: string;
+        tableSubTitle: string;
+        tableDescription: string;
+        tableFooter: string;
+        tableRowData: {
           shareholder: string;
           numberOfSharesHeld: string;
           toTotalOutstanding: string;
+          numberOfColumns?: "yes" | "no";
           id?: string;
         }[];
         id?: string;
@@ -434,6 +416,8 @@ export interface Page {
       }
     | {
         tableTitle?: string;
+        tableFooter?: string;
+        tableSubFooter?: string;
         tableColumn: {
           header: string;
           tableData: {
@@ -454,7 +438,7 @@ export interface Page {
         blockType: "structures-title-and-text";
       }
     | {
-        downloadLink: string;
+        file: string | File;
         id?: string;
         blockName?: string;
         blockType: "structures-download-button";
@@ -464,7 +448,7 @@ export interface Page {
           date: string;
           name: string;
           category: string;
-          downloadLink: string;
+          file: string | File;
           id?: string;
         }[];
         id?: string;
@@ -543,13 +527,19 @@ export interface Page {
         blockType: "financial-highlights-financial-statements";
       }
     | {
+        chartImage: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "financial-highlights-chart-image";
+      }
+    | {
         title: string;
         annualFinancialReports: {
           year: string;
           annualFinancialReport: {
             icon: string | File;
             annualFinancialReportTitle: string;
-            downloadLink: string;
+            file: string | File;
             id?: string;
           }[];
           id?: string;
@@ -570,16 +560,22 @@ export interface Page {
         blockType: "presentations";
       }
     | {
-        icon: string | File;
-        title: string;
-        viewLink: string;
+        codeOfBusinessEthics: {
+          icon: string | File;
+          title: string;
+          viewLink: string;
+          id?: string;
+        }[];
         id?: string;
         blockName?: string;
         blockType: "manual-corporate-governance";
       }
     | {
-        icon: string | File;
-        description: string;
+        codeOfBusinessConductAndEthics: {
+          icon: string | File;
+          description: string;
+          id?: string;
+        }[];
         id?: string;
         blockName?: string;
         blockType: "code-of-business-conduct-and-ethics";
@@ -588,8 +584,10 @@ export interface Page {
         reportList: {
           icon: string | File;
           year: string;
-          report: {
-            [k: string]: unknown;
+          reportBullets: {
+            report: string;
+            report_link: string;
+            id?: string;
           }[];
           id?: string;
         }[];
@@ -606,7 +604,10 @@ export interface Page {
       }
     | {
         title: string;
-        description: string;
+        descriptionParagraphs: {
+          description: string;
+          id?: string;
+        }[];
         readMoreLink: string;
         image: string | File;
         id?: string;
@@ -616,8 +617,11 @@ export interface Page {
     | {
         title: string;
         subtitle: string;
-        description: string;
-        images: {
+        descriptionParagraphs: {
+          description: string;
+          id?: string;
+        }[];
+        gallery: {
           image: string | File;
           id?: string;
         }[];
@@ -626,10 +630,17 @@ export interface Page {
         blockType: "corporate-social-responsibility-programs";
       }
     | {
-        policies: {
-          icon: string | File;
-          title: string;
-          description: string;
+        companyPolicies: {
+          title?: string;
+          subtitle?: string;
+          policies: {
+            icon: string | File;
+            title: string;
+            descriptionParagraph: {
+              [k: string]: unknown;
+            }[];
+            id?: string;
+          }[];
           id?: string;
         }[];
         id?: string;
@@ -637,23 +648,10 @@ export interface Page {
         blockType: "company-policies-policy";
       }
     | {
-        title?: string;
-        subtitle?: string;
-        id?: string;
-        blockName?: string;
-        blockType: "company-policies-title";
-      }
-    | {
-        tabs: {
-          tab: string;
+        titleLine: {
+          line: string;
           id?: string;
         }[];
-        id?: string;
-        blockName?: string;
-        blockType: "board-committees-tabs";
-      }
-    | {
-        title?: string;
         year?: string;
         id?: string;
         blockName?: string;
@@ -661,25 +659,58 @@ export interface Page {
       }
     | {
         tableTitle?: string;
-        tableHeader: {
-          header: string;
-          tableData: {
-            data: string;
+        rowData: {
+          committees: string;
+          name: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-senior-management-officers";
+      }
+    | {
+        tableTitle?: string;
+        rowData: {
+          committees?: string;
+          name: string;
+          position: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-board-committees";
+      }
+    | {
+        tableTitle?: string;
+        rowData: {
+          name: string;
+          position: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "board-committees-key-officers";
+      }
+    | {
+        charter: {
+          year?: string;
+          charterItem: {
+            icon: string | File;
+            title: string;
+            downloadLink?: string;
             id?: string;
           }[];
           id?: string;
         }[];
         id?: string;
         blockName?: string;
-        blockType: "board-committees-table";
+        blockType: "board-committees-charter";
       }
     | {
-        tableHeader: {
-          header: string;
-          tableData: {
-            data: string;
-            id?: string;
-          }[];
+        riskManagementTable: {
+          riskExposure: string;
+          riskManagementPolicy: string;
+          riskObjective: string;
           id?: string;
         }[];
         id?: string;
@@ -687,12 +718,9 @@ export interface Page {
         blockType: "enterprise-risk-management-table";
       }
     | {
-        image: string | File;
-        id?: string;
-        blockName?: string;
-        blockType: "filpay-header-image";
-      }
-    | {
+        mainHeaderImage: string | File;
+        mainHeaderImageSmall: string | File;
+        headerImage: string | File;
         title: string;
         filpayAdvantages: {
           icon: string | File;
@@ -701,11 +729,11 @@ export interface Page {
           id?: string;
         }[];
         text: string;
-        filpayIternationalPaymentMethodsIcons: {
+        filpayCards: {
           icon: string | File;
           id?: string;
         }[];
-        filpayLocalPaymentMethodsIcons: {
+        filpayBanks: {
           icon: string | File;
           id?: string;
         }[];
@@ -791,6 +819,7 @@ export interface Page {
         blockType: "townscapes-townscapes";
       }
     | {
+        image: string | File;
         previousPageTitle: string;
         previousLink: string;
         id?: string;
@@ -798,11 +827,54 @@ export interface Page {
         blockType: "previous-link";
       }
     | {
+        image: string | File;
         nextPageTitle: string;
         nextLink: string;
         id?: string;
         blockName?: string;
         blockType: "next-link";
+      }
+    | {
+        title: string;
+        description: string;
+        numberOfColumns?: "2" | "3" | "4";
+        director: {
+          directorImage: string | File;
+          directorFullName: string;
+          directorTitle: string;
+          facebookLink?: string;
+          twitterLink?: string;
+          linkedInLink?: string;
+          email: string;
+          phoneNumber: string;
+          bio: string;
+          companyInformation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "our-leadership-board-of-directors";
+      }
+    | {
+        title: string;
+        description: string;
+        numberOfColumns?: "2" | "3" | "4";
+        director: {
+          directorImage: string | File;
+          directorFullName: string;
+          directorTitle: string;
+          facebookLink?: string;
+          twitterLink?: string;
+          linkedInLink?: string;
+          email: string;
+          phoneNumber: string;
+          bio: string;
+          companyInformation: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "our-leadership-senior-management-team";
       }
     | {
         news: {
@@ -871,6 +943,205 @@ export interface Page {
         blockName?: string;
         blockType: "residential-futura";
       }
+    | {
+        imageSlides: {
+          slideBackgroundImage: string | File;
+          hasBlock?: boolean;
+          blockTitle: string;
+          blockDescription: string;
+          blockLogo: string | File;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "residential-slider";
+      }
+    | {
+        title: string;
+        Terms: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "terms-text";
+      }
+    | {
+        title: string;
+        contacts: {
+          address: string;
+          phone: string;
+          id?: string;
+        }[];
+        email: string;
+        id?: string;
+        blockName?: string;
+        blockType: "careers-call-hr";
+      }
+    | {
+        title: string;
+        item: {
+          logo: string | File;
+          title: string;
+          description: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "careers-image-text";
+      }
+    | {
+        title: string;
+        item: {
+          logo: string | File;
+          title: string;
+          addressContact: {
+            address: string;
+            address2?: string;
+            isAddressSecondary?: boolean;
+            phone: string;
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        latitudeFilinvestOfficeMap: string;
+        longitudeFilinvestOfficeMap: string;
+        id?: string;
+        blockName?: string;
+        blockType: "contact-us";
+      }
+    | {
+        title: string;
+        contacts: {
+          year: string;
+          file: string | File;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "annual-reports";
+      }
+    | {
+        title: string;
+        mainTitle: string;
+        description: string;
+        file: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "dividend-history";
+      }
+    | {
+        totalDividendsRow: {
+          totalDividendsRowTitle: string;
+          totalDividends: {
+            totalDividend: string;
+            id?: string;
+          }[];
+        };
+        payoutRateRow: {
+          payoutRateRowTitle: string;
+          payoutRates: {
+            payoutRate: string;
+            id?: string;
+          }[];
+        };
+        id?: string;
+        blockName?: string;
+        blockType: "dividend-history-table";
+      }
+    | {
+        title: string;
+        content: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "dividend-policy";
+      }
+    | {
+        investorRelationsBoxLinks: {
+          title: string;
+          description: string;
+          buttonLink: string;
+          buttonText: string;
+          isButtonBlue?: "yes" | "no";
+          isButtonDownload?: "yes" | "no";
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-box-links";
+      }
+    | {
+        title: string;
+        description: string;
+        highlights: {
+          logo: string | File;
+          title: string;
+          cost: string;
+          year: string;
+          id?: string;
+        }[];
+        seeAllLink: string;
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-financial-highlights";
+      }
+    | {
+        investorRelationsLinks: {
+          title: string;
+          link: string;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "investor-relations-links";
+      }
+    | {
+        privacyPolicy: {
+          [k: string]: unknown;
+        }[];
+        tableTop: {
+          [k: string]: unknown;
+        }[];
+        tableRowData: {
+          businessUnits?: string;
+          emailAddress?: string;
+          isTitleRow?: "yes" | "no";
+          id?: string;
+        }[];
+        tableBottom: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "privacy-policy-text";
+      }
+    | {
+        menu: {
+          title: string;
+          url: string;
+          subMenu: {
+            title: string;
+            url: string;
+            subSubMenu: {
+              title: string;
+              url: string;
+              id?: string;
+            }[];
+            id?: string;
+          }[];
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: "sitemap";
+      }
+    | {
+        videoBackground?: string | File;
+        id?: string;
+        blockName?: string;
+        blockType: "company-background-video";
+      }
   )[];
   site: string | Site;
   meta: {
@@ -914,8 +1185,6 @@ export interface News {
   projectTypeTag?: string | ProjectCategory;
   propertyTypeTag?: string | PropertyCategory;
   locationTag?: string | LocationCategory;
-  locationGroupTag?: string | LocationGroupCategory;
-  subLocationTag?: string | SubLocationCategory;
   site: string | Site;
   meta: {
     title?: string;
@@ -930,7 +1199,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles?: ("admin" | "editor" | "subEditor")[];
+  roles: ("admin" | "editor" | "subEditor")[];
   sites?: string[] | Site[];
   email?: string;
   resetPasswordToken?: string;
@@ -957,6 +1226,7 @@ export interface LocationCategory {
   id: string;
   title: string;
   locationGroup: string | LocationGroupCategory;
+  subLocation: string[] | SubLocationCategory[];
   createdAt: string;
   updatedAt: string;
 }
@@ -974,7 +1244,7 @@ export interface SubLocationCategory {
 }
 export interface Project {
   id: string;
-  dataType?: "regular" | "office";
+  dataType?: "regular" | "office" | "office park" | "corporate center";
   title: string;
   slug?: string;
   headerImage: string | File;
@@ -1005,6 +1275,27 @@ export interface Project {
     id?: string;
   }[];
   shortDescription: string;
+  sustainabilityFeatureTitle: string;
+  sustainabilityFeatureDescription: string;
+  sustainabilityFeatureItemLists: {
+    item: string;
+    id?: string;
+  }[];
+  sustainabilityFeatureTitleDescription: {
+    title: string;
+    description: string;
+    id?: string;
+  }[];
+  amenitiesTitleDescription: {
+    title: string;
+    description?: string;
+    id?: string;
+  }[];
+  locationDescription: string;
+  locationItemLists: {
+    item: string;
+    id?: string;
+  }[];
   overview: {
     [k: string]: unknown;
   }[];
@@ -1013,7 +1304,8 @@ export interface Project {
   }[];
   location: string | LocationCategory;
   locationGroup: string | LocationGroupCategory;
-  subLocation?: string | SubLocationCategory;
+  subLocationTwo?: string | SubLocationCategory;
+  status?: string | ProjectStatusCategory;
   mapImage: string | File;
   managerName: string;
   managerPhoto: string | File;
@@ -1031,6 +1323,12 @@ export interface Project {
     image?: string | File;
   };
   _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface ProjectStatusCategory {
+  id: string;
+  title: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -1070,12 +1368,7 @@ export interface Navigation {
   id: string;
   mainMenu: {
     link: {
-      type?: "reference" | "custom";
       newTab?: boolean;
-      reference: {
-        value: string | Page;
-        relationTo: "pages";
-      };
       url: string;
       label: string;
       description?: string;
@@ -1108,12 +1401,7 @@ export interface Navigation {
         };
     subMenu: {
       link: {
-        type?: "reference" | "custom";
         newTab?: boolean;
-        reference: {
-          value: string | Page;
-          relationTo: "pages";
-        };
         url: string;
         label: string;
         description?: string;
@@ -1144,12 +1432,7 @@ export interface Footer {
   emailDescription: string;
   quickLinks: {
     link: {
-      type?: "reference" | "custom";
       newTab?: boolean;
-      reference: {
-        value: string | Page;
-        relationTo: "pages";
-      };
       url: string;
       label: string;
       description?: string;
@@ -1158,12 +1441,7 @@ export interface Footer {
   }[];
   filinvestLand: {
     link: {
-      type?: "reference" | "custom";
       newTab?: boolean;
-      reference: {
-        value: string | Page;
-        relationTo: "pages";
-      };
       url: string;
       label: string;
       description?: string;
@@ -1177,12 +1455,7 @@ export interface Footer {
   copyrightText: string;
   bottomRightLinks: {
     link: {
-      type?: "reference" | "custom";
       newTab?: boolean;
-      reference: {
-        value: string | Page;
-        relationTo: "pages";
-      };
       url: string;
       label: string;
       description?: string;

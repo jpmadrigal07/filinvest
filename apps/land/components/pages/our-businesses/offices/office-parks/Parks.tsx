@@ -31,8 +31,7 @@ const ProjectsContent = ({
             <div className="flex-1">
               {!isFetching ? (
                 <h3 className="text-jet text-2xl">
-                  {data ? data.length : projects.length} corporate businesses
-                  found
+                  {data ? data.length : projects.length} office parks found
                 </h3>
               ) : (
                 <h3 className="text-jet text-2xl">Loading...</h3>

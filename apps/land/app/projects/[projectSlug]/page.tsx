@@ -1,5 +1,6 @@
 import RegularContent from "@/components/pages/projects/regular/Content";
 import OfficeContent from "@/components/pages/projects/office/Content";
+import OfficeParkContent from "@/components/pages/projects/office-park/Content";
 import { notFound } from "next/navigation";
 import qs from "qs";
 import { Project } from "shared-types";
@@ -50,15 +51,16 @@ const ProjectsPage = async ({ params: { projectSlug } }: PageProps) => {
   if (!content) {
     notFound();
   }
-  return (
-    <div>
-      {content.dataType === "regular" ? (
-        <RegularContent project={content} />
-      ) : (
-        <OfficeContent project={content} />
-      )}
-    </div>
-  );
+  const renderContent = () => {
+    if (content.dataType === "office") {
+      return <OfficeContent project={content} />;
+    } else if (content.dataType === "office park") {
+      return <OfficeParkContent project={content} />;
+    } else {
+      return <RegularContent project={content} />;
+    }
+  };
+  return <div>{renderContent()}</div>;
 };
 
 export default ProjectsPage;

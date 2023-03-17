@@ -106,7 +106,7 @@ export interface NewsCategory {
  */
 export interface Project {
   id: string;
-  dataType?: "regular" | "office";
+  dataType?: "regular" | "office" | "office park" | "corporate center";
   title: string;
   slug?: string;
   headerImage: File;
@@ -130,9 +130,6 @@ export interface Project {
   description: string;
   projectType: ProjectCategory;
   propertyType?: PropertyCategory;
-  location: LocationCategory;
-  locationGroup: LocationGroupCategory;
-  subLocation?: SubLocationCategory;
   size: number;
   coverImage: File;
   imageGallery: {
@@ -140,12 +137,37 @@ export interface Project {
     id?: string;
   }[];
   shortDescription: string;
+  sustainabilityFeatureTitle: string;
+  sustainabilityFeatureDescription: string;
+  sustainabilityFeatureItemLists: {
+    item: string;
+    id?: string;
+  }[];
+  sustainabilityFeatureTitleDescription: {
+    title: string;
+    description: string;
+    id?: string;
+  }[];
+  amenitiesTitleDescription: {
+    title: string;
+    description?: string;
+    id?: string;
+  }[];
+  locationDescription: string;
+  locationItemLists: {
+    item: string;
+    id?: string;
+  }[];
   overview: {
     [k: string]: unknown;
   }[];
   locationTab: {
     [k: string]: unknown;
   }[];
+  location: LocationCategory;
+  locationGroup: LocationGroupCategory;
+  subLocationTwo?: SubLocationCategory;
+  status?: ProjectStatusCategory;
   mapImage: File;
   managerName: string;
   managerPhoto: File;
@@ -157,7 +179,18 @@ export interface Project {
   relatedOffice2: Project;
   relatedOffice3: Project;
   site: Site;
+  meta: {
+    title?: string;
+    description?: string;
+    image?: File;
+  };
   _status?: "draft" | "published";
+  createdAt: string;
+  updatedAt: string;
+}
+export interface ProjectStatusCategory {
+  id: string;
+  title: string;
   createdAt: string;
   updatedAt: string;
 }
