@@ -27,9 +27,10 @@ const OurBusinesses = ({ content }: any) => {
         <div className="mx-6 mt-16 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
           <Link
             href={content.content[3].propertyTypes[0].link}
-            className="relative flex-1 transition duration-150"
+            className="group relative flex-1 transition duration-150"
           >
-            <div className="overflow-hidden">
+            <div className="relative overflow-hidden">
+              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[0].image.url ? "/" : ""
@@ -37,10 +38,10 @@ const OurBusinesses = ({ content }: any) => {
                 width={536}
                 height={906}
                 alt={content.content[3].propertyTypes[0].image.alt}
-                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+                className={`relative scale-105 transition duration-500 group-hover:translate-x-2`}
               />
             </div>
-            <div className="absolute -mt-16 ml-9 flex">
+            <div className="absolute z-10 -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[0].title}
               </h3>
@@ -48,9 +49,10 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[1].link}
-            className="relative mt-12 flex-1 transition duration-150"
+            className="group relative mt-12 flex-1 transition duration-150"
           >
-            <div className="overflow-hidden">
+            <div className="relative overflow-hidden">
+              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[1].image.url ? "/" : ""
@@ -58,10 +60,10 @@ const OurBusinesses = ({ content }: any) => {
                 width={536}
                 height={906}
                 alt={content.content[3].propertyTypes[1].image.alt}
-                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+                className={`relative scale-105 transition duration-500 group-hover:translate-x-2`}
               />
             </div>
-            <div className="absolute -mt-16 ml-9 flex">
+            <div className="absolute z-10 -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[1].title}
               </h3>
@@ -69,9 +71,10 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[2].link}
-            className="relative mt-24 flex-1 transition duration-150"
+            className="group relative mt-24 flex-1 transition duration-150"
           >
-            <div className="overflow-hidden">
+            <div className="relative overflow-hidden">
+              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[2].image.url ? "/" : ""
@@ -79,10 +82,10 @@ const OurBusinesses = ({ content }: any) => {
                 width={536}
                 height={906}
                 alt={content.content[3].propertyTypes[2].image.alt}
-                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+                className={`relative scale-105 transition duration-500 group-hover:translate-x-2`}
               />
             </div>
-            <div className="absolute -mt-16 ml-9 flex">
+            <div className="absolute z-10 -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[2].title}
               </h3>
@@ -92,9 +95,10 @@ const OurBusinesses = ({ content }: any) => {
         <div className="mx-6 flex gap-8 lg:mx-9 xl:mx-16 2xl:mx-44">
           <Link
             href={content.content[3].propertyTypes[3].link}
-            className="relative flex-1 transition duration-150"
+            className="group relative flex-1 transition duration-150"
           >
-            <div className="overflow-hidden">
+            <div className="relative overflow-hidden">
+              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[3].image.url ? "/" : ""
@@ -102,10 +106,10 @@ const OurBusinesses = ({ content }: any) => {
                 width={536}
                 height={906}
                 alt={content.content[3].propertyTypes[3].image.alt}
-                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+                className={`relative scale-105 transition duration-500 group-hover:translate-x-2`}
               />
             </div>
-            <div className="absolute -mt-16 ml-9 flex">
+            <div className="absolute z-10 -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[3].title}
               </h3>
@@ -113,9 +117,10 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[4].link}
-            className="relative mt-12 flex-1 transition duration-150"
+            className="group relative mt-12 flex-1 transition duration-150"
           >
-            <div className="overflow-hidden">
+            <div className="relative overflow-hidden">
+              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[4].image.url ? "/" : ""
@@ -123,10 +128,10 @@ const OurBusinesses = ({ content }: any) => {
                 width={536}
                 height={906}
                 alt={content.content[3].propertyTypes[4].image.alt}
-                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+                className={`relative scale-105 transition duration-500 group-hover:translate-x-2`}
               />
             </div>
-            <div className="absolute -mt-16 ml-9 flex">
+            <div className="absolute z-10 -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[4].title}
               </h3>
@@ -134,9 +139,10 @@ const OurBusinesses = ({ content }: any) => {
           </Link>
           <Link
             href={content.content[3].propertyTypes[5].link}
-            className="relative mt-24 flex-1 transition duration-150"
+            className="group relative mt-24 flex-1 transition duration-150"
           >
-            <div className="overflow-hidden">
+            <div className="relative overflow-hidden">
+              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[5].image.url ? "/" : ""
@@ -144,10 +150,10 @@ const OurBusinesses = ({ content }: any) => {
                 width={536}
                 height={906}
                 alt={content.content[3].propertyTypes[5].image.alt}
-                className={`relative scale-105 transition duration-500 hover:translate-x-2`}
+                className={`relative scale-105 transition duration-500 group-hover:translate-x-2`}
               />
             </div>
-            <div className="absolute -mt-16 ml-9 flex">
+            <div className="absolute z-10 -mt-16 ml-9 flex">
               <h3 className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[5].title}
               </h3>
