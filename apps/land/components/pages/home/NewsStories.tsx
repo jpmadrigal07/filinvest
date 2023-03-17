@@ -50,6 +50,7 @@ const NewsStories = ({ content, className, isHomePage = true }: any) => {
           sliderOnMobile
           articles={flattenNews}
           withExtras={false}
+          isTwoLines={true}
         />
       </div>
     </section>
