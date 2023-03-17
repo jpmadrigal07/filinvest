@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-1;
 import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,20 +12,28 @@ import BorderButton from "../button/BorderButton";
 import ChevronCircleLeft from "../svg/ChevronCircleLeft";
 import ChevronCircleRight from "../svg/ChevronCircleRight";
 export default function InvestorRelationsSlider({ content }: any) {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      swiperRef.current?.slideNext();
+    }, 5000);
+
+    return () => clearInterval(slideInterval);
+  }, []);
   return (
     <>
       <section className="flex flex-col items-center justify-center px-6 pt-28 md:items-stretch md:justify-start lg:flex-row lg:items-start lg:justify-between xl:pl-16 xl:pr-0 2xl:pl-40">
         {/* <div className="mx-6 flex w-1/3 flex-col items-start justify-center px-4 text-center md:px-0 md:text-left lg:mx-9 lg:w-1/4 xl:mx-16 2xl:mx-44"> */}
         <div className="flex flex-col items-center justify-center text-center md:items-start md:px-0 md:text-left xl:w-1/3 xl:pr-12">
-          <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
+          <h4 className="text-dark-cornflower-blue font-black tracking-widest">
             {content.content[7].title}
           </h4>
-          <h2 className="text-jet mt-2 text-4xl font-black tracking-tighter">
+          <h2 className="text-jet mt-2 text-2xl font-black tracking-tighter md:text-4xl">
             {content.content[7].subTitle}
           </h2>
-          <h4 className="text-dim-gray -mr- mt-4 text-2xl">
+          <h4 className="text-dim-gray -mr- mt-4">
             {content.content[7].description}
           </h4>
           <button type="button" className="mt-16">
@@ -41,11 +49,9 @@ export default function InvestorRelationsSlider({ content }: any) {
         <Swiper
           tag="div"
           slidesPerView={1}
-          // spaceBetween={-220}
           centeredSlides={true}
           loop={true}
           onBeforeInit={(swiper) => {
-            // @ts-expect-error
             swiperRef.current = swiper;
           }}
           modules={[Navigation]}
@@ -57,7 +63,11 @@ export default function InvestorRelationsSlider({ content }: any) {
           {[...Array(6)].map((_, i) => (
             <SwiperSlide
               key={i}
-              className={i + 1 === activeIndex ? `2xl:-mr-[220px]` : ""}
+              className={
+                i + 1 === activeIndex
+                  ? `2xl:-mr-[5vw] [@media(min-width:1800px)]:-mr-[10vw]`
+                  : ""
+              }
             >
               {/* <div className="mx-6 flex flex-col gap-16 pb-[1.5rem] lg:mx-9 lg:flex-row xl:mx-16 xl:pt-44 2xl:mx-44"> */}
               <div className="flex flex-col gap-16 pb-[1.5rem] lg:flex-row">
@@ -171,20 +181,18 @@ export default function InvestorRelationsSlider({ content }: any) {
         <button
           className="hover:opacity-70"
           onClick={() => {
-            // @ts-expect-error
             swiperRef.current?.slidePrev();
           }}
         >
-          <ChevronCircleLeft />
+          <ChevronCircleLeft color="#163E82" />
         </button>
         <button
           className="hover:opacity-70"
           onClick={() => {
-            // @ts-expect-error
             swiperRef.current?.slideNext();
           }}
         >
-          <ChevronCircleRight />
+          <ChevronCircleRight color="#163E82" />
         </button>
       </div>
     </>

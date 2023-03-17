@@ -82,7 +82,7 @@ const HeroSection = ({ content }: any) => {
       >
         <Link
           href={content.content[0].prestigeLink}
-          className="relative opacity-100 transition duration-150 hover:opacity-70"
+          className="group relative max-h-[500px] max-w-[434px] overflow-hidden object-fill opacity-100"
         >
           <Image
             src={`${!content.content[0].prestigeImage.url ? "/" : ""}${
@@ -91,7 +91,7 @@ const HeroSection = ({ content }: any) => {
             width={434}
             height={500}
             alt={content.content[0].prestigeImage.alt}
-            className="cursor-pointer"
+            className="relative block scale-110 cursor-pointer transition duration-300 group-hover:scale-100"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
             <Image
@@ -106,7 +106,7 @@ const HeroSection = ({ content }: any) => {
         </Link>
         <Link
           href={content.content[0].aspireLink}
-          className="relative opacity-100 transition duration-150 hover:opacity-70"
+          className="group relative max-h-[500px] max-w-[434px] overflow-hidden object-fill opacity-100"
         >
           <Image
             src={`${!content.content[0].aspireImage.url ? "/" : ""}${
@@ -115,6 +115,7 @@ const HeroSection = ({ content }: any) => {
             width={434}
             height={500}
             alt={content.content[0].aspireImage.alt}
+            className="relative block scale-110 cursor-pointer transition duration-300 group-hover:scale-100"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
             <Image
@@ -129,7 +130,7 @@ const HeroSection = ({ content }: any) => {
         </Link>
         <Link
           href={content.content[0].futuraLink}
-          className="relative opacity-100 transition duration-150 hover:opacity-70"
+          className="group relative max-h-[500px] max-w-[434px] overflow-hidden object-fill opacity-100"
         >
           <Image
             src={`${!content.content[0].futuraImage.url ? "/" : ""}${
@@ -138,6 +139,7 @@ const HeroSection = ({ content }: any) => {
             width={434}
             height={500}
             alt={content.content[0].futuraImage.alt}
+            className="relative block scale-110 cursor-pointer transition duration-300 group-hover:scale-100"
           />
           <div className="absolute -mt-24 flex w-full items-center justify-center">
             <Image

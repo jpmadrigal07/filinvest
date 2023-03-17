@@ -17,10 +17,10 @@ const NewsStories = ({ content, className, isHomePage = true }: any) => {
             <h4 className="text-dark-cornflower-blue text-lg font-black tracking-widest">
               {isHomePage ? content?.content[6].title : ""}
             </h4>
-            <h2 className="text-jet mt-2 text-4xl font-black tracking-tighter">
+            <h2 className="text-jet mt-2 text-2xl font-black tracking-tighter md:text-4xl">
               {isHomePage ? content?.content[6].subTitle : "Press Releases"}
             </h2>
-            <h4 className="text-dim-gray mt-4 text-2xl">
+            <h4 className="text-dim-gray mt-4">
               {isHomePage
                 ? content?.content[6].description
                 : "Get updated to Filinvest Land's latest happenings"}
@@ -50,6 +50,7 @@ const NewsStories = ({ content, className, isHomePage = true }: any) => {
           sliderOnMobile
           articles={flattenNews}
           withExtras={false}
+          isTwoLines={true}
         />
       </div>
     </section>

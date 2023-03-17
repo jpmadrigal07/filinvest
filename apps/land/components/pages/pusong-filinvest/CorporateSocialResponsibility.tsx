@@ -56,18 +56,15 @@ const CorporateSocialResponsibility = ({ content }: any) => {
                       />
                     </div>
                     <div className="flex flex-col lg:w-2/4">
-                      <h3 className="text-dark-cornflower-blue text-base font-bold md:text-xl lg:text-2xl">
+                      <h3 className="text-dark-cornflower-blue text-base font-bold ">
                         {item?.title}
                       </h3>
-                      <h2 className="mt-4 text-2xl font-bold md:text-4xl lg:text-6xl">
+                      <h2 className="mt-4 text-2xl font-bold md:text-4xl ">
                         {item?.subTitle}
                       </h2>
                       {item?.descriptionParagraphs?.map(
                         (item: any, index: number) => (
-                          <p
-                            className="text-dim-gray mt-4 text-base lg:text-xl"
-                            key={index}
-                          >
+                          <p className="text-dim-gray mt-4 " key={index}>
                             {item?.paragraph}
                           </p>
                         )
