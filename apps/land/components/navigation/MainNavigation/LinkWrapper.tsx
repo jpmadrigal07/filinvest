@@ -107,7 +107,11 @@ const LinkWrapper = ({
                 >
                   <span className="flex items-center gap-2">
                     {text}
-                    <ChevronDown classes="w-[10px] h-[10px]" />
+                    {currentMenuIndex === menuIndex ? (
+                      <ChevronDown classes="w-[10px] h-[10px] rotate-180 transition-transform" />
+                    ) : (
+                      <ChevronDown classes="w-[10px] h-[10px] transition-transform" />
+                    )}
                   </span>
                 </Popover.Button>
 
@@ -183,7 +187,11 @@ const LinkWrapper = ({
             }}
           >
             {text}
-            <ChevronDown classes="w-[10px] h-[10px]" />
+            {currentMenuIndex === menuIndex ? (
+              <ChevronDown classes="w-[10px] h-[10px] rotate-180 transition-transform" />
+            ) : (
+              <ChevronDown classes="w-[10px] h-[10px] transition-transform" />
+            )}
           </span>
         </>
       )}
