@@ -7,6 +7,7 @@ import Tabs from "@/components/header/Tabs";
 import OutstandingSharesTable from "./OutstandingSharesTable";
 import StockHolderTable from "./StockHolderTable";
 import Image from "next/image";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 const Content = ({ content }: any) => {
   const header = content?.content.find(
     (item: any) => item.blockType === "header"
@@ -61,6 +62,9 @@ const Content = ({ content }: any) => {
           />
         </div>
       </section>
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </div>
   );
 };
