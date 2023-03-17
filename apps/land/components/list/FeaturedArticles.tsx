@@ -119,7 +119,7 @@ const FeaturedArticles = ({
               )}
 
               <h4
-                className={`text-dim-gray mt-3 text-lg font-bold ${
+                className={`text-dim-gray mt-3 text-lg  ${
                   isTwoLines
                     ? "max-h-[68px] overflow-hidden text-ellipsis"
                     : "mt-4 truncate"

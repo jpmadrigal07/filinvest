@@ -39,7 +39,9 @@ export default function BioInfo({
               <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
-            <div className="fixed bottom-0 left-0 right-0 top-32 z-40 flex md:left-44 md:top-80 lg:left-96">
+            {/* className="fixed bottom-0 left-0 right-0 top-32 z-40 flex md:left-44 md:top-80 lg:left-96"*/}
+            {/* className="fixed bottom-[120px] left-44 right-[10rem] top-32 z-40 flex */}
+            <div className="fixed bottom-0 left-0 right-0 top-[1rem] z-40 flex md:left-44 md:right-[10rem] md:top-32 md:bottom-[120px] lg:left-44">
               <Transition.Child
                 as={Fragment}
                 enter="transition ease-in-out duration-300 transform"

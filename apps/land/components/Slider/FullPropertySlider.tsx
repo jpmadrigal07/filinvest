@@ -12,6 +12,7 @@ import Link from "next/link";
 import ChevronCircleLeft from "../svg/ChevronCircleLeft";
 import ChevronCircleRight from "../svg/ChevronCircleRight";
 import Button360 from "../svg/Button360";
+import SwiperCore, { Autoplay } from "swiper";
 const FullPropertySlider = ({
   sliders,
   withThumbnail = false,
@@ -21,6 +22,7 @@ const FullPropertySlider = ({
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
   const [nextSlide, setNextSlide] = useState("");
+  SwiperCore.use([Autoplay]);
   return (
     <>
       <div className="relative hidden md:block">
@@ -76,6 +78,7 @@ const FullPropertySlider = ({
           </div>
         )}
         <Swiper
+          autoplay={{ delay: 5000 }}
           slidesPerView={1}
           spaceBetween={30}
           loop={true}
