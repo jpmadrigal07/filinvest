@@ -1,5 +1,4 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import Image from "next/image";
 import React from "react";
 import "swiper/css";
@@ -64,9 +63,6 @@ const MissionVisionCoreValues = ({ content, news }: any) => {
             {data.coreValuesDescription}
           </p>
         </div>
-      </div>
-      <div className="m-4 mb-24 mt-32">
-        <PageNextPrevButton content={content} />
       </div>
       <div className="bg-ghost-white py-24">
         <h3 className="text-center text-4xl font-bold">Latest News</h3>
