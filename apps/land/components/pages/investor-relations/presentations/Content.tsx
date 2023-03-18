@@ -4,6 +4,7 @@ import ArrowRight from "@/components/svg/ArrowRight";
 import MainHeader from "@/components/header/MainHeader";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Link from "next/link";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 type PresentationCardProps = {
   imageSrc: string;
@@ -81,6 +82,9 @@ const Content = ({ content }: any) => {
           })}
         </div>
       </section>
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </>
   );
 };

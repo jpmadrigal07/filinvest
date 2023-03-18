@@ -5,15 +5,37 @@ import ChevronDown from "@/components/svg/ChevronDown";
 const Accordion = ({
   title,
   children,
+  index,
+  accordionRefs,
 }: {
   title: string;
   children: ReactNode;
+  index: number;
+  accordionRefs?: React.RefObject<HTMLButtonElement>[];
 }) => {
+  function handleClosingOthers() {
+    const otherRefs = accordionRefs?.filter((ref) => {
+      return ref.current?.getAttribute("data-index") !== String(index);
+    });
+
+    otherRefs?.forEach((ref) => {
+      const isOpen = ref.current?.getAttribute("data-open") === "true";
+
+      if (isOpen) {
+        ref.current?.click();
+      }
+    });
+  }
+
   return (
     <Disclosure>
       {({ open }) => (
         <>
           <Disclosure.Button
+            onClick={() => handleClosingOthers()}
+            ref={accordionRefs?.[index]}
+            data-index={index}
+            data-open={open}
             className={`hover:bg-oxford-blue flex w-full items-center justify-between py-4 px-4 text-left text-lg font-medium text-white focus:outline-none ${
               open ? "bg-oxford-blue" : ""
             }`}

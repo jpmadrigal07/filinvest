@@ -30,7 +30,7 @@ const OurBusinesses = ({ content }: any) => {
             className="group relative flex-1 transition duration-150"
           >
             <div className="relative overflow-hidden">
-              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
+              <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[0].image.url ? "/" : ""
@@ -52,7 +52,7 @@ const OurBusinesses = ({ content }: any) => {
             className="group relative mt-12 flex-1 transition duration-150"
           >
             <div className="relative overflow-hidden">
-              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
+              <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[1].image.url ? "/" : ""
@@ -74,7 +74,7 @@ const OurBusinesses = ({ content }: any) => {
             className="group relative mt-24 flex-1 transition duration-150"
           >
             <div className="relative overflow-hidden">
-              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
+              <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[2].image.url ? "/" : ""
@@ -98,7 +98,7 @@ const OurBusinesses = ({ content }: any) => {
             className="group relative flex-1 transition duration-150"
           >
             <div className="relative overflow-hidden">
-              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
+              <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[3].image.url ? "/" : ""
@@ -120,7 +120,7 @@ const OurBusinesses = ({ content }: any) => {
             className="group relative mt-12 flex-1 transition duration-150"
           >
             <div className="relative overflow-hidden">
-              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
+              <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[4].image.url ? "/" : ""
@@ -142,7 +142,7 @@ const OurBusinesses = ({ content }: any) => {
             className="group relative mt-24 flex-1 transition duration-150"
           >
             <div className="relative overflow-hidden">
-              <div className="bg-dark-cornflower-blue absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
+              <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
                   !content.content[3].propertyTypes[5].image.url ? "/" : ""

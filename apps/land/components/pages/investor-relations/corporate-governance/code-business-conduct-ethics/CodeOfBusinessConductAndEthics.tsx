@@ -31,22 +31,8 @@ const CodeOfBusinessConductAndEthics = ({ content }: any) => {
           </div>
         ))}
       </div>
-      <div className="mt-32 flex">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Structures"
-            isLeft={true}
-          />
-        </div>
-        <div className="grow"></div>
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Investor Relations Program"
-            isLeft={false}
-          />
-        </div>
+      <div className="mt-32 flex w-full">
+        <PageNextPrevButton content={content} />
       </div>
     </section>
   );

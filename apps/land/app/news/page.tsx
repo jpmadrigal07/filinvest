@@ -1,7 +1,7 @@
 import MainHeader from "@/components/header/MainHeader";
 import Content from "@/components/pages/news/Content";
 import { CACHE_REVALIDATE } from "@/helpers/constants";
-
+import { getRequest } from "@/helpers/getRequest";
 async function getNews() {
   const res = await fetch(`${process.env.CMS_URL}/api/news`, {
     next: { revalidate: CACHE_REVALIDATE },
@@ -20,6 +20,7 @@ export const metadata = {
 
 const NewsPage = async () => {
   const news = await getNews();
+  const categories = await getRequest(`/api/project-categories`);
   return (
     <>
       <MainHeader
@@ -28,7 +29,7 @@ const NewsPage = async () => {
         bgUrl="blue-header-bg.png"
         isTitleSmall
       />
-      <Content news={news} />
+      <Content news={news} categories={categories} />
     </>
   );
 };

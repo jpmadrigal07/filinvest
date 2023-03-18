@@ -4,6 +4,7 @@ import React from "react";
 import DisclosuresBlock from "./DisclosuresBlock";
 import MainHeader from "@/components/header/MainHeader";
 import Breadcrumbs from "@/components/header/Breadcrumbs";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ content }: any) => {
   const header = content?.content?.find(
@@ -30,6 +31,9 @@ const Content = ({ content }: any) => {
         bgUrlSmall={header?.smallCoverImage.url}
       />
       <DisclosuresBlock content={content} />
+      <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div>
     </>
   );
 };

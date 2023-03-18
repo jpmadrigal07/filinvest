@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/header/Breadcrumbs";
 import Tabs from "@/components/header/Tabs";
 import MainHeader from "@/components/header/MainHeader";
 import AnnualCorporateGovernance from "./AnnualCorporateGovernance";
+//import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 
 const Content = ({ content }: any) => {
   const header = content?.content.find(
@@ -35,6 +36,9 @@ const Content = ({ content }: any) => {
         tabs={tabs}
       />
       <AnnualCorporateGovernance content={content} />
+      {/*  <div className="px-16 py-24">
+        <PageNextPrevButton content={content} />
+      </div> */}
     </>
   );
 };

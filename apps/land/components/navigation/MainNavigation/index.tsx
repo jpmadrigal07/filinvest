@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect, useMemo } from "react";
 import { combineClass } from "@/helpers/combineClass";
 import MainLogo from "@/components/svg/MainLogo";
 import LinkWrapper from "./LinkWrapper";
@@ -20,7 +20,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const [flyoutMenu, setFlyoutMenu] = useState<T_Flyout_Menu>("");
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number | null>(null);
-  const [scroll, setScroll] = useState(0);
+  const [scroll] = useState(0);
   const [showFixedNavigation, setShowFixedNavigation] = useState(false);
   const [wasScroll, setWasScroll] = useState(false);
   const [menus, setMenus] = useState(staticMenus);
@@ -32,16 +32,6 @@ const MainNavigation = ({ className }: { className?: string }) => {
     setWasScroll(false);
   }, [pathname]);
 
-  if (typeof window !== "undefined") {
-    window.onscroll = function () {
-      if (scroll > window.pageYOffset) {
-        setShowFixedNavigation(true);
-      } else {
-        setShowFixedNavigation(false);
-      }
-      setScroll(window.pageYOffset);
-    };
-  }
   useEffect(() => {
     if (navigationRes) {
       setMenus(formatNavigations(navigationRes));
@@ -61,12 +51,20 @@ const MainNavigation = ({ className }: { className?: string }) => {
     }
   }, [scroll]);
 
+  const accordionRefs = useMemo(() => {
+    return (
+      menus.map(() => {
+        return React.createRef<HTMLButtonElement>();
+      }) ?? []
+    );
+  }, [menus]);
+
   const renderNavigation = () => {
     return (
       <nav
         className={`${
           showFixedNavigation ? "fixed" : "absolute"
-        } top-0 z-50 w-full ${
+        } top-0 z-[200] w-full ${
           wasScroll && flyoutMenu !== "full"
             ? "bg-royal-dark-blue bg-opacity-95"
             : className
@@ -85,14 +83,14 @@ const MainNavigation = ({ className }: { className?: string }) => {
               setCurrentMenuIndex(null);
             }}
           >
-            <div className="flex flex-wrap items-center gap-6 px-9 py-10 font-bold text-white 2xl:gap-14">
+            <div className="flex flex-wrap items-center gap-1 py-6 px-9 font-bold text-white lg:py-10 2xl:gap-14">
               <div className="flex-none lg:order-1 lg:flex-grow 2xl:order-none 2xl:flex-grow-0">
                 <Link href="/">
                   <MainLogo />
                 </Link>
               </div>
               <div className="flex-1 lg:order-3 2xl:order-none">
-                <ul className="flex list-none items-center justify-center gap-7 text-center 2xl:justify-start">
+                <ul className="my-4 flex list-none items-center justify-center gap-7 text-center 2xl:justify-start">
                   {menus.map((menu, index) => {
                     const wrapperProps = {
                       ...menu,
@@ -188,7 +186,12 @@ const MainNavigation = ({ className }: { className?: string }) => {
                     {menus.map((item, index) => {
                       if (item.subMenus) {
                         return (
-                          <Accordion key={index} title={item.text}>
+                          <Accordion
+                            key={index}
+                            accordionRefs={accordionRefs}
+                            index={index}
+                            title={item.text}
+                          >
                             <div className="divide-oxford-blue flex flex-col gap-4 divide-y divide-solid">
                               {item.subMenus.map((subMenu, subMenuIndex) => (
                                 <Link
