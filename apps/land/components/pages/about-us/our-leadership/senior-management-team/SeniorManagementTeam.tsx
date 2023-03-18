@@ -6,8 +6,9 @@ import Facebook from "@/components/svg/Facebook";
 import Twitter from "@/components/svg/Twitter";
 import LinkedIn from "@/components/svg/LinkedIn";
 import BioInfo from "@/components/drawer/BioInfo";
-
+import useGetScreen from "../../../../../hooks/useGetScreen";
 const SeniorManagementTeam = ({ content }: any) => {
+  const { width } = useGetScreen();
   const data = content?.content.find(
     (item: any) => item.blockType === "our-leadership-senior-management-team"
   );
@@ -22,8 +23,19 @@ const SeniorManagementTeam = ({ content }: any) => {
         </h2>
         <p className="text-dim-gray mt-6">{data.description}</p>
         <div
-          className={`
-            mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 [@media(min-width:1204px)]:grid-cols-${data?.numberOfColumns}`}
+          className={`mt-12 grid  gap-x-8 gap-y-16  ${
+            width <= 1210 && width >= 768 && "grid-cols-2"
+          }
+          ${width <= 767 && "grid-cols-1"}
+           ${
+             width >= 1211 &&
+             `grid-cols-${data?.numberOfColumns ? data?.numberOfColumns : "4"}`
+           }
+            ${
+              width == 0 &&
+              `grid-cols-${data?.numberOfColumns ? data?.numberOfColumns : "4"}`
+            }
+          `}
         >
           {data.director.map((director: any, index: number) => (
             <div className="group relative" key={index}>
