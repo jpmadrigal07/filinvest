@@ -1,5 +1,4 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import FeaturedArticles from "@/components/list/FeaturedArticles";
 import Image from "next/image";
 import React from "react";
@@ -30,9 +29,6 @@ const ImageRightTextLeft = ({ content, news }: any) => {
             alt={data.image.alt}
           />
         </div>
-      </div>
-      <div className="m-4 mb-24 mt-32">
-        <PageNextPrevButton content={content} />
       </div>
       <div className="bg-ghost-white py-24">
         <h3 className="text-center text-4xl font-bold">Latest News</h3>
