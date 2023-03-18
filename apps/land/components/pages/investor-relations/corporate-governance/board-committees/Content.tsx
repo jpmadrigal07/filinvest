@@ -1,5 +1,5 @@
 "use client";
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import React, { useState } from "react";
 import Charters from "./Charters";
 import Members from "./Members";
@@ -65,22 +65,8 @@ const Content = ({ content }: any) => {
             <Charters content={content} />
           )}
         </div>
-        <div className="mt-20 flex flex-col sm:flex-row lg:mt-32 ">
-          <div className="flex-none">
-            <PageNextPrevButton
-              imgName="investor-relations-program-next-prev.png"
-              pageName="Structures"
-              isLeft={true}
-            />
-          </div>
-          <div className="grow"></div>
-          <div className="flex-none">
-            <PageNextPrevButton
-              imgName="investor-relations-program-next-prev.png"
-              pageName="Investor Relations Program"
-              isLeft={false}
-            />
-          </div>
+        <div className="mt-32 flex w-full">
+          <PageNextPrevButton content={content} />
         </div>
       </section>
     </>

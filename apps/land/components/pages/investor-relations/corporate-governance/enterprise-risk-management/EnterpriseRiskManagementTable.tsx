@@ -1,4 +1,4 @@
-import PageNextPrevButton from "@/components/button/PageNextPrevButtonOld";
+import PageNextPrevButton from "@/components/button/PageNextPrevButton";
 import React from "react";
 
 const EnterpriseRiskManagementTable = ({ content }: any) => {
@@ -63,22 +63,8 @@ const EnterpriseRiskManagementTable = ({ content }: any) => {
           </div>
         </div>
       </div>
-      <div className="mt-20 flex flex-col md:flex-row md:justify-between">
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Structures"
-            isLeft={true}
-          />
-        </div>
-        <div className="grow"></div>
-        <div className="flex-none">
-          <PageNextPrevButton
-            imgName="investor-relations-program-next-prev.png"
-            pageName="Investor Relations Program"
-            isLeft={false}
-          />
-        </div>
+      <div className="mt-32 flex w-full">
+        <PageNextPrevButton content={content} />
       </div>
     </section>
   );

@@ -138,6 +138,7 @@ const Content = ({ content }: any) => {
   }, [monthlyAmortization]);
 
   const clearFields = () => {
+    setFormattedTcp("");
     setTcp(null);
     setReservationFee(0);
     setDownPaymentPercent(0);
