@@ -14,6 +14,16 @@ const SeniorManagementTeam = ({ content }: any) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [directorInformation, setDirectorInformation] = useState({});
 
+  const generateClassName = (number: string) => {
+    switch (number) {
+      case "2":
+        return `mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-2`;
+      case "3":
+        return `mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3`;
+      case "4":
+        return `mt-12 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-4`;
+    }
+  };
   return (
     <section className="short:-mt-24 mx-9 -mt-16 mb-28 flex flex-col gap-9 xl:mx-16 2xl:mx-44 2xl:-mt-52">
       <div className="py-32 lg:bg-white lg:py-32 lg:px-32">
@@ -22,11 +32,7 @@ const SeniorManagementTeam = ({ content }: any) => {
         </h2>
         <p className="text-dim-gray mt-6">{data.description}</p>
         {data?.numberOfColumns && (
-          <div
-            className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-${
-              data?.numberOfColumns ? data?.numberOfColumns : "4"
-            }`}
-          >
+          <div className={generateClassName(data?.numberOfColumns)}>
             {data.director.map((director: any, index: number) => (
               <div className="group relative" key={index}>
                 <Image
