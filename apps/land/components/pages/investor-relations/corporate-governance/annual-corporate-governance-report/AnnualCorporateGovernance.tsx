@@ -83,13 +83,7 @@ const AnnualCorporateGovernance = ({ content }: any) => {
         ))}
       </div>
       <div className="mt-32 flex w-full">
-        <PageNextPrevButton
-          // imgName="investor-relations-program-next-prev.png"
-          // pageName="Structures"
-          isLeft={true}
-          content={content}
-        />
-        {/* <div className=""></div> */}
+        <PageNextPrevButton content={content} />
       </div>
     </section>
   );
