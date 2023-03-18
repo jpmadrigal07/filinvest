@@ -6,12 +6,18 @@ import React, { useState } from "react";
 import NewsTileList from "./NewsTileList";
 import SelectCategory from "@/components/select/SelectCategory";
 import useGetProjectsByCategory from "@/components/list/hooks/useGetProjectsByCategory";
-const Content = ({ news }: any) => {
+const Content = ({ news, categories }: any) => {
   const [selectedPropertyType, setSelectedPropertyType] = useState<string>("");
   const [position, setPosition] = useState<"list" | "grid">("grid");
   const { data, isFetching } = useGetProjectsByCategory({
     projectType: selectedPropertyType,
   });
+  const categoriesString =
+    categories.length > 0
+      ? categories.map((category: any) => {
+          return category.title;
+        })
+      : [];
   return (
     <section className="my-12 mx-9 gap-9 xl:my-24 xl:mx-16 2xl:mx-44">
       <div className="flex items-center justify-end gap-7">
@@ -26,19 +32,7 @@ const Content = ({ news }: any) => {
           onClick={() => setPosition("grid")}
         />
         <SelectCategory
-          values={[
-            "",
-            "Co-living",
-            "Offices",
-            "Projects",
-            "Corporate Centers",
-            "Industrial",
-            "Malls",
-            "Mixed-use",
-            "Offices",
-            "Residentials",
-            "Townscapes",
-          ]}
+          values={categoriesString}
           defaultValue={selectedPropertyType}
           onValueChange={setSelectedPropertyType}
         />
