@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect, useMemo } from "react";
 import { combineClass } from "@/helpers/combineClass";
 import MainLogo from "@/components/svg/MainLogo";
 import LinkWrapper from "./LinkWrapper";
@@ -32,16 +32,6 @@ const MainNavigation = ({ className }: { className?: string }) => {
     setWasScroll(false);
   }, [pathname]);
 
-  if (typeof window !== "undefined") {
-    window.onscroll = function () {
-      if (scroll > window.pageYOffset) {
-        setShowFixedNavigation(true);
-      } else {
-        setShowFixedNavigation(false);
-      }
-      setScroll(window.pageYOffset);
-    };
-  }
   useEffect(() => {
     if (navigationRes) {
       setMenus(formatNavigations(navigationRes));
@@ -61,12 +51,20 @@ const MainNavigation = ({ className }: { className?: string }) => {
     }
   }, [scroll]);
 
+  const accordionRefs = useMemo(() => {
+    return (
+      menus.map(() => {
+        return React.createRef<HTMLButtonElement>();
+      }) ?? []
+    );
+  }, [menus]);
+
   const renderNavigation = () => {
     return (
       <nav
         className={`${
           showFixedNavigation ? "fixed" : "absolute"
-        } top-0 z-50 w-full ${
+        } top-0 z-[200] w-full ${
           wasScroll && flyoutMenu !== "full"
             ? "bg-royal-dark-blue bg-opacity-95"
             : className
@@ -188,7 +186,12 @@ const MainNavigation = ({ className }: { className?: string }) => {
                     {menus.map((item, index) => {
                       if (item.subMenus) {
                         return (
-                          <Accordion key={index} title={item.text}>
+                          <Accordion
+                            key={index}
+                            accordionRefs={accordionRefs}
+                            index={index}
+                            title={item.text}
+                          >
                             <div className="divide-oxford-blue flex flex-col gap-4 divide-y divide-solid">
                               {item.subMenus.map((subMenu, subMenuIndex) => (
                                 <Link
