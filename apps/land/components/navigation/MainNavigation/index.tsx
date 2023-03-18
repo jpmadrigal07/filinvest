@@ -20,7 +20,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const [flyoutMenu, setFlyoutMenu] = useState<T_Flyout_Menu>("");
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number | null>(null);
-  const [scroll, setScroll] = useState(0);
+  const [scroll] = useState(0);
   const [showFixedNavigation, setShowFixedNavigation] = useState(false);
   const [wasScroll, setWasScroll] = useState(false);
   const [menus, setMenus] = useState(staticMenus);
