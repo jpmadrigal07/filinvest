@@ -41,7 +41,7 @@ const Content = ({ news, content }: any) => {
         bgUrlSmall={header.smallCoverImage.url}
         tabs={tabs}
       />
-      <MediaSection />
+      <MediaSection content={content} />
       <IconText content={content} />
       <YearsOfExperience content={content} />
       <ImageRightTextLeft content={content} news={news} />
