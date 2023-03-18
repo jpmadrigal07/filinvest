@@ -21,83 +21,85 @@ const SeniorManagementTeam = ({ content }: any) => {
           {data.title}
         </h2>
         <p className="text-dim-gray mt-6">{data.description}</p>
-        <div
-          className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-${
-            data?.numberOfColumns ? data?.numberOfColumns : "4"
-          }`}
-        >
-          {data.director.map((director: any, index: number) => (
-            <div className="group relative" key={index}>
-              <Image
-                src={`${director.directorImage.url}`}
-                width={736}
-                height={848}
-                alt="Picture of the author"
-              />
-              <div className="absolute -bottom-6 z-20 w-full">
-                <div className="flex h-full justify-center">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSidebarOpen(true);
-                      setDirectorInformation(director);
-                    }}
-                  >
-                    {" "}
-                    <Image
-                      src={`/button-person.png`}
-                      width={47}
-                      height={47}
-                      alt="Picture of the author"
-                      className="hover:cursor-pointer"
-                    />
-                  </button>
+        {data?.numberOfColumns && (
+          <div
+            className={`mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-${
+              data?.numberOfColumns ? data?.numberOfColumns : "4"
+            }`}
+          >
+            {data.director.map((director: any, index: number) => (
+              <div className="group relative" key={index}>
+                <Image
+                  src={`${director.directorImage.url}`}
+                  width={736}
+                  height={848}
+                  alt="Picture of the author"
+                />
+                <div className="absolute -bottom-6 z-20 w-full">
+                  <div className="flex h-full justify-center">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSidebarOpen(true);
+                        setDirectorInformation(director);
+                      }}
+                    >
+                      {" "}
+                      <Image
+                        src={`/button-person.png`}
+                        width={47}
+                        height={47}
+                        alt="Picture of the author"
+                        className="hover:cursor-pointer"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 z-10 h-1/2 w-full bg-gradient-to-t from-black group-hover:hidden">
+                  <div className="flex h-full flex-col items-center justify-center px-6">
+                    <h3 className="text-center text-xl font-bold text-white">
+                      {director.directorFullName}
+                    </h3>
+                    <h4 className="text-center text-white">
+                      {director.directorTitle}
+                    </h4>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 z-10 hidden h-1/2 w-full group-hover:block">
+                  <div className="flex h-full justify-center gap-6">
+                    {director.facebookLink ? (
+                      <a
+                        href={`${director.facebookLink}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Facebook />
+                      </a>
+                    ) : null}
+                    {director.twitterLink ? (
+                      <a
+                        href={`${director.twitterLink}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Twitter />
+                      </a>
+                    ) : null}
+                    {director.linkedInLink ? (
+                      <a
+                        href={`${director.linkedInLink}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <LinkedIn />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </div>
-              <div className="absolute bottom-0 z-10 h-1/2 w-full bg-gradient-to-t from-black group-hover:hidden">
-                <div className="flex h-full flex-col items-center justify-center px-6">
-                  <h3 className="text-center text-xl font-bold text-white">
-                    {director.directorFullName}
-                  </h3>
-                  <h4 className="text-center text-white">
-                    {director.directorTitle}
-                  </h4>
-                </div>
-              </div>
-              <div className="absolute bottom-0 z-10 hidden h-1/2 w-full group-hover:block">
-                <div className="flex h-full justify-center gap-6">
-                  {director.facebookLink ? (
-                    <a
-                      href={`${director.facebookLink}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Facebook />
-                    </a>
-                  ) : null}
-                  {director.twitterLink ? (
-                    <a
-                      href={`${director.twitterLink}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Twitter />
-                    </a>
-                  ) : null}
-                  {director.linkedInLink ? (
-                    <a
-                      href={`${director.linkedInLink}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <LinkedIn />
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className="mt-32 flex w-full">
         <PageNextPrevButton content={content} />
