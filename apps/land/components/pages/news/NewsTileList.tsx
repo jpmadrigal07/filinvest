@@ -5,7 +5,7 @@ import React from "react";
 import moment from "moment";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
+import { motion } from "framer-motion";
 const NewsTileList = ({
   news,
   position = "grid",
@@ -30,7 +30,13 @@ const NewsTileList = ({
         >
           {news?.map((item: any, index: number) => {
             return (
-              <span
+              <motion.span
+                layout
+                transition={{
+                  duration: 0.1,
+                  ease: "easeInOut",
+                  delayChildren: 1,
+                }}
                 onClick={() => router.push(`/article/${item?.slug}`)}
                 className={`grid ${
                   position === "grid"
@@ -68,7 +74,7 @@ const NewsTileList = ({
                     </Link>
                   </div>
                 </div>
-              </span>
+              </motion.span>
             );
           })}
         </div>
