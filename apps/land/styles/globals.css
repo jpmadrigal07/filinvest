@@ -96,3 +96,16 @@ ul {
     rgba(255, 255, 255, 0)
   );
 }
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animateBg {
+  animation: zoom-out 5s ease-in-out forwards;
+}

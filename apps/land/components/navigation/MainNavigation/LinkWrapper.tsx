@@ -167,6 +167,9 @@ const LinkWrapper = ({
                 router.push(link ? link : "/");
               }
               flyoutMenu == "full" ? setFlyoutMenu("") : setFlyoutMenu("full");
+              flyoutMenu == "full"
+                ? setCurrentMenuIndex(-1)
+                : setCurrentMenuIndex(menuIndex);
             }}
             className="flex cursor-pointer items-center gap-2 whitespace-nowrap transition duration-500"
             style={{
