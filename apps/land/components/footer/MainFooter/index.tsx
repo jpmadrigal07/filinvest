@@ -48,7 +48,10 @@ const MainFooter = () => {
         </div>
         <div className="flex flex-1 flex-col gap-8">
           <h3 className="text-md font-bold text-white">Quick Links</h3>
-          <ul className="flex list-none flex-col gap-3 text-white">
+          <ul
+            className="flex list-none flex-col gap-3 text-white"
+            style={{ margin: "0 !important" }}
+          >
             {!isLoading && footerRes.quickLinks
               ? footerRes.quickLinks.map((link: any, index: number) => {
                   return (
@@ -56,7 +59,7 @@ const MainFooter = () => {
                       <Link
                         href={link.link.url}
                         target={link.link.newTab ? "_blank" : "_self"}
-                        className="transition hover:text-[#1AC0E8]"
+                        className="opacity-90 transition hover:text-[#1AC0E8] hover:opacity-100"
                       >
                         {link.link.label}
                       </Link>
@@ -68,7 +71,10 @@ const MainFooter = () => {
         </div>
         <div className="flex flex-1 flex-col gap-8">
           <h3 className="text-md font-bold text-white">Filinvest Land</h3>
-          <ul className="flex list-none flex-col gap-3 text-white">
+          <ul
+            className="flex list-none flex-col gap-3 text-white"
+            style={{ margin: "0 !important" }}
+          >
             {!isLoading && footerRes.filinvestLand
               ? footerRes.filinvestLand.map((link: any, index: number) => {
                   return (
@@ -76,7 +82,7 @@ const MainFooter = () => {
                       <Link
                         href={link.link.url}
                         target={link.link.newTab ? "_blank" : "_self"}
-                        className="transition hover:text-[#1AC0E8]"
+                        className="opacity-90 transition hover:text-[#1AC0E8] hover:opacity-100"
                       >
                         {link.link.label}
                       </Link>
@@ -88,7 +94,10 @@ const MainFooter = () => {
         </div>
         <div className="flex flex-1 flex-col gap-8">
           <h3 className="text-md font-bold text-white">Contact Us</h3>
-          <ul className="flex list-none flex-col gap-3 text-white">
+          <ul
+            className="flex list-none flex-col gap-3 text-white"
+            style={{ margin: "0 !important" }}
+          >
             <li className="flex items-center gap-3">
               <div className="w-6 flex-none">
                 <Phone />
@@ -99,7 +108,7 @@ const MainFooter = () => {
                     ? footerRes?.firstPhone
                     : ""
                 }`}
-                className="transition hover:text-[#1AC0E8]"
+                className="opacity-90 transition hover:text-[#1AC0E8] hover:opacity-100"
               >
                 {!isLoading && footerRes.firstPhone
                   ? footerRes.firstPhone
@@ -179,7 +188,7 @@ const MainFooter = () => {
                   <Link
                     href={link.link.url}
                     target={link.link.newTab ? "_blank" : "_self"}
-                    className="text-white hover:underline"
+                    className="text-white transition hover:text-[#1AC0E8]"
                     key={index}
                   >
                     {link.link.label}
