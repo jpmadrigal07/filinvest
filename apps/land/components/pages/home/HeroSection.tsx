@@ -20,7 +20,7 @@ const HeroSection = ({ content }: any) => {
         return (
           <div className="">
             <Swiper
-              className="absolute inset-0 z-0 h-full w-full bg-transparent"
+              className="!absolute inset-0 z-0 h-full w-full bg-transparent"
               slidesPerView={1}
               centeredSlides={true}
               loop={true}
