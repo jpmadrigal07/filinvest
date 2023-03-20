@@ -3,10 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import BorderButton from "../../button/BorderButton";
+import useAnimation from "../../../hooks/useAnimation";
 
 const AboutUs = ({ content }: any) => {
+  const { container } = useAnimation("#anim");
   return (
-    <section className="justfify-center mx-6 flex flex-col items-center gap-12 pt-36 lg:mx-9 lg:flex-row lg:gap-24 xl:mx-16 xl:pt-44 2xl:mx-44">
+    <section
+      ref={container}
+      className="justfify-center mx-6 flex flex-col items-center gap-12 pt-36 lg:mx-9 lg:flex-row lg:gap-24 xl:mx-16 xl:pt-44 2xl:mx-44"
+    >
       <div className="flex-1">
         <Image
           src={`${!content.content[5].coverImage.url ? "/" : ""}${
@@ -17,7 +22,10 @@ const AboutUs = ({ content }: any) => {
           alt={content.content[5].coverImage.alt}
         />
       </div>
-      <div className="flex-none px-4 text-center md:px-0 md:text-left lg:w-1/3">
+      <div
+        id="anim"
+        className="flex-none px-4 text-center md:px-0 md:text-left lg:w-1/3"
+      >
         <h4 className="text-dark-cornflower-blue  font-black tracking-widest">
           {content.content[5].title}
         </h4>
