@@ -9,18 +9,25 @@ import { Navigation, FreeMode } from "swiper";
 import ChevronLeft from "@/components/svg/ChevronLeft";
 import ChevronRight from "@/components/svg/ChevronRight";
 import Link from "next/link";
-
+import useAnimation from "../../../hooks/useAnimation";
 const OurBusinesses = ({ content }: any) => {
+  const { container } = useAnimation("#anim");
   const swiperRefMobile = useRef();
   return (
-    <section className="pt-28">
-      <h4 className="text-dark-cornflower-blue mx-6 text-center font-black tracking-widest md:mx-0">
+    <section ref={container} className="pt-28">
+      <h4
+        id="anim"
+        className="text-dark-cornflower-blue mx-6 text-center font-black tracking-widest md:mx-0"
+      >
         {content.content[3].title}
       </h4>
-      <h2 className="text-jet mx-6 mt-2 text-center text-2xl font-black tracking-tighter md:mx-0 md:text-4xl">
+      <h2
+        id="anim"
+        className="text-jet mx-6 mt-2 text-center text-2xl font-black tracking-tighter md:mx-0 md:text-4xl"
+      >
         {content.content[3].subTitle}
       </h2>
-      <h4 className="text-dim-gray mx-6 mt-4 text-center  md:mx-0">
+      <h4 id="anim" className="text-dim-gray mx-6 mt-4 text-center  md:mx-0">
         {content.content[3].description}
       </h4>
       <div className="hidden md:block">
@@ -29,7 +36,7 @@ const OurBusinesses = ({ content }: any) => {
             href={content.content[3].propertyTypes[0].link}
             className="group relative flex-1 transition duration-150"
           >
-            <div className="relative overflow-hidden">
+            <div id="anim" className="relative overflow-hidden">
               <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
@@ -42,7 +49,7 @@ const OurBusinesses = ({ content }: any) => {
               />
             </div>
             <div className="absolute z-10 -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 id="anim" className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[0].title}
               </h3>
             </div>
@@ -51,7 +58,7 @@ const OurBusinesses = ({ content }: any) => {
             href={content.content[3].propertyTypes[1].link}
             className="group relative mt-12 flex-1 transition duration-150"
           >
-            <div className="relative overflow-hidden">
+            <div id="anim" className="relative overflow-hidden">
               <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
@@ -64,7 +71,7 @@ const OurBusinesses = ({ content }: any) => {
               />
             </div>
             <div className="absolute z-10 -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 id="anim" className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[1].title}
               </h3>
             </div>
@@ -73,7 +80,7 @@ const OurBusinesses = ({ content }: any) => {
             href={content.content[3].propertyTypes[2].link}
             className="group relative mt-24 flex-1 transition duration-150"
           >
-            <div className="relative overflow-hidden">
+            <div id="anim" className="relative overflow-hidden">
               <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
@@ -86,7 +93,7 @@ const OurBusinesses = ({ content }: any) => {
               />
             </div>
             <div className="absolute z-10 -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 id="anim" className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[2].title}
               </h3>
             </div>
@@ -97,7 +104,7 @@ const OurBusinesses = ({ content }: any) => {
             href={content.content[3].propertyTypes[3].link}
             className="group relative flex-1 transition duration-150"
           >
-            <div className="relative overflow-hidden">
+            <div id="anim" className="relative overflow-hidden">
               <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
@@ -110,7 +117,7 @@ const OurBusinesses = ({ content }: any) => {
               />
             </div>
             <div className="absolute z-10 -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 id="anim" className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[3].title}
               </h3>
             </div>
@@ -119,7 +126,7 @@ const OurBusinesses = ({ content }: any) => {
             href={content.content[3].propertyTypes[4].link}
             className="group relative mt-12 flex-1 transition duration-150"
           >
-            <div className="relative overflow-hidden">
+            <div id="anim" className="relative overflow-hidden">
               <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
@@ -132,7 +139,7 @@ const OurBusinesses = ({ content }: any) => {
               />
             </div>
             <div className="absolute z-10 -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 id="anim" className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[4].title}
               </h3>
             </div>
@@ -141,7 +148,7 @@ const OurBusinesses = ({ content }: any) => {
             href={content.content[3].propertyTypes[5].link}
             className="group relative mt-24 flex-1 transition duration-150"
           >
-            <div className="relative overflow-hidden">
+            <div id="anim" className="relative overflow-hidden">
               <div className="bg-gradient-effect absolute top-0 bottom-0 left-0 right-0 z-10 h-full w-full opacity-0 transition-opacity group-hover:opacity-95"></div>
               <Image
                 src={`${
@@ -154,7 +161,7 @@ const OurBusinesses = ({ content }: any) => {
               />
             </div>
             <div className="absolute z-10 -mt-16 ml-9 flex">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 id="anim" className="text-2xl font-bold text-white">
                 {content.content[3].propertyTypes[5].title}
               </h3>
             </div>

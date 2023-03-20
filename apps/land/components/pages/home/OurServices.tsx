@@ -8,11 +8,15 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
 import Link from "next/link";
-
+import useAnimation from "../../../hooks/useAnimation";
 const OurServices = ({ content }: any) => {
+  const { container } = useAnimation("#anim");
   return (
-    <section className="pt-28">
-      <div className="flex w-full flex-col items-center px-6 lg:mx-auto lg:w-[43%]">
+    <section ref={container} className="pt-28">
+      <div
+        id="anim"
+        className="flex w-full flex-col items-center px-6 lg:mx-auto lg:w-[43%]"
+      >
         <h4 className="text-dark-cornflower-blue text-center font-black tracking-widest">
           {content.content[4].title}
         </h4>
