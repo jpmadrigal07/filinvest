@@ -34,8 +34,8 @@ const NewsTileList = ({
                 layout
                 transition={{
                   duration: 0.1,
-                  ease: "easeInOut",
-                  delayChildren: 1,
+
+                  type: "tween",
                 }}
                 onClick={() => router.push(`/article/${item?.slug}`)}
                 className={`grid ${
