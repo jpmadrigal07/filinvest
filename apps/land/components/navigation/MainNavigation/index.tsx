@@ -72,7 +72,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
             : "bg-transparent bg-opacity-95"
         } max-h-screen`}
       >
-        <div className="hidden lg:block">
+        <div className="hiddenNav ">
           <div
             className={combineClass(
               flyoutMenu === "full" ? "bg-royal-dark-blue bg-opacity-95" : "",
@@ -83,13 +83,18 @@ const MainNavigation = ({ className }: { className?: string }) => {
               setCurrentMenuIndex(null);
             }}
           >
-            <div className="flex flex-wrap items-center gap-1 py-6 px-9 font-bold text-white lg:py-10 2xl:gap-14">
-              <div className="flex-none lg:order-1 lg:flex-grow 2xl:order-none 2xl:flex-grow-0">
+            {/* className="flex flex-wrap items-center gap-1 py-6 px-9 font-bold
+            text-white lg:py-10 2xl:gap-14" */}
+            <div className="flex items-center gap-1 py-6 px-9 font-bold text-white lg:py-10 2xl:gap-14">
+              {/* className="flex-none lg:order-1 lg:flex-grow 2xl:order-none
+              2xl:flex-grow-0" */}
+              <div className="flex-none lg:flex-grow 2xl:flex-grow-0">
                 <Link href="/">
                   <MainLogo />
                 </Link>
               </div>
-              <div className="flex-1 lg:order-3 2xl:order-none">
+              {/*  className="flex-1 lg:order-3 2xl:order-none" */}
+              <div className="flex-1">
                 <ul className="my-4 flex list-none items-center justify-center gap-7 text-center 2xl:justify-start">
                   {menus.map((menu, index) => {
                     const wrapperProps = {
@@ -110,7 +115,6 @@ const MainNavigation = ({ className }: { className?: string }) => {
                   })}
                 </ul>
               </div>
-
               <div className="flex-none lg:order-2 2xl:order-none">
                 <Link
                   href={navigationRes ? navigationRes.callToActionLink : "/"}
@@ -152,7 +156,7 @@ const MainNavigation = ({ className }: { className?: string }) => {
             ></div>
           )}
         </div>
-        <Popover className="relative z-40 lg:hidden">
+        <Popover className="showMini relative z-40">
           {({ open, close }) => (
             <>
               <div

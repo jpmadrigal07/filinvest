@@ -334,7 +334,7 @@ const HeroSection = ({ content }: any) => {
           id="anim-hero-title"
           className="xs:mt-72 z-40 mx-auto  mt-40 flex w-3/4 flex-col items-center text-center lg:mt-64 2xl:w-2/4"
         >
-          <h1 className="mb-4 text-5xl font-extrabold text-white md:text-7xl lg:text-4xl xl:text-6xl 2xl:text-8xl">
+          <h1 className="mb-4 text-5xl font-extrabold text-white md:text-7xl lg:text-6xl xl:text-6xl 2xl:text-8xl">
             {content.content[0].title}
           </h1>
           <h4 className="text-base text-white md:text-lg">
