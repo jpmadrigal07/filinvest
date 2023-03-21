@@ -9,11 +9,11 @@ const TitleText = ({ content }: any) => {
   return (
     <>
       <PropertySearch className="mx-9 lg:mx-0" />
-      <div className="mx-9 mt-16 xl:mx-16 2xl:mx-44">
+      <div className="mx-9 mt-9 lg:mx-auto lg:max-w-[1024px] xl:max-w-[1200px]">
         <h2 className="text-jet text-center text-4xl font-bold">
           {data.title}
         </h2>
-        <p className="text-dim-gray mt-6">{data.description}</p>
+        <p className="text-dim-gray mt-5 text-center">{data.description}</p>
       </div>
     </>
   );

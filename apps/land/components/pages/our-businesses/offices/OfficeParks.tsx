@@ -28,6 +28,7 @@ const OfficeParks = ({ content }: any) => {
                 width={1574}
                 height={882}
                 alt={item?.image?.alt}
+                className="h-full w-full"
               />
             </div>
             <h3 className="text-jet mt-6 text-2xl font-bold">{item?.title}</h3>

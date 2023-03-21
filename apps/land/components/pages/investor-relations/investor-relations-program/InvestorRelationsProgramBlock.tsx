@@ -9,10 +9,10 @@ export default function InvestorRelationsProgramBlock({ content }: any) {
   );
   return (
     <section className="">
-      <div className="mx-3 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mx-9 mt-9 lg:mx-auto lg:max-w-[1024px] xl:max-w-[1200px]">
         <p className="text-dim-gray mt-8 px-6">{block?.description}</p>
       </div>
-      <div className="mx-3 mt-16 flex flex-col justify-center gap-12 px-6 lg:mx-9 xl:mx-16 2xl:mx-44">
+      <div className="mx-3 mt-16 flex flex-col justify-center gap-12 px-6 lg:mx-auto lg:max-w-[1024px] xl:max-w-[1200px]">
         {block?.programs?.map((program: any) => (
           <div className="xs:items-start flex flex-col items-center justify-center gap-8 md:flex-row">
             <div className="flex h-[82px] w-[82px] flex-none items-center justify-center rounded-full shadow-2xl">
