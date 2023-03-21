@@ -81,7 +81,7 @@ const FeaturedArticles = ({
                 width={1280}
                 height={663}
                 alt={article?.coverImage?.alt}
-                className="h-[230px] w-full opacity-100 transition duration-150 hover:opacity-70 lg:h-[280px]"
+                className="h-[230px] w-full object-cover opacity-100 transition duration-150 hover:opacity-70 lg:h-[280px]"
               />
               <h2
                 className={`text-jet mt-6 min-h-[72px] text-3xl font-bold leading-9 ${

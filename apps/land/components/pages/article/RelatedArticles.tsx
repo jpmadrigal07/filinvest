@@ -42,7 +42,7 @@ const RelatedArticles = ({ selectedNews }: { selectedNews: any }) => {
         <hr className="w-full flex-1" />
       </div>
       <FeaturedArticles
-        className="mb-24 mt-5 w-full lg:mt-16"
+        className="mb-24 mt-5 w-full lg:mt-10"
         sliderOnMobile
         articles={data ? data : []}
         withExtras={true}

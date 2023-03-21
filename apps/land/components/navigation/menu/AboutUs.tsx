@@ -58,6 +58,7 @@ const AboutUs = ({
               width={512}
               height={512}
               alt="awards"
+              className="h-[402px] w-[502px] object-cover object-center"
             />
           </div>
         </Link>
@@ -80,6 +81,7 @@ const AboutUs = ({
               width={512}
               height={512}
               alt="awards"
+              className="h-[402px] w-[502px] object-cover object-center"
             />
           </div>
         </Link>

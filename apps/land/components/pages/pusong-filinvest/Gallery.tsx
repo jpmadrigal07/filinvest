@@ -49,7 +49,7 @@ const Gallery = ({ content }: any) => {
             loop={true}
             pagination={{
               clickable: true,
-              bulletActiveClass: "!bg-dim-gray swiper-pagination-bullet-active",
+              bulletActiveClass: "!mt-20 swiper-pagination-bullet-active",
             }}
             modules={[Pagination, FreeMode]}
             className="mt-8 h-[650px] min-w-[100%]"
