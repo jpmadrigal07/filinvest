@@ -17,7 +17,7 @@ const PrestigeHomes = ({ content }: any) => {
   return (
     <>
       <div className="mx-9 mt-9 xl:mx-16 2xl:mx-44">
-        <div className="mt-12 flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4">
           <Image
             src={`${data.prestigeImage.url}`}
             width={314}

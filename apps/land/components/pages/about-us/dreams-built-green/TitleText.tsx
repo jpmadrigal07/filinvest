@@ -5,7 +5,8 @@ const TitleText = ({ content }: any) => {
     (item: any) => item.blockType === "dreams-built-green-title-text"
   );
   return (
-    <div className="mx-6 mt-24 mb-24 flex flex-col gap-9 lg:mx-9 xl:mx-16 2xl:mx-44">
+    // "mx-9 mt-9 lg:mx-auto lg:max-w-[1024px] xl:max-w-[1200px]"
+    <div className="my-24 mx-9 mt-9 flex flex-col gap-5 lg:mx-auto lg:max-w-[1024px] xl:max-w-[1200px]">
       <h3 className="text-jet text-3xl font-bold">{data.title}</h3>
       {data.descriptionParagraph.map((item: any, index: number) => (
         <p className="text-dim-gray" key={index}>
