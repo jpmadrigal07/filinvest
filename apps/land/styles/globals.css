@@ -133,3 +133,11 @@ ul {
     zoom: 55%;
   }
 }
+
+@media screen and (min-width: 2000px) and (min-height: 1200px) {
+  .fixHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
