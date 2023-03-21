@@ -18,7 +18,7 @@ export default function InvestorRelationsSlider({ content }: any) {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       swiperRef.current?.slideNext();
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(slideInterval);
   }, []);

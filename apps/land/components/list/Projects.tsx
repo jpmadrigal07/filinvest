@@ -46,14 +46,14 @@ const Projects = ({ className, projects, isLoading = false }: T_Projects) => {
                 className="border-blue-ryb hover:bg-cultured flex items-center gap-3 rounded-full border-[1px] px-6 py-2 transition delay-75"
               >
                 <Tag className="h-5 w-5 flex-none text-green-500" />
-                <p className="text-md text-jet">{project.projectType.title}</p>
+                <p className="text-jet text-sm">{project.projectType.title}</p>
               </Link>
               <Link
                 href={`/property-search?location=${project.location.title}`}
                 className="bg-blue-ryb hover:bg-blue flex items-center gap-3 rounded-full px-6 py-2 transition delay-75"
               >
                 <Flag color="#ffffff" classes="flex-none w-5 h-5" />
-                <p className="text-md text-white">{project.location.title}</p>
+                <p className="text-sm text-white">{project.location.title}</p>
               </Link>
             </div>
           </div>

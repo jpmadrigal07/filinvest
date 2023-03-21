@@ -48,27 +48,27 @@ const AspireHomes = ({ content }: any) => {
       </div>
       <div className="mx-9 mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:mx-16 2xl:mx-44">
         {data.aspireHomes.map((item: any, index: number) => (
-          <div className="bg-white shadow-xl" key={index}>
-            <Image
-              src={`${item.homeImage.url}`}
-              width={916}
-              height={712}
-              alt={item.homeImage.alt}
-            />
-            <div className="p-6">
-              <h3 className="text-jet text-2xl font-bold">{item.homeName}</h3>
-              <p className="text-dim-gray mt-3">{item.homeDescription}</p>
-              <div className="mb-6 mt-9">
-                <Link href={item.learnMoreLink}>
+          <Link href={item.learnMoreLink} className="cursor-pointer">
+            <div className="bg-white shadow-xl" key={index}>
+              <Image
+                src={`${item.homeImage.url}`}
+                width={916}
+                height={712}
+                alt={item.homeImage.alt}
+              />
+              <div className="p-6">
+                <h3 className="text-jet text-2xl font-bold">{item.homeName}</h3>
+                <p className="text-dim-gray mt-3">{item.homeDescription}</p>
+                <div className="mb-6 mt-9">
                   <BorderButton
                     buttonText="Learn More"
                     textColor="dark-cornflower-blue"
                     borderColor="dark-cornflower-blue"
                   />
-                </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>

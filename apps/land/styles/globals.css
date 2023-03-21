@@ -127,3 +127,9 @@ ul {
     display: none;
   }
 }
+
+@media screen and (max-height: 620px) {
+  .zoomOut {
+    zoom: 55%;
+  }
+}
