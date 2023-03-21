@@ -9,6 +9,9 @@ export async function generateMetadata() {
 }
 
 const PropertySearchPage = async () => {
+  /*  const paramList = params?.params?.map((param: string) =>
+    decodeURIComponent(param)
+  ); / */
   return (
     <>
       <MainHeader
@@ -16,7 +19,7 @@ const PropertySearchPage = async () => {
         bgUrl="office-parks.png"
         bgUrlSmall="office-parks-small.png"
       />
-      <Content />
+      <Content /* urlParams={paramList} */ />
     </>
   );
 };
