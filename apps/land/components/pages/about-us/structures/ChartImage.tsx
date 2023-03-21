@@ -12,13 +12,13 @@ export default function ChartImage({ content }: any) {
         {chartImageBlock.title}
       </h2>
       <div className="m-1 mx-auto mt-6 w-full overflow-auto rounded-md border-[1px] border-gray-300 md:mt-12 lg:w-full">
-        <div className="d-flex w-max max-w-[1729px] justify-center p-2">
+        <div className="flex  w-full max-w-[1729px] justify-center p-2">
           <Image
             src={chartImageBlock?.chartImage?.url}
             width={3458}
             height={2642}
             alt={chartImageBlock?.chartImage?.alt}
-            className="select-none"
+            className="select-none object-cover"
           />
         </div>
       </div>
