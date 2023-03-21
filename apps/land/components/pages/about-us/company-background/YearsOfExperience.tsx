@@ -20,7 +20,7 @@ const YearsOfExperience = ({ content }: any) => {
         />
       </div>
       <div className="flex-1 px-8 md:px-24 lg:pl-24">
-        <h2 className="text-jet text-3xl font-bold md:text-4xl lg:text-6xl">
+        <h2 className="text-jet text-2xl font-bold md:text-4xl">
           {data.title}
         </h2>
         {data.description.map((description: any, index: number) => (
