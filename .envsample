@@ -1,6 +1,6 @@
 # CMS
 CMS_URL=http://localhost:9000
-MONGODB_URL=mongodb+srv://patrick22:patrick22@cluster0.nex1c.mongodb.net/filinvest-cms?retryWrites=true&w=majority
+MONGODB_URL=mongodb://fillinvestuser:SSweeser4433sdfghj@128.199.133.41:27017/fillinvest
 CMS_SECRET=7b0e33f25fe7b1d9f36f66bd
 
 # WEB
