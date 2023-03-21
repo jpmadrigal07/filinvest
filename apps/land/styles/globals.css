@@ -109,3 +109,21 @@ ul {
 .animateBg {
   animation: zoom-out 5s ease-in-out forwards;
 }
+
+@media screen and (max-width: 1560px) {
+  body {
+    zoom: 83% !important;
+  }
+}
+
+@media screen and (min-width: 1190px) {
+  .showMini {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  .hiddenNav {
+    display: none;
+  }
+}
