@@ -17,7 +17,8 @@ const PropertySearch = ({
   onPropertyResultChange,
   onLoading,
   setSearchParams,
-}: //refetch,
+}: //urlParameters,
+//refetch,
 {
   showSearch?: boolean;
   className?: string;
@@ -59,20 +60,40 @@ const PropertySearch = ({
     projectType,
     locationGroup,
   } = searchParams;
+  const encode = (target: string) => {
+    return target.replaceAll("%20", "_").replaceAll("%26", "and");
+  };
   const searchInit = () => {
+    // const params = [
+    //   `propertyType=${encodeURIComponent(propertyType)}`,
+    //   `location=${location}`,
+    //   `unitSize=${unitSize}`,
+    //   `priceRangeFrom=${priceRangeFrom}`,
+    //   `priceRangeTo=${priceRangeTo}`,
+    //   `propertyName=${propertyName}`,
+    //   `projectType=${projectType}`,
+    //   `locationGroup=${locationGroup}`,
+    //   `bedrooms=${bedrooms}`,
+    //   `subLocation=${subLocation}`,
+    // ];
+
     const params = [
-      `propertyType=${encodeURIComponent(propertyType)}`,
-      `location=${location}`,
-      `unitSize=${unitSize}`,
-      `priceRangeFrom=${priceRangeFrom}`,
-      `priceRangeTo=${priceRangeTo}`,
-      `propertyName=${propertyName}`,
-      `projectType=${projectType}`,
-      `locationGroup=${locationGroup}`,
-      `bedrooms=${bedrooms}`,
-      `subLocation=${subLocation}`,
+      `propertyType:${encode(encodeURIComponent(propertyType))}`,
+      `location:${location}`,
+      `unitSize:${encode(encodeURIComponent(unitSize))}`,
+      `priceRangeFrom:${priceRangeFrom}`,
+      `priceRangeTo:${priceRangeTo}`,
+      `propertyName:${encode(encodeURIComponent(propertyName))}`,
+      `projectType:${projectType}`,
+      `locationGroup:${locationGroup}`,
+      `bedrooms:${encode(encodeURIComponent(bedrooms))}`,
+      `subLocation:${encode(encodeURIComponent(subLocation))}`,
     ];
-    router.push(`/property-search?${params.join("&")}`);
+    const url = `/property-search?q=${params
+      .filter((param) => param.trim().charAt(param.length - 1) !== ":")
+      .join("|")}`.replaceAll(" ", "");
+    router.push(url);
+    //router.push(`/property-search?${params.join("&")}`);
   };
   const [formattedUnitSizes, setFormattedUnitSizes] = useState<any>([]);
   const [formattedBedroomRange, setFormattedBedroomRange] = useState<any>([]);

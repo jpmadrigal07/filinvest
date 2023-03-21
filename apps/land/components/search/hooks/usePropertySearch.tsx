@@ -143,7 +143,53 @@ function usePropertySearch() {
   const [subLocation, setSubLocation] = useState("");
   const [projectType, setProjectType] = useState("");
   const [locationGroup, setLocationGroup] = useState("");
+  const decode = (target: string) => {
+    return target?.replaceAll("_", "%20")?.replaceAll("and", "%26");
+  };
+  const findElement = (query: any, target: string) => {
+    return query?.indexOf(target);
+  };
+  const getValue = (splitted: any, params: any, target: string) => {
+    return splitted[findElement(params, target)]?.split(":")[1];
+  };
   useEffect(() => {
+    if (searchParams?.get("q")) {
+      const q = searchParams?.get("q");
+      const splitted = q?.split("|");
+      let params = splitted?.map((r) => {
+        let divide = r?.split(":");
+        return divide[0];
+      });
+
+      if (splitted) {
+        const propertyType = decode(getValue(splitted, params, "propertyType"));
+
+        const location = getValue(splitted, params, "location");
+        const brand = getValue(splitted, params, "brand");
+        const unitSize = decode(getValue(splitted, params, "unitSize"));
+        const priceRangeFrom = getValue(splitted, params, "priceRangeFrom");
+        const projectType = getValue(splitted, params, "projectType");
+        const priceRangeTo = getValue(splitted, params, "priceRangeTo");
+        const propertyName = decode(getValue(splitted, params, "propertyName"));
+        const bedrooms = decode(getValue(splitted, params, "bedrooms"));
+        const locationGroup = getValue(splitted, params, "locationGroup");
+        const subLocation = decode(getValue(splitted, params, "subLocation"));
+        const numberFrom = priceRangeFrom ? Number(priceRangeFrom) : 0;
+        const numberTo = priceRangeTo ? Number(priceRangeTo) : 0;
+        setPropertyType(propertyType ? decodeURIComponent(propertyType) : "");
+        setLocation(location ? location : "");
+        setUnitSize(unitSize ? decodeURIComponent(unitSize) : "");
+        setPriceRange([numberFrom, numberTo]);
+        setBrand(brand ? brand : "");
+        setPropertyName(propertyName ? decodeURIComponent(propertyName) : "");
+        setBedrooms(bedrooms ? decodeURIComponent(bedrooms) : "");
+        setSubLocation(subLocation ? decodeURIComponent(subLocation) : "");
+        setProjectType(projectType ? projectType : "");
+        setLocationGroup(locationGroup ? locationGroup : "");
+      }
+      return;
+    }
+
     const propertyType = searchParams?.get("propertyType");
     const location = searchParams?.get("location");
     const brand = searchParams?.get("brand");
