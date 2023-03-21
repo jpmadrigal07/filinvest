@@ -15,7 +15,6 @@ const ScreenFooter = ({ content }: any) => {
             width={99}
             height={89}
             alt="FilPay Floating"
-            className="h-[89px] w-[99px] flex-none"
           />
         </Link>
         <Link
@@ -23,7 +22,7 @@ const ScreenFooter = ({ content }: any) => {
           className="opacity-100 transition duration-150 hover:opacity-70"
         >
           <Image
-            src={`/message-floating-icon.png`}
+            src={`/message-floating-icon.svg`}
             width={74}
             height={74}
             alt="Message Floating"
